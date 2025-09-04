@@ -33,7 +33,7 @@
   <img src="webpage/MoVoC_pipeline.jpg" align="middle" width="600" style="margin-right:40px; margin-bottom:20px;"/>
 </p>
 <p align="left">
-  <b>MoVoC Pipeline.</b> <em>We first extract Amharic and Tigrinya words from our corresponding text corpora to perform token-based and morpheme-based separation, resulting in four different vocabularies. We then merge all four vocabularies to generate a single MoVoC-based vocabulary $V_{\text{MoVoC}}$.</em>
+  <b>MoVoC Pipeline.</b> <em>We first extract Amharic and Tigrinya words from our corresponding text corpora to perform token-based and morpheme-based separation, resulting in four different vocabularies. We then merge all four vocabularies to generate a single MoVoC-based vocabulary.</em>
 </p>
 
 ## Motivation of this project
