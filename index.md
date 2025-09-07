@@ -1,13 +1,15 @@
 # MoVoC: Morphology-Aware Subword Construction for Ge’ez Script Languages
 
-[![license badge](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GitHub](https://img.shields.io/badge/Code-Soon%20to%20be%20published!-orange?logo=github)](https://github.com/hailaykidu/MoVoC)
 [![Huggingface](https://img.shields.io/badge/Tokenizer%20Playground-%23FFD21E?logo=huggingface&label=Hugging%20Space)](https://huggingface.co/spaces/dren-fzlj/movoc-tokenizer-playground)
 
+### 📣 Accepted at EMNLP 2025 (Findings)!
 
+<br>
 
 <p align="center">
-  <img src="webpage/l3s-logo-c.webp" align="middle" width="200" style="margin-right:40px; margin-bottom:20px;"/>
+  <img src="webpage/l3s-logo-c.webp" align="middle" width="200" style="margin-right:40px; margin-bottom:40px;"/>
+  <img src="webpage/MU.png" align="middle" width="200" style="margin-right:40px; margin-bottom:40px;"/>
 </p>
 
 <p align="center">
