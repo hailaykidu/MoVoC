@@ -2,6 +2,7 @@
 
 [![GitHub](https://img.shields.io/badge/Code-Soon%20to%20be%20published!-orange?logo=github)](https://github.com/hailaykidu/MoVoC)
 [![Huggingface](https://img.shields.io/badge/Tokenizer%20Playground-%23FFD21E?logo=huggingface&label=Hugging%20Space)](https://huggingface.co/spaces/dren-fzlj/movoc-tokenizer-playground)
+[![arXiv](https://img.shields.io/badge/Preprint-2509.08812-%23B31B1B?logo=arxiv)](https://arxiv.org/abs/2509.08812)
 
 ### 📣 Accepted at EMNLP 2025 (Findings)!
 
