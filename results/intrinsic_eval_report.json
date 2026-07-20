@@ -1,0 +1,14 @@
+{
+  "gold_set": "/homes/neumann/teklehaymanot/TigrinyaTokenizer/MPETokenization/Paralleldata/MoVoC/data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json",
+  "n_words": 206,
+  "MoVoC-Tok": {
+    "boundary_precision": 0.4632352941176471,
+    "morphscore": 0.4375,
+    "renyi_entropy": 3.022102021033394
+  },
+  "BPE": {
+    "boundary_precision": 0.34464751958224543,
+    "morphscore": 0.5196850393700787,
+    "renyi_entropy": 4.513539641163128
+  }
+}

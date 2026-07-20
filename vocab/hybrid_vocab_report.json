@@ -1,0 +1,34 @@
+{
+  "total_vocab_size": 8000,
+  "r": 0.3,
+  "slang": 2000,
+  "sBPE": 1400,
+  "smorpheme": 600,
+  "languages": {
+    "amharic": {
+      "bpe_tokens": 1400,
+      "morpheme_tokens": 600,
+      "hybrid_vocab_size": 1870,
+      "hybrid_vocab_path": "../vocab/amharic_hybrid.txt"
+    },
+    "tigrinya": {
+      "bpe_tokens": 1400,
+      "morpheme_tokens": 600,
+      "hybrid_vocab_size": 1736,
+      "hybrid_vocab_path": "../vocab/tigrinya_hybrid.txt"
+    },
+    "tigre": {
+      "bpe_tokens": 1400,
+      "morpheme_tokens": 600,
+      "hybrid_vocab_size": 1589,
+      "hybrid_vocab_path": "../vocab/tigre_hybrid.txt"
+    },
+    "geez": {
+      "bpe_tokens": 1400,
+      "morpheme_tokens": 600,
+      "hybrid_vocab_size": 1641,
+      "hybrid_vocab_path": "../vocab/geez_hybrid.txt"
+    }
+  },
+  "total_vmovoc_size": 5104
+}

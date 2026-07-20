@@ -1,0 +1,12 @@
+{
+  "language": "geez",
+  "iso_code": "gez",
+  "source": "bootstrapped_from_related_language",
+  "source_notes": "Ge'ez (classical, no living native speakers, liturgical use only) has no existing morphological analyzer or annotated corpus available to this project. The MoVoC paper itself required expert linguistic supervision to annotate Ge'ez morphemes manually, which this project cannot responsibly fabricate. This rule set is BOOTSTRAPPED using well-documented Classical Ethiopic grammatical particles (e.g. Lambdin's 'Introduction to Classical Ethiopic'): negation i-, relative/definite za-, conjunction wa- ('and'), and possessive suffixes shared across the Ethio-Semitic family. This is an approximation for bootstrapping purposes only, NOT expert-verified annotation, and should be validated by a Ge'ez philologist before being treated as authoritative.",
+  "prefixes": [
+    "ኢ", "ዘ", "ወ", "ለ", "ከ", "እም", "ት", "ይ", "ን"
+  ],
+  "suffixes": [
+    "የ", "ከ", "ኪ", "ሁ", "ሃ", "ነ", "ክሙ", "ክን", "ሆሙ", "ሆን"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "language": "tigrinya",
+  "iso_code": "tir",
+  "source": "documented",
+  "source_notes": "Common Tigrinya bound prefixes/suffixes documented in standard reference grammars (e.g. negation circumfix ay-...-n as used in the MoVoC paper's own worked example, relative/definite ze-, verb subject-agreement prefixes y-/t-/n-/'e-, possessive suffixes -na/-kum/-u/-a). Reasonable, citable starting rule set -- NOT a claim of completeness or independent expert verification (unlike the project's real 206-word manually annotated Tigrinya morpheme set in data/, which remains the authoritative gold resource).",
+  "prefixes": [
+    "ኣይ", "ዘ", "እን", "ይ", "ት", "ን", "እ", "ከም", "ብ", "ም",
+    "ወ", "ከይ", "ንዘ", "ከምዘ"
+  ],
+  "suffixes": [
+    "ን", "ኣ", "ና", "ኩም", "ክን", "ኡ", "ኦም", "ኤን",
+    "ት", "ም", "ዩ", "ያ", "ውን", "ኻ", "ኺ"
+  ]
+}

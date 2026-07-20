@@ -1,0 +1,15 @@
+{
+  "language": "amharic",
+  "iso_code": "amh",
+  "source": "documented",
+  "source_notes": "Common Amharic bound prefixes/suffixes reflected in standard reference grammars and in HornMorpho's own worked examples (e.g. definite/relative ye-, negation al-...-mm, object/possessive suffixes -u/-w/-acc*). This is a reasonable, citable starting rule set for a longest-match prefix/suffix stripper -- NOT a claim of completeness or independent expert verification.",
+  "prefixes": [
+    "በ", "ለ", "ከ", "የ", "አል", "እን", "እየ", "የም", "የአል",
+    "ት", "ይ", "እ", "አ", "ም", "ስለ", "እንደ"
+  ],
+  "suffixes": [
+    "ኦች", "ኣችን", "ኣችሁ", "ኣቸው", "ኣት", "ኧ",
+    "ኩ", "ሽ", "ው", "ች", "ነት", "ኛ", "ኝ", "ም", "ን", "ት",
+    "ህ", "ሁ", "ኣ", "ዋ", "ኡ"
+  ]
+}

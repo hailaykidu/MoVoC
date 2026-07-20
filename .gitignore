@@ -1,0 +1,28 @@
+env/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# nested standalone project (its own repo, pushed separately to hailaykidu/LLM-Probe)
+LLM_Probe/
+
+# large/unrelated leftover data not used by the MoVoC code (dictionaries, POS
+# lexicons, an unrelated "cmae" model checkpoint) -- only the real gold
+# morpheme set is part of this project
+data/*
+!data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json
+
+# stray scratch files that ended up inside the movoc/ package directory
+movoc/*.txt
+movoc/*.docx
+movoc/tig.py
+movoc/ሃይላይ*.json
+
+# 0-byte leftover stubs from the original broken scaffold
+vocab/*_bpe.txt
+vocab/tigrinya_morphemes.txt
+results/*_segmented.txt
+
+logs/
+output.json
+read.py
