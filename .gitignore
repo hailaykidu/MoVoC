@@ -12,10 +12,12 @@ LLM_Probe/
 data/*
 !data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json
 !data/geez_wordlist_hailay_annotated.txt
+!data/Geez_Hailay_Morphem.json
 
 # stray scratch files that ended up inside the movoc/ package directory
 movoc/*.txt
 movoc/*.docx
+movoc/*.pdf
 movoc/tig.py
 movoc/ሃይላይ*.json
 

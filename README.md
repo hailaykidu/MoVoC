@@ -20,8 +20,9 @@ and evaluates it against plain BPE using MorphScore and Boundary Precision.
 |---|---|
 | Amharic/Tigrinya monolingual corpora | **Real** -- reused from `MoVoC_Tok/02_cleaning/corpus_clean/` |
 | Tigre/Ge'ez monolingual corpora | **Real** -- same source; the original paper didn't have BPE training data for these two, this project does |
-| 569 additional Ge'ez words (`data/geez_wordlist_hailay_annotated.txt`) | **Real** -- human-provided verb-paradigm word forms (e.g. መጽአ/ነጸረ/ዐጸወ/ሰፍሐ/በልዐ conjugations, ~150 further triliteral roots), added to the Ge'ez corpus (1,813 -> 2,382 lines). The source also included prefix/root/infix/suffix annotations per word, but they arrived as a PDF export whose text layer flattens table cells inconsistently -- confirmed unreliable to parse automatically (a naive parser mismatched ~25% of rows even against a manually-checked sample), so **only the word forms themselves were kept**; no morpheme triples were fabricated to fill the gap -- see Limitations |
-| 206-word Tigrinya gold morpheme set (`data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json`) | **Real** -- pre-existing manually-segmented data, the only true gold *triple* (prefix/root/suffix) set in this project |
+| 574 additional Ge'ez words (`data/geez_wordlist_hailay_annotated.txt`) | **Real** -- human-provided verb-paradigm word forms (e.g. መጽአ/ነጸረ/ዐጸወ/ሰፍሐ/በልዐ conjugations, ~150 further triliteral roots), added to the Ge'ez corpus (1,813 -> 2,387 lines). Initially extracted from the PDF's flattened text stream with a hand-written parser that turned out to have real errors (23 words merged with stray fragments); re-extracted properly with `pdfplumber`'s table-geometry-aware `extract_tables()`, which reads actual cell boundaries instead of linear reading order -- confirmed correct against a manually-checked sample. |
+| 206-entry Ge'ez gold morpheme set (`data/Geez_Hailay_Morphem.json`) | **Real** -- the same PDF's table also had prefix/root/infix/suffix columns filled for 206 of its rows; `pdfplumber` recovers these reliably. **However**, computing Boundary Precision/MorphScore against it with this project's current metrics isn't done -- see Limitations, since Ge'ez's root-and-pattern (templatic) morphology means many surface words are not literally `prefix+root+suffix` (e.g. root `መጽአ` surfaces as `መጻአ` before some suffixes; `ልሳን`+`ኦሙ` surfaces as `ልሳኖሙ`, with the fidel script fusing the boundary) and the existing `boundaries_from_triple()` assumes concatenation |
+| 206-word Tigrinya gold morpheme set (`data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json`) | **Real** -- pre-existing manually-segmented data; the only gold set in this project whose triples are actually scored, since Tigrinya's affixation is concatenative enough for `boundaries_from_triple()` to apply |
 | Amharic/Tigrinya segmentation rules (`rules/{amharic,tigrinya}_rules.json`) | Documented affixes from standard reference grammars -- reasonable starting point, not independently expert-verified |
 | Tigre/Ge'ez segmentation rules (`rules/{tigre,geez}_rules.json`) | **Bootstrapped** from the related-language rules above (see each file's `source_notes`) -- explicitly *not* expert annotation |
 | HornMorpho integration (paper's actual method for Amharic/Tigrinya) | **Attempted, not used** -- see Sec 3.1 below |
@@ -166,13 +167,40 @@ filtering) -- not re-cleaned here. Real numbers from that pipeline's own
 | Amharic | 16,256,115 | 16,193,298 | 14,209,205 | 12,330,904 | 140,042 | **12,190,862** |
 | Tigrinya | 3,874,142 | 3,717,258 | 2,979,942 | 2,696,045 | 52,626 | **2,643,419** |
 | Tigre | 909,705 | 909,705 | 909,705 | 730,330 | 0 | **730,330** |
-| Ge'ez | 2,107 | 2,107 | 2,105 | 1,813 | 0 | 1,813 + **569 new real words** = **2,382** |
+| Ge'ez | 2,107 | 2,107 | 2,105 | 1,813 | 0 | 1,813 + **574 new real words** = **2,387** |
 
-The 569 additional Ge'ez lines came later (see "What's real vs.
+The 574 additional Ge'ez lines came later (see "What's real vs.
 bootstrapped" above) -- appended directly to `corpus_clean/geez.txt` after
 confirming zero overlap with the existing 1,813 lines, not run back through
 the cleaning pipeline (they're already clean, single-word entries with no
 duplicates, dedup artifacts, or non-Ethiopic content to strip).
+
+### Ge'ez gold morpheme set: real data, not yet scorable
+
+`data/Geez_Hailay_Morphem.json` (206 entries) is real, human-provided
+prefix/root/infix/suffix segmentation -- extracted reliably via
+`pdfplumber`'s geometric table parser, cross-checked against a
+manually-verified sample. It is **not** run through
+`scripts/run_intrinsic_eval.py` or `movoc/metrics.py`'s
+`boundaries_from_triple()`, because that function computes boundary
+positions by string length under the assumption that
+`word == prefix + root + suffix`. That assumption holds for the Tigrinya
+gold set but frequently doesn't for Ge'ez, which has genuine root-and-pattern
+(templatic) Semitic morphology: the cited root's vowels change under
+suffixation (e.g. `መጽአ` "he came" surfaces as `መጻአ` in `መጻአከ` "you came"),
+and the Ethiopic abugida fuses a bare final consonant with a following
+vocalic suffix into a single fidel character (e.g. root `ልሳን` + suffix `ኦሙ`
+surfaces as `ልሳኖሙ`, four characters, not the five a naive concatenation
+would produce). Checked directly: only 107 of the 206 entries even have
+prefix/suffix as literal substrings at the word's edges; forcing the
+rest through length-based boundary math would silently score against
+character offsets that don't correspond to real segmentation points. Rather
+than publish a MorphScore/Boundary-Precision number computed on a broken
+assumption, this project reports the real annotation data and leaves scoring
+it as a documented gap (see Limitations) -- it would need a
+non-concatenative-aware boundary method (e.g. edit-distance alignment
+between the citation root and its surface realization), which is not
+implemented here.
 
 All four are confirmed real and non-empty at
 `MoVoC_Tok/02_cleaning/corpus_clean/{amharic,tigrinya,tigre,geez}.txt`,
@@ -196,7 +224,7 @@ and `scripts/run_intrinsic_eval.py`):
 | Morpheme budget per language (`smorpheme = slang*r`) | 600 |
 | Max corpus lines read per language (`--max-lines-per-language`) | 200,000 |
 | Actual lines used: Amharic / Tigrinya / Tigre | 200,000 each (capped -- full corpora are 12.19M / 2.64M / 730K lines) |
-| Actual lines used: Ge'ez | 2,382 (its full corpus -- smaller than the cap) |
+| Actual lines used: Ge'ez | 2,387 (its full corpus -- smaller than the cap) |
 | BPE trainer | `tokenizers` library `BpeTrainer`, `special_tokens=["<unk>"]`, `Whitespace` pre-tokenizer |
 | Intrinsic-eval BPE baseline vocab size | 1,400 (same as MoVoC-Tok's per-language BPE budget, for a fair comparison) |
 
@@ -219,7 +247,7 @@ production run would raise or remove this cap for those three.
 
 Hybrid vocab sizes are smaller than BPE+morpheme sums because some
 extracted morphemes were already present in the BPE vocab (expected set-union
-behavior). Ge'ez's corpus is now 2,382 lines (see Data cleaning above) but
+behavior). Ge'ez's corpus is now 2,387 lines (see Data cleaning above) but
 the per-language vocab sizes are essentially unchanged from the earlier
 1,813-line run (union total moved by exactly 1 token, 5,104 -> 5,103) --
 expected, since Algorithm 1's budget (`sBPE`=1,400, `smorpheme`=600 per
@@ -268,16 +296,17 @@ pytest ../tests/
   languages, specifically because no analyzers or corpora existed. This
   project does not fabricate that expertise -- see each rule file's
   `source_notes`.
-- **Only Tigrinya has a real gold-standard *triple* test set** (206 manually
-  segmented prefix/root/suffix words, vs. the paper's claimed 80,000) for
-  computing genuine MorphScore/Boundary Precision numbers. Ge'ez now has
-  569 additional real human-provided word forms (see "What's real vs.
-  bootstrapped" above), but their accompanying prefix/root/infix/suffix
-  annotations arrived in a PDF whose text layer doesn't preserve reliable
-  cell boundaries -- attempted parsing mismatched roughly a quarter of rows
-  even on a spot-checked sample, so those annotations were not extracted;
-  only the plain word forms were kept, and no morpheme triples were
-  fabricated to compensate. Amharic and Tigre still have no gold-standard
+- **Only Tigrinya has a real gold-standard triple test set that's actually
+  scored** (206 manually segmented prefix/root/suffix words, vs. the
+  paper's claimed 80,000). Ge'ez now has its own real 206-entry set too
+  (`data/Geez_Hailay_Morphem.json`, reliably extracted via `pdfplumber`
+  from a human-provided PDF), but it isn't run through
+  `boundaries_from_triple()` -- Ge'ez's root-and-pattern morphology means
+  many surface words aren't literally `prefix+root+suffix`, so the
+  existing length-based boundary math would silently misalign for a
+  large fraction of entries (checked: only 107/206 even have prefix/suffix
+  as literal edge substrings). See "Ge'ez gold morpheme set: real data,
+  not yet scorable" above. Amharic and Tigre still have no gold-standard
   set of any kind. No fabricated "results" are reported for Amharic, Tigre,
   or Ge'ez -- see the comparison table above.
 - **Morpheme categories are incomplete**: only prefix/root/suffix are
