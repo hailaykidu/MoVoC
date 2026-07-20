@@ -60,7 +60,7 @@ gold-standard test set used later for MorphScore/Boundary Precision (Table
 | HornMorpho segmentation (Amharic/Tigrinya) | -- | **Attempted, not working** -- HornMorpho is installed and its FST/lexicon data genuinely loads (real, versioned resources for Amharic, Tigrinya, and Tigre), but every test word through its Python API -- including HornMorpho's own documented worked examples -- returned unanalyzed (`{'pos': 'UNK', 'nsegs': 1}`); root cause not resolved within a reasonable debugging budget (possibly a stale compiled cache or a version mismatch in the installed 5.3.1 copy) |
 | Manual expert annotation (Ge'ez/Tigre) | `rules/{tigre,geez}_rules.json` | **Not real expert annotation** -- bootstrapped from the related-language rules instead (`amharic_rules.json`/`tigrinya_rules.json`), each labeled `"source": "bootstrapped_from_related_language"` in the JSON itself |
 | Rule-based fallback (all 4 languages, since HornMorpho didn't work for any of them) | `movoc/segmenter.py`, `rules/{amharic,tigrinya,tigre,geez}_rules.json` | **Real code**, but a materially weaker stand-in than the paper's HornMorpho segmentation -- a longest-match prefix/suffix stripper, not an FST/dictionary-based analyzer. Shows up in Results below as a lower MorphScore than plain BPE, the opposite of the paper's reported direction |
-| Gold-standard test set | `data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json` | **Real, Tigrinya only** (206 words) -- vs. the paper's per-language sets of 80k/80k/20k/32k items (Table 2); no equivalent gold data exists here for Amharic/Ge'ez/Tigre |
+| Gold-standard test set | `data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json` (Tigrinya, 206 words) and `data/Geez_Hailay_Morphem.json` (Ge'ez, 193 words -- added later, see Data cleaning below) | **Real for Tigrinya and Ge'ez**, vs. the paper's per-language sets of 80k/80k/20k/32k items (Table 2); still no gold data of any kind for Amharic/Tigre. Ge'ez's set exists but isn't scored by this project's metrics -- see "Ge'ez gold morpheme set: real data, not yet scorable" |
 
 ### 3.2 Vocabulary Construction (MoVoC)
 
@@ -150,6 +150,9 @@ scripts/train_bpe.py                              -> 3.2: per-language BPE (toke
 scripts/create_vocab.py                           -> 3.2: extract_morphemes(): top-k frequent morphemes
 scripts/hybrid_vocab.py                            -> 3.2: Algorithm 1, merges BPE + morpheme vocabs into V_MoVoC
 scripts/run_intrinsic_eval.py                      -> intrinsic eval: segmenter vs BPE, scored against the real gold set
+data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json               -> real Tigrinya gold set (206 words), scored above
+data/Geez_Hailay_Morphem.json                     -> real Ge'ez gold set (193 words), not yet scored -- see above
+data/geez_wordlist_hailay_annotated.txt            -> the 574 real Ge'ez words appended to corpus_clean/geez.txt
 ```
 
 No file implements 3.3 (constrained-merge BPE) -- see above.
@@ -258,7 +261,7 @@ larger, more morphologically varied corpus (conjugation paradigms rather
 than just repeated biblical prose) isn't visible in vocab *size*, only
 in which specific tokens got selected.
 
-### Intrinsic evaluation (`scripts/run_intrinsic_eval.py`, real 206-word Tigrinya gold set -- the only language with real gold data)
+### Intrinsic evaluation (`scripts/run_intrinsic_eval.py`, real 206-word Tigrinya gold set -- the only language whose gold set is actually scored here; see the Ge'ez section above for why its 193-entry set isn't run through this script)
 
 | Method | Boundary Precision ↑ | MorphScore ↑ | Renyi Entropy ↓ |
 |---|---|---|---|
@@ -313,8 +316,11 @@ pytest ../tests/
   or Ge'ez -- see the comparison table above.
 - **Morpheme categories are incomplete**: only prefix/root/suffix are
   modeled; the paper's INFIX and CLITIC categories (Appendix B) have no
-  representation in `movoc.segmenter.Segmentation` or in the real 206-word
-  gold file.
+  representation in `movoc.segmenter.Segmentation`. The 206-word Tigrinya
+  gold file's schema doesn't have an `infix` field at all (`no`/`word`/
+  `prefix`/`root`/`suffix` only); the 193-entry Ge'ez file does have an
+  `infix` key, but it's empty ("-") for every single entry -- the source
+  table had an Infix column that was simply never filled in.
 - **Vocabulary/data scale is much smaller** than the paper's (8,000 total
   vocab here vs. 152,000 for the paper's Amharic+Tigrinya bilingual
   vocabulary) -- a deliberate choice for a fast verification pass, not a
