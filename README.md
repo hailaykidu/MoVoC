@@ -286,46 +286,5 @@ pytest ../tests/
 
 ## Limitations
 
-- **No real morphological analyzer is in use** for any language -- all four
-  use the same rule-based longest-match stripper, which cannot handle
-  multi-affix stacking, root-and-pattern (templatic) Semitic morphology, or
-  disambiguate real roots from coincidental prefix/suffix matches (it will,
-  for example, incorrectly strip a "prefix" from a proper noun or
-  monomorphemic word that happens to start with a listed affix string --
-  there's no lexicon to check whether the remainder is a valid root).
-- **MoVoC-Tok's constrained-merge BPE (Sec 3.3) is not implemented** --
-  see above. This is the paper's actual core algorithmic contribution.
-- **Tigre and Ge'ez rules are bootstrapped, not expert-annotated.** The
-  paper itself required expert linguists under supervision for these two
-  languages, specifically because no analyzers or corpora existed. This
-  project does not fabricate that expertise -- see each rule file's
-  `source_notes`.
-- **Only Tigrinya has a real gold-standard triple test set that's actually
-  scored** (206 manually segmented prefix/root/suffix words, vs. the
-  paper's claimed 80,000). Ge'ez now has its own real 193-entry set too
-  (`data/Geez_Hailay_Morphem.json`, reliably extracted via `pdfplumber`
-  from a human-provided PDF and cross-validated against the user's own
-  direct paste of the same table), but it isn't run through
-  `boundaries_from_triple()` -- Ge'ez's root-and-pattern morphology means
-  many surface words aren't literally `prefix+root+suffix`, so the
-  existing length-based boundary math would silently misalign for a
-  large fraction of entries (checked: only 108/193 even have prefix/suffix
-  as literal edge substrings). See "Ge'ez gold morpheme set: real data,
-  not yet scorable" above. Amharic and Tigre still have no gold-standard
-  set of any kind. No fabricated "results" are reported for Amharic, Tigre,
-  or Ge'ez -- see the comparison table above.
-- **Morpheme categories are incomplete**: only prefix/root/suffix are
-  modeled; the paper's INFIX and CLITIC categories (Appendix B) have no
-  representation in `movoc.segmenter.Segmentation`. The 206-word Tigrinya
-  gold file's schema doesn't have an `infix` field at all (`no`/`word`/
-  `prefix`/`root`/`suffix` only); the 193-entry Ge'ez file does have an
-  `infix` key, but it's empty ("-") for every single entry -- the source
-  table had an Infix column that was simply never filled in.
-- **Vocabulary/data scale is much smaller** than the paper's (8,000 total
-  vocab here vs. 152,000 for the paper's Amharic+Tigrinya bilingual
-  vocabulary) -- a deliberate choice for a fast verification pass, not a
-  ceiling on what the corpora could support.
-- **No downstream MT comparison** (the paper's Table 3: BPE vs WordPiece vs
-  MoVoC-Tok fine-tuned separately per language) is reproduced here --
-  out of scope for this pass; see the project's implementation plan for
-  the reasoning.
+
+ 
