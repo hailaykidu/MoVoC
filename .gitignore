@@ -11,6 +11,7 @@ LLM_Probe/
 # morpheme set is part of this project
 data/*
 !data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json
+!data/geez_wordlist_hailay_annotated.txt
 
 # stray scratch files that ended up inside the movoc/ package directory
 movoc/*.txt

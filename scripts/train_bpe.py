@@ -6,12 +6,12 @@ Trains a plain byte-level-free BPE tokenizer for one language, using the
 Algorithm 1 specifically calls for BPE: "we train BPE small with a
 vocabulary size of s(1-r)").
 
-Reuses the already-cleaned per-language corpora from the GeezTokenizer
+Reuses the already-cleaned per-language corpora from the MoVoC_Tok
 project rather than re-collecting/re-cleaning text.
 
 USAGE
     python train_bpe.py --language amharic --vocab-size 16000 \
-        --corpus ../../../../../GeezTokenizer/02_cleaning/corpus_clean/amharic.txt \
+        --corpus ../../../../../MoVoC_Tok/02_cleaning/corpus_clean/amharic.txt \
         --out ../vocab/amharic_bpe.txt
 """
 

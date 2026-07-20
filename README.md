@@ -18,9 +18,10 @@ and evaluates it against plain BPE using MorphScore and Boundary Precision.
 
 | Component | Status |
 |---|---|
-| Amharic/Tigrinya monolingual corpora | **Real** -- reused from `GeezTokenizer/02_cleaning/corpus_clean/` |
+| Amharic/Tigrinya monolingual corpora | **Real** -- reused from `MoVoC_Tok/02_cleaning/corpus_clean/` |
 | Tigre/Ge'ez monolingual corpora | **Real** -- same source; the original paper didn't have BPE training data for these two, this project does |
-| 206-word Tigrinya gold morpheme set (`data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json`) | **Real** -- pre-existing manually-segmented data, the only true gold set in this project |
+| 569 additional Ge'ez words (`data/geez_wordlist_hailay_annotated.txt`) | **Real** -- human-provided verb-paradigm word forms (e.g. መጽአ/ነጸረ/ዐጸወ/ሰፍሐ/በልዐ conjugations, ~150 further triliteral roots), added to the Ge'ez corpus (1,813 -> 2,382 lines). The source also included prefix/root/infix/suffix annotations per word, but they arrived as a PDF export whose text layer flattens table cells inconsistently -- confirmed unreliable to parse automatically (a naive parser mismatched ~25% of rows even against a manually-checked sample), so **only the word forms themselves were kept**; no morpheme triples were fabricated to fill the gap -- see Limitations |
+| 206-word Tigrinya gold morpheme set (`data/ሃይላይ_ኪዱ_Tigriyna_Morphem.json`) | **Real** -- pre-existing manually-segmented data, the only true gold *triple* (prefix/root/suffix) set in this project |
 | Amharic/Tigrinya segmentation rules (`rules/{amharic,tigrinya}_rules.json`) | Documented affixes from standard reference grammars -- reasonable starting point, not independently expert-verified |
 | Tigre/Ge'ez segmentation rules (`rules/{tigre,geez}_rules.json`) | **Bootstrapped** from the related-language rules above (see each file's `source_notes`) -- explicitly *not* expert annotation |
 | HornMorpho integration (paper's actual method for Amharic/Tigrinya) | **Attempted, not used** -- see Sec 3.1 below |
@@ -54,7 +55,7 @@ gold-standard test set used later for MorphScore/Boundary Precision (Table
 
 | Paper component | File(s) here | Status |
 |---|---|---|
-| Corpus cleaning / pre-tokenization | reused `GeezTokenizer/02_cleaning/clean_corpus.py` | **Real** -- NFC normalization, exact + MinHash dedup, script-ratio filtering (see Data cleaning below) |
+| Corpus cleaning / pre-tokenization | reused `MoVoC_Tok/02_cleaning/clean_corpus.py` | **Real** -- NFC normalization, exact + MinHash dedup, script-ratio filtering (see Data cleaning below) |
 | HornMorpho segmentation (Amharic/Tigrinya) | -- | **Attempted, not working** -- HornMorpho is installed and its FST/lexicon data genuinely loads (real, versioned resources for Amharic, Tigrinya, and Tigre), but every test word through its Python API -- including HornMorpho's own documented worked examples -- returned unanalyzed (`{'pos': 'UNK', 'nsegs': 1}`); root cause not resolved within a reasonable debugging budget (possibly a stale compiled cache or a version mismatch in the installed 5.3.1 copy) |
 | Manual expert annotation (Ge'ez/Tigre) | `rules/{tigre,geez}_rules.json` | **Not real expert annotation** -- bootstrapped from the related-language rules instead (`amharic_rules.json`/`tigrinya_rules.json`), each labeled `"source": "bootstrapped_from_related_language"` in the JSON itself |
 | Rule-based fallback (all 4 languages, since HornMorpho didn't work for any of them) | `movoc/segmenter.py`, `rules/{amharic,tigrinya,tigre,geez}_rules.json` | **Real code**, but a materially weaker stand-in than the paper's HornMorpho segmentation -- a longest-match prefix/suffix stripper, not an FST/dictionary-based analyzer. Shows up in Results below as a lower MorphScore than plain BPE, the opposite of the paper's reported direction |
@@ -154,8 +155,8 @@ No file implements 3.3 (constrained-merge BPE) -- see above.
 
 ## Data cleaning (all four languages, verified)
 
-Corpora are reused as-is from the GeezTokenizer project's cleaning pipeline
-(`GeezTokenizer/02_cleaning/clean_corpus.py`: NFC normalization, control-char
+Corpora are reused as-is from the MoVoC_Tok project's cleaning pipeline
+(`MoVoC_Tok/02_cleaning/clean_corpus.py`: NFC normalization, control-char
 stripping, exact + MinHash near-duplicate dedup, Ethiopic-script-ratio
 filtering) -- not re-cleaned here. Real numbers from that pipeline's own
 `cleaning_report.json`:
@@ -165,14 +166,20 @@ filtering) -- not re-cleaned here. Real numbers from that pipeline's own
 | Amharic | 16,256,115 | 16,193,298 | 14,209,205 | 12,330,904 | 140,042 | **12,190,862** |
 | Tigrinya | 3,874,142 | 3,717,258 | 2,979,942 | 2,696,045 | 52,626 | **2,643,419** |
 | Tigre | 909,705 | 909,705 | 909,705 | 730,330 | 0 | **730,330** |
-| Ge'ez | 2,107 | 2,107 | 2,105 | 1,813 | 0 | **1,813** |
+| Ge'ez | 2,107 | 2,107 | 2,105 | 1,813 | 0 | 1,813 + **569 new real words** = **2,382** |
+
+The 569 additional Ge'ez lines came later (see "What's real vs.
+bootstrapped" above) -- appended directly to `corpus_clean/geez.txt` after
+confirming zero overlap with the existing 1,813 lines, not run back through
+the cleaning pipeline (they're already clean, single-word entries with no
+duplicates, dedup artifacts, or non-Ethiopic content to strip).
 
 All four are confirmed real and non-empty at
-`GeezTokenizer/02_cleaning/corpus_clean/{amharic,tigrinya,tigre,geez}.txt`,
+`MoVoC_Tok/02_cleaning/corpus_clean/{amharic,tigrinya,tigre,geez}.txt`,
 and all four were successfully read and processed (BPE-trained + morpheme-
 extracted with no errors) in the `hybrid_vocab.py` run reported below --
-including Ge'ez, whose corpus is three to four orders of magnitude smaller
-than the other three.
+including Ge'ez, whose corpus remains three to four orders of magnitude
+smaller than the other three even after this addition.
 
 ## Training configuration
 
@@ -189,7 +196,7 @@ and `scripts/run_intrinsic_eval.py`):
 | Morpheme budget per language (`smorpheme = slang*r`) | 600 |
 | Max corpus lines read per language (`--max-lines-per-language`) | 200,000 |
 | Actual lines used: Amharic / Tigrinya / Tigre | 200,000 each (capped -- full corpora are 12.19M / 2.64M / 730K lines) |
-| Actual lines used: Ge'ez | 1,813 (its full corpus -- smaller than the cap) |
+| Actual lines used: Ge'ez | 2,382 (its full corpus -- smaller than the cap) |
 | BPE trainer | `tokenizers` library `BpeTrainer`, `special_tokens=["<unk>"]`, `Whitespace` pre-tokenizer |
 | Intrinsic-eval BPE baseline vocab size | 1,400 (same as MoVoC-Tok's per-language BPE budget, for a fair comparison) |
 
@@ -208,12 +215,19 @@ production run would raise or remove this cap for those three.
 | Tigrinya | 1,400 | 600 | 1,736 |
 | Tigre | 1,400 | 600 | 1,589 |
 | Ge'ez | 1,400 | 600 | 1,641 |
-| **Total VMoVoC (union)** | | | **5,104** |
+| **Total VMoVoC (union)** | | | **5,103** |
 
 Hybrid vocab sizes are smaller than BPE+morpheme sums because some
 extracted morphemes were already present in the BPE vocab (expected set-union
-behavior). Ge'ez's corpus is only 1,813 lines but still produced a full
-1,400-token BPE vocab.
+behavior). Ge'ez's corpus is now 2,382 lines (see Data cleaning above) but
+the per-language vocab sizes are essentially unchanged from the earlier
+1,813-line run (union total moved by exactly 1 token, 5,104 -> 5,103) --
+expected, since Algorithm 1's budget (`sBPE`=1,400, `smorpheme`=600 per
+language) is a fixed cap, not corpus-size-dependent, and the corpus was
+already large enough to fill that cap either way. The real benefit of the
+larger, more morphologically varied corpus (conjugation paradigms rather
+than just repeated biblical prose) isn't visible in vocab *size*, only
+in which specific tokens got selected.
 
 ### Intrinsic evaluation (`scripts/run_intrinsic_eval.py`, real 206-word Tigrinya gold set -- the only language with real gold data)
 
@@ -254,10 +268,18 @@ pytest ../tests/
   languages, specifically because no analyzers or corpora existed. This
   project does not fabricate that expertise -- see each rule file's
   `source_notes`.
-- **Only Tigrinya has a real gold-standard test set** (206 manually
-  segmented words, vs. the paper's claimed 80,000) for computing genuine
-  MorphScore/Boundary Precision numbers. No fabricated "results" are
-  reported for Amharic, Tigre, or Ge'ez -- see the comparison table above.
+- **Only Tigrinya has a real gold-standard *triple* test set** (206 manually
+  segmented prefix/root/suffix words, vs. the paper's claimed 80,000) for
+  computing genuine MorphScore/Boundary Precision numbers. Ge'ez now has
+  569 additional real human-provided word forms (see "What's real vs.
+  bootstrapped" above), but their accompanying prefix/root/infix/suffix
+  annotations arrived in a PDF whose text layer doesn't preserve reliable
+  cell boundaries -- attempted parsing mismatched roughly a quarter of rows
+  even on a spot-checked sample, so those annotations were not extracted;
+  only the plain word forms were kept, and no morpheme triples were
+  fabricated to compensate. Amharic and Tigre still have no gold-standard
+  set of any kind. No fabricated "results" are reported for Amharic, Tigre,
+  or Ge'ez -- see the comparison table above.
 - **Morpheme categories are incomplete**: only prefix/root/suffix are
   modeled; the paper's INFIX and CLITIC categories (Appendix B) have no
   representation in `movoc.segmenter.Segmentation` or in the real 206-word

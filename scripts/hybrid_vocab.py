@@ -5,7 +5,7 @@ Full MoVoC Algorithm 1 orchestration (paper's pseudocode, generalized from
 2 languages to all 4 we actually have corpora for -- the paper itself only
 built vocab for Amharic/Tigrinya since "we did not get data for BPE
 training" for Tigre/Ge'ez; this project has real cleaned corpora for all
-four from the GeezTokenizer project, so we extend the same algorithm to
+four from the MoVoC_Tok project, so we extend the same algorithm to
 all of them):
 
     slang = s / N                  (N = number of languages)
@@ -33,8 +33,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from create_vocab import extract_morphemes
 from train_bpe import train_bpe
 
-GEEZTOKENIZER_CORPUS_DIR = (
-    Path(__file__).resolve().parents[5] / "GeezTokenizer" / "02_cleaning" / "corpus_clean"
+MOVOC_TOK_CORPUS_DIR = (
+    Path(__file__).resolve().parents[5] / "MoVoC_Tok" / "02_cleaning" / "corpus_clean"
 )
 LANGUAGES = ["amharic", "tigrinya", "tigre", "geez"]
 
@@ -51,7 +51,7 @@ def build_hybrid_vocab(total_vocab_size: int, r: float, max_lines_per_language: 
     full_vocab = set()
 
     for lang in LANGUAGES:
-        corpus_path = GEEZTOKENIZER_CORPUS_DIR / f"{lang}.txt"
+        corpus_path = MOVOC_TOK_CORPUS_DIR / f"{lang}.txt"
         print(f"\n=== {lang} ({corpus_path}) ===")
 
         print(f"  training BPE (target size {s_bpe})...")

@@ -30,7 +30,7 @@ from movoc.metrics import boundary_precision, morphscore, renyi_entropy
 
 GOLD_PATH = Path(__file__).resolve().parent.parent / "data" / "ሃይላይ_ኪዱ_Tigriyna_Morphem.json"
 CORPUS_PATH = (
-    Path(__file__).resolve().parents[5] / "GeezTokenizer" / "02_cleaning" / "corpus_clean" / "tigrinya.txt"
+    Path(__file__).resolve().parents[5] / "MoVoC_Tok" / "02_cleaning" / "corpus_clean" / "tigrinya.txt"
 )
 
 
