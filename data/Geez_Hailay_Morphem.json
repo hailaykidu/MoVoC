@@ -1,142 +1,22 @@
 [
   {
     "no": 1,
-    "word": "መጽአት",
-    "prefix": "-",
-    "root": "መጽአ",
+    "word": "ለንኡሳት",
+    "prefix": "ለ-",
+    "root": "ንኡስ",
     "infix": "-",
-    "suffix": "-ት"
+    "suffix": "-ኣት"
   },
   {
     "no": 2,
-    "word": "ወመጽአት",
-    "prefix": "ወ-",
-    "root": "መጽአ",
+    "word": "ለንኡስ",
+    "prefix": "ለ-",
+    "root": "ንኡስ",
     "infix": "-",
-    "suffix": "-ት"
+    "suffix": "-"
   },
   {
     "no": 3,
-    "word": "ዘመጽአት",
-    "prefix": "ዘ-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 4,
-    "word": "ኢመጽአት",
-    "prefix": "ኢ-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 5,
-    "word": "ትመጽእ",
-    "prefix": "ት-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 6,
-    "word": "ወመጽአ",
-    "prefix": "ወ-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 7,
-    "word": "መጽአ",
-    "prefix": "-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 8,
-    "word": "ዘመጽአ",
-    "prefix": "ዘ-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 9,
-    "word": "ኢመጽአ",
-    "prefix": "ኢ-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 10,
-    "word": "ዘኢይመጽእ",
-    "prefix": "ዘኢይ-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 11,
-    "word": "ለዘመጽአ",
-    "prefix": "ለዘ-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 12,
-    "word": "መጻአከ",
-    "prefix": "-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-ከ"
-  },
-  {
-    "no": 13,
-    "word": "ወመጻአከ",
-    "prefix": "ወ-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-ከ"
-  },
-  {
-    "no": 14,
-    "word": "ዘመጻአከ",
-    "prefix": "ዘ-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-ከ"
-  },
-  {
-    "no": 15,
-    "word": "ኢመጻእከ",
-    "prefix": "ኢ-",
-    "root": "መጽአ",
-    "infix": "-",
-    "suffix": "-ከ"
-  },
-  {
-    "no": 16,
-    "word": "ወዘሐነጸት",
-    "prefix": "ወዘ",
-    "root": "ሐነጸ",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 17,
-    "word": "ዘዐይን",
-    "prefix": "ዘ",
-    "root": "ዐይን",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 18,
     "word": "ለዐይን",
     "prefix": "ለ",
     "root": "ዐይን",
@@ -144,159 +24,31 @@
     "suffix": "-"
   },
   {
-    "no": 19,
-    "word": "ወዐይንኪ",
-    "prefix": "ወ",
-    "root": "ዐይን",
+    "no": 4,
+    "word": "ለዘመጽአ",
+    "prefix": "ለዘ-",
+    "root": "መጽአ",
     "infix": "-",
-    "suffix": "-ኪ"
+    "suffix": "-"
   },
   {
-    "no": 20,
-    "word": "ወአዕይንት",
-    "prefix": "ወአዕ",
-    "root": "ዐይን",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 21,
-    "word": "በአዕይንት",
-    "prefix": "በአዕ",
-    "root": "ዐይን",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 22,
-    "word": "አዕይንተ",
-    "prefix": "አዕ",
-    "root": "ዐይን",
-    "infix": "-",
-    "suffix": "-ተ"
-  },
-  {
-    "no": 23,
-    "word": "ወአዕይንተ",
-    "prefix": "ወአዕ",
-    "root": "ዐይን",
-    "infix": "-",
-    "suffix": "-ተ"
-  },
-  {
-    "no": 24,
-    "word": "በአዕይንተ",
-    "prefix": "በአዕ",
-    "root": "ዐይን",
-    "infix": "-",
-    "suffix": "-ተ"
-  },
-  {
-    "no": 25,
-    "word": "አዕይንቱ",
-    "prefix": "አዕ",
-    "root": "ዐይን",
-    "infix": "-",
-    "suffix": "-ቱ"
-  },
-  {
-    "no": 26,
-    "word": "ወአዕይንቱ",
-    "prefix": "ወአዕ",
-    "root": "ዐይን",
-    "infix": "-",
-    "suffix": "-ቱ"
-  },
-  {
-    "no": 27,
-    "word": "ልሳናቲክሙ",
+    "no": 5,
+    "word": "ለዘይንእስ",
     "prefix": "-",
-    "root": "ልሳን",
+    "root": "",
     "infix": "-",
-    "suffix": "-ቲክሙ"
+    "suffix": "-"
   },
   {
-    "no": 28,
-    "word": "ልሳናቲክን",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ቲክን"
-  },
-  {
-    "no": 29,
+    "no": 6,
     "word": "ልሳነቲከ",
     "prefix": "-",
     "root": "ልሳን",
     "infix": "-",
-    "suffix": "-ትከ"
+    "suffix": "-ኣቲከ"
   },
   {
-    "no": 30,
-    "word": "ልሳናትኪ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ትኪ"
-  },
-  {
-    "no": 31,
-    "word": "ልሳንከ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ከ"
-  },
-  {
-    "no": 32,
-    "word": "ልሳንኪ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኪ"
-  },
-  {
-    "no": 33,
-    "word": "ልሳንነ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ነ"
-  },
-  {
-    "no": 34,
-    "word": "ልሳናቲሆሙ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲሆሙ"
-  },
-  {
-    "no": 35,
-    "word": "ልሳናቲሆን",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲሆን"
-  },
-  {
-    "no": 36,
-    "word": "ልሳኖሙ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኦሙ"
-  },
-  {
-    "no": 37,
-    "word": "ልሳኖን",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኦን"
-  },
-  {
-    "no": 38,
+    "no": 7,
     "word": "ልሳኑ",
     "prefix": "-",
     "root": "ልሳን",
@@ -304,55 +56,7 @@
     "suffix": "-ኡ"
   },
   {
-    "no": 39,
-    "word": "ልሳንየ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-የ"
-  },
-  {
-    "no": 40,
-    "word": "ልሳንነ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ነ"
-  },
-  {
-    "no": 41,
-    "word": "ልሳናት",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "--ኣት"
-  },
-  {
-    "no": 42,
-    "word": "ልሳናቲሁ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲሁ"
-  },
-  {
-    "no": 43,
-    "word": "ልሳናቲሃ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲሃ"
-  },
-  {
-    "no": 44,
-    "word": "ልሳናቲነ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲነ"
-  },
-  {
-    "no": 45,
+    "no": 8,
     "word": "ልሳኒክን",
     "prefix": "-",
     "root": "ልሳን",
@@ -360,76 +64,372 @@
     "suffix": "-ኢክን"
   },
   {
-    "no": 46,
-    "word": "ወነፂሮን",
+    "no": 9,
+    "word": "ልሳናቲሁ",
     "prefix": "-",
-    "root": "ነጸረ",
+    "root": "ልሳን",
     "infix": "-",
-    "suffix": "-ኦን"
+    "suffix": "-ኣቲሁ"
   },
   {
-    "no": 47,
-    "word": "ወነፂሩ",
+    "no": 10,
+    "word": "ልሳናቲሃ",
     "prefix": "-",
-    "root": "ነጸረ",
+    "root": "ልሳን",
     "infix": "-",
-    "suffix": "-ኡ"
+    "suffix": "-ኣቲሃ"
   },
   {
-    "no": 48,
-    "word": "ወነፂራ",
+    "no": 11,
+    "word": "ልሳናቲሆሙ",
     "prefix": "-",
-    "root": "ነጸረ",
+    "root": "ልሳን",
     "infix": "-",
-    "suffix": "-ኣ"
+    "suffix": "-ኣቲሆሙ"
   },
   {
-    "no": 49,
-    "word": "ወነፂረነ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
+    "no": 12,
+    "word": "ልሳናቲሆን",
+    "prefix": "-",
+    "root": "ልሳን",
+    "infix": "-",
+    "suffix": "-ኣቲሆን"
+  },
+  {
+    "no": 13,
+    "word": "ልሳናቲነ",
+    "prefix": "-",
+    "root": "ልሳን",
+    "infix": "-",
+    "suffix": "-ኣቲነ"
+  },
+  {
+    "no": 14,
+    "word": "ልሳናቲክሙ",
+    "prefix": "-",
+    "root": "ልሳን",
+    "infix": "-",
+    "suffix": "-ኣቲክሙ"
+  },
+  {
+    "no": 15,
+    "word": "ልሳናቲክን",
+    "prefix": "-",
+    "root": "ልሳን",
+    "infix": "-",
+    "suffix": "-ኣቲክን"
+  },
+  {
+    "no": 16,
+    "word": "ልሳናት",
+    "prefix": "-",
+    "root": "ልሳን",
+    "infix": "-",
+    "suffix": "-ኣት"
+  },
+  {
+    "no": 17,
+    "word": "ልሳናትኪ",
+    "prefix": "-",
+    "root": "ልሳን",
+    "infix": "-",
+    "suffix": "-ኣቲኪ"
+  },
+  {
+    "no": 18,
+    "word": "ልሳንነ",
+    "prefix": "-",
+    "root": "ልሳን",
     "infix": "-",
     "suffix": "-ነ"
   },
   {
-    "no": 50,
-    "word": "ወነፂርየ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-እየ"
-  },
-  {
-    "no": 51,
-    "word": "ወነፂረከ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
+    "no": 19,
+    "word": "ልሳንከ",
+    "prefix": "-",
+    "root": "ልሳን",
     "infix": "-",
     "suffix": "-ከ"
   },
   {
-    "no": 52,
-    "word": "ወነፂረኪ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
+    "no": 20,
+    "word": "ልሳንኪ",
+    "prefix": "-",
+    "root": "ልሳን",
     "infix": "-",
     "suffix": "-ኪ"
   },
   {
-    "no": 53,
-    "word": "ወነፂረክሙ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
+    "no": 21,
+    "word": "ልሳንክን",
+    "prefix": "-",
+    "root": "ልሳን",
+    "infix": "-",
+    "suffix": "-ክን"
+  },
+  {
+    "no": 22,
+    "word": "ልሳንየ",
+    "prefix": "-",
+    "root": "ልሳን",
+    "infix": "-",
+    "suffix": "-የ"
+  },
+  {
+    "no": 23,
+    "word": "ልሳኖሙ",
+    "prefix": "-",
+    "root": "ልሳን",
+    "infix": "-",
+    "suffix": "-ኦሙ"
+  },
+  {
+    "no": 24,
+    "word": "ልሳኖን",
+    "prefix": "-",
+    "root": "ልሳን",
+    "infix": "-",
+    "suffix": "-ኦን"
+  },
+  {
+    "no": 25,
+    "word": "መጻአከ",
+    "prefix": "-",
+    "root": "መጽአ",
+    "infix": "-",
+    "suffix": "-ከ"
+  },
+  {
+    "no": 26,
+    "word": "መጽአ",
+    "prefix": "-",
+    "root": "መጽአ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 27,
+    "word": "መጽአት",
+    "prefix": "-",
+    "root": "መጽአ",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 28,
+    "word": "ሰማያዊ",
+    "prefix": "-",
+    "root": "ሰማይ",
+    "infix": "-",
+    "suffix": "-ኣዊ"
+  },
+  {
+    "no": 29,
+    "word": "ሰማያዊት",
+    "prefix": "-",
+    "root": "ሰማይ",
+    "infix": "-",
+    "suffix": "-ዊት"
+  },
+  {
+    "no": 30,
+    "word": "ሰማያውያን",
+    "prefix": "-",
+    "root": "ሰማይ",
+    "infix": "-",
+    "suffix": "-ውያን"
+  },
+  {
+    "no": 31,
+    "word": "ሰማይ",
+    "prefix": "-",
+    "root": "ሰማይ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 32,
+    "word": "ስፋሕ",
+    "prefix": "-",
+    "root": "ሰፍሐ",
+    "infix": "-",
+    "suffix": "-እ"
+  },
+  {
+    "no": 33,
+    "word": "በላዕነ",
+    "prefix": "-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-እነ"
+  },
+  {
+    "no": 34,
+    "word": "በላዕከ",
+    "prefix": "-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-እከ"
+  },
+  {
+    "no": 35,
+    "word": "በላዕኩ",
+    "prefix": "-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-እኩ"
+  },
+  {
+    "no": 36,
+    "word": "በላዕኪ",
+    "prefix": "-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-እኪ"
+  },
+  {
+    "no": 37,
+    "word": "በላዕክሙ",
+    "prefix": "-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-እክሙ"
+  },
+  {
+    "no": 38,
+    "word": "በልዐ",
+    "prefix": "-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 39,
+    "word": "በልዐት",
+    "prefix": "-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 40,
+    "word": "በልዑ",
+    "prefix": "-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-ኡ"
+  },
+  {
+    "no": 41,
+    "word": "በአዕይንተ",
+    "prefix": "በአዕ",
+    "root": "ዐይን",
+    "infix": "-",
+    "suffix": "-ተ"
+  },
+  {
+    "no": 42,
+    "word": "በአዕይንት",
+    "prefix": "በአዕ",
+    "root": "ዐይን",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 43,
+    "word": "ትመጽእ",
+    "prefix": "ት-",
+    "root": "መጽአ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 44,
+    "word": "ትንእስ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 45,
+    "word": "ኃይሉሂ",
+    "prefix": "-",
+    "root": "ኃይል",
+    "infix": "-",
+    "suffix": "-ኡሂ"
+  },
+  {
+    "no": 46,
+    "word": "ኃይል",
+    "prefix": "-",
+    "root": "ኃይል",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 47,
+    "word": "ኃይልነ",
+    "prefix": "-",
+    "root": "ኃይል",
+    "infix": "-",
+    "suffix": "-ነ"
+  },
+  {
+    "no": 48,
+    "word": "ኃይልከ",
+    "prefix": "-",
+    "root": "ኃይል",
+    "infix": "-",
+    "suffix": "-ከ"
+  },
+  {
+    "no": 49,
+    "word": "ኃይልኪ",
+    "prefix": "-",
+    "root": "ኃይል",
+    "infix": "-",
+    "suffix": "-ኪ"
+  },
+  {
+    "no": 50,
+    "word": "ኃይልክሙ",
+    "prefix": "-",
+    "root": "ኃይል",
     "infix": "-",
     "suffix": "-ክሙ"
   },
   {
-    "no": 54,
-    "word": "ወነፂረክን",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
+    "no": 51,
+    "word": "ኃይልክን",
+    "prefix": "-",
+    "root": "ኃይል",
     "infix": "-",
     "suffix": "-ክን"
+  },
+  {
+    "no": 52,
+    "word": "ኃይልየ",
+    "prefix": "-",
+    "root": "ኃይል",
+    "infix": "-",
+    "suffix": "-የ"
+  },
+  {
+    "no": 53,
+    "word": "ኃይሎሙ",
+    "prefix": "-",
+    "root": "ኃይል",
+    "infix": "-",
+    "suffix": "-ኦሙ"
+  },
+  {
+    "no": 54,
+    "word": "ኃይሎን",
+    "prefix": "-",
+    "root": "ኃይል",
+    "infix": "-",
+    "suffix": "-ኦን"
   },
   {
     "no": 55,
@@ -441,11 +441,11 @@
   },
   {
     "no": 56,
-    "word": "ነፀርኩ",
+    "word": "ነፀርነ",
     "prefix": "-",
     "root": "ነጸረ",
     "infix": "-",
-    "suffix": "-ኩ"
+    "suffix": "-እነ"
   },
   {
     "no": 57,
@@ -457,6 +457,14 @@
   },
   {
     "no": 58,
+    "word": "ነፀርኩ",
+    "prefix": "-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኩ"
+  },
+  {
+    "no": 59,
     "word": "ነፀርኪ",
     "prefix": "-",
     "root": "ነጸረ",
@@ -464,7 +472,7 @@
     "suffix": "ኪ"
   },
   {
-    "no": 59,
+    "no": 60,
     "word": "ነፀርክሙ",
     "prefix": "-",
     "root": "ነጸረ",
@@ -472,7 +480,7 @@
     "suffix": "-ክሙ"
   },
   {
-    "no": 60,
+    "no": 61,
     "word": "ነፀርክን",
     "prefix": "-",
     "root": "ነጸረ",
@@ -480,47 +488,7 @@
     "suffix": "-ክን"
   },
   {
-    "no": 61,
-    "word": "ነፀርነ",
-    "prefix": "-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-እነ"
-  },
-  {
     "no": 62,
-    "word": "ነፂሮሙ",
-    "prefix": "-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ኦሙ"
-  },
-  {
-    "no": 63,
-    "word": "ነፂሮን",
-    "prefix": "-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ኦን"
-  },
-  {
-    "no": 64,
-    "word": "ነፂሩ",
-    "prefix": "-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ኡ"
-  },
-  {
-    "no": 65,
-    "word": "ነፂራ",
-    "prefix": "-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ኣ"
-  },
-  {
-    "no": 66,
     "word": "ነፂረነ",
     "prefix": "-",
     "root": "ነጸረ",
@@ -528,15 +496,7 @@
     "suffix": "-ነ"
   },
   {
-    "no": 67,
-    "word": "ነፂርየ",
-    "prefix": "-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-የ"
-  },
-  {
-    "no": 68,
+    "no": 63,
     "word": "ነፂረከ",
     "prefix": "-",
     "root": "ነጸረ",
@@ -544,7 +504,7 @@
     "suffix": "-ከ"
   },
   {
-    "no": 69,
+    "no": 64,
     "word": "ነፂረኪ",
     "prefix": "-",
     "root": "ነጸረ",
@@ -552,7 +512,7 @@
     "suffix": "-ኪ"
   },
   {
-    "no": 70,
+    "no": 65,
     "word": "ነፂረክሙ",
     "prefix": "-",
     "root": "ነጸረ",
@@ -560,7 +520,7 @@
     "suffix": "-ክሙ"
   },
   {
-    "no": 71,
+    "no": 66,
     "word": "ነፂረክን",
     "prefix": "-",
     "root": "ነጸረ",
@@ -568,415 +528,47 @@
     "suffix": "-ክን"
   },
   {
+    "no": 67,
+    "word": "ነፂሩ",
+    "prefix": "-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኡ"
+  },
+  {
+    "no": 68,
+    "word": "ነፂራ",
+    "prefix": "-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኣ"
+  },
+  {
+    "no": 69,
+    "word": "ነፂርየ",
+    "prefix": "-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-የ"
+  },
+  {
+    "no": 70,
+    "word": "ነፂሮሙ",
+    "prefix": "-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኦሙ"
+  },
+  {
+    "no": 71,
+    "word": "ነፂሮን",
+    "prefix": "-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኦን"
+  },
+  {
     "no": 72,
-    "word": "ወነፀረ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 73,
-    "word": "ወነፀረት",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 74,
-    "word": "ወነፀርኩ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ኩ"
-  },
-  {
-    "no": 75,
-    "word": "ወነፀርከ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ከ"
-  },
-  {
-    "no": 76,
-    "word": "ወነፀርኪ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "ኪ"
-  },
-  {
-    "no": 77,
-    "word": "ወነፀርክሙ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-እክሙ"
-  },
-  {
-    "no": 78,
-    "word": "ወነፀርክን",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-እክን"
-  },
-  {
-    "no": 79,
-    "word": "ወነፀርነ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-እነ"
-  },
-  {
-    "no": 80,
-    "word": "ዐጸውኩ",
-    "prefix": "-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኩ"
-  },
-  {
-    "no": 81,
-    "word": "ወዐጸውኩ",
-    "prefix": "ወ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኩ"
-  },
-  {
-    "no": 82,
-    "word": "ዐጸውከ",
-    "prefix": "-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-እከ"
-  },
-  {
-    "no": 83,
-    "word": "ወዐጸውከ",
-    "prefix": "ወ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-እከ"
-  },
-  {
-    "no": 84,
-    "word": "ዘዐጸውከ",
-    "prefix": "ዘ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-እከ"
-  },
-  {
-    "no": 85,
-    "word": "ዐጸውኪ",
-    "prefix": "-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-እኪ"
-  },
-  {
-    "no": 86,
-    "word": "ወዐጸውኪ",
-    "prefix": "ወ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-እኪ"
-  },
-  {
-    "no": 87,
-    "word": "ዘዐጸውኪ",
-    "prefix": "ዘ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-እኪ"
-  },
-  {
-    "no": 88,
-    "word": "ዐጸወት",
-    "prefix": "-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 89,
-    "word": "ወዐጸወት",
-    "prefix": "ወ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 90,
-    "word": "ዘዐጸወት",
-    "prefix": "ዘ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "ት"
-  },
-  {
-    "no": 91,
-    "word": "ዐጸዉ",
-    "prefix": "-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኡ"
-  },
-  {
-    "no": 92,
-    "word": "ወዐጸዉ",
-    "prefix": "ወ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኡ"
-  },
-  {
-    "no": 93,
-    "word": "ዘዐጸዉ",
-    "prefix": "ዘ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኡ"
-  },
-  {
-    "no": 94,
-    "word": "ዐጸዋ",
-    "prefix": "-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኣ"
-  },
-  {
-    "no": 95,
-    "word": "ወዐጸዋ",
-    "prefix": "ወ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኣ"
-  },
-  {
-    "no": 96,
-    "word": "ዘዐጸዋ",
-    "prefix": "ዘ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኣ"
-  },
-  {
-    "no": 97,
-    "word": "ዐጸውነ",
-    "prefix": "-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-እነ"
-  },
-  {
-    "no": 98,
-    "word": "ወዐጸውነ",
-    "prefix": "ወ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-እነ"
-  },
-  {
-    "no": 99,
-    "word": "ዘዐጸውነ",
-    "prefix": "ዘ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-እነ"
-  },
-  {
-    "no": 100,
-    "word": "ዘማዕጾሁ",
-    "prefix": "ዘ-",
-    "root": "ማዕጾ",
-    "infix": "-",
-    "suffix": "-ኦሁ"
-  },
-  {
-    "no": 101,
-    "word": "ወዘማዕጾሁ",
-    "prefix": "ወዘ-",
-    "root": "ማዕጾ",
-    "infix": "-",
-    "suffix": "-ኦሁ"
-  },
-  {
-    "no": 102,
-    "word": "ዘማዕጾሆሙ",
-    "prefix": "ዘ-",
-    "root": "ማዕጾ",
-    "infix": "-",
-    "suffix": "-ሆሙ"
-  },
-  {
-    "no": 103,
-    "word": "ወዘማዕጾሆሙ",
-    "prefix": "ወዘ-",
-    "root": "ማዕጾ",
-    "infix": "-",
-    "suffix": "-ሆሙ"
-  },
-  {
-    "no": 104,
-    "word": "ዘማዕጾክሙ",
-    "prefix": "ዘ-",
-    "root": "ማዕጾ",
-    "infix": "-",
-    "suffix": "-ክሙ"
-  },
-  {
-    "no": 105,
-    "word": "ወዘማዕጾክሙ",
-    "prefix": "ወዘ-",
-    "root": "ማዕጾ",
-    "infix": "-",
-    "suffix": "-ክሙ"
-  },
-  {
-    "no": 106,
-    "word": "ወበማዕጾነ",
-    "prefix": "ወበ-",
-    "root": "ማዕጾ",
-    "infix": "-",
-    "suffix": "-ነ"
-  },
-  {
-    "no": 107,
-    "word": "ስፋሕ",
-    "prefix": "-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-እ"
-  },
-  {
-    "no": 108,
-    "word": "ኢስፋሐ",
-    "prefix": "ኢ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 109,
-    "word": "ኢሰፋሕኪ",
-    "prefix": "ኢ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-እኪ"
-  },
-  {
-    "no": 110,
-    "word": "ኢሰፋሕከ",
-    "prefix": "ኢ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-እከ"
-  },
-  {
-    "no": 111,
-    "word": "ኢሰፋሕኩ",
-    "prefix": "ኢ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-እኩ"
-  },
-  {
-    "no": 112,
-    "word": "ኢሰፋሕነ",
-    "prefix": "ኢ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-እነ"
-  },
-  {
-    "no": 113,
-    "word": "ኢሰፍሕክን",
-    "prefix": "ኢ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-እክን"
-  },
-  {
-    "no": 114,
-    "word": "ኢሰፍሐት",
-    "prefix": "ኢ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 115,
-    "word": "ኢሰፍሐ",
-    "prefix": "ኢ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 116,
-    "word": "ወሰፍሐ",
-    "prefix": "ወ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 117,
-    "word": "ወሰፍሐት",
-    "prefix": "ወ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 118,
-    "word": "ወሰፍሐነ",
-    "prefix": "ወ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-ነ"
-  },
-  {
-    "no": 119,
-    "word": "ወሰፋሕኪ",
-    "prefix": "ወ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-ኪ"
-  },
-  {
-    "no": 120,
-    "word": "ወሰፍሑ",
-    "prefix": "ወ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-ኡ"
-  },
-  {
-    "no": 121,
-    "word": "ወሰፋሕክሙ",
-    "prefix": "ወ-",
-    "root": "ሰፍሐ",
-    "infix": "-",
-    "suffix": "-እክሙ"
-  },
-  {
-    "no": 122,
-    "word": "ንኡስ",
-    "prefix": "-",
-    "root": "ንኡስ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 123,
     "word": "ንኡሰ",
     "prefix": "-",
     "root": "ንኡስ",
@@ -984,39 +576,7 @@
     "suffix": "-አ"
   },
   {
-    "no": 124,
-    "word": "ወንኡሰ",
-    "prefix": "ወ-",
-    "root": "ንኡስ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 125,
-    "word": "ለንኡስ",
-    "prefix": "ለ-",
-    "root": "ንኡስ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 126,
-    "word": "ንኡስክሙ",
-    "prefix": "-",
-    "root": "ንኡስ",
-    "infix": "-",
-    "suffix": "-ክሙ"
-  },
-  {
-    "no": 127,
-    "word": "ወዘንኡስ",
-    "prefix": "ወዘ-",
-    "root": "ንኡስ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 128,
+    "no": 73,
     "word": "ንኡሳን",
     "prefix": "-",
     "root": "ንኡስ",
@@ -1024,407 +584,127 @@
     "suffix": "-ኣን"
   },
   {
-    "no": 129,
-    "word": "ወንኡሳን",
-    "prefix": "ወ-",
+    "no": 74,
+    "word": "ንኡስ",
+    "prefix": "-",
     "root": "ንኡስ",
     "infix": "-",
-    "suffix": "-ኣን"
+    "suffix": "-"
   },
   {
-    "no": 130,
-    "word": "ወለንኡሳን",
-    "prefix": "ወለ-",
+    "no": 75,
+    "word": "ንኡስክሙ",
+    "prefix": "-",
     "root": "ንኡስ",
     "infix": "-",
-    "suffix": "-ኣን"
+    "suffix": "-ክሙ"
   },
   {
-    "no": 131,
-    "word": "ወለንኡሳትሂ",
-    "prefix": "ወለ-",
-    "root": "ንኡስ",
+    "no": 76,
+    "word": "አዕይንተ",
+    "prefix": "አዕ",
+    "root": "ዐይን",
     "infix": "-",
-    "suffix": "-ኣትሂ"
+    "suffix": "-ተ"
   },
   {
-    "no": 132,
-    "word": "ወለንኡሳትሰ",
-    "prefix": "ወለ-",
-    "root": "ንኡስ",
+    "no": 77,
+    "word": "አዕይንቱ",
+    "prefix": "አዕ",
+    "root": "ዐይን",
     "infix": "-",
-    "suffix": "-ኣትሰ"
+    "suffix": "-ቱ"
   },
   {
-    "no": 133,
-    "word": "ለንኡሳት",
-    "prefix": "ለ-",
-    "root": "ንኡስ",
-    "infix": "-",
-    "suffix": "-ኣት"
-  },
-  {
-    "no": 134,
-    "word": "ልሳናቲክሙ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲክሙ"
-  },
-  {
-    "no": 135,
-    "word": "ልሳናቲክን",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲክን"
-  },
-  {
-    "no": 136,
-    "word": "ልሳነቲከ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲከ"
-  },
-  {
-    "no": 137,
-    "word": "ልሳናትኪ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲኪ"
-  },
-  {
-    "no": 138,
-    "word": "ልሳንከ",
-    "prefix": "-",
-    "root": "ልሳን",
+    "no": 78,
+    "word": "ኢመጻእከ",
+    "prefix": "ኢ-",
+    "root": "መጽአ",
     "infix": "-",
     "suffix": "-ከ"
   },
   {
-    "no": 139,
-    "word": "ልሳንኪ",
-    "prefix": "-",
-    "root": "ልሳን",
+    "no": 79,
+    "word": "ኢመጽአ",
+    "prefix": "ኢ-",
+    "root": "መጽአ",
     "infix": "-",
-    "suffix": "-ኪ"
+    "suffix": "-"
   },
   {
-    "no": 140,
-    "word": "ልሳንነ",
-    "prefix": "-",
-    "root": "ልሳን",
+    "no": 80,
+    "word": "ኢመጽአት",
+    "prefix": "ኢ-",
+    "root": "መጽአ",
     "infix": "-",
-    "suffix": "-ነ"
+    "suffix": "-ት"
   },
   {
-    "no": 141,
-    "word": "ልሳናቲሆሙ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲሆሙ"
-  },
-  {
-    "no": 142,
-    "word": "ልሳናቲሆን",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲሆን"
-  },
-  {
-    "no": 143,
-    "word": "ልሳኖሙ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኦሙ"
-  },
-  {
-    "no": 144,
-    "word": "ልሳኖን",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኦን"
-  },
-  {
-    "no": 145,
-    "word": "ልሳኑ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኡ"
-  },
-  {
-    "no": 146,
-    "word": "ልሳንየ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-የ"
-  },
-  {
-    "no": 147,
-    "word": "ልሳንነ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ነ"
-  },
-  {
-    "no": 148,
-    "word": "ልሳናት",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣት"
-  },
-  {
-    "no": 149,
-    "word": "ልሳናቲሁ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲሁ"
-  },
-  {
-    "no": 150,
-    "word": "ልሳናቲሃ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲሃ"
-  },
-  {
-    "no": 151,
-    "word": "ልሳናቲነ",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ኣቲነ"
-  },
-  {
-    "no": 152,
-    "word": "ልሳንክን",
-    "prefix": "-",
-    "root": "ልሳን",
-    "infix": "-",
-    "suffix": "-ክን"
-  },
-  {
-    "no": 153,
-    "word": "ወነፂሮሙ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ኦሙ"
-  },
-  {
-    "no": 154,
-    "word": "ወነፂሮን",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ኦን"
-  },
-  {
-    "no": 155,
-    "word": "ወነፂሩ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ኡ"
-  },
-  {
-    "no": 156,
-    "word": "ወነፂራ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ኣ"
-  },
-  {
-    "no": 157,
-    "word": "ወነፂርነ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
+    "no": 81,
+    "word": "ኢሰፋሕነ",
+    "prefix": "ኢ-",
+    "root": "ሰፍሐ",
     "infix": "-",
     "suffix": "-እነ"
   },
   {
-    "no": 158,
-    "word": "ወነፂርየ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
+    "no": 82,
+    "word": "ኢሰፋሕከ",
+    "prefix": "ኢ-",
+    "root": "ሰፍሐ",
     "infix": "-",
-    "suffix": "-እየ"
+    "suffix": "-እከ"
   },
   {
-    "no": 159,
-    "word": "ወነፂረከ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
+    "no": 83,
+    "word": "ኢሰፋሕኩ",
+    "prefix": "ኢ-",
+    "root": "ሰፍሐ",
     "infix": "-",
-    "suffix": "-ከ"
+    "suffix": "-እኩ"
   },
   {
-    "no": 160,
-    "word": "ወነፂረኪ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
+    "no": 84,
+    "word": "ኢሰፋሕኪ",
+    "prefix": "ኢ-",
+    "root": "ሰፍሐ",
     "infix": "-",
-    "suffix": "-ኪ"
+    "suffix": "-እኪ"
   },
   {
-    "no": 161,
-    "word": "ወነፂረክሙ",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ክሙ"
-  },
-  {
-    "no": 162,
-    "word": "ወነፂረክን",
-    "prefix": "ወ-",
-    "root": "ነጸረ",
-    "infix": "-",
-    "suffix": "-ክን"
-  },
-  {
-    "no": 163,
-    "word": "ኃይል",
-    "prefix": "-",
-    "root": "ኃይል",
+    "no": 85,
+    "word": "ኢሰፍሐ",
+    "prefix": "ኢ-",
+    "root": "ሰፍሐ",
     "infix": "-",
     "suffix": "-"
   },
   {
-    "no": 164,
-    "word": "ኃይልነ",
-    "prefix": "-",
-    "root": "ኃይል",
+    "no": 86,
+    "word": "ኢሰፍሐት",
+    "prefix": "ኢ-",
+    "root": "ሰፍሐ",
     "infix": "-",
-    "suffix": "-ነ"
+    "suffix": "-ት"
   },
   {
-    "no": 165,
-    "word": "ኃይልየ",
-    "prefix": "-",
-    "root": "ኃይል",
+    "no": 87,
+    "word": "ኢሰፍሕክን",
+    "prefix": "ኢ-",
+    "root": "ሰፍሐ",
     "infix": "-",
-    "suffix": "-የ"
+    "suffix": "-እክን"
   },
   {
-    "no": 166,
-    "word": "ኃይልከ",
-    "prefix": "-",
-    "root": "ኃይል",
-    "infix": "-",
-    "suffix": "-ከ"
-  },
-  {
-    "no": 167,
-    "word": "ኃይልኪ",
-    "prefix": "-",
-    "root": "ኃይል",
-    "infix": "-",
-    "suffix": "-ኪ"
-  },
-  {
-    "no": 168,
-    "word": "ኃይልክሙ",
-    "prefix": "-",
-    "root": "ኃይል",
-    "infix": "-",
-    "suffix": "-ክሙ"
-  },
-  {
-    "no": 169,
-    "word": "ኃይልክን",
-    "prefix": "-",
-    "root": "ኃይል",
-    "infix": "-",
-    "suffix": "-ክን"
-  },
-  {
-    "no": 170,
-    "word": "ኃይሎሙ",
-    "prefix": "-",
-    "root": "ኃይል",
-    "infix": "-",
-    "suffix": "-ኦሙ"
-  },
-  {
-    "no": 171,
-    "word": "ኃይሎን",
-    "prefix": "-",
-    "root": "ኃይል",
-    "infix": "-",
-    "suffix": "-ኦን"
-  },
-  {
-    "no": 172,
-    "word": "ኃይሉሂ",
-    "prefix": "-",
-    "root": "ኃይል",
-    "infix": "-",
-    "suffix": "-ኡሂ"
-  },
-  {
-    "no": 173,
-    "word": "ሰማይ",
-    "prefix": "-",
-    "root": "ሰማይ",
+    "no": 88,
+    "word": "ኢስፋሐ",
+    "prefix": "ኢ-",
+    "root": "ሰፍሐ",
     "infix": "-",
     "suffix": "-"
   },
   {
-    "no": 174,
-    "word": "ሰማያዊ",
-    "prefix": "-",
-    "root": "ሰማይ",
-    "infix": "-",
-    "suffix": "-ኣዊ"
-  },
-  {
-    "no": 175,
-    "word": "ዘሰማያዊ",
-    "prefix": "ዘ-",
-    "root": "ሰማይ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 176,
-    "word": "ሰማያዊት",
-    "prefix": "-",
-    "root": "ሰማይ",
-    "infix": "-",
-    "suffix": "-ዊት"
-  },
-  {
-    "no": 177,
-    "word": "ሰማያውያን",
-    "prefix": "-",
-    "root": "ሰማይ",
-    "infix": "-",
-    "suffix": "-ውያን"
-  },
-  {
-    "no": 178,
-    "word": "ዘባሰማያት",
-    "prefix": "-",
-    "root": "ሰማይ",
-    "infix": "-",
-    "suffix": "-ኣት"
-  },
-  {
-    "no": 179,
+    "no": 89,
     "word": "እምሰማይ",
     "prefix": "-",
     "root": "ሰማይ",
@@ -1432,135 +712,159 @@
     "suffix": "-"
   },
   {
-    "no": 180,
-    "word": "ወበማዕጾየ",
-    "prefix": "ወበ-",
-    "root": "ማዕጾ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 181,
-    "word": "ወኢይትዐጸዉ",
-    "prefix": "ወኢይ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኡ"
-  },
-  {
-    "no": 182,
-    "word": "ወኢይትዐጸዋ",
-    "prefix": "ወኢይ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኣ"
-  },
-  {
-    "no": 183,
-    "word": "ወኢይትዐጾ",
-    "prefix": "ወኢይ-",
-    "root": "ዐጸወ",
-    "infix": "-",
-    "suffix": "-ኦ"
-  },
-  {
-    "no": 184,
-    "word": "በልዐ",
+    "no": 90,
+    "word": "እምንእስነ",
     "prefix": "-",
-    "root": "በልዐ",
+    "root": "",
     "infix": "-",
     "suffix": "-"
   },
   {
-    "no": 185,
-    "word": "ወበልዐ",
+    "no": 91,
+    "word": "እምንእስከ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 92,
+    "word": "እምንእስኪ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 93,
+    "word": "እምንእስክሙ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 94,
+    "word": "እምንእስክን",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 95,
+    "word": "እምንእስየ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 96,
+    "word": "እምንእሶሙ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 97,
+    "word": "ወለንኡሳትሂ",
+    "prefix": "ወለ-",
+    "root": "ንኡስ",
+    "infix": "-",
+    "suffix": "-ኣትሂ"
+  },
+  {
+    "no": 98,
+    "word": "ወለንኡሳትሰ",
+    "prefix": "ወለ-",
+    "root": "ንኡስ",
+    "infix": "-",
+    "suffix": "-ኣትሰ"
+  },
+  {
+    "no": 99,
+    "word": "ወለንኡሳን",
+    "prefix": "ወለ-",
+    "root": "ንኡስ",
+    "infix": "-",
+    "suffix": "-ኣን"
+  },
+  {
+    "no": 100,
+    "word": "ወመጻአከ",
     "prefix": "ወ-",
-    "root": "በልዐ",
+    "root": "መጽአ",
+    "infix": "-",
+    "suffix": "-ከ"
+  },
+  {
+    "no": 101,
+    "word": "ወመጽአ",
+    "prefix": "ወ-",
+    "root": "መጽአ",
     "infix": "-",
     "suffix": "-"
   },
   {
-    "no": 186,
-    "word": "ዘበልዐ",
-    "prefix": "ዘ-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-"
-  },
-  {
-    "no": 187,
-    "word": "በልዐት",
-    "prefix": "-",
-    "root": "በልዐ",
+    "no": 102,
+    "word": "ወመጽአት",
+    "prefix": "ወ-",
+    "root": "መጽአ",
     "infix": "-",
     "suffix": "-ት"
   },
   {
-    "no": 188,
-    "word": "ወበልዐት",
+    "no": 103,
+    "word": "ወሰፋሕኪ",
     "prefix": "ወ-",
-    "root": "በልዐ",
+    "root": "ሰፍሐ",
+    "infix": "-",
+    "suffix": "-ኪ"
+  },
+  {
+    "no": 104,
+    "word": "ወሰፋሕክሙ",
+    "prefix": "ወ-",
+    "root": "ሰፍሐ",
+    "infix": "-",
+    "suffix": "-እክሙ"
+  },
+  {
+    "no": 105,
+    "word": "ወሰፍሐ",
+    "prefix": "ወ-",
+    "root": "ሰፍሐ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 106,
+    "word": "ወሰፍሐት",
+    "prefix": "ወ-",
+    "root": "ሰፍሐ",
     "infix": "-",
     "suffix": "-ት"
   },
   {
-    "no": 189,
-    "word": "ዘበልዐት",
-    "prefix": "ዘ-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-ት"
-  },
-  {
-    "no": 190,
-    "word": "በልዑ",
-    "prefix": "-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-ኡ"
-  },
-  {
-    "no": 191,
-    "word": "ወበልዑ",
+    "no": 107,
+    "word": "ወሰፍሐነ",
     "prefix": "ወ-",
-    "root": "በልዐ",
+    "root": "ሰፍሐ",
+    "infix": "-",
+    "suffix": "-ነ"
+  },
+  {
+    "no": 108,
+    "word": "ወሰፍሑ",
+    "prefix": "ወ-",
+    "root": "ሰፍሐ",
     "infix": "-",
     "suffix": "-ኡ"
   },
   {
-    "no": 192,
-    "word": "ዘበልዑ",
-    "prefix": "ዘ-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-ኡ"
-  },
-  {
-    "no": 193,
-    "word": "በላዕነ",
-    "prefix": "-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-እነ"
-  },
-  {
-    "no": 194,
-    "word": "ዘበላዕነ",
-    "prefix": "ዘ-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-እነ"
-  },
-  {
-    "no": 195,
-    "word": "በላዕከ",
-    "prefix": "-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-እከ"
-  },
-  {
-    "no": 196,
+    "no": 109,
     "word": "ወበላዕከ",
     "prefix": "ወ-",
     "root": "በልዐ",
@@ -1568,47 +872,7 @@
     "suffix": "እከ-"
   },
   {
-    "no": 197,
-    "word": "ዘበላዕከ",
-    "prefix": "ዘ-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-እከ"
-  },
-  {
-    "no": 198,
-    "word": "በላዕኪ",
-    "prefix": "-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-እኪ"
-  },
-  {
-    "no": 199,
-    "word": "ወበላዕኪ",
-    "prefix": "ወ-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-እኪ"
-  },
-  {
-    "no": 200,
-    "word": "ዘበላዕኪ",
-    "prefix": "ዘ-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-እኪ"
-  },
-  {
-    "no": 201,
-    "word": "በላዕኩ",
-    "prefix": "-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-እኩ"
-  },
-  {
-    "no": 202,
+    "no": 110,
     "word": "ወበላዕኩ",
     "prefix": "ወ-",
     "root": "በልዐ",
@@ -1616,23 +880,15 @@
     "suffix": "-እኩ"
   },
   {
-    "no": 203,
-    "word": "ዘበላዕኩ",
-    "prefix": "ዘ-",
+    "no": 111,
+    "word": "ወበላዕኪ",
+    "prefix": "ወ-",
     "root": "በልዐ",
     "infix": "-",
-    "suffix": "-እኩ"
+    "suffix": "-እኪ"
   },
   {
-    "no": 204,
-    "word": "በላዕክሙ",
-    "prefix": "-",
-    "root": "በልዐ",
-    "infix": "-",
-    "suffix": "-እክሙ"
-  },
-  {
-    "no": 205,
+    "no": 112,
     "word": "ወበላዕክሙ",
     "prefix": "ወ-",
     "root": "በልዐ",
@@ -1640,11 +896,651 @@
     "suffix": "-እክሙ"
   },
   {
-    "no": 206,
+    "no": 113,
+    "word": "ወበልዐ",
+    "prefix": "ወ-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 114,
+    "word": "ወበልዐት",
+    "prefix": "ወ-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 115,
+    "word": "ወበልዑ",
+    "prefix": "ወ-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-ኡ"
+  },
+  {
+    "no": 116,
+    "word": "ወበማዕጾነ",
+    "prefix": "ወበ-",
+    "root": "ማዕጾ",
+    "infix": "-",
+    "suffix": "-ነ"
+  },
+  {
+    "no": 117,
+    "word": "ወበማዕጾየ",
+    "prefix": "ወበ-",
+    "root": "ማዕጾ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 118,
+    "word": "ወትንእስ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 119,
+    "word": "ወነፀረ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 120,
+    "word": "ወነፀረት",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 121,
+    "word": "ወነፀርነ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-እነ"
+  },
+  {
+    "no": 122,
+    "word": "ወነፀርከ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ከ"
+  },
+  {
+    "no": 123,
+    "word": "ወነፀርኩ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኩ"
+  },
+  {
+    "no": 124,
+    "word": "ወነፀርኪ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "ኪ"
+  },
+  {
+    "no": 125,
+    "word": "ወነፀርክሙ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-እክሙ"
+  },
+  {
+    "no": 126,
+    "word": "ወነፀርክን",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-እክን"
+  },
+  {
+    "no": 127,
+    "word": "ወነፂረነ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ነ"
+  },
+  {
+    "no": 128,
+    "word": "ወነፂረከ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ከ"
+  },
+  {
+    "no": 129,
+    "word": "ወነፂረኪ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኪ"
+  },
+  {
+    "no": 130,
+    "word": "ወነፂረክሙ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ክሙ"
+  },
+  {
+    "no": 131,
+    "word": "ወነፂረክን",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ክን"
+  },
+  {
+    "no": 132,
+    "word": "ወነፂሩ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኡ"
+  },
+  {
+    "no": 133,
+    "word": "ወነፂራ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኣ"
+  },
+  {
+    "no": 134,
+    "word": "ወነፂርነ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-እነ"
+  },
+  {
+    "no": 135,
+    "word": "ወነፂርየ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-እየ"
+  },
+  {
+    "no": 136,
+    "word": "ወነፂሮሙ",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኦሙ"
+  },
+  {
+    "no": 137,
+    "word": "ወነፂሮን",
+    "prefix": "ወ-",
+    "root": "ነጸረ",
+    "infix": "-",
+    "suffix": "-ኦን"
+  },
+  {
+    "no": 138,
+    "word": "ወንኡሰ",
+    "prefix": "ወ-",
+    "root": "ንኡስ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 139,
+    "word": "ወንኡሳትሂ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 140,
+    "word": "ወንኡሳን",
+    "prefix": "ወ-",
+    "root": "ንኡስ",
+    "infix": "-",
+    "suffix": "-ኣን"
+  },
+  {
+    "no": 141,
+    "word": "ወአዕይንተ",
+    "prefix": "ወአዕ",
+    "root": "ዐይን",
+    "infix": "-",
+    "suffix": "-ተ"
+  },
+  {
+    "no": 142,
+    "word": "ወአዕይንቱ",
+    "prefix": "ወአዕ",
+    "root": "ዐይን",
+    "infix": "-",
+    "suffix": "-ቱ"
+  },
+  {
+    "no": 143,
+    "word": "ወአዕይንት",
+    "prefix": "ወአዕ",
+    "root": "ዐይን",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 144,
+    "word": "ወኢይትዐጸዉ",
+    "prefix": "ወኢይ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኡ"
+  },
+  {
+    "no": 145,
+    "word": "ወኢይትዐጸዋ",
+    "prefix": "ወኢይ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኣ"
+  },
+  {
+    "no": 146,
+    "word": "ወኢይትዐጾ",
+    "prefix": "ወኢይ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኦ"
+  },
+  {
+    "no": 147,
+    "word": "ወዐይንኪ",
+    "prefix": "ወ",
+    "root": "ዐይን",
+    "infix": "-",
+    "suffix": "-ኪ"
+  },
+  {
+    "no": 148,
+    "word": "ወዐጸወት",
+    "prefix": "ወ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 149,
+    "word": "ወዐጸዉ",
+    "prefix": "ወ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኡ"
+  },
+  {
+    "no": 150,
+    "word": "ወዐጸዋ",
+    "prefix": "ወ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኣ"
+  },
+  {
+    "no": 151,
+    "word": "ወዐጸውነ",
+    "prefix": "ወ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-እነ"
+  },
+  {
+    "no": 152,
+    "word": "ወዐጸውከ",
+    "prefix": "ወ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-እከ"
+  },
+  {
+    "no": 153,
+    "word": "ወዐጸውኩ",
+    "prefix": "ወ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኩ"
+  },
+  {
+    "no": 154,
+    "word": "ወዐጸውኪ",
+    "prefix": "ወ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-እኪ"
+  },
+  {
+    "no": 155,
+    "word": "ወዘሐነጸት",
+    "prefix": "ወዘ",
+    "root": "ሐነጸ",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 156,
+    "word": "ወዘማዕጾሁ",
+    "prefix": "ወዘ-",
+    "root": "ማዕጾ",
+    "infix": "-",
+    "suffix": "-ኦሁ"
+  },
+  {
+    "no": 157,
+    "word": "ወዘማዕጾሆሙ",
+    "prefix": "ወዘ-",
+    "root": "ማዕጾ",
+    "infix": "-",
+    "suffix": "-ሆሙ"
+  },
+  {
+    "no": 158,
+    "word": "ወዘማዕጾክሙ",
+    "prefix": "ወዘ-",
+    "root": "ማዕጾ",
+    "infix": "-",
+    "suffix": "-ክሙ"
+  },
+  {
+    "no": 159,
+    "word": "ወዘንኡስ",
+    "prefix": "ወዘ-",
+    "root": "ንኡስ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 160,
+    "word": "ወዘይንእስሂ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 161,
+    "word": "ዐጸወት",
+    "prefix": "-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 162,
+    "word": "ዐጸዉ",
+    "prefix": "-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኡ"
+  },
+  {
+    "no": 163,
+    "word": "ዐጸዋ",
+    "prefix": "-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኣ"
+  },
+  {
+    "no": 164,
+    "word": "ዐጸውነ",
+    "prefix": "-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-እነ"
+  },
+  {
+    "no": 165,
+    "word": "ዐጸውከ",
+    "prefix": "-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-እከ"
+  },
+  {
+    "no": 166,
+    "word": "ዐጸውኩ",
+    "prefix": "-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኩ"
+  },
+  {
+    "no": 167,
+    "word": "ዐጸውኪ",
+    "prefix": "-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-እኪ"
+  },
+  {
+    "no": 168,
+    "word": "ዘመጻአከ",
+    "prefix": "ዘ-",
+    "root": "መጽአ",
+    "infix": "-",
+    "suffix": "-ከ"
+  },
+  {
+    "no": 169,
+    "word": "ዘመጽአ",
+    "prefix": "ዘ-",
+    "root": "መጽአ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 170,
+    "word": "ዘመጽአት",
+    "prefix": "ዘ-",
+    "root": "መጽአ",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 171,
+    "word": "ዘማዕጾሁ",
+    "prefix": "ዘ-",
+    "root": "ማዕጾ",
+    "infix": "-",
+    "suffix": "-ኦሁ"
+  },
+  {
+    "no": 172,
+    "word": "ዘማዕጾሆሙ",
+    "prefix": "ዘ-",
+    "root": "ማዕጾ",
+    "infix": "-",
+    "suffix": "-ሆሙ"
+  },
+  {
+    "no": 173,
+    "word": "ዘማዕጾክሙ",
+    "prefix": "ዘ-",
+    "root": "ማዕጾ",
+    "infix": "-",
+    "suffix": "-ክሙ"
+  },
+  {
+    "no": 174,
+    "word": "ዘሰማያዊ",
+    "prefix": "ዘ-",
+    "root": "ሰማይ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 175,
+    "word": "ዘበላዕነ",
+    "prefix": "ዘ-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-እነ"
+  },
+  {
+    "no": 176,
+    "word": "ዘበላዕከ",
+    "prefix": "ዘ-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-እከ"
+  },
+  {
+    "no": 177,
+    "word": "ዘበላዕኩ",
+    "prefix": "ዘ-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-እኩ"
+  },
+  {
+    "no": 178,
+    "word": "ዘበላዕኪ",
+    "prefix": "ዘ-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-እኪ"
+  },
+  {
+    "no": 179,
     "word": "ዘበላዕክሙ",
     "prefix": "ዘ-",
     "root": "በልዐ",
     "infix": "-",
     "suffix": "-እክሙ"
+  },
+  {
+    "no": 180,
+    "word": "ዘበልዐ",
+    "prefix": "ዘ-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 181,
+    "word": "ዘበልዐት",
+    "prefix": "ዘ-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-ት"
+  },
+  {
+    "no": 182,
+    "word": "ዘበልዑ",
+    "prefix": "ዘ-",
+    "root": "በልዐ",
+    "infix": "-",
+    "suffix": "-ኡ"
+  },
+  {
+    "no": 183,
+    "word": "ዘበንእስየ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 184,
+    "word": "ዘባሰማያት",
+    "prefix": "-",
+    "root": "ሰማይ",
+    "infix": "-",
+    "suffix": "-ኣት"
+  },
+  {
+    "no": 185,
+    "word": "ዘኢይመጽእ",
+    "prefix": "ዘኢይ-",
+    "root": "መጽአ",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 186,
+    "word": "ዘዐይን",
+    "prefix": "ዘ",
+    "root": "ዐይን",
+    "infix": "-",
+    "suffix": "-"
+  },
+  {
+    "no": 187,
+    "word": "ዘዐጸወት",
+    "prefix": "ዘ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "ት"
+  },
+  {
+    "no": 188,
+    "word": "ዘዐጸዉ",
+    "prefix": "ዘ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኡ"
+  },
+  {
+    "no": 189,
+    "word": "ዘዐጸዋ",
+    "prefix": "ዘ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-ኣ"
+  },
+  {
+    "no": 190,
+    "word": "ዘዐጸውነ",
+    "prefix": "ዘ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-እነ"
+  },
+  {
+    "no": 191,
+    "word": "ዘዐጸውከ",
+    "prefix": "ዘ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-እከ"
+  },
+  {
+    "no": 192,
+    "word": "ዘዐጸውኪ",
+    "prefix": "ዘ-",
+    "root": "ዐጸወ",
+    "infix": "-",
+    "suffix": "-እኪ"
+  },
+  {
+    "no": 193,
+    "word": "ዘይንእስ",
+    "prefix": "-",
+    "root": "",
+    "infix": "-",
+    "suffix": "-"
   }
 ]
