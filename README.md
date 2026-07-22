@@ -216,7 +216,12 @@ smaller than the other three even after this addition.
 ## Training configuration
 
 Real settings used for the results reported below (`scripts/hybrid_vocab.py`
-and `scripts/run_intrinsic_eval.py`):
+and `scripts/run_intrinsic_eval.py`). These are **explicit CLI flags, not the
+scripts' own built-in defaults** -- `hybrid_vocab.py`'s argparse defaults are
+`--total-vocab-size 32000` and `--max-lines-per-language 500000`; running
+either script with no flags at all will *not* reproduce the numbers below.
+The "Reproducing" commands further down pass every value explicitly for
+exactly this reason:
 
 | Setting | Value |
 |---|---|
