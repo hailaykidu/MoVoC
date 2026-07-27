@@ -20,6 +20,22 @@ import argparse
 import json
 from pathlib import Path
 
+# Test data (paper Sec 5.1). Each language pair is capped at 100 sentence
+# pairs to keep the evaluation balanced; where OPUS coverage is short, the
+# remainder is human-validated.
+TEST_SETS = {
+    "amharic": {"pairs": 100, "opus": 100, "human_validated": 0,
+                "note": "100 of 213 available from OPUS"},
+    "tigrinya": {"pairs": 100, "opus": 74, "human_validated": 26},
+    "tigre": {"pairs": 100, "opus": 45, "human_validated": 55},
+    # Ge'ez has no parallel data, so it is evaluated intrinsically only.
+    "geez": {"pairs": 100, "opus": 0, "human_validated": 100,
+             "note": "newly created and validated; intrinsic evaluation only"},
+}
+
+# Ge'ez is excluded from extrinsic evaluation: no parallel data exists.
+EXTRINSIC_LANGUAGES = ("amharic", "tigrinya", "tigre")
+
 # Directions the model is trained on (paper Sec 5.1).
 TRAINED_DIRECTIONS = ("en-am", "am-en", "en-ti", "ti-en")
 
