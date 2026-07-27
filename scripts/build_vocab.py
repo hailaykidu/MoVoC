@@ -71,8 +71,10 @@ def main():
     p = argparse.ArgumentParser(description="Algorithm 1 Steps 4-5")
     p.add_argument("--amharic-morphemes", type=Path,
                    default=here / "data/morphemes/amharic_morphemes.json")
+    # The curated HornMorpho + post-edited set feeds the vocabulary; the
+    # 206-entry gold set (Tigriyna_Morphem.json) is held out for evaluation.
     p.add_argument("--tigrinya-morphemes", type=Path,
-                   default=here / "data/morphemes/Tigriyna_Morphem.json")
+                   default=here / "data/morphemes/tigrinya_morphemes.json")
     p.add_argument("--vocab-dir", type=Path, default=here / "vocab")
     args = p.parse_args()
 
