@@ -19,7 +19,8 @@ movoc/                      segmentation and evaluation code
 data/
   morphemes/                morpheme annotation sets (see below)
     amharic_morphemes.json    153,759 entries
-    Tigriyna_Morphem.json         206 entries  (gold standard)
+    tigrinya_morphemes.json     7,531 entries
+    Tigriyna_Morphem.json         206 entries  (gold standard, held out)
     tigre_morphems.json         8,117 entries  (gold standard)
     Geez_Morphem.json             193 entries  (gold standard)
   raw/
@@ -40,13 +41,20 @@ whether a morphological analyzer covers the language:
 | Language | Initial analysis | Human post-editing | Final annotation | Entries |
 |---|---|---|---|---|
 | Amharic  | HornMorpho | yes | Curated | 153,759 |
-| Tigrinya | HornMorpho | yes | Curated + gold standard | 206 (gold) |
+| Tigrinya | HornMorpho | yes | Curated + gold standard | 7,531 curated + 206 gold |
 | Ge'ez    | — | manual | Gold standard | 193 |
 | Tigre    | — | manual | Gold standard | 8,117 |
 
 For **Amharic and Tigrinya**, HornMorpho provides the initial morphological
 analysis, which is then manually post-edited for consistency. Post-editing is
 essential rather than cosmetic, particularly for Tigrinya.
+
+Tigrinya has two sets, kept deliberately apart: `tigrinya_morphemes.json`
+(7,531 entries, 7,125 distinct morphemes) is the curated set that feeds
+vocabulary construction, while `Tigriyna_Morphem.json` (206 entries) is the
+gold standard **held out** for evaluation. The two are largely independent —
+only 23 of the gold set's 192 words appear in the curated set — so intrinsic
+scores are not measured against the vocabulary's own training material.
 
 For **Ge'ez and Tigre**, no morphological analyzer offers usable coverage, so
 both sets are human-annotated end to end under linguistic supervision.
