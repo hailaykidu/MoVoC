@@ -27,6 +27,12 @@ requirements.txt
 
 configs/                    bpe_config.json, movoc_config.json
 
+evaluation/
+  finetune_marianmt.py      MarianMT fine-tuning (Sec 4.3)
+  results/                  evaluation output
+scripts/
+  submit_marianmt.sh        Slurm wrapper (1 GPU, 6 CPU, 32 GB, 24 h)
+
 movoc/
   preprocessing.py          corpus preparation
   hornmorph.py              interface to HornMorpho
@@ -202,6 +208,33 @@ Where OPUS coverage falls short — as it does for Tigrinya and Tigre — the
 remainder is made up with human-validated pairs, so every language is scored
 on an equally sized set.
 
+#### MarianMT fine-tuning (Sec 4.3)
+
+Downstream translation quality is measured by fine-tuning **MarianMT**
+(Junczys-Dowmunt et al., 2018) on the English–Amharic and English–Tigrinya
+parallel corpora from NLLB, then comparing the MoVoC vocabulary against the
+BPE and WordPiece baselines.
+
+| Setting | Value |
+|---|---|
+| Epochs | 3 |
+| Batch size | 8 |
+| Max sequence length | 128 tokens |
+| Learning rate | 1.44e-07, decayed through training |
+| transformers | 4.51.3 |
+| Hardware | 1 GPU, 6 CPU cores, 32 GB RAM (Slurm) |
+| Max runtime | 24 hours |
+| Environment | Conda-managed |
+
+Reported run: gradient norms 1.14 → 1.06, training loss 0.443 → 0.438,
+approximately 12 hours at ~96.7 samples/second.
+
+`evaluation/finetune_marianmt.py` builds this configuration;
+`scripts/submit_marianmt.sh` is the Slurm wrapper requesting exactly those
+resources. Both require a GPU and the NLLB corpora — **this fine-tuning has
+not been run from this repository**, and no downstream results are reported
+here yet.
+
 ## Usage
 
 ```bash
@@ -237,6 +270,10 @@ python tokenize.py tigrinya "ኣይመፀን"
 - Costa-Jussà, M. R., Cross, J., Çelebi, O., Elbayad, M., Heafield, K.,
   Heffernan, K., et al. (2022). *No Language Left Behind: Scaling
   Human-Centered Machine Translation.* arXiv:2207.04672.
+- Junczys-Dowmunt, M., Grundkiewicz, R., Dwojak, T., Hoang, H., Heafield, K.,
+  Neckermann, T., et al. (2018). *Marian: Fast Neural Machine Translation in
+  C++.* In Proceedings of ACL 2018, System Demonstrations. — MarianMT, the
+  model fine-tuned for extrinsic evaluation.
 - Tiedemann, J. (2012). *Parallel Data, Tools and Interfaces in OPUS.*
   In Proceedings of the 8th International Conference on Language Resources
   and Evaluation (LREC 2012). — Source of the extrinsic evaluation sentence

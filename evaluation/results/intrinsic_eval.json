@@ -1,0 +1,49 @@
+{
+  "alpha": 2.0,
+  "results": [
+    {
+      "language": "tigrinya",
+      "gold_words": 80,
+      "bpe": {
+        "vocab_size": 32000,
+        "boundary_precision": 1.6,
+        "morphscore": 1.8,
+        "renyi_entropy": 0.92,
+        "renyi_entropy_nats": 4.3089,
+        "distinct_tokens": 108,
+        "segmented_words": 47
+      },
+      "wordpiece": {
+        "vocab_size": 32000,
+        "boundary_precision": 35.0,
+        "morphscore": 38.2,
+        "renyi_entropy": 0.91,
+        "renyi_entropy_nats": 4.2273,
+        "distinct_tokens": 103,
+        "segmented_words": 47
+      }
+    },
+    {
+      "language": "amharic",
+      "gold_words": 37048,
+      "bpe": {
+        "vocab_size": 32000,
+        "boundary_precision": 0.8,
+        "morphscore": 2.1,
+        "renyi_entropy": 0.73,
+        "renyi_entropy_nats": 6.8632,
+        "distinct_tokens": 11911,
+        "segmented_words": 31081
+      },
+      "wordpiece": {
+        "vocab_size": 32000,
+        "boundary_precision": 8.3,
+        "morphscore": 21.0,
+        "renyi_entropy": 0.68,
+        "renyi_entropy_nats": 6.2044,
+        "distinct_tokens": 9662,
+        "segmented_words": 31774
+      }
+    }
+  ]
+}
