@@ -176,7 +176,24 @@ def main():
             continue
         rows.append(evaluate(lang, gold, arms, args.alpha))
 
-    io.write_json(args.out, {"alpha": args.alpha, "results": rows})
+    io.write_json(args.out, {
+        "alpha": args.alpha,
+        "arms": {
+            "movoc_tok": "MoVoC-Tok (paper Sec 3.3): constrained-merge BPE, "
+                         "merges forbidden from crossing morpheme boundaries",
+            "movoc_vocab": "baseline -- greedy longest-match over V_MoVoC "
+                           "(Algorithm 1 Step 5); no constrained merges",
+            "bpe": "baseline -- plain byte-level BPE (HF tokenizers)",
+            "wordpiece": "baseline -- WordPiece (HF tokenizers), paper Sec 4.3",
+            "sp_shared": "baseline -- published SentencePiece Unigram tokenizer; "
+                         "not the paper's method",
+        },
+        "note": "Only movoc_tok is the paper's method; every other arm is a "
+                "baseline. Gold sets are held out for Tigrinya only -- for "
+                "Amharic, Ge'ez and Tigre the gold file also feeds vocabulary "
+                "construction, so those scores are optimistic.",
+        "results": rows,
+    })
 
     hdr = (f"{'language':10} {'gold':>6} {'arm':10} {'BoundPrec':>10} "
            f"{'MorphScore':>11} {'Renyi':>8}")
