@@ -69,11 +69,6 @@ def train_bpe(corpus: Path, vocab_size: int, out_dir: Path, lang: str,
     tokenizer.save(str(out_dir / f"bpe_{lang}.json"))
 
     vocab = tokenizer.get_vocab()
-    vocab_txt = out_dir / f"vocab_bpe_{lang}.txt"
-    with open(vocab_txt, "w", encoding="utf-8") as f:
-        for tok, _ in sorted(vocab.items(), key=lambda kv: kv[1]):
-            f.write(tok + "\n")
-
     print(f"[{lang}] trained: {len(vocab)} tokens -> {out_dir / f'bpe_{lang}.json'}")
     return tokenizer
 
