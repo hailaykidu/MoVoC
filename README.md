@@ -252,9 +252,6 @@ BPE and WordPiece baselines.
 | Max runtime | 24 hours |
 | Environment | Conda-managed |
 
-Reported run: gradient norms 1.14 → 1.06, training loss 0.443 → 0.438,
-approximately 12 hours at ~96.7 samples/second.
-
 Model architecture (verified field-for-field against the reported run's
 `config.json`):
 
@@ -293,22 +290,46 @@ resources. Both require a GPU and the NLLB corpora — **this fine-tuning has
 not been run from this repository**, and no downstream results are reported
 here yet.
 
-## Usage
+## Reproducing the experiments
+
+Everything below runs from this repository. Result files are written to
+`evaluation/results/` and are not tracked -- the repository ships the code
+that regenerates them, so any figure can be reproduced from source data
+rather than trusted from a table.
 
 ```bash
 pip install -r requirements.txt
 
-# Algorithm 1, Steps 2-7: vocabulary sizes, BPE, morphemes, merge,
-# and MoVoC-Tok constrained-merge training
+# 1. Vocabulary construction and tokenizer training (Algorithm 1, Steps 2-7)
 python train.py \
     --amharic-corpus  NLLB.am-en.am \
     --tigrinya-corpus NLLB.en-ti.ti \
-    -s 224000 -r 0.7142857142857143
+    -s 224000 -r 0.7142857142857143 \
+    --wordpiece
 
-# Intrinsic evaluation
+# 2. Build the OPUS test sets (Sec 5.1)
+python scripts/build_eval_sets.py --opus-dir <dir with Tatoeba.* files>
+
+# 3. Intrinsic evaluation: boundary precision, MorphScore, Renyi entropy
 python evaluate.py
 
-# Segment text with the trained tokenizer
+# 4. Extrinsic evaluation: all three tokenizers, BLEU and chrF++
+#    (requires a GPU; see Sec 4.3 for the training configuration)
+bash scripts/run_table3.sh amharic \
+    train.en train.am \
+    data/evaluation/amharic/test.en data/evaluation/amharic/test.am
+
+# 5. Regenerate the result tables from whatever the runs produced
+python scripts/make_tables.py        # -> evaluation/results/RESULTS.md
+```
+
+`make_tables.py` reads only the JSON written by steps 3 and 4. A run that
+has not been performed leaves its row absent rather than filled in, so the
+tables never assert a number the repository did not compute.
+
+Segment text with a trained tokenizer:
+
+```bash
 python segment.py tigrinya "ኣይመፀን"
 ```
 
