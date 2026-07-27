@@ -31,6 +31,7 @@ data/
     amh_cleaned_words.txt     cleaned Amharic word list   (13,563 words)
     amh_hornmt_words.txt      Amharic words from HornMT   (13,992 words)
     tir_hornmt_words.txt      Tigrinya words from HornMT  (13,327 words)
+    geez_words.txt            Ge'ez word forms, unannotated  (341 words)
 ```
 
 ## Morpheme data provenance
@@ -109,6 +110,13 @@ input words are retained.
 
 `amh_cleaned_words.txt` (13,563 words) is a separate, earlier Amharic list;
 it overlaps the HornMT-derived one substantially but is not identical.
+
+`geez_words.txt` holds 341 Ge'ez surface forms — verb paradigms (`ሐዘን`,
+`አብርሃ`, `ሰፍሐ`, `በልዐ` conjugations) and triliteral roots — supplied as a word
+list with no prefix/root/suffix annotation. Deduplicated, and disjoint from
+`Geez_Morphem.json`: none of the 341 already appears there. They are **not**
+part of the Ge'ez gold standard and do not feed morpheme extraction; they are
+staged here as candidates for future annotation.
 
 `data/morphemes/amharic_morphemes.json` is the largest resource here by an
 order of magnitude: 153,759 entries covering 150,918 unique words, with a
