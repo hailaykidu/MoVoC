@@ -272,6 +272,7 @@ BPE and WordPiece baselines.
 | Hardware | 1 GPU, 6 CPU cores, 32 GB RAM (Slurm) |
 | Max runtime | 24 hours |
 | Environment | Conda-managed |
+| Training pairs per language | 1,398,173 |
 
 Model architecture (verified field-for-field against the reported run's
 `config.json`):
@@ -303,6 +304,12 @@ its use inappropriate or misleading.
 
 Directions: `en-am`, `am-en`, `en-ti`, `ti-en` from training, plus `en-tig`
 and `tig-en` **zero-shot**, Tigre having been excluded from training.
+
+Both languages train on the same number of sentence pairs. The NLLB Amharic
+side holds 16.1M pairs against Tigrinya's 1,398,173, so Amharic is capped to
+the smaller size: the tokenizer stays the only variable in the Table 3
+comparison, rather than corpus size confounding it. At batch size 8 over 3
+epochs this is 524,316 optimizer steps per run.
 
 `evaluation/translate_eval.py` performs this scoring.
 `evaluation/finetune_marianmt.py` builds this configuration;
