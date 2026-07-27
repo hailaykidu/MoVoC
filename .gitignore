@@ -3,6 +3,7 @@ __pycache__/
 .venv/
 .DS_Store
 *.log
+logs/
 models/bpe_merges_*.txt
 
 # Local run outputs. The repository ships the code to regenerate these;
