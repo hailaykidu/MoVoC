@@ -76,11 +76,12 @@ construction, so only 7,125 of its 7,272 morphemes reach `V_MoVoC`.
 Tigrinya's figure combines both sets: 7,125 curated plus 231 gold, less 84
 shared between them.
 
-Both Amharic and Tigrinya fall short of the paper's per-language morpheme
-budget of 80,000 (Table 5) — Amharic reaches 63.7%, Tigrinya 9.1%. The
-morpheme half of the vocabulary is therefore limited by how much annotated
-data exists, not by the budget, which is why `V_MoVoC` comes out well below
-its nominal size. See Vocabulary construction below.
+`s_morpheme` (80,000 per language, per Table 5) acts as an upper bound rather
+than a target: `extract_morphemes` takes the top-`k` morphemes by frequency,
+and where a language has fewer than `k` distinct morphemes, Top-k returns the
+whole set. Amharic contributes 50,978 and Tigrinya 7,125 — every morpheme
+each language has. The vocabulary is built from the data available, which is
+why `V_MoVoC` totals 114,553 rather than the nominal 224,000.
 
 For **Ge'ez and Tigre**, no morphological analyzer offers usable coverage, so
 both sets are human-annotated end to end under linguistic supervision.
@@ -133,7 +134,7 @@ per language, i.e. `s = 224,000` and `r = 5/7`.
 |---|---|
 | 2. Vocabulary sizes | `s_lang` 112,000 · `s_BPE` 32,000 · `s_morpheme` 80,000 |
 | 3. `Train_BPE(P, s_BPE)` | 32,000 tokens each, over the full NLLB corpora (Amharic 16,137,053 lines; Tigrinya 1,398,173) |
-| 4. `extract_morphemes(P, s_morpheme)` | Amharic 50,978 · Tigrinya 7,125 — both below the 80,000 budget, so Top-k returns every available morpheme |
+| 4. `extract_morphemes(P, s_morpheme)` | Amharic 50,978 · Tigrinya 7,125 — `s_morpheme` bounds the selection, so each language contributes every morpheme it has |
 | 5. Merge | `V_MoVoC` = **114,553** (122,103 before collapsing 7,550 shared tokens) |
 | 6. `Train_MoVoC_Model` | constrained-merge BPE, 32,000 merges per language — see below |
 
