@@ -9,21 +9,28 @@
 #   Amharic, Tigrinya  FLORES-200 dev for validation (Goyal et al., 2022)
 #   all languages      100 OPUS sentence pairs for the final test
 #
-# usage: run_table3.sh <language> <train.en> <train.xx> <test.en> <test.xx> [dev.en dev.xx]
+# usage: run_table3.sh <language> <train.en> <train.xx> <test.en> <test.xx> [dev.en dev.xx] [max-samples]
 
 set -euo pipefail
 
-LANG_=${1:?usage: run_table3.sh <language> <train.en> <train.xx> <test.en> <test.xx> [dev.en dev.xx]}
+LANG_=${1:?usage: run_table3.sh <language> <train.en> <train.xx> <test.en> <test.xx> [dev.en dev.xx] [max-samples]}
 TRAIN_SRC=${2:?}
 TRAIN_TGT=${3:?}
 TEST_SRC=${4:?}
 TEST_TGT=${5:?}
 DEV_SRC=${6:-}
 DEV_TGT=${7:-}
+MAX_SAMPLES=${8:-}
 
 DEV_ARGS=()
 if [[ -n "$DEV_SRC" && -n "$DEV_TGT" ]]; then
     DEV_ARGS=(--valid-source "$DEV_SRC" --valid-reference "$DEV_TGT")
+fi
+
+# Both languages train on the same number of pairs, so corpus size does not
+# confound the tokenizer comparison; see the README.
+if [[ -n "$MAX_SAMPLES" ]]; then
+    DEV_ARGS+=(--max-samples "$MAX_SAMPLES")
 fi
 
 for STRATEGY in movoc_tok bpe wordpiece; do
