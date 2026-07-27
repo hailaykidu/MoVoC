@@ -47,6 +47,7 @@ movoc/
 
 data/
   raw/                      HornMT parallel corpus; unannotated word lists
+  evaluation/               OPUS test sets (Sec 5.1), per language
   annotations/
     amharic/postedited_morphemes.json    HornMorpho + human post-editing
     tigrinya/postedited_morphemes.json   HornMorpho + human post-editing
@@ -209,6 +210,21 @@ language, capped at 100 to keep the evaluation balanced:
 | Tigrinya | 100 | 74 from OPUS + 26 human-validated |
 | Tigre    | 100 | 45 from OPUS + 55 human-validated |
 | Ge'ez    | 100 | newly created and validated |
+
+The OPUS portions are built into `data/evaluation/` by
+`scripts/build_eval_sets.py`, drawn from the Tatoeba corpus. Pairs with an
+empty side are dropped, since an empty reference makes BLEU undefined, so the
+usable counts fall slightly below the raw line counts:
+
+| Language | Raw OPUS | Usable | Human-validated still needed |
+|---|---|---|---|
+| Amharic  | 213 | **100** | 0 — complete |
+| Tigrinya |  74 |  71 | 29 |
+| Tigre    |  45 |  43 | 57 |
+
+Amharic's test set is complete at 100 pairs. Tigrinya's and Tigre's are the
+OPUS portion only; the human-validated remainders are not part of this
+repository. `data/evaluation/manifest.json` records these counts.
 
 **Ge'ez is evaluated intrinsically only** — no parallel data exists for it.
 For every language, intrinsic evaluation uses the annotated morpheme test sets

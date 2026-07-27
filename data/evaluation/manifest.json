@@ -1,0 +1,27 @@
+{
+  "amharic": {
+    "source": "OPUS / Tatoeba (Tiedemann, 2012)",
+    "raw_lines": 213,
+    "usable_opus_pairs": 100,
+    "target_pairs": 100,
+    "human_validated_needed": 0
+  },
+  "tigrinya": {
+    "source": "OPUS / Tatoeba (Tiedemann, 2012)",
+    "raw_lines": 74,
+    "usable_opus_pairs": 71,
+    "target_pairs": 100,
+    "human_validated_needed": 29
+  },
+  "tigre": {
+    "source": "OPUS / Tatoeba (Tiedemann, 2012)",
+    "raw_lines": 45,
+    "usable_opus_pairs": 43,
+    "target_pairs": 100,
+    "human_validated_needed": 57
+  },
+  "geez": {
+    "source": "none -- no parallel data",
+    "note": "evaluated intrinsically only (paper Sec 5.1)"
+  }
+}
