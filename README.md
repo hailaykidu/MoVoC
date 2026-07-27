@@ -22,6 +22,10 @@ data/
     tigre_morphems.json         8,117 entries  (gold standard)
     Geez_Morphem.json             193 entries  (gold standard)
   raw/
+    hornmt/                   HornMT parallel corpus, 2,030 aligned sentences
+      amh.txt                   Amharic  (39,102 tokens)
+      tir.txt                   Tigrinya (43,511 tokens)
+      eng.txt                   English
     amh_cleaned_words.txt     cleaned Amharic word list   (13,563 words)
     amh_hornmt_words.txt      Amharic words from HornMT   (13,992 words)
     tir_hornmt_words.txt      Tigrinya words from HornMT  (13,327 words)
@@ -56,14 +60,18 @@ five-way `prefix / root / suffix / infix / clitic` scheme; Ge'ez carries four
 `data/raw/` holds unannotated word lists — **corpus material only**, carrying
 no morpheme annotation and forming no part of the annotated sets above.
 
+`raw/hornmt/` is the **HornMT parallel corpus** at sentence level: 2,030
+English–Amharic–Tigrinya aligned sentences, the origin of all Amharic and
+Tigrinya material submitted for morphological analysis. Whitespace-tokenizing
+`amh.txt` and `tir.txt` yields exactly 39,102 and 43,511 tokens.
+
 `amh_hornmt_words.txt` and `tir_hornmt_words.txt` (13,992 Amharic and 13,327
-Tigrinya unique Ge'ez-script forms) are the words submitted for morphological
-analysis, taken from the HornMT parallel corpus. Both derive from the word
-column of `amharic_segmentation_output.txt` and `Tigr_segmentation_output.txt`
-respectively; those files' analysis columns are discarded, since the
-HornMorpho pass they record returned no usable segmentation — every line
-either echoed the surface form or reported `NO_SEGMENTATION`. Only the input
-words are retained.
+Tigrinya unique Ge'ez-script forms) are those same tokens deduplicated to word
+type. They come from the word column of `amharic_segmentation_output.txt` and
+`Tigr_segmentation_output.txt`; those files' analysis columns are discarded,
+since the HornMorpho pass they record returned no usable segmentation — every
+line either echoed the surface form or reported `NO_SEGMENTATION`. Only the
+input words are retained.
 
 `amh_cleaned_words.txt` (13,563 words) is a separate, earlier Amharic list;
 it overlaps the HornMT-derived one substantially but is not identical.
