@@ -1,5 +1,5 @@
 """
-tokenize.py -- segment text with a trained MoVoC-Tok tokenizer.
+segment.py -- segment text with a trained MoVoC-Tok tokenizer.
 
 Applies the constrained merge table learned in Algorithm 1, Step 6.
 """
