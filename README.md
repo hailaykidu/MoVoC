@@ -29,9 +29,11 @@ configs/                    bpe_config.json, movoc_config.json
 
 evaluation/
   finetune_marianmt.py      MarianMT fine-tuning (Sec 4.3)
+  translate_eval.py         BLEU and chrF++ scoring (Sec 5.1)
   results/                  evaluation output
 scripts/
   submit_marianmt.sh        Slurm wrapper (1 GPU, 6 CPU, 32 GB, 24 h)
+  submit_translate_eval.sh  Slurm wrapper for MT scoring
 
 movoc/
   preprocessing.py          corpus preparation
@@ -247,6 +249,20 @@ Training covers **English–Amharic** and **English–Tigrinya** only. **Tigre i
 excluded from training entirely** and appears at evaluation to measure
 zero-shot translation between Ge'ez-script languages.
 
+Translation quality is scored with **BLEU** and **chrF++** (sacrebleu),
+measuring n-gram and character-level overlap. Because these can overlook
+morphological improvements, they are complemented by the intrinsic metrics
+above.
+
+**COMET is deliberately not used.** It depends on pretrained models and
+reference corpora available only for high-resource languages; no reliable
+COMET-compatible model exists for Tigrinya, Tigre, or Ge'ez, which would make
+its use inappropriate or misleading.
+
+Directions: `en-am`, `am-en`, `en-ti`, `ti-en` from training, plus `en-tig`
+and `tig-en` **zero-shot**, Tigre having been excluded from training.
+
+`evaluation/translate_eval.py` performs this scoring.
 `evaluation/finetune_marianmt.py` builds this configuration;
 `scripts/submit_marianmt.sh` is the Slurm wrapper requesting exactly those
 resources. Both require a GPU and the NLLB corpora — **this fine-tuning has
