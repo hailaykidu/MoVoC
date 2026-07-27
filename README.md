@@ -6,7 +6,8 @@ Teklehaymanot, Fazlija, Nejdl).
 
 MoVoC builds a hybrid morpheme + BPE subword vocabulary for four Ge'ez-script
 languages — Amharic, Tigrinya, Tigre, and Ge'ez — and evaluates it against
-plain BPE using MorphScore and Boundary Precision.
+plain BPE both intrinsically (MorphScore, Boundary Precision) and
+extrinsically (downstream machine translation). See Evaluation below.
 
 ## Repository layout
 
@@ -93,6 +94,38 @@ project (Costa-Jussà et al., 2022), used in two places:
    corpora mined and released by Meta AI as part of NLLB, used to fine-tune
    MarianMT for the translation evaluation.
 
+## Evaluation
+
+MoVoC is evaluated two ways: **intrinsically**, on segmentation quality, and
+**extrinsically**, on downstream machine translation.
+
+### Intrinsic
+
+For all four languages, intrinsic evaluation uses the annotated morpheme test
+sets in `data/morphemes/`, designed specifically to assess segmentation
+quality, and scored with MorphScore and Boundary Precision (`movoc/metrics.py`).
+
+Ge'ez is evaluated **intrinsically only**, as no parallel data is available
+for it.
+
+### Extrinsic
+
+Extrinsic evaluation runs on an unseen subset of the first 100 sentence pairs
+from the **OPUS** parallel corpus (Tiedemann, 2012), for each target language.
+Each language pair is capped at 100 sentence pairs to keep the evaluation
+balanced across languages:
+
+| Language | Sentence pairs | Composition |
+|---|---|---|
+| Amharic  | 100 | 100 of 213 available from OPUS |
+| Tigrinya | 100 | 74 from OPUS + 26 human-validated |
+| Tigre    | 100 | 45 from OPUS + 55 human-validated |
+| Ge'ez    | 100 | 100 newly created and validated (intrinsic evaluation only) |
+
+Where OPUS coverage falls short — as it does for Tigrinya and Tigre — the
+remainder is made up with human-validated pairs, so every language is scored
+on an equally sized set.
+
 ## Usage
 
 ```python
@@ -118,5 +151,9 @@ seg.segment_word("ኣይመፀን")      # -> Segmentation(prefix='ኣይ-', roo
 - Costa-Jussà, M. R., Cross, J., Çelebi, O., Elbayad, M., Heafield, K.,
   Heffernan, K., et al. (2022). *No Language Left Behind: Scaling
   Human-Centered Machine Translation.* arXiv:2207.04672.
+- Tiedemann, J. (2012). *Parallel Data, Tools and Interfaces in OPUS.*
+  In Proceedings of the 8th International Conference on Language Resources
+  and Evaluation (LREC 2012). — Source of the extrinsic evaluation sentence
+  pairs.
 - HornMorpho — morphological analyzer for Horn of Africa languages,
   <https://github.com/hltdi/HornMorpho>.
