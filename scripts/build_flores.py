@@ -15,6 +15,13 @@ import argparse
 import json
 from pathlib import Path
 
+# FLORES+ ships password-protected so the sentences are not picked up by
+# web crawlers; the password is published in the OLDI README and is not a
+# secret. This repository redistributes the extracted Amharic/Tigrinya
+# subset the same way, in data/evaluation/flores200.zip.
+ARCHIVE = "flores200.zip"
+ARCHIVE_PASSWORD = b"multilingual machine translation"
+
 LANGUAGES = {"amharic": "amh_Ethi", "tigrinya": "tir_Ethi"}
 ENGLISH = "eng_Latn"
 SPLITS = ("dev", "devtest")
@@ -36,6 +43,20 @@ def main():
     p.add_argument("-o", "--out-dir", type=Path,
                    default=here / "data/evaluation")
     args = p.parse_args()
+
+    archive = args.out_dir / ARCHIVE
+    if args.flores_dir is None and archive.exists():
+        # Prefer the archive shipped with the repository.
+        import zipfile
+        with zipfile.ZipFile(archive) as z:
+            z.setpassword(ARCHIVE_PASSWORD)
+            for name in z.namelist():
+                lang, _, rest = name.partition("_")
+                out = args.out_dir / lang
+                out.mkdir(parents=True, exist_ok=True)
+                (out / rest).write_bytes(z.read(name))
+                print(f"  extracted {lang}/{rest}")
+        return
 
     root = args.flores_dir
     if root is None:
