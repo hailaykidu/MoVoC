@@ -72,6 +72,33 @@ def hf_segmenter(model_path: Path):
     return seg, {"vocab_size": tok.get_vocab_size()}
 
 
+def vocab_segmenter(vocab_path: Path):
+    """Segment by longest match over a vocabulary, no merge table.
+
+    This scores V_MoVoC (Algorithm 1, Step 5) as it stands -- the union of
+    the per-language BPE and morpheme vocabularies -- before MoVoC-Tok's
+    constrained merges (Step 6) are trained. Greedy longest-match is the
+    segmentation a bare vocabulary supports; it is not MoVoC-Tok, and is
+    reported separately as `movoc_vocab`.
+    """
+    vocab = set(io.read_vocabulary(vocab_path))
+    vocab.discard("")
+
+    def seg(word: str) -> list:
+        out, i = [], 0
+        while i < len(word):
+            for j in range(len(word), i, -1):
+                if word[i:j] in vocab:
+                    out.append(word[i:j])
+                    i = j
+                    break
+            else:
+                out.append(word[i])
+                i += 1
+        return out
+    return seg, {"vocab_size": len(vocab)}
+
+
 def evaluate(lang: str, gold_path: Path, arms: dict, alpha: float) -> dict:
     """Score every arm in `arms` (name -> (segmenter, meta)) on one language."""
     gold = gold_triples(gold_path)
@@ -116,6 +143,9 @@ def main():
         merges = io.MODELS / f"movoc_tok_merges_{lang}.txt"
         if merges.exists():
             arms["movoc_tok"] = merge_segmenter(merges)
+        movoc_vocab = io.VOCABULARY / "vocab_movoc.txt"
+        if movoc_vocab.exists():
+            arms["movoc_vocab"] = vocab_segmenter(movoc_vocab)
         for name, fname in (("bpe", f"bpe_{lang}.json"),
                             ("wordpiece", f"wordpiece_{lang}.json")):
             path = io.VOCABULARY / fname
@@ -135,7 +165,7 @@ def main():
         if "error" in r:
             print(f"{r['language']:10} {r['error']}")
             continue
-        for arm in ("movoc_tok", "bpe", "wordpiece"):
+        for arm in ("movoc_tok", "movoc_vocab", "bpe", "wordpiece"):
             if arm in r:
                 a = r[arm]
                 print(f"{r['language']:10} {r['gold_words']:6} {arm:10} "

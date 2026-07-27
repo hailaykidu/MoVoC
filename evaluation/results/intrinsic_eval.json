@@ -4,6 +4,15 @@
     {
       "language": "tigrinya",
       "gold_words": 80,
+      "movoc_vocab": {
+        "vocab_size": 114553,
+        "boundary_precision": 50.9,
+        "morphscore": 66.7,
+        "renyi_entropy": 0.84,
+        "renyi_entropy_nats": 3.9392,
+        "distinct_tokens": 109,
+        "segmented_words": 72
+      },
       "bpe": {
         "vocab_size": 32000,
         "boundary_precision": 1.6,
@@ -24,8 +33,43 @@
       }
     },
     {
+      "language": "geez",
+      "gold_words": 97,
+      "movoc_vocab": {
+        "vocab_size": 114553,
+        "boundary_precision": 40.4,
+        "morphscore": 53.1,
+        "renyi_entropy": 0.86,
+        "renyi_entropy_nats": 3.6918,
+        "distinct_tokens": 73,
+        "segmented_words": 93
+      }
+    },
+    {
+      "language": "tigre",
+      "gold_words": 8053,
+      "movoc_vocab": {
+        "vocab_size": 114553,
+        "boundary_precision": 23.3,
+        "morphscore": 73.8,
+        "renyi_entropy": 0.66,
+        "renyi_entropy_nats": 4.9493,
+        "distinct_tokens": 1719,
+        "segmented_words": 5491
+      }
+    },
+    {
       "language": "amharic",
       "gold_words": 37048,
+      "movoc_vocab": {
+        "vocab_size": 114553,
+        "boundary_precision": 63.6,
+        "morphscore": 73.1,
+        "renyi_entropy": 0.49,
+        "renyi_entropy_nats": 4.8609,
+        "distinct_tokens": 22482,
+        "segmented_words": 17965
+      },
       "bpe": {
         "vocab_size": 32000,
         "boundary_precision": 0.8,
