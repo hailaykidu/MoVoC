@@ -36,6 +36,8 @@ def main():
                    help="lines used for Step 6 merge learning")
     p.add_argument("--skip-step6", action="store_true",
                    help="stop after Step 5")
+    p.add_argument("--wordpiece", action="store_true",
+                   help="also train the WordPiece baseline (paper Sec 4.3)")
     p.add_argument("--skip-bpe", action="store_true",
                    help="reuse the BPE tokenizers already in data/vocabulary/ "
                         "instead of retraining them in Step 3")
@@ -56,6 +58,18 @@ def main():
             continue
         tokenizer.train_bpe(corpora[lang], sizes["s_bpe"],
                             io.VOCABULARY, lang, args.max_lines)
+
+    if args.wordpiece:
+        # Paper Sec 4.3: BPE and WordPiece as baseline subword tokenizers,
+        # trained at the same size on the same corpora.
+        print("\nBaseline -- WordPiece (Sec 4.3)")
+        for lang in LANGS:
+            existing = io.VOCABULARY / f"wordpiece_{lang}.json"
+            if args.skip_bpe and existing.exists():
+                print(f"  [{lang}] reusing {existing}")
+                continue
+            tokenizer.train_wordpiece(corpora[lang], sizes["s_bpe"],
+                                      io.VOCABULARY, lang, args.max_lines)
 
     print(f"\nStep 4 -- extract_morphemes(P, s_morpheme={sizes['s_morpheme']})")
     v_morph = {}
