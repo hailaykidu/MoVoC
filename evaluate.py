@@ -20,7 +20,8 @@ from collections import Counter
 from pathlib import Path
 
 from movoc import annotation, io, tokenizer
-from movoc.metrics import boundary_precision, morphscore, renyi_entropy
+from movoc.metrics import (boundary_precision, morphscore, renyi_entropy,
+                           normalized_renyi_entropy)
 from movoc.utils import gold_triples
 
 END = tokenizer.END
@@ -85,9 +86,12 @@ def evaluate(lang: str, gold_path: Path, arms: dict, alpha: float) -> dict:
         pred = [triple_from_tokens(w, s) for w, s in zip(words, segs)]
         counts = Counter(t for s in segs for t in s)
         row[name] = dict(meta, **{
-            "boundary_precision": round(boundary_precision(pred, gold_tr), 4),
-            "morphscore": round(morphscore(pred, gold_tr), 4),
-            "renyi_entropy": round(renyi_entropy(counts, alpha), 4),
+            # Paper Table 4 scales: precision as a percentage, Renyi
+            # normalized to [0, 1]. Raw nats kept alongside.
+            "boundary_precision": round(100 * boundary_precision(pred, gold_tr), 1),
+            "morphscore": round(100 * morphscore(pred, gold_tr), 1),
+            "renyi_entropy": round(normalized_renyi_entropy(counts, alpha), 2),
+            "renyi_entropy_nats": round(renyi_entropy(counts, alpha), 4),
             "distinct_tokens": len(counts),
             "segmented_words": sum(1 for p in pred if p[0] or p[2]),
         })
@@ -135,8 +139,8 @@ def main():
             if arm in r:
                 a = r[arm]
                 print(f"{r['language']:10} {r['gold_words']:6} {arm:10} "
-                      f"{a['boundary_precision']:10.4f} {a['morphscore']:11.4f} "
-                      f"{a['renyi_entropy']:8.4f}")
+                      f"{a['boundary_precision']:10.1f} {a['morphscore']:11.1f} "
+                      f"{a['renyi_entropy']:8.2f}")
     print(f"\nwritten to {args.out}")
 
 

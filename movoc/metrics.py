@@ -93,3 +93,18 @@ def renyi_entropy(token_frequencies: Counter, alpha: float = 2.0) -> float:
     if sum_p_alpha <= 0:
         return 0.0
     return (1.0 / (1.0 - alpha)) * math.log(sum_p_alpha)
+
+
+def normalized_renyi_entropy(token_frequencies: Counter,
+                             alpha: float = 2.0) -> float:
+    """Renyi entropy divided by log(support), giving a value in [0, 1].
+
+    The paper reports Renyi entropy on this scale (Table 4: 0.39-0.49 at
+    alpha = 2), where the maximum log(support) corresponds to a perfectly
+    uniform distribution over the tokens used. Lower means the tokenizer
+    concentrates its mass on fewer, more consistent subwords.
+    """
+    support = len(token_frequencies)
+    if support <= 1:
+        return 0.0
+    return renyi_entropy(token_frequencies, alpha) / math.log(support)
