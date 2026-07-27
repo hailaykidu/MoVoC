@@ -18,9 +18,8 @@ Section 6:
   a single whole-word token), what fraction did the segmenter also mark.
 
 Both operate on a word's (prefix, root, suffix) triple by converting it to
-a set of character-offset cut positions, so the same representation used
-by movoc.segmenter.Segmentation works directly as either "predicted" or
-"gold" input.
+a set of character-offset cut positions, so the same representation serves
+as either "predicted" or "gold" input.
 """
 
 import math

@@ -12,10 +12,19 @@ extrinsically (downstream machine translation). See Evaluation below.
 ## Repository layout
 
 ```
-movoc/                      segmentation and evaluation code
+movoc/
   __init__.py
-  segmenter.py              rule-based prefix/suffix segmenter
-  metrics.py                MorphScore / Boundary Precision
+  metrics.py                Boundary Precision, MorphScore, Renyi entropy
+scripts/
+  train_bpe.py              Algorithm 1, Steps 2-3: vocabulary sizes, BPE
+  build_vocab.py            Algorithm 1, Steps 4-5: morphemes, merge
+  train_movoc_tok.py        Algorithm 1, Step 6: constrained-merge BPE
+  run_intrinsic_eval.py     intrinsic evaluation
+vocab/
+  bpe_{amharic,tigrinya}.json     trained BPE tokenizers (32,000 each)
+  vocab_bpe_{amharic,tigrinya}.txt
+  vocab_movoc.txt                 V_MoVoC (114,553 tokens)
+  bpe_config.json, movoc_config.json
 data/
   morphemes/                morpheme annotation sets (see below)
     amharic_morphemes.json    153,759 entries
@@ -198,11 +207,26 @@ on an equally sized set.
 
 ## Usage
 
-```python
-from movoc.segmenter import MorphemeSegmenter
+Reproduce the vocabulary from the corpora, in Algorithm 1 order:
 
-seg = MorphemeSegmenter("tigrinya")
-seg.segment_word("ኣይመፀን")      # -> Segmentation(prefix='ኣይ-', root='መፀ', suffix='-ን')
+```bash
+# Steps 2-3: vocabulary sizes and per-language BPE
+python scripts/train_bpe.py \
+    --amharic-corpus  NLLB.am-en.am \
+    --tigrinya-corpus NLLB.en-ti.ti \
+    -s 224000 -r 0.7142857142857143
+
+# Steps 4-5: morpheme extraction and merge -> vocab/vocab_movoc.txt
+python scripts/build_vocab.py
+
+# Step 6: constrained-merge BPE (MoVoC-Tok)
+python scripts/train_movoc_tok.py \
+    --amharic-corpus  NLLB.am-en.am \
+    --tigrinya-corpus NLLB.en-ti.ti \
+    --max-lines 0
+
+# Intrinsic evaluation
+python scripts/run_intrinsic_eval.py
 ```
 
 ## Citation
