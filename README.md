@@ -56,6 +56,31 @@ gold standard **held out** for evaluation. The two are largely independent —
 only 23 of the gold set's 192 words appear in the curated set — so intrinsic
 scores are not measured against the vocabulary's own training material.
 
+### Annotated resource totals
+
+The table below reports the **combined annotated resource** per language:
+every morpheme in the curated and gold sets together. This is a description
+of the annotation effort, and is deliberately *not* the same thing as the
+vocabulary input — for Tigrinya the gold set is held out of vocabulary
+construction, so only 7,125 of its 7,272 morphemes reach `V_MoVoC`.
+
+| Language | Entries | Distinct morphemes |
+|---|---|---|
+| Amharic  | 153,759 | 50,978 |
+| Tigrinya |   7,737 |  7,272 |
+| Ge'ez    |     193 |     69 |
+| Tigre    |   8,117 |  3,950 |
+| **Total distinct** | | **60,128** |
+
+Tigrinya's figure combines both sets: 7,125 curated plus 231 gold, less 84
+shared between them.
+
+Both Amharic and Tigrinya fall short of the paper's per-language morpheme
+budget of 80,000 (Table 5) — Amharic reaches 63.7%, Tigrinya 9.1%. The
+morpheme half of the vocabulary is therefore limited by how much annotated
+data exists, not by the budget, which is why `V_MoVoC` comes out well below
+its nominal size. See Vocabulary construction below.
+
 For **Ge'ez and Tigre**, no morphological analyzer offers usable coverage, so
 both sets are human-annotated end to end under linguistic supervision.
 
@@ -90,6 +115,41 @@ order of magnitude: 153,759 entries covering 150,918 unique words, with a
 consistent key set throughout. Field coverage is root 99.9%, prefix 60.5%,
 suffix 54.8%, infix 14.3%, clitic 13.7%; 80.5% of entries carry at least one
 affix, and the remaining 19.5% are root-only surface forms.
+
+## Vocabulary construction (Algorithm 1)
+
+Parameters follow the paper's Table 5: 32,000 BPE + 80,000 morpheme tokens
+per language, i.e. `s = 224,000` and `r = 5/7`.
+
+| Step | Result |
+|---|---|
+| 2. Vocabulary sizes | `s_lang` 112,000 · `s_BPE` 32,000 · `s_morpheme` 80,000 |
+| 3. `Train_BPE(P, s_BPE)` | 32,000 tokens each, over the full NLLB corpora (Amharic 16,137,053 lines; Tigrinya 1,398,173) |
+| 4. `extract_morphemes(P, s_morpheme)` | Amharic 50,978 · Tigrinya 7,125 — both below the 80,000 budget, so Top-k returns every available morpheme |
+| 5. Merge | `V_MoVoC` = **114,553** (122,103 before collapsing 7,550 shared tokens) |
+| 6. `Train_MoVoC_Model` | constrained-merge BPE, 32,000 merges per language — see below |
+
+`V_MoVoC` lands at 114,553 rather than the nominal 224,000 because the
+morpheme half is bounded by the annotated data available (see Annotated
+resource totals above), not by `s_morpheme`.
+
+### Step 6: MoVoC-Tok constrained merges
+
+Step 6 is not the Step 5 vocabulary handed to a stock BPE tokenizer. Per the
+paper's Sec 3.3, the merge process itself is constrained:
+
+```
+max_V  sum_i log P(BPE(w_i; V, M_i))    s.t. no merge unit crosses M_i
+```
+
+Each word carries the morpheme boundary offsets implied by its annotation,
+and a merge candidate is counted only when both symbols fall inside the same
+morpheme. Pairs straddling a boundary are never counted and never enter the
+merge table, so the learned merges cannot fuse across a morpheme boundary.
+
+Words whose annotated morphemes do not concatenate back to the surface form
+(templatic morphology, fidel fusion at a boundary) contribute no constraint
+rather than a guessed one.
 
 ## Data
 

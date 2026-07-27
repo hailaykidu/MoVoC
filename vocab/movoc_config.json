@@ -1,15 +1,15 @@
 {
-  "s": 152000,
-  "r": 0.71,
-  "s_lang": 76000,
-  "s_bpe": 22040,
-  "s_morpheme": 53960,
+  "s": 224000,
+  "r": 0.7142857142857143,
+  "s_lang": 112000,
+  "s_bpe": 32000,
+  "s_morpheme": 80000,
   "amharic_corpus": "../../NLLB.am-en.am",
   "tigrinya_corpus": "../../Machine_Translation/data/NLLB.en-ti.ti",
   "max_lines": null,
-  "v_bpe_amharic": 22040,
-  "v_bpe_tigrinya": 22040,
+  "v_bpe_amharic": 32000,
+  "v_bpe_tigrinya": 32000,
   "v_morpheme_amharic": 50978,
   "v_morpheme_tigrinya": 7125,
-  "v_movoc": 96390
+  "v_movoc": 114553
 }

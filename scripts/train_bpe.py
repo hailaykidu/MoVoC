@@ -29,8 +29,10 @@ def vocab_sizes(s: int, r: float) -> dict:
     if not 0.0 <= r <= 1.0:
         raise ValueError(f"r must be in [0, 1], got {r}")
     s_lang = s // 2
-    s_bpe = int(s_lang * (1 - r))
-    s_morpheme = int(s_lang * r)
+    s_bpe = round(s_lang * (1 - r))
+    # Take the remainder rather than round(s_lang * r) so the two halves sum
+    # to exactly s_lang -- float r (e.g. 5/7) otherwise loses a token here.
+    s_morpheme = s_lang - s_bpe
     return {"s": s, "r": r, "s_lang": s_lang, "s_bpe": s_bpe, "s_morpheme": s_morpheme}
 
 
