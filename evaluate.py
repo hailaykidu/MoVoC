@@ -26,7 +26,7 @@ from movoc.utils import gold_triples
 END = tokenizer.END
 
 
-def predicted_triple(word: str, ranks: dict) -> tuple:
+def triple_from_tokens(word: str, toks: list) -> tuple:
     """Convert a tokenization into a (prefix, root, suffix)-shaped triple.
 
     The metrics compare boundary *offsets*, so what matters is where the
@@ -34,7 +34,6 @@ def predicted_triple(word: str, ranks: dict) -> tuple:
     contributes its first cut and last cut; words left whole contribute no
     boundary, which is what MorphScore treats as unsegmented.
     """
-    toks = [t[:-len(END)] if t.endswith(END) else t for t in tokenizer.encode(word, ranks)]
     toks = [t for t in toks if t]
     if len(toks) <= 1:
         return ("", word, "")
@@ -43,15 +42,37 @@ def predicted_triple(word: str, ranks: dict) -> tuple:
     return (toks[0], "".join(toks[1:-1]), toks[-1])
 
 
-def token_counter(words, ranks) -> Counter:
-    c = Counter()
-    for w in words:
-        c.update(t for t in tokenizer.encode(w, ranks))
-    return c
+def merge_segmenter(merge_path: Path):
+    """Tokenize with a MoVoC-Tok / character-level BPE merge table."""
+    ranks = tokenizer.load_merges(merge_path)
+
+    def seg(word: str) -> list:
+        return [t[:-len(END)] if t.endswith(END) else t
+                for t in tokenizer.encode(word, ranks)]
+    return seg, {"merges": len(ranks)}
 
 
-def evaluate(lang: str, gold_path: Path, movoc_merges: Path,
-             bpe_merges: Path, alpha: float) -> dict:
+def hf_segmenter(model_path: Path):
+    """Tokenize with a saved Hugging Face tokenizer (BPE or WordPiece).
+
+    Continuation markers are stripped so the pieces concatenate back to the
+    surface form and boundary offsets stay comparable across arms.
+    """
+    from tokenizers import Tokenizer as HFTokenizer
+    tok = HFTokenizer.from_file(str(model_path))
+
+    def seg(word: str) -> list:
+        out = []
+        for t in tok.encode(word).tokens:
+            if t.startswith("##"):
+                t = t[2:]
+            out.append(t)
+        return [t for t in out if t]
+    return seg, {"vocab_size": tok.get_vocab_size()}
+
+
+def evaluate(lang: str, gold_path: Path, arms: dict, alpha: float) -> dict:
+    """Score every arm in `arms` (name -> (segmenter, meta)) on one language."""
     gold = gold_triples(gold_path)
     if not gold:
         return {"language": lang, "error": "no scorable gold entries"}
@@ -59,21 +80,17 @@ def evaluate(lang: str, gold_path: Path, movoc_merges: Path,
     gold_tr = [t for _, t in gold]
 
     row = {"language": lang, "gold_words": len(gold)}
-    for name, merge_path in (("movoc_tok", movoc_merges), ("bpe", bpe_merges)):
-        if not merge_path.exists():
-            continue
-        ranks = tokenizer.load_merges(merge_path)
-        pred = [predicted_triple(w, ranks) for w in words]
-        counts = token_counter(words, ranks)
-        segmented = sum(1 for p in pred if p[0] or p[2])
-        row[name] = {
-            "merges": len(ranks),
+    for name, (seg, meta) in arms.items():
+        segs = [seg(w) for w in words]
+        pred = [triple_from_tokens(w, s) for w, s in zip(words, segs)]
+        counts = Counter(t for s in segs for t in s)
+        row[name] = dict(meta, **{
             "boundary_precision": round(boundary_precision(pred, gold_tr), 4),
             "morphscore": round(morphscore(pred, gold_tr), 4),
             "renyi_entropy": round(renyi_entropy(counts, alpha), 4),
             "distinct_tokens": len(counts),
-            "segmented_words": segmented,
-        }
+            "segmented_words": sum(1 for p in pred if p[0] or p[2]),
+        })
     return row
 
 
@@ -91,11 +108,18 @@ def main():
     for lang, gold in annotation.GOLD_SOURCES.items():
         if not gold.exists():
             continue
-        rows.append(evaluate(
-            lang, gold,
-            io.MODELS / f"movoc_tok_merges_{lang}.txt",
-            io.MODELS / f"bpe_merges_{lang}.txt",
-            args.alpha))
+        arms = {}
+        merges = io.MODELS / f"movoc_tok_merges_{lang}.txt"
+        if merges.exists():
+            arms["movoc_tok"] = merge_segmenter(merges)
+        for name, fname in (("bpe", f"bpe_{lang}.json"),
+                            ("wordpiece", f"wordpiece_{lang}.json")):
+            path = io.VOCABULARY / fname
+            if path.exists():
+                arms[name] = hf_segmenter(path)
+        if not arms:
+            continue
+        rows.append(evaluate(lang, gold, arms, args.alpha))
 
     io.write_json(args.out, {"alpha": args.alpha, "results": rows})
 
@@ -107,7 +131,7 @@ def main():
         if "error" in r:
             print(f"{r['language']:10} {r['error']}")
             continue
-        for arm in ("movoc_tok", "bpe"):
+        for arm in ("movoc_tok", "bpe", "wordpiece"):
             if arm in r:
                 a = r[arm]
                 print(f"{r['language']:10} {r['gold_words']:6} {arm:10} "

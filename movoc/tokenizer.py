@@ -74,6 +74,38 @@ def train_bpe(corpus: Path, vocab_size: int, out_dir: Path, lang: str,
 
 
 
+def train_wordpiece(corpus: Path, vocab_size: int, out_dir: Path, lang: str,
+                    max_lines: int | None = None) -> Tokenizer:
+    """Train a WordPiece baseline (paper Sec 4.3).
+
+    The paper analyses BPE and WordPiece as baseline subword tokenizers,
+    both from the Hugging Face tokenizers library. Trained on the same
+    corpus at the same vocabulary size as Train_BPE so the comparison is
+    like-for-like; WordPiece uses whitespace pre-tokenization and its own
+    continuing-subword prefix rather than byte-level encoding.
+    """
+    tokenizer = Tokenizer(models.WordPiece(unk_token="<unk>", max_input_chars_per_word=100))
+    tokenizer.normalizer = normalizers.NFC()
+    tokenizer.pre_tokenizer = pre_tokenizers.Whitespace()
+    tokenizer.decoder = decoders.WordPiece()
+
+    trainer = trainers.WordPieceTrainer(
+        vocab_size=vocab_size,
+        special_tokens=SPECIAL_TOKENS,
+        show_progress=True,
+    )
+
+    tokenizer.train_from_iterator(corpus_lines(corpus, max_lines), trainer=trainer)
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    tokenizer.save(str(out_dir / f"wordpiece_{lang}.json"))
+
+    vocab = tokenizer.get_vocab()
+    print(f"[{lang}] wordpiece: {len(vocab)} tokens -> "
+          f"{out_dir / f'wordpiece_{lang}.json'}")
+    return tokenizer
+
+
 def boundary_offsets(word: str, morphemes: list) -> set:
     """Character positions inside `word` where a morpheme boundary falls.
 
