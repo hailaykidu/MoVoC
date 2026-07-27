@@ -211,6 +211,17 @@ language, capped at 100 to keep the evaluation balanced:
 | Tigre    | 100 | 45 from OPUS + 55 human-validated |
 | Ge'ez    | 100 | newly created and validated |
 
+FLORES-200 dev and devtest for Amharic and Tigrinya are extracted by
+`scripts/build_flores.py` from **FLORES+**, the openly maintained
+continuation of the benchmark (`amh_Ethi`, `tir_Ethi`, `eng_Latn`).
+Sentences are paired by FLORES sentence id rather than line order, so the
+alignment is guaranteed:
+
+| Split | Sentences |
+|---|---|
+| `flores_dev.{en,am,ti}` | 997 |
+| `flores_devtest.{en,am,ti}` | 1012 |
+
 The OPUS portions are built into `data/evaluation/` by
 `scripts/build_eval_sets.py`, drawn from the Tatoeba corpus. Pairs with an
 empty side are dropped, since an empty reference makes BLEU undefined, so the
@@ -307,8 +318,9 @@ python train.py \
     -s 224000 -r 0.7142857142857143 \
     --wordpiece
 
-# 2. Build the OPUS test sets (Sec 5.1)
-python scripts/build_eval_sets.py --opus-dir <dir with Tatoeba.* files>
+# 2. Build the evaluation sets (Sec 5.1)
+python scripts/build_flores.py                                    # FLORES-200 dev/devtest
+python scripts/build_eval_sets.py --opus-dir <dir with Tatoeba.* files>   # OPUS test
 
 # 3. Intrinsic evaluation: boundary precision, MorphScore, Renyi entropy
 python evaluate.py
