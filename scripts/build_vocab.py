@@ -97,8 +97,11 @@ def main():
     print("\nAlgorithm 1, Step 5 -- merge all vocabularies")
     v_bpe = {}
     for lang in ("amharic", "tigrinya"):
-        toks = [l.rstrip("\n") for l in
-                open(args.vocab_dir / f"vocab_bpe_{lang}.txt", encoding="utf-8")]
+        # Read the trained tokenizer directly rather than a side-car dump,
+        # so there is one source of truth for each BPE vocabulary.
+        with open(args.vocab_dir / f"bpe_{lang}.json", encoding="utf-8") as f:
+            vocab = json.load(f)["model"]["vocab"]
+        toks = sorted(vocab, key=vocab.get)
         v_bpe[lang] = toks
         print(f"  V_BPE,{lang[:2]}      = {len(toks):6}")
     for lang in ("amharic", "tigrinya"):
