@@ -245,6 +245,34 @@ def learn_merges(word_freq: Counter, constraints: dict, num_merges: int,
 
 
 
+def export_movoc_tok(merges: list, vocabulary: list, path: Path) -> None:
+    """Save MoVoC-Tok as a Hugging Face tokenizer.
+
+    Wraps the constrained merge table (Step 6) and the hybrid vocabulary
+    V_MoVoC (Step 5) as a BPE model, so downstream training can load it the
+    same way it loads the BPE and WordPiece baselines -- keeping the
+    tokenizer the only variable in the Table 3 comparison.
+    """
+    vocab = {tok: i for i, tok in enumerate(SPECIAL_TOKENS)}
+    for tok in vocabulary:
+        if tok and tok not in vocab:
+            vocab[tok] = len(vocab)
+    # Merge outputs must exist in the vocabulary for the model to apply them.
+    for a, b in merges:
+        merged = a + b
+        for tok in (a, b, merged):
+            if tok and tok not in vocab:
+                vocab[tok] = len(vocab)
+
+    tok = Tokenizer(models.BPE(vocab=vocab, merges=[(a, b) for a, b in merges],
+                               unk_token="<unk>"))
+    tok.normalizer = normalizers.NFC()
+    tok.pre_tokenizer = pre_tokenizers.Whitespace()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tok.save(str(path))
+    return tok
+
+
 def save_merges(merges: list, path: Path) -> None:
     """Persist a MoVoC-Tok merge table."""
     path.parent.mkdir(parents=True, exist_ok=True)

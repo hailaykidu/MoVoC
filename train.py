@@ -124,6 +124,10 @@ def main():
         merges = tokenizer.learn_merges(wf, cons, sizes["s_bpe"])
         path = io.MODELS / f"movoc_tok_merges_{lang}.txt"
         tokenizer.save_merges(merges, path)
+        # Also export as a loadable HF tokenizer, so downstream MT training
+        # can swap it in against the BPE and WordPiece baselines.
+        tokenizer.export_movoc_tok(merges, merged,
+                                   io.MODELS / f"movoc_tok_{lang}.json")
         print(f"  [{lang}] learned {len(merges)} constrained merges -> {path}")
 
     print(f"\nStep 7 -- returned V_MoVoC: {out}")
