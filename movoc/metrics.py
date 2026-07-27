@@ -39,16 +39,27 @@ def boundaries_from_triple(prefix: str, root: str, suffix: str) -> set:
     return boundaries
 
 
-def boundary_precision(predicted: list, gold: list) -> float:
+def boundary_precision(predicted: list, gold: list,
+                       segmentable_only: bool = True) -> float:
     """predicted, gold: parallel lists of (prefix, root, suffix) triples,
     one per word in the test set. Returns the aggregate precision of
     predicted boundaries against gold boundaries across the whole set.
+
+    `segmentable_only` restricts scoring to words the gold set marks as
+    multi-morphemic. Half of the Amharic gold set (18,727 of 37,048) is
+    monomorphemic -- it has no gold boundary at all -- so every cut a
+    tokenizer makes there is counted as a false positive no matter how
+    reasonable, which measures segmentation *rate* rather than accuracy.
+    This mirrors MorphScore, which already excludes unsegmented words.
+    Pass False for precision over every word.
     """
     total_predicted = 0
     total_correct = 0
     for pred_triple, gold_triple in zip(predicted, gold):
-        pred_b = boundaries_from_triple(*pred_triple)
         gold_b = boundaries_from_triple(*gold_triple)
+        if segmentable_only and not gold_b:
+            continue
+        pred_b = boundaries_from_triple(*pred_triple)
         total_predicted += len(pred_b)
         total_correct += len(pred_b & gold_b)
     if total_predicted == 0:
