@@ -70,6 +70,17 @@ out of web crawlers, which would otherwise pull them into training corpora
 and destroy the benchmark's value. `scripts/build_flores.py` extracts it
 automatically, or downloads from FLORES+ if the archive is absent.
 
+## Data
+
+Amharic and Tigrinya data come from the **No Language Left Behind (NLLB)**
+project (Costa-Jussà et al., 2022), used in two places:
+
+1. **Vocabulary construction** — BPE training for the Amharic and Tigrinya
+   vocabularies.
+2. **Downstream MT** — the English–Tigrinya and English–Amharic parallel
+   corpora mined and released by Meta AI as part of NLLB, used to fine-tune
+   MarianMT for the translation evaluation.
+
 ## Morpheme data provenance
 
 Morpheme annotations reach their final form by one of two routes, depending on
@@ -177,17 +188,6 @@ merge table, so the learned merges cannot fuse across a morpheme boundary.
 Words whose annotated morphemes do not concatenate back to the surface form
 (templatic morphology, fidel fusion at a boundary) contribute no constraint
 rather than a guessed one.
-
-## Data
-
-Amharic and Tigrinya data come from the **No Language Left Behind (NLLB)**
-project (Costa-Jussà et al., 2022), used in two places:
-
-1. **Vocabulary construction** — BPE training for the Amharic and Tigrinya
-   vocabularies.
-2. **Downstream MT** — the English–Tigrinya and English–Amharic parallel
-   corpora mined and released by Meta AI as part of NLLB, used to fine-tune
-   MarianMT for the translation evaluation.
 
 ## Evaluation
 
@@ -342,11 +342,21 @@ python scripts/build_eval_sets.py --opus-dir <dir with Tatoeba.* files>   # OPUS
 # 3. Intrinsic evaluation: boundary precision, MorphScore, Renyi entropy
 python evaluate.py
 
-# 4. Extrinsic evaluation: all three tokenizers, BLEU and chrF++
-#    (requires a GPU; see Sec 4.3 for the training configuration)
+# 4. Extrinsic evaluation: all three tokenizers, BLEU and chrF++.
+#    Requires a GPU (Sec 4.3). The trailing argument caps both languages to
+#    the same corpus size so the tokenizer stays the only variable.
 bash scripts/run_table3.sh amharic \
-    train.en train.am \
-    data/evaluation/amharic/test.en data/evaluation/amharic/test.am
+    NLLB.am-en.en NLLB.am-en.am \
+    data/evaluation/amharic/test.en data/evaluation/amharic/test.am \
+    data/evaluation/amharic/flores_dev.en data/evaluation/amharic/flores_dev.am \
+    1398173
+
+#    On a Slurm cluster, one arm per job with the resources of Sec 4.3
+#    (1 GPU, 6 CPU cores, 32 GB RAM, 24 h):
+sbatch scripts/submit_marianmt.sh movoc_tok amharic \
+    NLLB.am-en.en NLLB.am-en.am \
+    data/evaluation/amharic/flores_dev.en data/evaluation/amharic/flores_dev.am \
+    1398173
 
 # 5. Regenerate the result tables from whatever the runs produced
 python scripts/make_tables.py        # -> evaluation/results/RESULTS.md
