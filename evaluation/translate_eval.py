@@ -17,8 +17,11 @@ the model's zero-shot translation capability.
 """
 
 import argparse
+import sys
 import json
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 # Test data (paper Sec 5.1). Each language pair is capped at 100 sentence
 # pairs to keep the evaluation balanced; where OPUS coverage is short, the

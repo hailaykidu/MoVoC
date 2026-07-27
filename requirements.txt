@@ -1,1 +1,14 @@
+# Vocabulary construction and tokenization
 tokenizers>=0.13
+sentencepiece>=0.1.99
+
+# Extrinsic evaluation: MarianMT fine-tuning and scoring.
+# transformers is pinned to the version reported in the paper (Sec 4.3).
+transformers==4.51.3
+torch>=2.0
+accelerate>=0.26.0
+datasets>=2.14
+sacrebleu>=2.3
+
+# FLORES-200 retrieval
+huggingface_hub>=0.20

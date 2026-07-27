@@ -20,7 +20,10 @@ for the Slurm wrapper.
 """
 
 import argparse
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 TRAINING_CONFIG = {
     "model": "MarianMT",
