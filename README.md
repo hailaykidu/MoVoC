@@ -194,21 +194,29 @@ for it.
 
 ### Extrinsic
 
-Extrinsic evaluation runs on an unseen subset of the first 100 sentence pairs
-from the **OPUS** parallel corpus (Tiedemann, 2012), for each target language.
-Each language pair is capped at 100 sentence pairs to keep the evaluation
-balanced across languages:
+**Evaluation data.** Amharic and Tigrinya are directly supported by
+**FLORES-200** (Goyal et al., 2022); its development and test sets are used
+for automatic evaluation. Ge'ez and Tigre appear in neither FLORES-200 nor the
+NLLB fine-tuning data, so the final evaluation for **all** languages uses 100
+sentence pairs from the **OPUS** parallel corpus (Tiedemann, 2012).
 
-| Language | Sentence pairs | Composition |
+**Test data.** An unseen subset of the first 100 OPUS sentence pairs per target
+language, capped at 100 to keep the evaluation balanced:
+
+| Language | Pairs | Composition |
 |---|---|---|
 | Amharic  | 100 | 100 of 213 available from OPUS |
 | Tigrinya | 100 | 74 from OPUS + 26 human-validated |
 | Tigre    | 100 | 45 from OPUS + 55 human-validated |
-| Ge'ez    | 100 | 100 newly created and validated (intrinsic evaluation only) |
+| Ge'ez    | 100 | newly created and validated |
 
-Where OPUS coverage falls short — as it does for Tigrinya and Tigre — the
-remainder is made up with human-validated pairs, so every language is scored
-on an equally sized set.
+**Ge'ez is evaluated intrinsically only** — no parallel data exists for it.
+For every language, intrinsic evaluation uses the annotated morpheme test sets
+in `data/annotations/`.
+
+Evaluation data is never carved out of the training corpus: the parallel
+corpus is used in full for training, and dev/test sets come from FLORES-200
+and OPUS.
 
 #### MarianMT fine-tuning (Sec 4.3)
 

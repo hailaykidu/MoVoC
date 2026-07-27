@@ -64,8 +64,23 @@ ZERO_SHOT_PAIRS = ("en-tig",)
 # is the only variable.
 TOKENIZER_STRATEGIES = ("movoc_tok", "bpe", "wordpiece")
 
-# Fixed split and seed, shared by every arm.
-SPLIT = {"train": 0.98, "validation": 0.01, "test": 0.01}
+# Evaluation data (paper Sec 5.1). Development and test sets are external,
+# not carved out of the training corpus:
+#
+#   Amharic, Tigrinya -- directly supported by FLORES-200 (Goyal et al.,
+#     2022); its dev and devtest sets are used for automatic evaluation.
+#   Ge'ez, Tigre -- absent from FLORES-200 and from the NLLB fine-tuning
+#     data, so evaluation falls back to OPUS.
+#
+# Final evaluation for all languages uses 100 OPUS sentence pairs
+# (Tiedemann, 2012); see TEST_SETS below.
+EVAL_BENCHMARK = {
+    "amharic": "flores200",
+    "tigrinya": "flores200",
+    "tigre": "opus",
+    "geez": "opus",
+}
+
 SEED = 42
 
 
@@ -147,17 +162,18 @@ def load_tokenizer(strategy: str, language: str):
     )
 
 
-def split_dataset(ds, seed: int = SEED):
-    """Fixed train/validation/test split, identical across arms."""
-    shuffled = ds.shuffle(seed=seed)
-    n = len(shuffled)
-    n_test = max(1, int(n * SPLIT["test"]))
-    n_val = max(1, int(n * SPLIT["validation"]))
-    return {
-        "test": shuffled.select(range(n_test)),
-        "validation": shuffled.select(range(n_test, n_test + n_val)),
-        "train": shuffled.select(range(n_test + n_val, n)),
-    }
+def load_eval_set(source: Path, reference: Path):
+    """Read an external evaluation set (FLORES-200 or OPUS).
+
+    Evaluation data never comes from the training corpus: Amharic and
+    Tigrinya are scored on FLORES-200 dev/devtest, and the final evaluation
+    for every language uses 100 OPUS sentence pairs.
+    """
+    src = [l.rstrip("\n") for l in open(source, encoding="utf-8")]
+    ref = [l.rstrip("\n") for l in open(reference, encoding="utf-8")]
+    if len(src) != len(ref):
+        raise SystemExit(f"eval set mismatch: {len(src)} vs {len(ref)}")
+    return src, ref
 
 
 def main():
@@ -170,6 +186,10 @@ def main():
     p.add_argument("--source", type=Path, required=True, help="English side")
     p.add_argument("--target", type=Path, required=True, help="am/ti side")
     p.add_argument("--output-dir", type=Path, required=True)
+    p.add_argument("--valid-source", type=Path, default=None,
+                   help="FLORES-200 dev source (Amharic/Tigrinya)")
+    p.add_argument("--valid-reference", type=Path, default=None,
+                   help="FLORES-200 dev reference")
     p.add_argument("--max-samples", type=int, default=None)
     args = p.parse_args()
 
@@ -202,35 +222,33 @@ def main():
         return tokenizer(batch["src"], text_target=batch["tgt"],
                          max_length=max_len, truncation=True)
 
-    ds = Dataset.from_dict({"src": src, "tgt": tgt})
-    splits = split_dataset(ds)
-    encoded = {k: v.map(encode, batched=True, remove_columns=["src", "tgt"])
-               for k, v in splits.items()}
+    # The whole parallel corpus is training data; evaluation sets are
+    # external (FLORES-200 dev/devtest, OPUS), never carved out of it.
+    train_ds = Dataset.from_dict({"src": src, "tgt": tgt}).map(
+        encode, batched=True, remove_columns=["src", "tgt"])
+
+    eval_ds = None
+    if args.valid_source and args.valid_reference:
+        v_src, v_ref = load_eval_set(args.valid_source, args.valid_reference)
+        eval_ds = Dataset.from_dict({"src": v_src, "tgt": v_ref}).map(
+            encode, batched=True, remove_columns=["src", "tgt"])
 
     print(f"strategy={args.strategy} language={args.language} "
           f"vocab={len(tokenizer)}")
-    for k, v in splits.items():
-        print(f"  {k:11} {len(v)}")
+    print(f"  train      {len(train_ds)}")
+    print(f"  validation {len(eval_ds) if eval_ds is not None else 0} "
+          f"({EVAL_BENCHMARK.get(args.language, 'external')})")
 
     trainer = Seq2SeqTrainer(
         model=model,
         args=build_training_arguments(args.output_dir),
-        train_dataset=encoded["train"],
-        eval_dataset=encoded["validation"],
+        train_dataset=train_ds,
+        eval_dataset=eval_ds,
         data_collator=DataCollatorForSeq2Seq(tokenizer, model=model),
     )
     result = trainer.train()
     trainer.save_model()
     tokenizer.save_pretrained(str(args.output_dir))
-
-    # Persist the held-out test split so every arm is scored on the same
-    # sentences, decoded with the same parameters.
-    test_dir = args.output_dir / "test_split"
-    test_dir.mkdir(parents=True, exist_ok=True)
-    with open(test_dir / "source.txt", "w", encoding="utf-8") as f:
-        f.write("\n".join(splits["test"]["src"]) + "\n")
-    with open(test_dir / "reference.txt", "w", encoding="utf-8") as f:
-        f.write("\n".join(splits["test"]["tgt"]) + "\n")
 
     print(result)
 
