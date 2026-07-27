@@ -36,6 +36,9 @@ def main():
                    help="lines used for Step 6 merge learning")
     p.add_argument("--skip-step6", action="store_true",
                    help="stop after Step 5")
+    p.add_argument("--skip-bpe", action="store_true",
+                   help="reuse the BPE tokenizers already in data/vocabulary/ "
+                        "instead of retraining them in Step 3")
     args = p.parse_args()
 
     corpora = {"amharic": args.amharic_corpus, "tigrinya": args.tigrinya_corpus}
@@ -47,6 +50,10 @@ def main():
 
     print("\nStep 3 -- Train_BPE(P, s_BPE)")
     for lang in LANGS:
+        existing = io.VOCABULARY / f"bpe_{lang}.json"
+        if args.skip_bpe and existing.exists():
+            print(f"  [{lang}] reusing {existing}")
+            continue
         tokenizer.train_bpe(corpora[lang], sizes["s_bpe"],
                             io.VOCABULARY, lang, args.max_lines)
 
