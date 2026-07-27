@@ -3,7 +3,4 @@ __pycache__/
 .venv/
 .DS_Store
 *.log
-
-# Byte-level baseline exports: regenerate from bpe_*.json, not comparable
-# to MoVoC-Tok's character-level merges.
-vocab/bpe_merges_*.txt
+models/bpe_merges_*.txt

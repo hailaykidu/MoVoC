@@ -9,34 +9,46 @@ languages — Amharic, Tigrinya, Tigre, and Ge'ez — and evaluates it against
 plain BPE both intrinsically (MorphScore, Boundary Precision) and
 extrinsically (downstream machine translation). See Evaluation below.
 
+## Pipeline
+
+```
+Raw corpus  ->  Text preprocessing  ->  Morphological analysis
+    ->  Morpheme annotation  ->  Hybrid vocabulary construction (MoVoC)
+    ->  Tokenizer training  ->  Intrinsic evaluation  ->  Extrinsic evaluation
+```
+
 ## Repository layout
 
 ```
+train.py                    Algorithm 1 end to end (Steps 2-7)
+evaluate.py                 intrinsic evaluation
+tokenize.py                 segment text with a trained MoVoC-Tok model
+requirements.txt
+
+configs/                    bpe_config.json, movoc_config.json
+
 movoc/
-  __init__.py
+  preprocessing.py          corpus preparation
+  hornmorph.py              interface to HornMorpho
+  annotation.py             loading/validating the three annotation kinds
+  vocabulary.py             Algorithm 1: sizes, extract_morphemes, merge
+  tokenizer.py              Train_BPE and MoVoC-Tok constrained merges
   metrics.py                Boundary Precision, MorphScore, Renyi entropy
-scripts/
-  train_bpe.py              Algorithm 1, Steps 2-3: vocabulary sizes, BPE
-  build_vocab.py            Algorithm 1, Steps 4-5: morphemes, merge
-  train_movoc_tok.py        Algorithm 1, Step 6: constrained-merge BPE
-  run_intrinsic_eval.py     intrinsic evaluation
-vocab/
-  bpe_{amharic,tigrinya}.json     trained BPE tokenizers (32,000 each)
-  vocab_movoc.txt                 V_MoVoC (114,553 tokens)
-  bpe_config.json, movoc_config.json
+  utils.py                  fidel-fusion surface alignment
+  io.py                     config and vocabulary I/O
+
 data/
-  morphemes/                morpheme annotation sets (see below)
-    amharic_morphemes.json    153,759 entries
-    tigrinya_morphemes.json     7,531 entries
-    Tigriyna_Morphem.json         206 entries  (gold standard, held out)
-    tigre_morphems.json         8,117 entries  (gold standard)
-    Geez_Morphem.json             193 entries  (gold standard)
-  raw/
-    hornmt/                   HornMT parallel corpus, 2,030 aligned sentences
-      amh.txt                   Amharic  (39,102 tokens)
-      tir.txt                   Tigrinya (43,511 tokens)
-      eng.txt                   English
-    geez_words.txt            Ge'ez word forms, unannotated  (341 words)
+  raw/                      HornMT parallel corpus; unannotated word lists
+  annotations/
+    amharic/postedited_morphemes.json    HornMorpho + human post-editing
+    tigrinya/postedited_morphemes.json   HornMorpho + human post-editing
+    tigrinya/gold_morphemes.json         manual gold standard (held out)
+    geez/manual_morphemes.json           fully manual annotation
+    tigre/manual_morphemes.json          fully manual annotation
+  vocabulary/               trained BPE tokenizers, vocab_movoc.txt
+
+models/                     MoVoC-Tok merge tables
+evaluation/results/         evaluation output
 ```
 
 ## Morpheme data provenance
@@ -55,9 +67,9 @@ For **Amharic and Tigrinya**, HornMorpho provides the initial morphological
 analysis, which is then manually post-edited for consistency. Post-editing is
 essential rather than cosmetic, particularly for Tigrinya.
 
-Tigrinya has two sets, kept deliberately apart: `tigrinya_morphemes.json`
+Tigrinya has two sets, kept deliberately apart: `tigrinya/postedited_morphemes.json`
 (7,531 entries, 7,125 distinct morphemes) is the curated set that feeds
-vocabulary construction, while `Tigriyna_Morphem.json` (206 entries) is the
+vocabulary construction, while `tigrinya/gold_morphemes.json` (206 entries) is the
 gold standard **held out** for evaluation. The two are largely independent —
 only 23 of the gold set's 192 words appear in the curated set — so intrinsic
 scores are not measured against the vocabulary's own training material.
@@ -106,11 +118,11 @@ Tigrinya material submitted for morphological analysis. Whitespace-tokenizing
 `geez_words.txt` holds 341 Ge'ez surface forms — verb paradigms (`ሐዘን`,
 `አብርሃ`, `ሰፍሐ`, `በልዐ` conjugations) and triliteral roots — supplied as a word
 list with no prefix/root/suffix annotation. Deduplicated, and disjoint from
-`Geez_Morphem.json`: none of the 341 already appears there. They are **not**
+`geez/manual_morphemes.json`: none of the 341 already appears there. They are **not**
 part of the Ge'ez gold standard and do not feed morpheme extraction; they are
 staged here as candidates for future annotation.
 
-`data/morphemes/amharic_morphemes.json` is the largest resource here by an
+`data/annotations/amharic/postedited_morphemes.json` is the largest resource here by an
 order of magnitude: 153,759 entries covering 150,918 unique words, with a
 consistent key set throughout. Field coverage is root 99.9%, prefix 60.5%,
 suffix 54.8%, infix 14.3%, clitic 13.7%; 80.5% of entries carry at least one
@@ -166,7 +178,7 @@ MoVoC is evaluated two ways: **intrinsically**, on segmentation quality, and
 ### Intrinsic
 
 For all four languages, intrinsic evaluation uses the annotated morpheme test
-sets in `data/morphemes/`, designed specifically to assess segmentation
+sets in `data/annotations/`, designed specifically to assess segmentation
 quality, and scored with MorphScore and Boundary Precision (`movoc/metrics.py`).
 
 Ge'ez is evaluated **intrinsically only**, as no parallel data is available
@@ -192,26 +204,21 @@ on an equally sized set.
 
 ## Usage
 
-Reproduce the vocabulary from the corpora, in Algorithm 1 order:
-
 ```bash
-# Steps 2-3: vocabulary sizes and per-language BPE
-python scripts/train_bpe.py \
+pip install -r requirements.txt
+
+# Algorithm 1, Steps 2-7: vocabulary sizes, BPE, morphemes, merge,
+# and MoVoC-Tok constrained-merge training
+python train.py \
     --amharic-corpus  NLLB.am-en.am \
     --tigrinya-corpus NLLB.en-ti.ti \
     -s 224000 -r 0.7142857142857143
 
-# Steps 4-5: morpheme extraction and merge -> vocab/vocab_movoc.txt
-python scripts/build_vocab.py
-
-# Step 6: constrained-merge BPE (MoVoC-Tok)
-python scripts/train_movoc_tok.py \
-    --amharic-corpus  NLLB.am-en.am \
-    --tigrinya-corpus NLLB.en-ti.ti \
-    --max-lines 0
-
 # Intrinsic evaluation
-python scripts/run_intrinsic_eval.py
+python evaluate.py
+
+# Segment text with the trained tokenizer
+python tokenize.py tigrinya "ኣይመፀን"
 ```
 
 ## Citation

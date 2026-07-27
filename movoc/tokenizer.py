@@ -1,57 +1,77 @@
 """
-train_movoc_tok.py -- Algorithm 1, Step 6: Train_MoVoC_Model(V_MoVoC).
+tokenizer.py -- BPE training and MoVoC-Tok constrained-merge training.
 
-This implements MoVoC-Tok (paper Sec 3.3): morpheme-aware subword
-segmentation. It is deliberately *not* "the Step 5 vocabulary handed to a
-stock BPE tokenizer" -- a conventional BPE trained on V_MoVoC still learns
-data-driven merges that can join subwords across a morpheme boundary.
+Two things live here, both from the paper:
 
-Sec 3.3 constrains the merge process itself:
+  Train_BPE(P, s_BPE)      Algorithm 1, Step 3. A plain byte-level BPE model
+                           per language, trained on its corpus.
 
-    max_V  sum_i log P(BPE(w_i; V, M_i))    s.t. no merge unit crosses M_i
+  Train_MoVoC_Model(V)     Algorithm 1, Step 6 -- MoVoC-Tok, Sec 3.3. Not the
+                           Step 5 vocabulary handed to a stock tokenizer: the
+                           merge process itself is constrained so no merge
+                           unit crosses a morpheme boundary.
 
-i.e. for a word w_i with known morpheme segmentation M_i, a merge candidate
-(a, b) is admissible only if the merged unit a+b lies wholly inside one
-morpheme of M_i. Merges spanning a boundary are never counted and so never
-enter the merge table.
+                               max_V sum_i log P(BPE(w_i; V, M_i))
+                               s.t. no merge unit crosses M_i
 
-Implementation: standard BPE merge learning over a word-frequency table,
-with one change -- each word carries its morpheme boundary offsets, and a
-pair is only counted toward merge frequency when both symbols fall inside
-the same morpheme. Everything else (greedy highest-frequency merge, apply,
-repeat) is ordinary BPE.
+                           Each word carries the boundary offsets implied by
+                           its annotation, and a pair is counted toward merge
+                           frequency only when both symbols fall inside the
+                           same morpheme.
+
+Encoding and decoding go through the trained tokenizer objects; the merge
+tables are saved alongside so MoVoC-Tok segmentation is reproducible.
 """
 
-import argparse
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
 
-EMPTY = {"", "-", "–", "—", "_", "None", "null"}
-FIELDS_ORDERED = [
-    ("Prefix", "Root", "Infix", "Suffix", "Clitic"),
-    ("prefix", "root", "infix", "suffix", "clitic"),
-]
+from tokenizers import (Tokenizer, models, trainers, pre_tokenizers,
+                        decoders, normalizers)
+
+from .annotation import clean, segmentation_of
+
+SPECIAL_TOKENS = ["<unk>", "<s>", "</s>", "<pad>", "<mask>"]
 END = "</w>"
 
 
-def clean(val) -> str:
-    if val is None:
-        return ""
-    v = str(val).strip().strip("-").strip("–").strip()
-    return "" if v in EMPTY else v
+def corpus_lines(path: Path, max_lines: int | None):
+    """Stream a corpus so a 1.6 GB file never lands in memory at once."""
+    with open(path, encoding="utf-8", errors="replace") as f:
+        for i, line in enumerate(f):
+            if max_lines is not None and i >= max_lines:
+                break
+            line = line.strip()
+            if line:
+                yield line
 
 
-def segmentation_of(entry: dict) -> tuple:
-    """(word, [morpheme, ...]) in surface order, or (word, []) if unusable."""
-    word = clean(entry.get("word") or entry.get("Word"))
-    if not word:
-        return "", []
-    for scheme in FIELDS_ORDERED:
-        if any(k in entry for k in scheme):
-            parts = [clean(entry.get(k)) for k in scheme]
-            return word, [p for p in parts if p]
-    return word, []
+def train_bpe(corpus: Path, vocab_size: int, out_dir: Path, lang: str,
+              max_lines: int | None = None) -> Tokenizer:
+    """Algorithm 1, Step 3: Train_BPE(P, s_BPE) for one language."""
+    tokenizer = Tokenizer(models.BPE(unk_token="<unk>"))
+    # NFC matches the corpus cleaning used elsewhere in this project; Ge'ez
+    # script has composed forms that must normalize consistently.
+    tokenizer.normalizer = normalizers.NFC()
+    tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=True)
+    tokenizer.decoder = decoders.ByteLevel()
+
+    trainer = trainers.BpeTrainer(
+        vocab_size=vocab_size,
+        special_tokens=SPECIAL_TOKENS,
+        show_progress=True,
+    )
+
+    tokenizer.train_from_iterator(corpus_lines(corpus, max_lines), trainer=trainer)
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    tokenizer.save(str(out_dir / f"bpe_{lang}.json"))
+
+    vocab = tokenizer.get_vocab()
+    print(f"[{lang}] trained: {len(vocab)} tokens -> {out_dir / f'bpe_{lang}.json'}")
+    return tokenizer
+
 
 
 def boundary_offsets(word: str, morphemes: list) -> set:
@@ -191,62 +211,45 @@ def learn_merges(word_freq: Counter, constraints: dict, num_merges: int,
     return merges
 
 
-def main():
-    here = Path(__file__).resolve().parent.parent
-    p = argparse.ArgumentParser(description="Algorithm 1 Step 6: MoVoC-Tok")
-    p.add_argument("--amharic-corpus", type=Path, required=True)
-    p.add_argument("--tigrinya-corpus", type=Path, required=True)
-    p.add_argument("--vocab-dir", type=Path, default=here / "vocab")
-    p.add_argument("--max-lines", type=int, default=300_000,
-                   help="lines read per corpus for merge learning; "
-                        "0 or negative means the full corpus")
-    p.add_argument("--min-freq", type=int, default=2)
-    args = p.parse_args()
-    if args.max_lines is not None and args.max_lines <= 0:
-        args.max_lines = None          # full corpus
-
-    config = json.load(open(args.vocab_dir / "movoc_config.json", encoding="utf-8"))
-    print("Algorithm 1, Step 6 -- Train_MoVoC_Model(V_MoVoC)")
-    print(f"  V_MoVoC = {config['v_movoc']} tokens")
-
-    data = here / "data/morphemes"
-    langs = {
-        "amharic": (args.amharic_corpus,
-                    [data / "amharic_morphemes.json"]),
-        "tigrinya": (args.tigrinya_corpus,
-                     [data / "tigrinya_morphemes.json"]),
-    }
-
-    all_merges = {}
-    for lang, (corpus, ann) in langs.items():
-        print(f"\n  [{lang}]")
-        cons = load_constraints(ann)
-        print(f"    morpheme-boundary constraints: {len(cons)} words")
-        wf = word_frequencies(corpus, args.max_lines)
-        print(f"    word types (freq >= {args.min_freq}): "
-              f"{sum(1 for f in wf.values() if f >= args.min_freq)}")
-        n_merges = config["s_bpe"]
-        merges = learn_merges(wf, cons, n_merges, args.min_freq)
-        all_merges[lang] = merges
-        print(f"    learned {len(merges)} constrained merges")
-
-        out = args.vocab_dir / f"movoc_tok_merges_{lang}.txt"
-        with open(out, "w", encoding="utf-8") as f:
-            f.write("#version: movoc-tok constrained-merge BPE\n")
-            for a, b in merges:
-                f.write(f"{a} {b}\n")
-        print(f"    -> {out}")
-
-    meta = dict(config)
-    meta["movoc_tok"] = {
-        lang: {"merges": len(m)} for lang, m in all_merges.items()
-    }
-    meta["movoc_tok_max_lines"] = args.max_lines
-    with open(args.vocab_dir / "movoc_config.json", "w", encoding="utf-8") as f:
-        json.dump(meta, f, indent=2, ensure_ascii=False)
-
-    print("\nStep 6 complete -- merges constrained to respect morpheme boundaries.")
 
 
-if __name__ == "__main__":
-    main()
+def save_merges(merges: list, path: Path) -> None:
+    """Persist a MoVoC-Tok merge table."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("#version: movoc-tok constrained-merge BPE\n")
+        for a, b in merges:
+            f.write(f"{a} {b}\n")
+
+
+def load_merges(path: Path) -> dict:
+    """Read a merge table into {(a, b): rank}."""
+    ranks = {}
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("#"):
+                continue
+            parts = line.rstrip("\n").split(" ")
+            if len(parts) == 2:
+                ranks[(parts[0], parts[1])] = len(ranks)
+    return ranks
+
+
+def encode(word: str, ranks: dict) -> list:
+    """Apply merges to one word, lowest rank first (standard BPE inference)."""
+    symbols = [c for c in word] + [END]
+    while len(symbols) > 1:
+        best, best_rank = None, None
+        for i in range(len(symbols) - 1):
+            r = ranks.get((symbols[i], symbols[i + 1]))
+            if r is not None and (best_rank is None or r < best_rank):
+                best, best_rank = i, r
+        if best is None:
+            break
+        symbols[best:best + 2] = [symbols[best] + symbols[best + 1]]
+    return symbols
+
+
+def decode(tokens: list) -> str:
+    """Inverse of encode: concatenate, dropping the end-of-word marker."""
+    return "".join(t[:-len(END)] if t.endswith(END) else t for t in tokens)
