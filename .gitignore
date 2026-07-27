@@ -6,6 +6,11 @@ __pycache__/
 logs/
 models/bpe_merges_*.txt
 
+# FLORES+ is distributed as a password-protected archive so it stays out
+# of web crawlers and remains a clean benchmark. Regenerate with
+# scripts/build_flores.py rather than re-hosting it as plain text.
+data/evaluation/*/flores_*
+
 # Local run outputs. The repository ships the code to regenerate these;
 # the figures themselves are not published.
 evaluation/results/
