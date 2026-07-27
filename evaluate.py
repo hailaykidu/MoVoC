@@ -99,6 +99,23 @@ def vocab_segmenter(vocab_path: Path):
     return seg, {"vocab_size": len(vocab)}
 
 
+def sentencepiece_segmenter(model_path: Path):
+    """Tokenize with a SentencePiece model (Unigram or BPE).
+
+    Used for the published shared Ge'ez-script tokenizer
+    (Hailay/geez-en-shared-tokenizer). The leading word marker is stripped
+    so pieces concatenate back to the surface form, keeping boundary
+    offsets comparable with the other arms.
+    """
+    import sentencepiece as spm
+    sp = spm.SentencePieceProcessor(model_file=str(model_path))
+
+    def seg(word: str) -> list:
+        return [t.lstrip("\u2581") for t in sp.encode(word, out_type=str)
+                if t.lstrip("\u2581")]
+    return seg, {"vocab_size": sp.get_piece_size()}
+
+
 def evaluate(lang: str, gold_path: Path, arms: dict, alpha: float) -> dict:
     """Score every arm in `arms` (name -> (segmenter, meta)) on one language."""
     gold = gold_triples(gold_path)
@@ -131,6 +148,8 @@ def main():
     p = argparse.ArgumentParser(description="Intrinsic evaluation")
     p.add_argument("--alpha", type=float, default=2.0,
                    help="Renyi entropy order")
+    p.add_argument("--sentencepiece", type=Path, default=None,
+                   help="SentencePiece .model to score as an extra baseline")
     p.add_argument("-o", "--out", type=Path,
                    default=io.RESULTS / "intrinsic_eval.json")
     args = p.parse_args()
@@ -146,6 +165,8 @@ def main():
         movoc_vocab = io.VOCABULARY / "vocab_movoc.txt"
         if movoc_vocab.exists():
             arms["movoc_vocab"] = vocab_segmenter(movoc_vocab)
+        if args.sentencepiece:
+            arms["sp_shared"] = sentencepiece_segmenter(args.sentencepiece)
         for name, fname in (("bpe", f"bpe_{lang}.json"),
                             ("wordpiece", f"wordpiece_{lang}.json")):
             path = io.VOCABULARY / fname
@@ -165,7 +186,7 @@ def main():
         if "error" in r:
             print(f"{r['language']:10} {r['error']}")
             continue
-        for arm in ("movoc_tok", "movoc_vocab", "bpe", "wordpiece"):
+        for arm in ("movoc_tok", "movoc_vocab", "bpe", "wordpiece", "sp_shared"):
             if arm in r:
                 a = r[arm]
                 print(f"{r['language']:10} {r['gold_words']:6} {arm:10} "
