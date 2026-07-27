@@ -63,7 +63,7 @@ The table below reports the **combined annotated resource** per language:
 every morpheme in the curated and gold sets together. This is a description
 of the annotation effort, and is deliberately *not* the same thing as the
 vocabulary input — for Tigrinya the gold set is held out of vocabulary
-construction, so only 7,125 of its 7,272 morphemes reach `V_MoVoC`.
+construction, so 7,125 of its 7,272 morphemes reach `V_MoVoC`.
 
 | Language | Entries | Distinct morphemes |
 |---|---|---|
