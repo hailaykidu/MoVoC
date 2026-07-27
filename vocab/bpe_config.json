@@ -1,0 +1,10 @@
+{
+  "s": 152000,
+  "r": 0.71,
+  "s_lang": 76000,
+  "s_bpe": 22040,
+  "s_morpheme": 53960,
+  "amharic_corpus": "../../NLLB.am-en.am",
+  "tigrinya_corpus": "../../Machine_Translation/data/NLLB.en-ti.ti",
+  "max_lines": null
+}
