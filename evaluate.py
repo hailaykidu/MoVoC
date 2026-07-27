@@ -20,27 +20,48 @@ from collections import Counter
 from pathlib import Path
 
 from movoc import annotation, io, tokenizer
-from movoc.metrics import (boundary_precision, morphscore, renyi_entropy,
+from movoc.metrics import (boundaries_from_triple, renyi_entropy,
                            normalized_renyi_entropy)
+
+
+def precision_from_cuts(pred: list, gold: list,
+                        segmentable_only: bool = True) -> float:
+    """Boundary Precision over cut sets (see movoc.metrics)."""
+    tp = fp = 0
+    for p, g in zip(pred, gold):
+        if segmentable_only and not g:
+            continue
+        tp += len(p & g)
+        fp += len(p - g)
+    return tp / (tp + fp) if (tp + fp) else 0.0
+
+
+def recall_from_cuts(pred: list, gold: list) -> float:
+    """MorphScore: recall of gold boundaries, excluding unsegmented words."""
+    hit = total = 0
+    for p, g in zip(pred, gold):
+        if not p:
+            continue
+        total += len(g)
+        hit += len(p & g)
+    return hit / total if total else 0.0
 from movoc.utils import gold_triples
 
 END = tokenizer.END
 
 
-def triple_from_tokens(word: str, toks: list) -> tuple:
-    """Convert a tokenization into a (prefix, root, suffix)-shaped triple.
+def boundaries_of(toks: list) -> set:
+    """Every cut position implied by a tokenization.
 
-    The metrics compare boundary *offsets*, so what matters is where the
-    cuts fall, not which slot they land in. A word tokenized into n pieces
-    contributes its first cut and last cut; words left whole contribute no
-    boundary, which is what MorphScore treats as unsegmented.
+    A word split into n pieces has n-1 interior boundaries. Collapsing it
+    to a (prefix, root, suffix) triple would keep only the first and last,
+    silently discarding the rest, so the metrics take this set directly.
     """
-    toks = [t for t in toks if t]
-    if len(toks) <= 1:
-        return ("", word, "")
-    if len(toks) == 2:
-        return (toks[0], toks[1], "")
-    return (toks[0], "".join(toks[1:-1]), toks[-1])
+    cuts, pos = set(), 0
+    for t in toks[:-1]:
+        pos += len(t)
+        cuts.add(pos)
+    return cuts
 
 
 def merge_segmenter(merge_path: Path):
@@ -122,22 +143,26 @@ def evaluate(lang: str, gold_path: Path, arms: dict, alpha: float) -> dict:
     if not gold:
         return {"language": lang, "error": "no scorable gold entries"}
     words = [w for w, _ in gold]
-    gold_tr = [t for _, t in gold]
+    gold_cuts = [boundaries_from_triple(*t) for _, t in gold]
 
     row = {"language": lang, "gold_words": len(gold)}
     for name, (seg, meta) in arms.items():
         segs = [seg(w) for w in words]
-        pred = [triple_from_tokens(w, s) for w, s in zip(words, segs)]
+        pred_cuts = [boundaries_of(s) for s in segs]
         counts = Counter(t for s in segs for t in s)
         row[name] = dict(meta, **{
             # Paper Table 4 scales: precision as a percentage, Renyi
             # normalized to [0, 1]. Raw nats kept alongside.
-            "boundary_precision": round(100 * boundary_precision(pred, gold_tr), 1),
-            "morphscore": round(100 * morphscore(pred, gold_tr), 1),
+            "boundary_precision": round(
+                100 * precision_from_cuts(pred_cuts, gold_cuts), 1),
+            "boundary_precision_all_words": round(
+                100 * precision_from_cuts(pred_cuts, gold_cuts,
+                                          segmentable_only=False), 1),
+            "morphscore": round(100 * recall_from_cuts(pred_cuts, gold_cuts), 1),
             "renyi_entropy": round(normalized_renyi_entropy(counts, alpha), 2),
             "renyi_entropy_nats": round(renyi_entropy(counts, alpha), 4),
             "distinct_tokens": len(counts),
-            "segmented_words": sum(1 for p in pred if p[0] or p[2]),
+            "segmented_words": sum(1 for c in pred_cuts if c),
         })
     return row
 

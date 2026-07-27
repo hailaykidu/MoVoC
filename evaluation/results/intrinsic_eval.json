@@ -1,12 +1,21 @@
 {
   "alpha": 2.0,
+  "arms": {
+    "movoc_tok": "MoVoC-Tok (paper Sec 3.3): constrained-merge BPE, merges forbidden from crossing morpheme boundaries",
+    "movoc_vocab": "baseline -- greedy longest-match over V_MoVoC (Algorithm 1 Step 5); no constrained merges",
+    "bpe": "baseline -- plain byte-level BPE (HF tokenizers)",
+    "wordpiece": "baseline -- WordPiece (HF tokenizers), paper Sec 4.3",
+    "sp_shared": "baseline -- published SentencePiece Unigram tokenizer; not the paper's method"
+  },
+  "note": "Only movoc_tok is the paper's method; every other arm is a baseline. Gold sets are held out for Tigrinya only -- for Amharic, Ge'ez and Tigre the gold file also feeds vocabulary construction, so those scores are optimistic.",
   "results": [
     {
       "language": "tigrinya",
       "gold_words": 80,
       "movoc_vocab": {
         "vocab_size": 114553,
-        "boundary_precision": 50.9,
+        "boundary_precision": 47.8,
+        "boundary_precision_all_words": 47.8,
         "morphscore": 66.7,
         "renyi_entropy": 0.84,
         "renyi_entropy_nats": 3.9392,
@@ -16,6 +25,7 @@
       "sp_shared": {
         "vocab_size": 120000,
         "boundary_precision": 43.1,
+        "boundary_precision_all_words": 43.1,
         "morphscore": 48.9,
         "renyi_entropy": 0.93,
         "renyi_entropy_nats": 4.2329,
@@ -25,6 +35,7 @@
       "bpe": {
         "vocab_size": 32000,
         "boundary_precision": 1.6,
+        "boundary_precision_all_words": 1.6,
         "morphscore": 1.8,
         "renyi_entropy": 0.92,
         "renyi_entropy_nats": 4.3089,
@@ -34,6 +45,7 @@
       "wordpiece": {
         "vocab_size": 32000,
         "boundary_precision": 35.0,
+        "boundary_precision_all_words": 35.0,
         "morphscore": 38.2,
         "renyi_entropy": 0.91,
         "renyi_entropy_nats": 4.2273,
@@ -46,8 +58,9 @@
       "gold_words": 97,
       "movoc_vocab": {
         "vocab_size": 114553,
-        "boundary_precision": 40.4,
-        "morphscore": 53.1,
+        "boundary_precision": 32.7,
+        "boundary_precision_all_words": 32.3,
+        "morphscore": 64.6,
         "renyi_entropy": 0.86,
         "renyi_entropy_nats": 3.6918,
         "distinct_tokens": 73,
@@ -55,8 +68,9 @@
       },
       "sp_shared": {
         "vocab_size": 120000,
-        "boundary_precision": 56.2,
-        "morphscore": 60.5,
+        "boundary_precision": 56.8,
+        "boundary_precision_all_words": 56.8,
+        "morphscore": 70.6,
         "renyi_entropy": 0.88,
         "renyi_entropy_nats": 3.8821,
         "distinct_tokens": 83,
@@ -68,7 +82,8 @@
       "gold_words": 8053,
       "movoc_vocab": {
         "vocab_size": 114553,
-        "boundary_precision": 23.3,
+        "boundary_precision": 65.2,
+        "boundary_precision_all_words": 23.3,
         "morphscore": 73.8,
         "renyi_entropy": 0.66,
         "renyi_entropy_nats": 4.9493,
@@ -77,7 +92,8 @@
       },
       "sp_shared": {
         "vocab_size": 120000,
-        "boundary_precision": 28.1,
+        "boundary_precision": 71.1,
+        "boundary_precision_all_words": 28.1,
         "morphscore": 66.8,
         "renyi_entropy": 0.71,
         "renyi_entropy_nats": 5.7832,
@@ -88,10 +104,21 @@
     {
       "language": "amharic",
       "gold_words": 37048,
+      "movoc_tok": {
+        "merges": 31997,
+        "boundary_precision": 29.2,
+        "boundary_precision_all_words": 15.6,
+        "morphscore": 41.7,
+        "renyi_entropy": 0.65,
+        "renyi_entropy_nats": 5.876,
+        "distinct_tokens": 8476,
+        "segmented_words": 33079
+      },
       "movoc_vocab": {
         "vocab_size": 114553,
-        "boundary_precision": 63.6,
-        "morphscore": 73.1,
+        "boundary_precision": 56.3,
+        "boundary_precision_all_words": 56.2,
+        "morphscore": 73.3,
         "renyi_entropy": 0.49,
         "renyi_entropy_nats": 4.8609,
         "distinct_tokens": 22482,
@@ -99,7 +126,8 @@
       },
       "sp_shared": {
         "vocab_size": 120000,
-        "boundary_precision": 24.3,
+        "boundary_precision": 42.0,
+        "boundary_precision_all_words": 22.7,
         "morphscore": 53.6,
         "renyi_entropy": 0.59,
         "renyi_entropy_nats": 5.7208,
@@ -108,8 +136,9 @@
       },
       "bpe": {
         "vocab_size": 32000,
-        "boundary_precision": 0.8,
-        "morphscore": 2.1,
+        "boundary_precision": 1.6,
+        "boundary_precision_all_words": 0.8,
+        "morphscore": 2.2,
         "renyi_entropy": 0.73,
         "renyi_entropy_nats": 6.8632,
         "distinct_tokens": 11911,
@@ -117,7 +146,8 @@
       },
       "wordpiece": {
         "vocab_size": 32000,
-        "boundary_precision": 8.3,
+        "boundary_precision": 14.8,
+        "boundary_precision_all_words": 7.4,
         "morphscore": 21.0,
         "renyi_entropy": 0.68,
         "renyi_entropy_nats": 6.2044,
