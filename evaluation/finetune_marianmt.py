@@ -14,9 +14,6 @@ Reported training configuration, kept in TRAINING_CONFIG below:
     1 GPU, 6 CPU cores, 32 GB RAM, 24 h max runtime (Slurm)
     Conda-managed environment
 
-Observed in the reported run: gradient norms 1.14 -> 1.06, training loss
-0.443 -> 0.438, ~12 hours at ~96.7 samples/second.
-
 This module builds the training arguments and dataset exactly as described.
 Running it requires a GPU and the NLLB corpora; see scripts/submit_job.sh
 for the Slurm wrapper.
