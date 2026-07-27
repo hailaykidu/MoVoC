@@ -90,7 +90,7 @@ def main():
         top, available, n_entries = extract_morphemes(path, s_morpheme)
         v_morph[lang] = top
         note = "" if available >= s_morpheme else \
-               f"  (only {available} distinct morphemes exist; all taken)"
+               "  (all available morphemes selected)"
         print(f"  {lang:9} {n_entries:7} entries -> {available:6} distinct "
               f"-> selected {len(top):6}{note}")
 
