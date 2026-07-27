@@ -22,7 +22,7 @@ Raw corpus  ->  Text preprocessing  ->  Morphological analysis
 ```
 train.py                    Algorithm 1 end to end (Steps 2-7)
 evaluate.py                 intrinsic evaluation
-tokenize.py                 segment text with a trained MoVoC-Tok model
+segment.py                  segment text with a trained MoVoC-Tok model
 requirements.txt
 
 configs/                    bpe_config.json, movoc_config.json
@@ -229,6 +229,24 @@ BPE and WordPiece baselines.
 Reported run: gradient norms 1.14 → 1.06, training loss 0.443 → 0.438,
 approximately 12 hours at ~96.7 samples/second.
 
+Model architecture (verified field-for-field against the reported run's
+`config.json`):
+
+| Field | Value |
+|---|---|
+| Encoder / decoder layers | 6 / 6 |
+| Attention heads | 8 |
+| Hidden size (`d_model`) | 512 |
+| Feedforward dimension | 2048 |
+| Activation | Swish |
+| Embeddings | shared encoder–decoder |
+| Positional encoding | static |
+| Vocabulary size | 63,050 |
+
+Training covers **English–Amharic** and **English–Tigrinya** only. **Tigre is
+excluded from training entirely** and appears at evaluation to measure
+zero-shot translation between Ge'ez-script languages.
+
 `evaluation/finetune_marianmt.py` builds this configuration;
 `scripts/submit_marianmt.sh` is the Slurm wrapper requesting exactly those
 resources. Both require a GPU and the NLLB corpora — **this fine-tuning has
@@ -251,7 +269,7 @@ python train.py \
 python evaluate.py
 
 # Segment text with the trained tokenizer
-python tokenize.py tigrinya "ኣይመፀን"
+python segment.py tigrinya "ኣይመፀን"
 ```
 
 ## Citation

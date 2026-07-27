@@ -36,6 +36,37 @@ TRAINING_CONFIG = {
     "fp16": False,
 }
 
+# Paper Sec 4.3 architecture. Every field here was verified against the
+# reported run's config.json (checkpoint-524316) and matches exactly.
+MODEL_CONFIG = {
+    "encoder_layers": 6,
+    "decoder_layers": 6,
+    "encoder_attention_heads": 8,
+    "decoder_attention_heads": 8,
+    "d_model": 512,
+    "encoder_ffn_dim": 2048,
+    "decoder_ffn_dim": 2048,
+    "activation_function": "swish",
+    "share_encoder_decoder_embeddings": True,
+    "static_position_embeddings": True,
+    "vocab_size": 63050,
+}
+
+# Trained on English-Amharic and English-Tigrinya. Tigre is held out of
+# training entirely and appears only at evaluation, to measure zero-shot
+# transfer between Ge'ez-script languages.
+TRAINING_PAIRS = ("en-am", "en-ti")
+ZERO_SHOT_PAIRS = ("en-tig",)
+
+
+def build_model_config(**overrides):
+    """A MarianConfig matching the paper's reported architecture."""
+    from transformers import MarianConfig
+
+    cfg = dict(MODEL_CONFIG)
+    cfg.update(overrides)
+    return MarianConfig(**cfg)
+
 SLURM_RESOURCES = {
     "gpus": 1,
     "cpus": 6,
