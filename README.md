@@ -314,9 +314,25 @@ epochs this is 524,316 optimizer steps per run.
 `evaluation/translate_eval.py` performs this scoring.
 `evaluation/finetune_marianmt.py` builds this configuration;
 `scripts/submit_marianmt.sh` is the Slurm wrapper requesting exactly those
-resources. Both require a GPU and the NLLB corpora — **this fine-tuning has
-not been run from this repository**, and no downstream results are reported
-here yet.
+resources. Both require a GPU and the NLLB corpora.
+
+### Table 3: pending reproduction
+
+**No BLEU or chrF++ figures are reported in this repository.**
+
+Fine-tuning has been run outside it, but that run is **not** a valid
+reproduction: the checkpoints were produced before
+`align_special_tokens()` existed, so they carry a `generation_config`
+inherited from the base model whose `bad_words_ids` and
+`forced_eos_token_id` refer to the *base* vocabulary rather than the
+resized one. Evaluating them crashed for the BPE and WordPiece arms and
+silently corrupted decoding for MoVoC-Tok. The evidence is kept in
+[`docs/incidents/2026-07-28-invalid-mt-evaluation/`](docs/incidents/2026-07-28-invalid-mt-evaluation/).
+
+Those checkpoints must be retrained with the corrected script before any
+figure can be regarded as reproducing Table 3. Until that happens Table 3
+is left without numbers, deliberately: an uncertain value presented here
+would be indistinguishable from a published result.
 
 ## Reproducing the experiments
 

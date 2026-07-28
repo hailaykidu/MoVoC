@@ -188,6 +188,75 @@ def load_tokenizer(strategy: str, language: str):
     )
 
 
+def align_special_tokens(model, tokenizer):
+    """Point every special-token id at the *new* vocabulary after resizing.
+
+    Swapping the tokenizer changes what every id means. `resize_token
+    _embeddings` grows or shrinks the embedding matrix but does not touch
+    `config` or `generation_config`, so any id inherited from the base
+    checkpoint still refers to the base vocabulary and is now either wrong
+    or out of range.
+
+    Missing one of these does not fail loudly at training time. It surfaces
+    much later, at generation, and the failure mode differs per field:
+
+      pad / eos / decoder_start   wrong id -> decoding starts from or stops
+                                  on the wrong token; training "succeeds"
+                                  and the model produces garbage.
+
+      bad_words_ids               inherited [[63049]] is the *base* model's
+                                  pad id. Against a 32k BPE vocabulary that
+                                  id does not exist and generate() raises
+                                  "The model vocabulary size is 32000, but
+                                  the following tokens were being biased:
+                                  [63049]". Against the 143,963-token MoVoC
+                                  vocabulary it exists but denotes an
+                                  unrelated token, which is then silently
+                                  suppressed for the whole run.
+
+      forced_eos_token_id         inherited 0 while the new tokenizer's eos
+                                  is 2 -> the model is forced to emit the
+                                  wrong token at max_length.
+
+    An earlier evaluation run was invalidated by exactly this: the BPE and
+    WordPiece arms crashed, and MoVoC-Tok scored ~0.01 BLEU while decoding
+    from the wrong start id with an arbitrary token suppressed. Those
+    numbers measured the misconfiguration, not the tokenizers.
+
+    Everything vocabulary-dependent is therefore reset here in one place,
+    and ids that have no equivalent under the new vocabulary are cleared
+    rather than left pointing at a stale value.
+    """
+    pad, eos = tokenizer.pad_token_id, tokenizer.eos_token_id
+
+    for cfg in (model.config, model.generation_config):
+        cfg.pad_token_id = pad
+        cfg.eos_token_id = eos
+        # Marian starts decoding from pad, not bos.
+        cfg.decoder_start_token_id = pad
+        cfg.forced_eos_token_id = eos
+        # Carries base-vocabulary ids with no meaning under the new one.
+        cfg.bad_words_ids = None
+
+    vocab_size = model.get_input_embeddings().weight.shape[0]
+    model.config.vocab_size = vocab_size
+
+    # Cheap assertion, but it is the one that would have caught the run
+    # described above before 40 GPU-hours were spent on it.
+    for name, value in (("pad_token_id", pad), ("eos_token_id", eos),
+                        ("decoder_start_token_id", pad),
+                        ("forced_eos_token_id", eos)):
+        if value is None or not (0 <= value < vocab_size):
+            raise ValueError(
+                f"{name}={value} is not a valid id for a {vocab_size}-token "
+                f"vocabulary. The tokenizer and model are out of sync; "
+                f"fine-tuning would produce a checkpoint that cannot "
+                f"generate.")
+
+    print(f"  special tokens: pad={pad} eos={eos} "
+          f"decoder_start={pad} vocab={vocab_size} bad_words=cleared")
+
+
 def load_eval_set(source: Path, reference: Path):
     """Read an external evaluation set (FLORES-200 or OPUS).
 
@@ -244,12 +313,7 @@ def main():
         # Only the MoVoC strategies need resizing; see the note on
         # TOKENIZER_STRATEGIES for what that costs.
         model.resize_token_embeddings(len(tokenizer))
-    model.config.pad_token_id = tokenizer.pad_token_id
-    model.config.eos_token_id = tokenizer.eos_token_id
-    model.config.decoder_start_token_id = tokenizer.pad_token_id
-    model.generation_config.pad_token_id = tokenizer.pad_token_id
-    model.generation_config.eos_token_id = tokenizer.eos_token_id
-    model.generation_config.decoder_start_token_id = tokenizer.pad_token_id
+    align_special_tokens(model, tokenizer)
 
     max_len = TRAINING_CONFIG["max_seq_length"]
 
