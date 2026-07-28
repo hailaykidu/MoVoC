@@ -79,6 +79,10 @@ def translate(model_dir: Path, sentences: list, batch_size: int = 8,
         batch = sentences[i:i + batch_size]
         enc = tokenizer(batch, return_tensors="pt", padding=True,
                         truncation=True, max_length=max_length)
+        # PreTrainedTokenizerFast emits token_type_ids; MarianMT's encoder
+        # does not take them, so drop anything generate() cannot consume.
+        enc = {k: v for k, v in enc.items()
+               if k in ("input_ids", "attention_mask")}
         gen = model.generate(**enc, max_length=max_length)
         out.extend(tokenizer.batch_decode(gen, skip_special_tokens=True))
     return out

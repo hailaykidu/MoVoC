@@ -58,12 +58,6 @@ MODEL_CONFIG = {
 TRAINING_PAIRS = ("en-am", "en-ti")
 ZERO_SHOT_PAIRS = ("en-tig",)
 
-# The three tokenization strategies compared in Table 3. Everything else in
-# the experiment is held fixed -- preprocessing, splits, architecture,
-# optimizer, schedule, batch size, epochs, and decoding -- so the tokenizer
-# is the only variable.
-TOKENIZER_STRATEGIES = ("movoc_tok", "bpe", "wordpiece")
-
 # Evaluation data (paper Sec 5.1). Development and test sets are external,
 # not carved out of the training corpus:
 #
@@ -125,6 +119,32 @@ def build_training_arguments(output_dir: Path, **overrides):
     )
 
 
+# Pretrained MarianMT checkpoint. The paper fine-tunes MarianMT rather than
+# training it from scratch, and the reported learning rate (1.44e-07) is a
+# fine-tuning rate: from a random initialisation it cannot converge in three
+# epochs. The released checkpoint carries a 63,050-token Marian vocabulary
+# and source.spm/target.spm. Every field of its config -- vocab_size 63,050,
+# d_model 512, 6+6 layers, 8 heads, FFN 2048, Swish, static positional
+# encodings, decoder_start_token_id 63049 -- matches
+# Helsinki-NLP/opus-mt-en-ti exactly, which identifies it as the base.
+BASE_MODEL = "Helsinki-NLP/opus-mt-en-ti"
+
+# Sec 4.3 and Table 5 differ on vocabulary size, and Sec 4.3 is authoritative
+# for the MT experiments. The released checkpoint uses Marian's own 63,050
+# vocabulary, which keeps the pretrained embedding and output layers intact --
+# consistent with the low initial training loss it reports. Substituting a
+# 32,000-token vocabulary (Table 5's s_BPE) forces those matrices to be
+# resized and reinitialised, which changes the optimization problem and the
+# training dynamics entirely. Table 5 describes the intended tokenizer
+# configuration rather than the released run.
+#
+# So `marian` is the default: it reproduces Sec 4.3. The three MoVoC
+# strategies remain available for the tokenizer comparison, with the caveat
+# above.
+TOKENIZER_STRATEGIES = ("marian", "movoc_tok", "bpe", "wordpiece")
+PRETRAINED_VOCAB_STRATEGY = "marian"
+
+
 def load_tokenizer(strategy: str, language: str):
     """The one experimental variable: which tokenizer the model uses.
 
@@ -140,6 +160,12 @@ def load_tokenizer(strategy: str, language: str):
     if strategy not in TOKENIZER_STRATEGIES:
         raise ValueError(f"unknown strategy {strategy!r}; "
                          f"expected one of {TOKENIZER_STRATEGIES}")
+
+    if strategy == PRETRAINED_VOCAB_STRATEGY:
+        # Sec 4.3: Marian's own 63,050-token vocabulary, left untouched so
+        # the pretrained embedding and output layers are preserved.
+        from transformers import AutoTokenizer
+        return AutoTokenizer.from_pretrained(BASE_MODEL)
 
     if strategy == "movoc_tok":
         # MoVoC-Tok: the constrained merge table from Algorithm 1, Step 6,
@@ -190,6 +216,8 @@ def main():
                    help="FLORES-200 dev source (Amharic/Tigrinya)")
     p.add_argument("--valid-reference", type=Path, default=None,
                    help="FLORES-200 dev reference")
+    p.add_argument("--base-model", default=BASE_MODEL,
+                   help="pretrained MarianMT checkpoint to fine-tune")
     p.add_argument("--max-samples", type=int, default=None)
     args = p.parse_args()
 
@@ -208,13 +236,20 @@ def main():
     tokenizer = load_tokenizer(args.strategy, args.language)
 
     # --- everything below is identical across strategies ---
-    config = build_model_config(
-        vocab_size=len(tokenizer),
-        pad_token_id=tokenizer.pad_token_id,
-        eos_token_id=tokenizer.eos_token_id,
-        decoder_start_token_id=tokenizer.pad_token_id,
-    )
-    model = MarianMTModel(config)
+    # Fine-tune the pretrained MarianMT model (Sec 4.3). The embedding matrix
+    # is resized to the tokenizer's vocabulary -- that resizing is the whole
+    # point of the comparison, since the tokenizer is the variable under test.
+    model = MarianMTModel.from_pretrained(args.base_model)
+    if args.strategy != PRETRAINED_VOCAB_STRATEGY:
+        # Only the MoVoC strategies need resizing; see the note on
+        # TOKENIZER_STRATEGIES for what that costs.
+        model.resize_token_embeddings(len(tokenizer))
+    model.config.pad_token_id = tokenizer.pad_token_id
+    model.config.eos_token_id = tokenizer.eos_token_id
+    model.config.decoder_start_token_id = tokenizer.pad_token_id
+    model.generation_config.pad_token_id = tokenizer.pad_token_id
+    model.generation_config.eos_token_id = tokenizer.eos_token_id
+    model.generation_config.decoder_start_token_id = tokenizer.pad_token_id
 
     max_len = TRAINING_CONFIG["max_seq_length"]
 
