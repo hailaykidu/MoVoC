@@ -350,26 +350,84 @@ compared. Accordingly:
 - **The unmodified `marian` vocabulary is not a Table 3 row.** It is
   retained in `finetune_marianmt.py` only as a pipeline sanity check.
 
-#### Per-block status
-
-| Table 3 block | Status |
-|---|---|
-| English→Amharic | pending — requires retraining with the corrected script |
-| English→Tigrinya | pending — as above |
-| English→Tigre (zero-shot) | pending — as above |
-| English→Ge'ez | **unavailable** — no Ge'ez parallel evaluation data exists in this repository, and Sec 4.2 states Ge'ez "was evaluated only intrinsically" |
-
-Two questions remain open and must be settled before any generated figure
-can be compared against the published table: how the English→Ge'ez block
-was produced, and the scale of the reported BLEU values (chrF++ is 40–75×
-BLEU in every row, which is consistent with neither a shared 0–100 scale
-nor the usual chrF++/BLEU relationship).
-
-Both are documented in full, with the relevant paper quotations, in
-[`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md). That note also
+Two questions remain open. Both are documented in full, with the relevant
+paper quotations, in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md):
+how the English→Ge'ez block was produced, and the scale of the reported
+BLEU values (chrF++ is 40–75× BLEU in every row, consistent with neither a
+shared 0–100 scale nor the usual chrF++/BLEU relationship). That note also
 separates the three distinct direction scopes — pairs discussed in the
 paper, actual fine-tuning directions, and Table 3's evaluation directions —
 which are easy to conflate.
+
+---
+
+## Results
+
+This repository keeps two kinds of numbers strictly apart. **Published
+figures belong to the paper; anything generated here is a new measurement.**
+
+### 1. Published paper results
+
+Table 3 of the paper reports the following. **These are the authors'
+published values, cited here for reference. They were not produced by this
+repository and cannot currently be regenerated from it.**
+
+| Strategy | BLEU↑ | chrF++↑ |
+|---|---|---|
+| **English→ Amharic** | | |
+| BPE | 0.2150 ± 0.0120 | 16.2000 ± 1.05 |
+| WordPiece | 0.2340 ± 0.0155 | 16.5000 ± 1.00 |
+| MoVoC-Tok | **0.2455 ± 0.0108** | **17.8500 ± 0.95** |
+| **English→ Tigrinya** | | |
+| BPE | 0.1720 ± 0.0095 | 7.2000 ± 0.85 |
+| WordPiece | 0.1880 ± 0.0088 | 7.5000 ± 0.80 |
+| MoVoC-Tok | **0.2050 ± 0.0080** | **8.1000 ± 0.75** |
+| **English→ Tigre** | | |
+| BPE | 0.0950 ± 0.0080 | 4.0000 ± 0.70 |
+| WordPiece | 0.1025 ± 0.0075 | 4.3000 ± 0.65 |
+| MoVoC-Tok | **0.1175 ± 0.0068** | **5.1500 ± 0.60** |
+| **English→ Ge'ez** | | |
+| BPE | 0.0480 ± 0.0070 | 3.0500 ± 0.55 |
+| WordPiece | 0.0550 ± 0.0065 | 3.2500 ± 0.60 |
+| MoVoC-Tok | **0.0660 ± 0.0060** | **3.9500 ± 0.50** |
+
+> **The scoring pipeline that produced these figures has not been
+> recovered.** A provenance search across this repository's full history
+> and the surrounding project directories found no script computing chrF++
+> over the paper's test sets across three tokenizer arms, no stored
+> predictions or references, and no log containing these values. The metric
+> implementation and the scale of the BLEU column are therefore both
+> unknown.
+>
+> A consequence worth stating plainly: **no evaluation run today can be
+> checked for agreement with this table**, in either direction. See
+> [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) §3.
+
+### 2. Independent reproducible evaluation
+
+*Status: not yet run.*
+
+This section will hold results generated from this repository under the
+protocol in
+[`configs/independent_evaluation.yaml`](configs/independent_evaluation.yaml)
+— sacreBLEU 2.6.0, chrF++ at `word_order=2`, both on a 0–100 scale, over
+the released OPUS evaluation sets.
+
+Any figures placed here are
+
+> **Independent reproducibility evaluation of MoVoC tokenizers under the
+> released repository protocol**
+
+and are **not** a reproduction of the published Table 3. They are new
+measurements taken with a documented, rerunnable procedure. They may not be
+labelled or cited as reproductions of the paper's values, and — because the
+published scale is unresolved — no comparison between the two sections
+should be drawn.
+
+Scope, per the configuration: three tokenizers (BPE, WordPiece, MoVoC-Tok)
+× English→Amharic and English→Tigrinya, plus English→Tigre zero-shot from
+the same checkpoints. English→Ge'ez is **excluded** — no held-out Ge'ez
+parallel set exists in the released artifacts.
 
 ## Reproducing the experiments
 
