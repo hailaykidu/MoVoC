@@ -1,0 +1,158 @@
+# Independent reproducibility evaluation of MoVoC tokenizers
+# under the released repository protocol.
+#
+# THIS IS NOT A REPRODUCTION OF THE PUBLISHED TABLE 3.
+#
+# The scoring pipeline that produced the paper's Table 3 has not been
+# recovered (see docs/REPRODUCIBILITY.md §3). Results produced under this
+# configuration are new measurements taken with the protocol defined here,
+# and must be reported as such -- never as reproductions of, or as directly
+# comparable to, the published values.
+#
+# The metric scale of the paper's BLEU column is also unresolved, so
+# agreement or disagreement with Table 3 cannot be assessed in either
+# direction.
+
+experiment:
+  name: independent-tokenizer-evaluation
+  title: >-
+    Independent reproducibility evaluation of MoVoC tokenizers
+    under the released repository protocol
+  not_a_reproduction_of: "MoVoC paper Table 3"
+  rationale: docs/REPRODUCIBILITY.md
+
+# --- what is being compared -----------------------------------------
+# The tokenizer is the only variable. Architecture, corpus, optimizer,
+# seed and decoding settings are identical across arms.
+tokenizers:
+  - bpe                    # baseline subword, HuggingFace tokenizers
+  - wordpiece              # baseline subword, HuggingFace tokenizers
+  - movoc_tok              # the paper's morphology-aware hybrid vocabulary
+
+# `marian` (the unmodified pretrained 63,050-token vocabulary) is
+# deliberately excluded: it is a pipeline sanity check, not a tokenizer
+# under test, and its embedding matrix is never resized so its numbers are
+# not comparable with the three arms above.
+
+languages:
+  - amharic                # en -> am
+  - tigrinya               # en -> ti
+
+directions:
+  trained: [en-am, en-ti]
+  zero_shot: [en-tig]      # Tigre held out of training entirely
+  # Reverse directions are not evaluated: the base checkpoint is
+  # single-direction English->Tigrinya and has no English decoder.
+  # English->Ge'ez is not evaluated: no held-out Ge'ez parallel set exists
+  # (docs/REPRODUCIBILITY.md §1).
+
+# --- data ------------------------------------------------------------
+datasets:
+  training:
+    source: NLLB (Costa-Jussa et al., 2022), English-Amharic / English-Tigrinya
+    amharic_pairs: 1398173   # capped to Tigrinya's size so corpus size is
+    tigrinya_pairs: 1398173  #   not a confound; tokenizer stays the variable
+    note: >-
+      The NLLB Amharic side holds 16.1M pairs; it is capped to the smaller
+      Tigrinya corpus.
+  evaluation:
+    source: OPUS / Tatoeba (Tiedemann, 2012)
+    manifest: data/evaluation/manifest.json
+    amharic: {pairs: 100, from_opus: 100, human_validated: 0}
+    tigrinya: {pairs: 71,  from_opus: 71, human_validated: 0}
+    tigre:    {pairs: 43,  from_opus: 43, human_validated: 0}
+    note: >-
+      Line counts are what the released files actually contain. The paper
+      describes 100 pairs per language, topped up with human-validated
+      pairs where OPUS coverage is short; those top-ups are not part of the
+      released artifacts, so Tigrinya and Tigre are evaluated on 71 and 43
+      pairs respectively. This is a documented difference from the paper's
+      described test sets.
+  splits:
+    policy: >-
+      Evaluation sets are external to training. No split is carved from the
+      training corpus.
+
+# --- model + training -------------------------------------------------
+model:
+  base_checkpoint: Helsinki-NLP/opus-mt-en-ti
+  architecture:            # paper Sec 4.3, verified against the released config
+    encoder_layers: 6
+    decoder_layers: 6
+    attention_heads: 8
+    d_model: 512
+    ffn_dim: 2048
+    activation: swish
+    shared_embeddings: true
+    static_position_embeddings: true
+
+training:
+  epochs: 3
+  per_device_train_batch_size: 8
+  max_seq_length: 128
+  learning_rate: 1.44e-07
+  lr_scheduler_type: linear
+  fp16: false
+  seed: 42
+  steps_per_run: 524316    # at the capped corpus size
+  special_token_alignment: >-
+    align_special_tokens() resets pad/eos/decoder_start/forced_eos and
+    clears bad_words_ids after resizing, then asserts every id is in range.
+    Checkpoints trained before this existed are invalid; see
+    docs/incidents/2026-07-28-invalid-mt-evaluation/.
+
+# --- decoding ---------------------------------------------------------
+decoding:
+  max_length: 128
+  batch_size: 8
+  num_beams: 1             # greedy; transformers' generate() default
+  early_stopping: false
+  note: >-
+    Decoding parameters follow the training configuration. The paper does
+    not state its decoding settings, so these are this repository's choice
+    and are recorded here rather than assumed.
+
+# --- metrics ----------------------------------------------------------
+metrics:
+  library: sacrebleu
+  version: "2.6.0"
+  bleu:
+    call: "sacrebleu.metrics.BLEU().corpus_score(hyps, [refs])"
+    signature: "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0"
+    scale: "0-100"
+  chrf_plus_plus:
+    call: "sacrebleu.metrics.CHRF(word_order=2).corpus_score(hyps, [refs])"
+    word_order: 2          # 2 = chrF++; 0 would be plain chrF
+    signature: "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    scale: "0-100"
+  comet:
+    used: false
+    reason: >-
+      No reliable COMET-compatible model exists for Tigrinya, Tigre or
+      Ge'ez (paper Sec 5.1).
+  scale_caveat: >-
+    Both metrics are on 0-100 here. The scale of the paper's reported BLEU
+    column is unresolved, so these values cannot be compared against
+    Table 3.
+
+# --- environment ------------------------------------------------------
+environment:
+  python: "3.13.11"
+  torch: "2.5.1+cu118"
+  transformers: "4.51.3"
+  sacrebleu: "2.6.0"
+  platform: "Linux-6.12.90+deb13.1-amd64-x86_64-with-glibc2.41"
+  hardware: "1 GPU, 6 CPU cores, 32 GB RAM, 24h max runtime (Slurm)"
+
+# --- reporting --------------------------------------------------------
+reporting:
+  output_dir: evaluation/results
+  label_required: "Independent evaluation (released protocol)"
+  must_not_be_labelled:
+    - "Table 3 reproduction"
+    - "Reproduction of the published MoVoC results"
+  separation: >-
+    Results generated here are reported in the README's "Independent
+    reproducible evaluation" section only, kept distinct from the
+    "Published paper results" section, which cites the paper's values and
+    notes that the original scoring pipeline is unavailable.
