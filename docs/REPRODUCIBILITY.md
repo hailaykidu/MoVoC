@@ -137,6 +137,64 @@ inconsistent with this repository's own manifest, but it is also the only
 released trace pointing at a Ge'ez evaluation source, and removing it
 would destroy evidence rather than resolve anything.
 
+### Second provenance search (2026-07-28)
+
+A wider search across the local project family — `MoVoC_Tok/`,
+`MoVoC_MT/`, `EnTiMT/` — was run specifically for the missing Ge'ez
+evaluation artifacts.
+
+**The 100 validated Ge'ez sentence pairs were not found.** No file of that
+size exists in any searched directory. The only Ge'ez corpus files located
+are the Mermru corpus and its derivatives:
+
+| File | Lines | What it is |
+|---|---|---|
+| `MoVoC_Tok/01_collection/corpus_raw/geez.txt` | 2,107 | monolingual Ge'ez side of the Mermru corpus |
+| `MoVoC_Tok/02_cleaning/corpus_clean/geez.txt` | 2,387 | cleaned Ge'ez text |
+| `mt_finetune/data_gez/all.en` / `all.gez` | 2,107 | the aligned pair, exported for MT training |
+
+**No held-out Ge'ez split exists.** Every located Ge'ez file is either the
+full 2,107-row corpus or a monolingual derivative of it. Nothing is
+partitioned into train/dev/test.
+
+**No Ge'ez evaluation was found.** `MoVoC_MT/05_evaluation/` — the only
+directory in the project family containing scoring code — covers Amharic,
+Tigrinya and Tigre only. It contains no Ge'ez path, no Ge'ez reference
+file, and no Ge'ez entry in either stored report.
+
+**No Table 3 predictions or references were found**, for Ge'ez or any
+other language: no hypothesis files, no per-strategy outputs, and no
+report containing the three-tokenizer comparison the table presents.
+
+### Corpus-family trace
+
+The requested trace connects cleanly:
+
+```
+Mermru (https://mermru.com/)
+  └─ distributed as  Bedru/Eng-Geez  (HuggingFace Hub, 2,107 pairs)
+       ├─ MoVoC_Tok/01_collection/corpus_raw/manifest.json
+       │    records it under both "geez" (2,107 rows, 185,238 chars)
+       │    and "english" (2,107 rows, 264,773 chars)
+       │    -> only the monolingual Ge'ez side was carried forward,
+       │       into corpus_raw/geez.txt, for tokenizer training
+       └─ mt_finetune/train_mt_gez.py
+            load_dataset("Bedru/Eng-Geez") -> data_gez/all.en + all.gez
+            -> the first use of the corpus as an aligned MT pair
+```
+
+Both sides of the corpus were catalogued in the manifest from the start;
+the tokenizer pipeline kept only the Ge'ez side, and the MT script later
+re-fetched the pair from the Hub.
+
+**What this means for the Table 3 Ge'ez block.** The 2,107-pair corpus is
+the only English–Ge'ez parallel data in the project family, and it was used
+in full for training with no held-out portion. If the Table 3 Ge'ez figures
+were produced at all, they were either scored against that same training
+data — which would not be a valid held-out evaluation — or against a set
+that does not survive in any searched location. **The artifacts do not
+distinguish these possibilities**, so the block remains **unavailable**.
+
 ---
 
 ## 2. Translation directions — three distinct scopes
@@ -217,21 +275,56 @@ single consistent scale.
 
 ### Provenance search (2026-07-28)
 
-**No scoring implementation was found.** A search of this repository's
-history and of the local training environment turned up the MT training
-scripts (`build_model.py`, `train_mt.py`, `train_mt_am.py`,
-`train_mt_gez.py`) and their run logs, but:
+An initial search of this repository and the `mt_finetune/` training
+environment found no scoring code — those four scripts train only, and
+that environment's README says so: *"there's no independent BLEU/chrF
+signal produced by this run itself."*
 
-- none of those scripts computes BLEU or chrF++;
-- no separate scoring script was located;
-- no predictions file, hypothesis output, or BLEU/chrF log exists in any
-  of the run directories;
-- nothing references sacreBLEU, Moses `multi-bleu.perl`, `nltk`, or
-  `evaluate.load("sacrebleu")`.
+**A scoring implementation was subsequently located in a separate project
+directory**, `MoVoC_MT/05_evaluation/`. It uses **sacreBLEU**:
 
-The training environment's own README states this directly: *"there's no
-independent BLEU/chrF signal produced by this run itself; that would need
-a separate evaluation step against a real, disjoint test set."*
+```python
+# MoVoC_MT/05_evaluation/evaluate.py
+import sacrebleu
+bleu = sacrebleu.corpus_bleu(hyps, [tgt_lines])
+chrf = sacrebleu.corpus_chrf(hyps, [tgt_lines])
+```
+
+sacreBLEU emits **0–100** for both metrics, and the stored results confirm
+that scale:
+
+| Direction | BLEU | chrF | n |
+|---|---|---|---|
+| en→am | 11.699 | 33.655 | 2,000 |
+| am→en | 20.485 | 45.554 | 2,000 |
+| en→ti | 4.556 | 18.634 | 2,000 |
+| ti→en | 10.571 | 31.945 | 2,000 |
+
+(`MoVoC_MT/05_evaluation/eval_report.json`, SLURM job 53024.) A companion
+script scored Tigre zero-shot: en→tig BLEU 2.713 / chrF 19.405 over 43
+pairs.
+
+**These are not the Table 3 numbers.** They differ in every respect that
+matters: they use 2,000 held-out dev pairs rather than the paper's 100 OPUS
+pairs, they include reverse directions, they evaluate one model rather than
+three tokenizer arms, and their magnitudes do not match the published
+table. They establish what tooling was available in this project family,
+not what produced Table 3.
+
+**Two discrepancies follow, and both remain open.**
+
+*Metric.* The located script calls `corpus_chrf` with its default
+`word_order=0`, which is plain **chrF**, not chrF++ (`word_order=2`). Its
+own output labels the column `chrF`. The paper reports **chrF++**. So this
+script cannot be the one that produced Table 3's chrF++ column, or it was
+run with different arguments.
+
+*Scale.* If Table 3's BLEU came from sacreBLEU it would be on 0–100, which
+makes the reported 0.2455 an extremely low score rather than the ~24.6 a
+0–1 reading would imply — while the accompanying chrF++ of 17.85 sits in
+the range this tooling produces on 0–100. The two columns still do not sit
+on a consistent scale, and the located artifacts do not resolve which
+reading is correct.
 
 So the question of **which** implementation produced Table 3 — sacreBLEU,
 Moses multi-bleu, or a custom script — cannot be answered from available
@@ -303,12 +396,20 @@ training environment. Its outcome:
   missing is the **held-out evaluation set** the Table 3 Ge'ez figures were
   scored against, and the scoring step itself. Identifying the training
   corpus does not resolve this. See §1.
-- **Exact comparison against Table 3's numbers.** No scoring
-  implementation was located anywhere, so the metric library and the scale
-  of the reported BLEU values remain unknown. See §3.
+- **Exact comparison against Table 3's numbers.** A sacreBLEU-based
+  scoring script was located in `MoVoC_MT/05_evaluation/`, establishing
+  what tooling the project family used, but it is **not** the script that
+  produced Table 3: it scores plain chrF rather than chrF++, uses 2,000
+  held-out dev pairs rather than 100 OPUS pairs, and evaluates a single
+  model rather than three tokenizer arms. The scale of Table 3's BLEU
+  column remains unresolved. See §3.
 
-Both would be settled by artifacts that are not in this repository: the
-Ge'ez evaluation set, and the script that produced the Table 3 figures.
-Until they are available, this repository can reproduce the
-Amharic/Tigrinya/Tigre experiments on their own terms but cannot state
-whether the result agrees with the published table.
+Neither is settled by anything in the searched locations. What would settle
+them: the held-out Ge'ez evaluation set, and the script that generated the
+Table 3 figures themselves. Until those are available, this repository can
+reproduce the Amharic/Tigrinya/Tigre experiments on their own terms but
+cannot state whether the result agrees with the published table.
+
+**Searched (2026-07-28):** this repository's full git history including all
+refs, deleted files and unreachable objects; `mt_finetune/`; `MoVoC_Tok/`;
+`MoVoC_MT/`; `EnTiMT/`; and the local HuggingFace cache.
