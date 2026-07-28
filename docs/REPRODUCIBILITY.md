@@ -82,16 +82,35 @@ training run outside this repository.**
 
 | Evidence | Detail |
 |---|---|
-| Corpus | `Bedru/Eng-Geez` (HuggingFace Hub) — **2,107** verse-aligned English–Ge'ez pairs, biblical text |
+| Corpus | Mermru English–Ge'ez parallel corpus — **2,107** verse-aligned pairs, biblical text (Genesis creation narrative) |
+| Origin | [Mermru](https://mermru.com/), a linguistic and computational resource platform providing Ge'ez resources, including English–Ge'ez parallel corpus resources |
+| Accessed via | `datasets.load_dataset("Bedru/Eng-Geez")` (HuggingFace Hub) |
 | Cached locally | 2026-07-17 |
-| Training script | `mt_finetune/train_mt_gez.py`, which loads it via `datasets.load_dataset("Bedru/Eng-Geez")` and describes it as "real parallel data" |
+| Training script | `mt_finetune/train_mt_gez.py`, which exports it to `data_gez/all.en` / `data_gez/all.gez` and describes it as "real parallel data, not a synthetic pairing" |
 | Completed run | `mt_finetune/papermt_repro_train_gez.out` — 792 steps, 3 epochs, final training loss 3.36 |
 | Checkpoints | `mt_finetune/mt_output_gez/{checkpoint-500, checkpoint-792, final}` |
+
+The corpus originates from **Mermru** and is reached through the
+`Bedru/Eng-Geez` dataset loader. The located artifacts record the loader
+path; the Mermru attribution is supplied by the authors and is recorded
+here so the corpus is credited to its source rather than to the
+distribution channel alone.
+
+`train_mt_gez.py` further notes that this corpus was already listed in
+MoVoC_Tok's own `01_collection/corpus_raw/manifest.json` ("Eng-Geez", 2107
+rows), but that only the **monolingual Ge'ez side** was kept there, for
+tokenizer training — the Ge'ez MT script is the first place in this project
+family to use it as an aligned pair.
 
 So Ge'ez MT training was performed, on genuine parallel data, contrary to
 what §4.2's "absence of parallel data" would suggest. That corpus is *not*
 part of this repository and is not referenced by any released
 configuration.
+
+**This resolves the training-data question, not the evaluation
+reproducibility question.** Knowing which corpus the model was trained on
+does not identify the held-out set the Table 3 Ge'ez figures were scored
+against, nor the metric implementation used.
 
 **What is still missing is the scoring step.** The Ge'ez training
 directory contains four Python files — `build_model.py`, `train_mt.py`,
@@ -277,10 +296,13 @@ training environment. Its outcome:
 
 **Unresolved**
 
-- **English→Ge'ez extrinsic reproduction.** Training is accounted for — a
-  real 2,107-pair English–Ge'ez corpus and a completed run were located
-  outside this repository — but no held-out Ge'ez test set and no scoring
-  step were found. See §1.
+- **English→Ge'ez extrinsic reproduction.** The training data is now
+  identified — the Mermru English–Ge'ez parallel corpus (2,107 verse-aligned
+  pairs, accessed via `load_dataset("Bedru/Eng-Geez")`), together with a
+  completed training run located outside this repository. What remains
+  missing is the **held-out evaluation set** the Table 3 Ge'ez figures were
+  scored against, and the scoring step itself. Identifying the training
+  corpus does not resolve this. See §1.
 - **Exact comparison against Table 3's numbers.** No scoring
   implementation was located anywhere, so the metric library and the scale
   of the reported BLEU values remain unknown. See §3.
