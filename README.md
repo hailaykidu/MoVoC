@@ -322,8 +322,7 @@ here yet.
 
 Everything below runs from this repository. Result files are written to
 `evaluation/results/` and are not tracked -- the repository ships the code
-that regenerates them, so any figure can be reproduced from source data
-rather than trusted from a table.
+that regenerates them, so any figure can be reproduced from source data.
 
 ```bash
 pip install -r requirements.txt
@@ -373,14 +372,30 @@ python segment.py tigrinya "ኣይመፀን"
 ```
 
 ## Citation
+If you use this code, dataset, or tokenizer in your research, please cite:
 
 ```bibtex
-@article{teklehaymanot2025movoc,
-  title  = {MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages},
-  author = {Teklehaymanot, Hailay and Fazlija, Bes and Nejdl, Wolfgang},
-  journal = {arXiv preprint arXiv:2509.08812},
-  year   = {2025}
+@inproceedings{teklehaymanot-etal-2025-movoc,
+  title     = {MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages},
+  author    = {Teklehaymanot, Hailay Kidu and
+               Fazlija, Dren and
+               Nejdl, Wolfgang},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2025},
+  editor    = {Christodoulopoulos, Christos and
+               Chakraborty, Tanmoy and
+               Rose, Carolyn and
+               Peng, Violet},
+  year      = {2025},
+  month     = nov,
+  address   = {Suzhou, China},
+  publisher = {Association for Computational Linguistics},
+  pages     = {13131--13144},
+  doi       = {10.18653/v1/2025.findings-emnlp.706},
+  url       = {https://aclanthology.org/2025.findings-emnlp.706/}
 }
+```
+
+Paper: https://aclanthology.org/2025.findings-emnlp.706/
 ```
 
 ## References
