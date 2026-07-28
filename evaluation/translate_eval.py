@@ -36,14 +36,33 @@ TEST_SETS = {
              "note": "newly created and validated; intrinsic evaluation only"},
 }
 
-# Ge'ez is excluded from extrinsic evaluation: no parallel data exists.
+# Ge'ez is excluded from extrinsic evaluation here: no parallel data exists
+# in this repository. Table 3 does report an English->Ge'ez block; how those
+# figures were produced is unresolved, so it is not reproduced rather than
+# guessed at. See README, "Table 3: pending reproduction".
 EXTRINSIC_LANGUAGES = ("amharic", "tigrinya", "tigre")
 
-# Directions the model is trained on (paper Sec 5.1).
-TRAINED_DIRECTIONS = ("en-am", "am-en", "en-ti", "ti-en")
+# Table 3 reports one direction per language: "Translation performance of
+# BPE, WordPiece, and MoVoC-Tok for English to Amharic, Tigrinya, Tigre, and
+# Ge'ez." Every block is English->X.
+#
+# Reverse directions (am-en, ti-en) are deliberately absent. They appear
+# nowhere in Table 3, and the fine-tuned model cannot produce them: it is
+# built on Helsinki-NLP/opus-mt-en-ti, a single-direction English->Tigrinya
+# checkpoint with no English decoder. Evaluating them scored ~0 BLEU across
+# every arm, including the untouched baseline -- a measurement of the setup,
+# not of the tokenizers. The paper's one "Amharic -> English" mention is a
+# qualitative segmentation example in the discussion, not a Table 3 entry.
+TRAINED_DIRECTIONS = ("en-am", "en-ti")
 
-# Held out of training entirely; evaluated zero-shot.
-ZERO_SHOT_DIRECTIONS = ("en-tig", "tig-en")
+# Tigre is held out of training entirely and evaluated zero-shot (Sec 5.1).
+ZERO_SHOT_DIRECTIONS = ("en-tig",)
+
+# The tokenizer strategies Table 3 compares. `marian` -- the unmodified
+# pretrained vocabulary -- is not among them: it was only ever a
+# pipeline sanity check, and including it would add a row the published
+# table does not have.
+TABLE3_STRATEGIES = ("bpe", "wordpiece", "movoc_tok")
 
 
 def score(hypotheses: list, references: list) -> dict:
@@ -101,7 +120,11 @@ def main():
     p.add_argument("--source", type=Path, required=True)
     p.add_argument("--reference", type=Path, required=True)
     p.add_argument("--direction", required=True,
-                   help="e.g. en-am, ti-en, en-tig (zero-shot)")
+                   choices=TRAINED_DIRECTIONS + ZERO_SHOT_DIRECTIONS,
+                   help="en-am, en-ti, or en-tig (zero-shot). Table 3 "
+                        "reports English->X only; reverse directions are "
+                        "not part of the published experiment and cannot "
+                        "be produced by this single-direction model.")
     p.add_argument("-o", "--out", type=Path,
                    default=Path("evaluation/results/extrinsic_eval.json"))
     args = p.parse_args()
