@@ -1,0 +1,20 @@
+{
+  "results": {
+    "en-ti": {
+      "bleu": 6.59,
+      "chrf++": 26.18,
+      "n": 71,
+      "direction": "en-ti",
+      "zero_shot": false,
+      "model": "movoc/models/mt_tigrinya_marian"
+    },
+    "ti-en": {
+      "bleu": 0.14,
+      "chrf++": 0.3,
+      "n": 71,
+      "direction": "ti-en",
+      "zero_shot": false,
+      "model": "movoc/models/mt_tigrinya_marian"
+    }
+  }
+}

@@ -15,3 +15,10 @@ data/evaluation/*/flores_*
 # the figures themselves are not published.
 evaluation/results/
 models/
+
+# Exception: docs/incidents/ holds the raw evidence behind a documented
+# failed run -- tracebacks, logs and the JSON a broken configuration
+# produced. It is kept deliberately, as a debugging record. These are NOT
+# results and must never be read as such; see the README in each incident
+# directory.
+!docs/incidents/**
