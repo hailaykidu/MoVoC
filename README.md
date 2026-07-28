@@ -350,31 +350,26 @@ compared. Accordingly:
 - **The unmodified `marian` vocabulary is not a Table 3 row.** It is
   retained in `finetune_marianmt.py` only as a pipeline sanity check.
 
-#### Two blocks that cannot currently be reproduced
+#### Per-block status
 
-**English→Ge'ez — unavailable.** The paper contradicts itself here. Sec 4.2
-states plainly: *"Due to the absence of parallel data, Ge'ez was evaluated
-only intrinsically."* Table 3 nonetheless reports an English→Ge'ez block
-(BPE 0.0480, WordPiece 0.0550, MoVoC-Tok 0.0660). No Ge'ez parallel corpus
-exists in this repository — `data/evaluation/manifest.json` records
-`"source": "none -- no parallel data"` — and none is described in the
-paper. **How those figures were produced is unresolved**, so the block is
-marked unavailable rather than reconstructed under an invented protocol.
-Resolving it requires the Ge'ez evaluation data or the procedure that
-generated it.
+| Table 3 block | Status |
+|---|---|
+| English→Amharic | pending — requires retraining with the corrected script |
+| English→Tigrinya | pending — as above |
+| English→Tigre (zero-shot) | pending — as above |
+| English→Ge'ez | **unavailable** — no Ge'ez parallel evaluation data exists in this repository, and Sec 4.2 states Ge'ez "was evaluated only intrinsically" |
 
-**Metric scale — unconfirmed.** The paper cites BLEU (Papineni et al.,
-2002) and chrF++ (Popović, 2017) but names no implementation, and the
-reported values do not sit on a consistent scale. chrF++ is 40–75× BLEU in
-every row (e.g. En→Am MoVoC-Tok: BLEU 0.2455, chrF++ 17.85). Read on a
-common 0–100 scale that ratio is implausible; read with BLEU on 0–1 it
-becomes ≈24.6 BLEU against 17.9 chrF++, which inverts the usual
-relationship for morphologically rich targets. `translate_eval.py` uses
-sacrebleu, which emits 0–100 for both metrics.
+Two questions remain open and must be settled before any generated figure
+can be compared against the published table: how the English→Ge'ez block
+was produced, and the scale of the reported BLEU values (chrF++ is 40–75×
+BLEU in every row, which is consistent with neither a shared 0–100 scale
+nor the usual chrF++/BLEU relationship).
 
-**Until the scale is confirmed, reproduced numbers cannot be compared
-against Table 3 at all** — a run could match the paper exactly and appear
-to be off by 100×, or differ wildly and appear to agree.
+Both are documented in full, with the relevant paper quotations, in
+[`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md). That note also
+separates the three distinct direction scopes — pairs discussed in the
+paper, actual fine-tuning directions, and Table 3's evaluation directions —
+which are easy to conflate.
 
 ## Reproducing the experiments
 
