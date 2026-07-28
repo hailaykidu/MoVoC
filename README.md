@@ -334,6 +334,48 @@ figure can be regarded as reproducing Table 3. Until that happens Table 3
 is left without numbers, deliberately: an uncertain value presented here
 would be indistinguishable from a published result.
 
+#### Scope of a valid reproduction
+
+Table 3's caption is explicit: *"Translation performance of BPE,
+WordPiece, and MoVoC-Tok for English to Amharic, Tigrinya, Tigre, and
+Ge'ez."* Every block is English→X, and exactly three tokenizers are
+compared. Accordingly:
+
+- **Reverse directions (`am-en`, `ti-en`) are not reproduced.** They
+  appear nowhere in Table 3, and the fine-tuned model cannot produce them
+  — it is built on `Helsinki-NLP/opus-mt-en-ti`, a single-direction
+  checkpoint with no English decoder. The paper's one "Amharic → English"
+  mention is a qualitative segmentation example in the discussion, not a
+  reported result.
+- **The unmodified `marian` vocabulary is not a Table 3 row.** It is
+  retained in `finetune_marianmt.py` only as a pipeline sanity check.
+
+#### Two blocks that cannot currently be reproduced
+
+**English→Ge'ez — unavailable.** The paper contradicts itself here. Sec 4.2
+states plainly: *"Due to the absence of parallel data, Ge'ez was evaluated
+only intrinsically."* Table 3 nonetheless reports an English→Ge'ez block
+(BPE 0.0480, WordPiece 0.0550, MoVoC-Tok 0.0660). No Ge'ez parallel corpus
+exists in this repository — `data/evaluation/manifest.json` records
+`"source": "none -- no parallel data"` — and none is described in the
+paper. **How those figures were produced is unresolved**, so the block is
+marked unavailable rather than reconstructed under an invented protocol.
+Resolving it requires the Ge'ez evaluation data or the procedure that
+generated it.
+
+**Metric scale — unconfirmed.** The paper cites BLEU (Papineni et al.,
+2002) and chrF++ (Popović, 2017) but names no implementation, and the
+reported values do not sit on a consistent scale. chrF++ is 40–75× BLEU in
+every row (e.g. En→Am MoVoC-Tok: BLEU 0.2455, chrF++ 17.85). Read on a
+common 0–100 scale that ratio is implausible; read with BLEU on 0–1 it
+becomes ≈24.6 BLEU against 17.9 chrF++, which inverts the usual
+relationship for morphologically rich targets. `translate_eval.py` uses
+sacrebleu, which emits 0–100 for both metrics.
+
+**Until the scale is confirmed, reproduced numbers cannot be compared
+against Table 3 at all** — a run could match the paper exactly and appear
+to be off by 100×, or differ wildly and appear to agree.
+
 ## Reproducing the experiments
 
 Everything below runs from this repository. Result files are written to
