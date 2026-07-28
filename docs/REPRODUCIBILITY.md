@@ -64,14 +64,59 @@ repository that would produce translation scores for a language stated to
 have no parallel data.
 
 This is recorded as an open question, not as a claim that the reported
-figures are wrong. Resolving it requires either the Ge'ez evaluation data
-used for Table 3, or a description of the procedure that generated those
-numbers. Until then the block is marked **unavailable**, and this
-repository reports no Ge'ez MT figures.
+figures are wrong. Until it is resolved the block is marked
+**unavailable**, and this repository reports no Ge'ez MT figures.
 
 The Ge'ez *intrinsic* evaluation — MorphScore, boundary precision, Rényi
 entropy over the annotated morpheme set — is unaffected and remains
 reproducible.
+
+### Provenance search (2026-07-28)
+
+A search of the repository history and the local working environment
+located material that bears on this block. It is recorded here because it
+narrows the question, though it does not close it.
+
+**A real English–Ge'ez parallel corpus exists and was used for a Ge'ez MT
+training run outside this repository.**
+
+| Evidence | Detail |
+|---|---|
+| Corpus | `Bedru/Eng-Geez` (HuggingFace Hub) — **2,107** verse-aligned English–Ge'ez pairs, biblical text |
+| Cached locally | 2026-07-17 |
+| Training script | `mt_finetune/train_mt_gez.py`, which loads it via `datasets.load_dataset("Bedru/Eng-Geez")` and describes it as "real parallel data" |
+| Completed run | `mt_finetune/papermt_repro_train_gez.out` — 792 steps, 3 epochs, final training loss 3.36 |
+| Checkpoints | `mt_finetune/mt_output_gez/{checkpoint-500, checkpoint-792, final}` |
+
+So Ge'ez MT training was performed, on genuine parallel data, contrary to
+what §4.2's "absence of parallel data" would suggest. That corpus is *not*
+part of this repository and is not referenced by any released
+configuration.
+
+**What is still missing is the scoring step.** The Ge'ez training
+directory contains four Python files — `build_model.py`, `train_mt.py`,
+`train_mt_am.py`, `train_mt_gez.py` — and none computes BLEU or chrF++.
+No scoring script, no predictions file, and no BLEU/chrF log was found
+anywhere in that environment. Its own README states the position
+explicitly:
+
+> "No held-out eval set is used, matching what the evidence says the
+> original did — but this also means there's no independent BLEU/chrF
+> signal produced by this run itself; that would need a separate
+> evaluation step against a real, disjoint test set."
+
+**Consequence.** The training half of the English→Ge'ez block is
+accounted for; the evaluation half is not. Reproducing the Table 3 Ge'ez
+figures would still require knowing which held-out Ge'ez test set was
+scored and with which metric implementation — neither of which is present
+in this repository or in the located artifacts. The block therefore
+remains **unavailable**.
+
+The `EVAL_BENCHMARK["geez"] = "opus"` declaration in
+`evaluation/finetune_marianmt.py` is **deliberately left in place**. It is
+inconsistent with this repository's own manifest, but it is also the only
+released trace pointing at a Ge'ez evaluation source, and removing it
+would destroy evidence rather than resolve anything.
 
 ---
 
@@ -145,11 +190,33 @@ and are not results.
 
 ---
 
-## 3. Metric scale — unconfirmed
+## 3. Metric scale and implementation — unresolved
 
 The paper cites BLEU (Papineni et al., 2002) and chrF++ (Popović, 2017) but
 does not name an implementation, and the reported values do not sit on a
 single consistent scale.
+
+### Provenance search (2026-07-28)
+
+**No scoring implementation was found.** A search of this repository's
+history and of the local training environment turned up the MT training
+scripts (`build_model.py`, `train_mt.py`, `train_mt_am.py`,
+`train_mt_gez.py`) and their run logs, but:
+
+- none of those scripts computes BLEU or chrF++;
+- no separate scoring script was located;
+- no predictions file, hypothesis output, or BLEU/chrF log exists in any
+  of the run directories;
+- nothing references sacreBLEU, Moses `multi-bleu.perl`, `nltk`, or
+  `evaluate.load("sacrebleu")`.
+
+The training environment's own README states this directly: *"there's no
+independent BLEU/chrF signal produced by this run itself; that would need
+a separate evaluation step against a real, disjoint test set."*
+
+So the question of **which** implementation produced Table 3 — sacreBLEU,
+Moses multi-bleu, or a custom script — cannot be answered from available
+artifacts, and neither can the scale that follows from it.
 
 In every Table 3 row, chrF++ is 40–75× BLEU:
 
@@ -192,3 +259,34 @@ figures; see
 
 **No BLEU or chrF++ figures are reported in this repository.** Table 3 is
 left without numbers rather than populated with uncertain ones.
+
+### Summary after the provenance search
+
+The provenance search of 2026-07-28 covered this repository's full git
+history (all refs, deleted files, unreachable objects) and the local
+training environment. Its outcome:
+
+**Reproducible from released artifacts**
+
+- English→Amharic, English→Tigrinya, and English→Tigre (zero-shot)
+  fine-tuning and evaluation. The corpora, tokenizers, training script and
+  evaluation sets are all present. These require retraining with the
+  corrected `align_special_tokens()` before they yield valid figures, but
+  nothing is missing.
+- All intrinsic evaluation, for all four languages including Ge'ez.
+
+**Unresolved**
+
+- **English→Ge'ez extrinsic reproduction.** Training is accounted for — a
+  real 2,107-pair English–Ge'ez corpus and a completed run were located
+  outside this repository — but no held-out Ge'ez test set and no scoring
+  step were found. See §1.
+- **Exact comparison against Table 3's numbers.** No scoring
+  implementation was located anywhere, so the metric library and the scale
+  of the reported BLEU values remain unknown. See §3.
+
+Both would be settled by artifacts that are not in this repository: the
+Ge'ez evaluation set, and the script that produced the Table 3 figures.
+Until they are available, this repository can reproduce the
+Amharic/Tigrinya/Tigre experiments on their own terms but cannot state
+whether the result agrees with the published table.
