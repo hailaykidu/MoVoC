@@ -187,13 +187,24 @@ Both sides of the corpus were catalogued in the manifest from the start;
 the tokenizer pipeline kept only the Ge'ez side, and the MT script later
 re-fetched the pair from the Hub.
 
-**What this means for the Table 3 Ge'ez block.** The 2,107-pair corpus is
-the only English–Ge'ez parallel data in the project family, and it was used
-in full for training with no held-out portion. If the Table 3 Ge'ez figures
-were produced at all, they were either scored against that same training
-data — which would not be a valid held-out evaluation — or against a set
-that does not survive in any searched location. **The artifacts do not
-distinguish these possibilities**, so the block remains **unavailable**.
+**What this means for the Table 3 Ge'ez block.** Two findings stand, and
+both should be preserved:
+
+1. **The 2,107 English–Ge'ez pairs appear to have been used for training.**
+   `train_mt_gez.py` exports the full corpus to `data_gez/all.en` /
+   `all.gez` and trains on it; a completed run and its checkpoints exist.
+
+2. **No surviving artifact identifies a valid held-out Ge'ez evaluation
+   set.** No 100-pair file, no train/dev/test split of the Ge'ez corpus, no
+   Ge'ez reference or prediction file, and no Ge'ez entry in any scoring
+   script or stored report.
+
+Since the corpus was used in full for training with no held-out portion,
+any Ge'ez Table 3 figure was either scored against that same training data
+— which would not be a valid held-out evaluation — or against a set that
+does not survive in any searched location. **The artifacts do not
+distinguish these possibilities**, so the block remains **unavailable for
+reproduction**, and this repository reports no Ge'ez MT figures.
 
 ---
 
@@ -304,12 +315,31 @@ that scale:
 script scored Tigre zero-shot: en→tig BLEU 2.713 / chrF 19.405 over 43
 pairs.
 
-**These are not the Table 3 numbers.** They differ in every respect that
-matters: they use 2,000 held-out dev pairs rather than the paper's 100 OPUS
-pairs, they include reverse directions, they evaluate one model rather than
-three tokenizer arms, and their magnitudes do not match the published
-table. They establish what tooling was available in this project family,
-not what produced Table 3.
+#### Available evaluation tooling vs. the original Table 3 scoring pipeline
+
+These are two different things, and the distinction is the point of this
+subsection.
+
+| | Available evaluation tooling | Original Table 3 scoring pipeline |
+|---|---|---|
+| Artifact | `MoVoC_MT/05_evaluation/evaluate.py` | **not located** |
+| Metric library | sacreBLEU | unknown |
+| Character metric | plain **chrF** (`word_order=0`) | **chrF++** per the paper |
+| Test set | 2,000 held-out dev pairs | 100 OPUS pairs per language |
+| Directions | en→am, am→en, en→ti, ti→en | English→X only |
+| Systems compared | one model | three tokenizers (BPE, WordPiece, MoVoC-Tok) |
+| Ge'ez | absent | reported |
+
+**The located script is not the Table 3 pipeline**, and no evidence
+connects its outputs to the published table. What it establishes is that
+sacreBLEU was the metric library available in this project family — useful
+for interpreting future runs, but not provenance for the published figures.
+
+The companion project's own README is explicit about its relationship to
+the paper. `MoVoC_MT/README.md` describes itself as *"the kind of
+downstream MT validation the MoVoC paper's own Table 3 describes, but which
+the MoVoC project itself never had until now"* — that is, an independent
+validation effort, not a reproduction of the Table 3 run.
 
 **Two discrepancies follow, and both remain open.**
 
@@ -329,6 +359,46 @@ reading is correct.
 So the question of **which** implementation produced Table 3 — sacreBLEU,
 Moses multi-bleu, or a custom script — cannot be answered from available
 artifacts, and neither can the scale that follows from it.
+
+### Final targeted search (2026-07-28)
+
+A last search was run specifically for the Table 3 generation artifacts,
+across this repository, `MoVoC_Tok/`, `MoVoC_MT/`, `EnTiMT/`,
+`mt_finetune/` and the HuggingFace cache.
+
+| Sought | Result |
+|---|---|
+| `word_order=2` / `chrF++` / `CHRF(` in any script | Only in code written for **this** repository during the 2026-07-28 work, and its copies. No pre-existing chrF++ implementation. |
+| A tokenizer-loop evaluation (three strategies scored together) | **None.** No script anywhere iterates over BPE / WordPiece / MoVoC-Tok to score them. |
+| The literal reported values (0.2455, 0.2150, 17.85, 0.0660 …) | **Not found** in any script, log, report or table. |
+| The string "Table 3" | One occurrence, in `MoVoC_MT/README.md`, describing that project as validation the MoVoC project *"never had until now"*. |
+
+**Conclusion of the provenance investigation.** No artifact producing the
+published Table 3 figures survives in any searched location. The scoring
+tooling that does exist computes plain chrF over 2,000 dev pairs for a
+single model; nothing computes chrF++ over 100 OPUS pairs across three
+tokenizer arms, which is what Table 3 reports.
+
+### What this means for future runs
+
+A corrected reproduction of the Amharic, Tigrinya and Tigre blocks is
+possible from released artifacts: the corpora, tokenizers, training script
+and evaluation sets are all present, and
+`evaluation/translate_eval.py` scores BLEU and chrF++ (`word_order=2`) on
+the paper's 100-pair OPUS sets.
+
+**Such a run would be a modern, reproducible evaluation of the MoVoC
+tokenizers. It would not be an exact reproduction of the published
+Table 3**, and must not be presented as one. The original scoring pipeline
+is unrecovered, so no run performed now can be shown to follow the same
+procedure, and the scale of the published BLEU column is still unknown —
+meaning a new result cannot be checked for agreement with the old one in
+either direction.
+
+Any figures produced in future should therefore be reported as **an
+independent evaluation using this repository's stated protocol**, with the
+protocol named alongside them, and kept visibly distinct from the paper's
+reported values.
 
 In every Table 3 row, chrF++ is 40–75× BLEU:
 
