@@ -308,10 +308,16 @@ bleu = sacrebleu.corpus_bleu(hyps, [tgt_lines])
 chrf = sacrebleu.corpus_chrf(hyps, [tgt_lines])
 ```
 
-sacreBLEU emits **0–100** for both metrics, and the stored results confirm
+> **The figures below are NOT MoVoC results and NOT the paper's setup.**
+> They are the stored output of that separate script, reproduced here as
+> evidence of what it computed — **plain chrF over 2,000 dev pairs**, where
+> the paper reports **chrF++ over 100 OPUS pairs**. The mismatch is the
+> point: it is why this script cannot be the Table 3 pipeline.
+
+sacreBLEU emits **0–100** for both metrics, and the stored output confirms
 that scale:
 
-| Direction | BLEU | chrF | n |
+| Direction | BLEU | chrF *(not chrF++)* | n *(not 100)* |
 |---|---|---|---|
 | en→am | 11.699 | 33.655 | 2,000 |
 | am→en | 20.485 | 45.554 | 2,000 |
@@ -321,6 +327,11 @@ that scale:
 (`MoVoC_MT/05_evaluation/eval_report.json`, SLURM job 53024.) A companion
 script scored Tigre zero-shot: en→tig BLEU 2.713 / chrF 19.405 over 43
 pairs.
+
+**For reference, the paper's own evaluation setup is:** chrF++
+(`word_order=2`), 100 OPUS sentence pairs per language, English→X
+directions only, three tokenizers compared. None of those four properties
+matches the script above.
 
 #### Available evaluation tooling vs. the original Table 3 scoring pipeline
 
