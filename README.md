@@ -238,7 +238,7 @@ arXiv:[2509.08812](https://arxiv.org/abs/2509.08812).
 > preserved in this repository, and the metric scale of the BLEU column is
 > unresolved. See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
-### 2. Reconstructed evaluation pipeline
+### 2. Reconstructed evaluation following the MoVoC experimental methodology
 
 *Status: pipeline verified, training not yet run.*
 
@@ -257,7 +257,7 @@ table from the published results above. Because the original scoring
 pipeline is unavailable and the scale of its BLEU column is unresolved, the
 two tables are not numerically comparable.
 
-**Protocol** — `configs/independent_evaluation.yaml`
+**Protocol** — `configs/tokenizer_comparison.yaml`
 
 | | |
 |---|---|
@@ -280,7 +280,7 @@ the released artifacts. Reverse directions are not evaluated: the backbone
 is single-direction and has no English decoder.
 
 **Results** are written to
-`experiments/independent_evaluation/results/tokenizer_comparison.json`,
+`experiments/tokenizer_comparison/results/tokenizer_comparison.json`,
 with per-run predictions and logs retained alongside. The pipeline has been
 verified end to end but not yet run, so **no measured values are reported
 here yet**; this section will carry the reconstructed-pipeline results once
@@ -288,10 +288,10 @@ the runs complete.
 
 ```bash
 # pre-flight checks (tokenizers, resizing, generation config, metrics)
-python experiments/independent_evaluation/run_evaluation.py --verify
+python experiments/tokenizer_comparison/run_evaluation.py --verify
 
 # score trained checkpoints
-python experiments/independent_evaluation/run_evaluation.py --score
+python experiments/tokenizer_comparison/run_evaluation.py --score
 ```
 
 ---

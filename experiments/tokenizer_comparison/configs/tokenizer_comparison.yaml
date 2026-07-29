@@ -1,0 +1,187 @@
+# Reconstructed evaluation pipeline for the MoVoC tokenizer comparison.
+#
+# This repository follows the MoVoC experimental methodology using the
+# released implementation: the paper's method (Sec. 3), experimental design
+# (Sec. 4.3) and evaluation framework (Sec. 5.1), with the tokenizer as the
+# only variable.
+#
+# The original historical training artifacts -- checkpoints, predictions
+# and the Table 3 scoring pipeline -- are unavailable
+# (docs/REPRODUCIBILITY.md §3), and the scale of the paper's reported BLEU
+# column is unresolved. Values produced under this configuration therefore
+# come from the reconstructed implementation pipeline, are reported in a
+# separate table from the published results, and are not numerically
+# comparable to them.
+#
+# Do not label output from this pipeline "Table 3 reproduction" or "exact
+# reproduction".
+
+experiment:
+  name: tokenizer_comparison
+  title: >-
+    MoVoC tokenizer comparison via the reconstructed evaluation pipeline
+  methodology: "MoVoC paper Sec. 3 (method), 4.3 (setup), 5.1 (evaluation)"
+  artifacts_unavailable: >-
+    Original checkpoints, predictions and Table 3 scoring pipeline
+  rationale: docs/REPRODUCIBILITY.md
+  output_root: experiments/tokenizer_comparison
+
+# --- the only experimental variable ----------------------------------
+tokenizers:
+  bpe:
+    amharic: data/vocabulary/bpe_amharic.json
+    tigrinya: data/vocabulary/bpe_tigrinya.json
+    vocab_size: 32000
+  wordpiece:
+    amharic: data/vocabulary/wordpiece_amharic.json
+    tigrinya: data/vocabulary/wordpiece_tigrinya.json
+    vocab_size: 32000
+  movoc_tok:
+    amharic: models/movoc_tok_amharic.json
+    tigrinya: models/movoc_tok_tigrinya.json
+    vocab_size: {amharic: 143963, tigrinya: 144417}
+
+# `marian` (the unmodified pretrained 63,050-token vocabulary) is excluded:
+# its embedding matrix is never resized, so it is not comparable with the
+# three arms above. It exists in finetune_marianmt.py as a sanity check.
+
+# --- runs -------------------------------------------------------------
+# Six independent models: 3 tokenizers x 2 languages.
+runs:
+  - {language: amharic,  direction: en-am, tokenizer: bpe}
+  - {language: amharic,  direction: en-am, tokenizer: wordpiece}
+  - {language: amharic,  direction: en-am, tokenizer: movoc_tok}
+  - {language: tigrinya, direction: en-ti, tokenizer: bpe}
+  - {language: tigrinya, direction: en-ti, tokenizer: wordpiece}
+  - {language: tigrinya, direction: en-ti, tokenizer: movoc_tok}
+
+zero_shot:
+  language: tigre
+  direction: en-tig
+  note: >-
+    Tigre receives no fine-tuning of any kind. Each trained model is
+    evaluated on it directly, measuring transfer between Ge'ez-script
+    languages. Scored from all six checkpoints.
+
+# Reverse directions (am-en, ti-en) are NOT evaluated: the backbone is a
+# single-direction English->Tigrinya checkpoint with no English decoder.
+# English->Ge'ez is NOT evaluated: no held-out Ge'ez parallel set exists in
+# the released artifacts (docs/REPRODUCIBILITY.md §1).
+
+# --- data -------------------------------------------------------------
+datasets:
+  training:
+    source: NLLB (Costa-Jussa et al., 2022)
+    amharic: {src: NLLB.am-en.en, tgt: NLLB.am-en.am, available_pairs: 16137053}
+    tigrinya: {src: NLLB.en-ti.en, tgt: NLLB.en-ti.ti, available_pairs: 1398173}
+    cap: 1398173
+    cap_rationale: >-
+      Amharic is capped to Tigrinya's corpus size so that corpus size does
+      not confound the tokenizer comparison.
+  evaluation:
+    source: OPUS / Tatoeba (Tiedemann, 2012)
+    manifest: data/evaluation/manifest.json
+    amharic: {src: data/evaluation/amharic/test.en, ref: data/evaluation/amharic/test.am, pairs: 100}
+    tigrinya: {src: data/evaluation/tigrinya/test.en, ref: data/evaluation/tigrinya/test.ti, pairs: 71}
+    tigre: {src: data/evaluation/tigre/test.en, ref: data/evaluation/tigre/test.tig, pairs: 43}
+    note: >-
+      Pair counts are what the released files contain. The paper describes
+      100 pairs per language, topped up with human-validated pairs where
+      OPUS coverage is short; those top-ups are not part of the released
+      artifacts, so Tigrinya and Tigre are evaluated on 71 and 43 pairs.
+      This is a documented difference from the paper's described test sets.
+    external: >-
+      Evaluation sets are external to training. No split is carved from the
+      training corpus.
+
+# --- model ------------------------------------------------------------
+model:
+  base_checkpoint: Helsinki-NLP/opus-mt-en-ti
+  architecture:                 # paper Sec 4.3; identical across all arms
+    encoder_layers: 6
+    decoder_layers: 6
+    encoder_attention_heads: 8
+    decoder_attention_heads: 8
+    d_model: 512
+    ffn_dim: 2048
+    activation_function: swish
+    share_encoder_decoder_embeddings: true
+    static_position_embeddings: true
+  resize: >-
+    The embedding matrix is resized to each tokenizer's vocabulary. All
+    vocabulary-dependent generation ids are then reset by
+    align_special_tokens(): pad, eos, decoder_start, forced_eos are pointed
+    at the new tokenizer and bad_words_ids is cleared, with every remaining
+    id asserted in range.
+
+# --- training ---------------------------------------------------------
+training:
+  epochs: 3
+  per_device_train_batch_size: 8
+  max_seq_length: 128
+  learning_rate: 1.44e-07
+  lr_scheduler_type: linear
+  fp16: false
+  seed: 42
+  data_seed: 42
+  steps_per_run: 524316         # 1,398,173 pairs / batch 8 x 3 epochs
+
+# --- decoding (identical across all arms) -----------------------------
+decoding:
+  strategy: greedy
+  num_beams: 1
+  max_length: 128
+  batch_size: 8
+  note: >-
+    The paper states no decoding parameters. These are this repository's
+    choice, recorded here rather than assumed, and held identical across
+    every arm so the tokenizer remains the only variable.
+
+# --- metrics ----------------------------------------------------------
+metrics:
+  library: sacrebleu
+  version: "2.6.0"
+  bleu:
+    call: "sacrebleu.metrics.BLEU().corpus_score(hyps, [refs])"
+    signature: "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0"
+    scale: "0-100"
+  chrf_plus_plus:
+    call: "sacrebleu.metrics.CHRF(word_order=2).corpus_score(hyps, [refs])"
+    word_order: 2               # 2 = chrF++; 0 would be plain chrF
+    signature: "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    scale: "0-100"
+  comet:
+    used: false
+    reason: >-
+      No reliable COMET-compatible model exists for Tigrinya, Tigre or
+      Ge'ez (paper Sec 5.1).
+  scale_caveat: >-
+    Both metrics are 0-100 here. The scale of the paper's BLEU column is
+    unresolved, so these values cannot be compared against Table 3.
+
+# --- environment ------------------------------------------------------
+environment:
+  python: "3.13.11"
+  torch: "2.5.1+cu118"
+  transformers: "4.51.3"
+  sacrebleu: "2.6.0"
+  platform: "Linux-6.12.90+deb13.1-amd64-x86_64-with-glibc2.41"
+  hardware: "1 GPU, 6 CPU cores, 32 GB RAM, 24h max runtime (Slurm)"
+
+# --- outputs ----------------------------------------------------------
+outputs:
+  configs: experiments/tokenizer_comparison/configs
+  checkpoints: experiments/tokenizer_comparison/checkpoints
+  predictions: experiments/tokenizer_comparison/predictions
+  results: experiments/tokenizer_comparison/results
+  logs: experiments/tokenizer_comparison/logs
+  comparison_table: experiments/tokenizer_comparison/results/tokenizer_comparison.json
+
+reporting:
+  label_required: "Reconstructed evaluation pipeline"
+  must_not_be_labelled:
+    - "Table 3 reproduction"
+    - "Reproduction of the published MoVoC results"
+  separation: >-
+    Reported only in the README's "Reconstructed evaluation pipeline"
+    section, never merged with the published Table 3 values.
