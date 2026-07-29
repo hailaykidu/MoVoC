@@ -264,7 +264,7 @@ two tables are not numerically comparable.
 | Tokenizers | BPE, WordPiece, MoVoC-Tok |
 | Languages | English→Amharic, English→Tigrinya |
 | Models | six, trained independently (3 tokenizers × 2 languages) |
-| Zero-shot | Tigre, from every checkpoint, with no Tigre fine-tuning |
+| Zero-shot | Tigre and Ge'ez, from every checkpoint, with no fine-tuning in either |
 | Backbone | `Helsinki-NLP/opus-mt-en-ti`, architecture identical across arms |
 | Training data | NLLB, Amharic capped to Tigrinya's 1,398,173 pairs |
 | Evaluation data | OPUS/Tatoeba — Amharic 100, Tigrinya 71, Tigre 43 pairs |
@@ -275,9 +275,35 @@ two tables are not numerically comparable.
 BLEU signature `nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0`
 chrF++ signature `nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0`
 
-English→Ge'ez is not evaluated: no held-out Ge'ez parallel set exists in
-the released artifacts. Reverse directions are not evaluated: the backbone
-is single-direction and has no English decoder.
+Reverse directions are not evaluated: the backbone is single-direction and
+has no English decoder.
+
+Results are reported in **three separate groups**, never merged:
+
+| Group | Languages | What it is |
+|---|---|---|
+| Supervised | en→am, en→ti | the language each model was trained on |
+| Zero-shot | en→tig | Tigre held out entirely, matching the paper's setup (Sec. 5.1) |
+| Zero-shot, additional | en→gez | see below |
+
+**Additional zero-shot evaluation: English→Ge'ez.** Ge'ez is evaluated on a
+held-out split built by `scripts/build_geez_zeroshot_split.py` from the
+Mermru English–Ge'ez corpus — 100 pairs, fixed seed 42, indices and file
+checksums recorded in `data/evaluation/geez/manifest.json`, regenerable
+byte-for-byte.
+
+The corpus is used for **evaluation only**. It never enters MT training,
+tokenizer training or vocabulary construction: the models fine-tune on
+English–Amharic and English–Tigrinya NLLB data, and the vocabularies are
+built from those same corpora, so no Ge'ez text is seen at any stage. Ge'ez
+is therefore held out on the same footing as Tigre.
+
+> This is an **additional zero-shot evaluation**, not part of the paper's
+> experimental design and **not a reproduction of the published Table 3
+> Ge'ez score**. That block remains unreproducible: the paper states
+> (Sec. 4.2) that Ge'ez "was evaluated only intrinsically" for want of
+> parallel data, and neither its evaluation set nor its scoring pipeline is
+> available. See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) §1.
 
 **Results** are written to
 `experiments/tokenizer_comparison/results/tokenizer_comparison.json`,

@@ -196,7 +196,11 @@ def score(cfg, checkpoints_only=True):
     rows = []
 
     targets = [(r["language"], r["direction"], r["tokenizer"]) for r in cfg["runs"]]
-    zs = cfg["zero_shot"]
+    # Supervised direction first, then each zero-shot language. Every row
+    # carries an evaluation_type so the three groups -- supervised, the
+    # paper's zero-shot Tigre, and the additional zero-shot Ge'ez -- are
+    # never merged into one table.
+    zero_shot = [(z["language"], z["direction"]) for z in cfg["zero_shot"]]
 
     for language, direction, tokenizer in targets:
         ckpt = OUT / "checkpoints" / f"{language}_{tokenizer}"
@@ -204,8 +208,7 @@ def score(cfg, checkpoints_only=True):
             print(f"  skip {language}/{tokenizer}: no checkpoint at {ckpt}")
             continue
 
-        for eval_lang, eval_dir in ((language, direction),
-                                    (zs["language"], zs["direction"])):
+        for eval_lang, eval_dir in [(language, direction)] + zero_shot:
             spec = cfg["datasets"]["evaluation"][eval_lang]
             src = [l.rstrip("\n") for l in open(ROOT / spec["src"], encoding="utf-8")]
             ref = [l.rstrip("\n") for l in open(ROOT / spec["ref"], encoding="utf-8")]
@@ -218,11 +221,20 @@ def score(cfg, checkpoints_only=True):
 
             b = bleu.corpus_score(hyps, [ref])
             c = chrf.corpus_score(hyps, [ref])
+            if eval_lang == language:
+                eval_type = "supervised"
+            elif eval_lang == "geez":
+                eval_type = "zero_shot_additional"
+            else:
+                eval_type = "zero_shot"
+
             row = {
                 "language": eval_lang,
                 "tokenizer": tokenizer,
                 "direction": eval_dir,
-                "zero_shot": eval_dir == zs["direction"],
+                "trained_on": language,
+                "evaluation_type": eval_type,
+                "zero_shot": eval_type.startswith("zero_shot"),
                 "BLEU": round(b.score, 4),
                 "chrF++": round(c.score, 4),
                 "sacreBLEU_signature": str(bleu.get_signature()),
@@ -233,7 +245,9 @@ def score(cfg, checkpoints_only=True):
                 "predictions": str(pred_path.relative_to(ROOT)),
             }
             rows.append(row)
-            tag = " (zero-shot)" if row["zero_shot"] else ""
+            tag = {"supervised": "",
+                   "zero_shot": " (zero-shot)",
+                   "zero_shot_additional": " (zero-shot, additional)"}[eval_type]
             print(f"  {eval_dir} {tokenizer:10}{tag}: "
                   f"BLEU {row['BLEU']}  chrF++ {row['chrF++']}  n={row['n']}")
 
@@ -252,6 +266,16 @@ def score(cfg, checkpoints_only=True):
                                  capture_output=True, text=True).stdout.strip(),
         "config": "configs/tokenizer_comparison.yaml",
         "environment": cfg["environment"],
+        "evaluation_types": {
+            "supervised": "en-am / en-ti; the language the model was trained on",
+            "zero_shot": ("en-tig; Tigre held out of training entirely, "
+                          "matching the paper's zero-shot setup (Sec. 5.1)"),
+            "zero_shot_additional": (
+                "en-gez; an ADDITIONAL zero-shot evaluation on a newly "
+                "constructed held-out split. Not part of the paper's "
+                "experimental design and NOT a reproduction of the "
+                "published Table 3 Ge'ez score."),
+        },
         "results": rows,
     }
     out_path = OUT / "results" / "tokenizer_comparison.json"
