@@ -12,6 +12,77 @@ regenerate and which it cannot.
 
 ---
 
+## Published MoVoC results
+
+The paper reports intrinsic results in Table 2, translation results in
+Table 3, and further analysis in Table 4. **Those are the published
+results of the MoVoC paper.** They were produced by the authors under the
+experimental conditions described in the paper, and this repository does
+not restate, revise or supersede them.
+
+The README cites Table 3 verbatim for reference. No number in this
+repository replaces or updates any published value.
+
+---
+
+## Available artifacts
+
+**Preserved in this repository:**
+
+| Artifact | Location |
+|---|---|
+| Morpheme annotations, four languages | `data/annotations/{amharic,tigrinya,tigre,geez}/` |
+| Pre-tokenization and morphological analysis (Sec. 3.1) | `movoc/preprocessing.py`, `movoc/hornmorph.py`, `movoc/annotation.py` |
+| Vocabulary construction (Sec. 3.2) | `movoc/vocabulary.py`, `train.py` |
+| MoVoC-Tok constrained merges (Sec. 3.3) | `movoc/tokenizer.py` |
+| Intrinsic metrics (Sec. 5.2) | `movoc/metrics.py`, `evaluate.py` |
+| Extrinsic evaluation code (Sec. 5.1) | `evaluation/finetune_marianmt.py`, `evaluation/translate_eval.py` |
+| Baseline tokenizers | `data/vocabulary/` |
+| Evaluation sets | `data/evaluation/` |
+
+**Not preserved:**
+
+| Artifact | Status |
+|---|---|
+| Trained model checkpoints from the publication period | not available |
+| Generated predictions behind Tables 2–4 | not available |
+| The scoring pipeline that produced Table 3 | not available |
+| Training logs, SLURM records and seeds for the reported runs | not available |
+| A held-out Ge'ez parallel evaluation set | not available |
+| The repository state referenced by the paper | not available |
+
+---
+
+## Reconstruction effort
+
+Because the original artifacts are not fully available, the methodology and
+evaluation pipeline described in the paper were reconstructed, so that the
+approach can be run and inspected.
+
+**This is verification work, not historical reproduction.** It does not
+recover the original runs, does not produce replacement values for the
+published tables, and makes no claim to reproduce them. Its purpose is to
+confirm that the described method executes end to end and to make the
+pipeline available to readers.
+
+Outputs of the reconstructed pipeline are written under
+`experiments/tokenizer_comparison/` and are deliberately **not published in
+the README**, for the reasons documented in the sections below: the
+original scoring pipeline is unavailable, the metric scale of the published
+BLEU column is unresolved, and no held-out Ge'ez evaluation set survives.
+
+The sections that follow are the detailed evidence inventory behind these
+statements — what was searched, what was found, and what remains open. They
+record limitations; they do not fill gaps with reconstructed values.
+
+---
+
+# Evidence inventory
+
+What follows records, item by item, what was searched and what was found.
+
+---
+
 ## 1. English→Ge'ez (Table 3) — not reproducible from released artifacts
 
 ### What the paper says
@@ -463,22 +534,29 @@ generated table.
 
 ---
 
-## 4. Current reproduction status
+## 4. Limitations summary
 
-| Table 3 block | Status |
+These are recorded as limitations of the available artifacts. **None is
+filled with a reconstructed value.**
+
+| Limitation | Consequence |
 |---|---|
-| English→Amharic | **pending** — requires retraining with the corrected `align_special_tokens()` |
-| English→Tigrinya | **pending** — as above |
-| English→Tigre (zero-shot) | **pending** — as above; evaluated from the Amharic/Tigrinya checkpoints |
-| English→Ge'ez | **unavailable** — see §1 |
+| The Table 3 scoring pipeline was not recovered | No run performed now can be shown to follow the published procedure |
+| The metric scale of the published BLEU column is unresolved | Reconstructed figures cannot be checked against Table 3 in either direction |
+| No held-out Ge'ez parallel evaluation set survives | The English→Ge'ez block cannot be regenerated at all (§1) |
+| No checkpoints, predictions, logs, seeds or job records from the publication period are preserved | The reported runs cannot be inspected or re-scored |
+| The repository state referenced by the paper is not present | The implementation as it stood at publication cannot be examined |
 
-The checkpoints produced before `align_special_tokens()` existed carry a
-`generation_config` inherited from the base model and cannot yield valid
-figures; see
-[`incidents/2026-07-28-invalid-mt-evaluation/`](incidents/2026-07-28-invalid-mt-evaluation/).
+**No BLEU or chrF++ figures are reported in this repository**, and the
+published Table 3 is neither restated as reconstructed output nor
+supplemented with reconstructed values.
 
-**No BLEU or chrF++ figures are reported in this repository.** Table 3 is
-left without numbers rather than populated with uncertain ones.
+A separate defect, found and fixed during the reconstruction, is recorded
+in [`incidents/2026-07-28-invalid-mt-evaluation/`](incidents/2026-07-28-invalid-mt-evaluation/):
+checkpoints produced before `align_special_tokens()` existed carried a
+`generation_config` inherited from the base model and could not yield valid
+figures. That record is kept as debugging evidence, and its numbers are not
+results.
 
 ### Summary after the provenance search
 
