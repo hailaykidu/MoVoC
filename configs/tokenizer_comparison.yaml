@@ -17,14 +17,14 @@
 # reproduction".
 
 experiment:
-  name: independent_evaluation
+  name: tokenizer_comparison
   title: >-
     MoVoC tokenizer comparison via the reconstructed evaluation pipeline
   methodology: "MoVoC paper Sec. 3 (method), 4.3 (setup), 5.1 (evaluation)"
   artifacts_unavailable: >-
     Original checkpoints, predictions and Table 3 scoring pipeline
   rationale: docs/REPRODUCIBILITY.md
-  output_root: experiments/independent_evaluation
+  output_root: experiments/tokenizer_comparison
 
 # --- the only experimental variable ----------------------------------
 tokenizers:
@@ -170,12 +170,12 @@ environment:
 
 # --- outputs ----------------------------------------------------------
 outputs:
-  configs: experiments/independent_evaluation/configs
-  checkpoints: experiments/independent_evaluation/checkpoints
-  predictions: experiments/independent_evaluation/predictions
-  results: experiments/independent_evaluation/results
-  logs: experiments/independent_evaluation/logs
-  comparison_table: experiments/independent_evaluation/results/tokenizer_comparison.json
+  configs: experiments/tokenizer_comparison/configs
+  checkpoints: experiments/tokenizer_comparison/checkpoints
+  predictions: experiments/tokenizer_comparison/predictions
+  results: experiments/tokenizer_comparison/results
+  logs: experiments/tokenizer_comparison/logs
+  comparison_table: experiments/tokenizer_comparison/results/tokenizer_comparison.json
 
 reporting:
   label_required: "Reconstructed evaluation pipeline"

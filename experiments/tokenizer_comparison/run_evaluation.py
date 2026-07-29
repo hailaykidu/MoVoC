@@ -12,9 +12,9 @@ runs. They are reported separately from the published Table 3 and are not
 numerically comparable to it -- the original scoring pipeline is
 unavailable and the scale of its BLEU column is unresolved.
 
-Reads configs/independent_evaluation.yaml. Writes predictions, per-run
+Reads configs/tokenizer_comparison.yaml. Writes predictions, per-run
 results and a combined tokenizer_comparison.json under
-experiments/independent_evaluation/.
+experiments/tokenizer_comparison/.
 
 Stages:
   --verify    pre-flight checks only; loads every tokenizer, resizes the
@@ -37,12 +37,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
 
-OUT = ROOT / "experiments" / "independent_evaluation"
+OUT = ROOT / "experiments" / "tokenizer_comparison"
 
 
 def load_config():
     import yaml
-    with open(ROOT / "configs" / "independent_evaluation.yaml", encoding="utf-8") as f:
+    with open(ROOT / "configs" / "tokenizer_comparison.yaml", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
@@ -250,7 +250,7 @@ def score(cfg, checkpoints_only=True):
         "generated": datetime.now(timezone.utc).isoformat(),
         "commit": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT,
                                  capture_output=True, text=True).stdout.strip(),
-        "config": "configs/independent_evaluation.yaml",
+        "config": "configs/tokenizer_comparison.yaml",
         "environment": cfg["environment"],
         "results": rows,
     }

@@ -1,0 +1,25 @@
+{
+  "config_snapshot": "configs/tokenizer_comparison.yaml",
+  "verified": "2026-07-29T10:47:43.679715+00:00",
+  "commit": "901349d7e1cdee3d93e60cecb835e107443e7a52",
+  "preflight": {
+    "tokenizers": "6/6 load",
+    "special_tokens": "6/6 aligned",
+    "generation_config": "6/6 ids in range",
+    "metric_signatures": "match config",
+    "eval_sets": {
+      "amharic": 100,
+      "tigrinya": 71,
+      "tigre": 43
+    }
+  },
+  "seed": 42,
+  "environment": {
+    "python": "3.13.11",
+    "torch": "2.5.1+cu118",
+    "transformers": "4.51.3",
+    "sacrebleu": "2.6.0",
+    "platform": "Linux-6.12.90+deb13.1-amd64-x86_64-with-glibc2.41",
+    "hardware": "1 GPU, 6 CPU cores, 32 GB RAM, 24h max runtime (Slurm)"
+  }
+}
