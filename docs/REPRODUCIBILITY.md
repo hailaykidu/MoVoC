@@ -280,6 +280,13 @@ and are not results.
 
 ## 3. Metric scale and implementation — unresolved
 
+**Summary.** The released repository contains evaluation utilities based on
+chrF scoring for individual model evaluation. However, the original Table 3
+evaluation pipeline, including the tokenizer-wise BLEU and chrF++
+computation, could not be recovered. The reconstructed evaluation therefore
+uses a documented sacreBLEU-based implementation with fixed metric
+signatures.
+
 The paper cites BLEU (Papineni et al., 2002) and chrF++ (Popović, 2017) but
 does not name an implementation, and the reported values do not sit on a
 single consistent scale.
@@ -395,10 +402,30 @@ procedure, and the scale of the published BLEU column is still unknown —
 meaning a new result cannot be checked for agreement with the old one in
 either direction.
 
-Any figures produced in future should therefore be reported as **an
-independent evaluation using this repository's stated protocol**, with the
-protocol named alongside them, and kept visibly distinct from the paper's
-reported values.
+Any figures produced in future should therefore be reported as a
+**reconstructed evaluation following the MoVoC experimental methodology**,
+with the protocol named alongside them, and kept visibly distinct from the
+paper's reported values.
+
+### Metric implementation used by the reconstructed pipeline
+
+Because the original could not be recovered, the reconstructed evaluation
+fixes its own and records the signatures, so every figure it produces is
+traceable to an exact metric configuration:
+
+| Metric | Call | Signature |
+|---|---|---|
+| BLEU | `sacrebleu.metrics.BLEU().corpus_score(hyps, [refs])` | `nrefs:1\|case:mixed\|eff:no\|tok:13a\|smooth:exp\|version:2.6.0` |
+| chrF++ | `sacrebleu.metrics.CHRF(word_order=2).corpus_score(hyps, [refs])` | `nrefs:1\|case:mixed\|eff:yes\|nc:6\|nw:2\|space:no\|version:2.6.0` |
+
+Both are on a 0–100 scale. `word_order=2` is chrF++; the released
+`MoVoC_MT/05_evaluation/evaluate.py` uses the default `word_order=0`, which
+is plain chrF — one of the reasons it cannot be the Table 3 pipeline.
+
+The signatures are asserted at run time: `run_evaluation.py --verify` fails
+if the installed sacreBLEU produces anything other than the values recorded
+in `configs/tokenizer_comparison.yaml`, so a library upgrade cannot silently
+change what the reported numbers mean.
 
 In every Table 3 row, chrF++ is 40–75× BLEU:
 
