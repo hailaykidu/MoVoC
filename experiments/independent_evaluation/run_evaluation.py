@@ -1,13 +1,16 @@
 """
-run_evaluation.py -- independent reproducibility evaluation of the MoVoC
-tokenizer comparison.
+run_evaluation.py -- MoVoC tokenizer comparison via the reconstructed
+evaluation pipeline.
 
-THIS IS NOT A REPRODUCTION OF THE PUBLISHED TABLE 3. The scoring pipeline
-behind the paper's figures was not recovered, and the scale of its BLEU
-column is unresolved, so nothing produced here can be compared against it.
-What this measures is the *relative* ordering of BPE, WordPiece and
-MoVoC-Tok under identical conditions, with the tokenizer as the only
-variable.
+This repository follows the MoVoC experimental methodology using the
+released implementation: the paper's method, experimental design and
+evaluation framework, with the tokenizer as the only variable.
+
+The original historical training artifacts are unavailable, so values
+produced here come from the reconstructed pipeline rather than the original
+runs. They are reported separately from the published Table 3 and are not
+numerically comparable to it -- the original scoring pipeline is
+unavailable and the scale of its BLEU column is unresolved.
 
 Reads configs/independent_evaluation.yaml. Writes predictions, per-run
 results and a combined tokenizer_comparison.json under
@@ -236,10 +239,14 @@ def score(cfg, checkpoints_only=True):
 
     report = {
         "experiment": cfg["experiment"]["title"],
-        "not_a_reproduction_of": cfg["experiment"]["not_a_reproduction_of"],
-        "note": ("New measurements under this repository's protocol. Not "
-                 "comparable to the published Table 3: its scoring pipeline "
-                 "was not recovered and its BLEU scale is unresolved."),
+        "methodology": cfg["experiment"]["methodology"],
+        "artifacts_unavailable": cfg["experiment"]["artifacts_unavailable"],
+        "note": ("This repository follows the MoVoC experimental "
+                 "methodology using the released implementation. The "
+                 "original historical training artifacts are unavailable, "
+                 "so these values come from the reconstructed pipeline. "
+                 "Report them separately from the published Table 3; the "
+                 "two are not numerically comparable."),
         "generated": datetime.now(timezone.utc).isoformat(),
         "commit": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT,
                                  capture_output=True, text=True).stdout.strip(),
