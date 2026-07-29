@@ -1,0 +1,29 @@
+{
+  "check": "learning-rate verification of running tokenizer-comparison jobs",
+  "date": "2026-07-29T12:30:40.178420+00:00",
+  "commit": "fb850f51e808981e755c6b993c838551ddadf84b",
+  "jobs": {
+    "55019": "amharic_bpe",
+    "55020": "amharic_wordpiece",
+    "55021": "amharic_movoc_tok",
+    "55022": "tigrinya_bpe",
+    "55023": "tigrinya_wordpiece",
+    "55024": "tigrinya_movoc_tok"
+  },
+  "verified_configuration": {
+    "learning_rate": 1.44e-07,
+    "lr_scheduler_type": "SchedulerType.LINEAR",
+    "warmup_steps": 0,
+    "per_device_train_batch_size": 8,
+    "num_train_epochs": 3,
+    "seed": 42,
+    "data_seed": 42,
+    "weight_decay": 0.0,
+    "fp16": false,
+    "gradient_accumulation_steps": 1
+  },
+  "source": "evaluation/finetune_marianmt.py TRAINING_CONFIG -> build_training_arguments()",
+  "outcome": "Jobs already use learning_rate 1.44e-07, the rate reported in the paper (Sec. 4.3). No restart performed: the instruction's stop-condition and restart-value were the same rate, so restarting would have reproduced an identical configuration while discarding progress.",
+  "jobs_stopped": [],
+  "jobs_restarted": []
+}

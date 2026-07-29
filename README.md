@@ -240,14 +240,17 @@ arXiv:[2509.08812](https://arxiv.org/abs/2509.08812).
 
 ### 2. Reconstructed evaluation following the MoVoC experimental methodology
 
-*Status: pipeline verified, training not yet run.*
+*Status: training in progress; no measured values reported yet.*
 
-This repository follows the MoVoC experimental methodology using the
-released implementation. The tokenizer comparison below uses the paper's
-method (Sec. 3), its experimental design (Sec. 4.3) and its evaluation
-framework (Sec. 5.1) — the same three tokenizers, the same backbone
-architecture, the same training configuration, and the tokenizer as the
-only variable.
+The reconstructed evaluation follows the published MoVoC methodology,
+including the learning rate reported in the paper. All tokenizer
+comparisons are performed under identical training conditions, with
+tokenizer choice as the only varying factor.
+
+It uses the paper's method (Sec. 3), its experimental design (Sec. 4.3) and
+its evaluation framework (Sec. 5.1) — the same three tokenizers, the same
+backbone architecture, and the same training configuration across every
+arm.
 
 The original historical training artifacts — checkpoints, predictions and
 the scoring pipeline behind Table 3 — are unavailable. Any values reported
