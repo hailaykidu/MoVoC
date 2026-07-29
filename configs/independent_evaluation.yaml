@@ -1,24 +1,28 @@
-# Independent reproducibility evaluation of the MoVoC tokenizer comparison.
+# Reconstructed evaluation pipeline for the MoVoC tokenizer comparison.
 #
-# THIS IS NOT A REPRODUCTION OF THE PUBLISHED TABLE 3.
+# This repository follows the MoVoC experimental methodology using the
+# released implementation: the paper's method (Sec. 3), experimental design
+# (Sec. 4.3) and evaluation framework (Sec. 5.1), with the tokenizer as the
+# only variable.
 #
-# The scoring pipeline behind the paper's Table 3 was not recovered
-# (docs/REPRODUCIBILITY.md §3), and the scale of its reported BLEU column
-# is unresolved. Results produced under this configuration are new
-# measurements taken with the protocol defined here. They must never be
-# presented as reproductions of, or as numerically comparable to, the
-# published values.
+# The original historical training artifacts -- checkpoints, predictions
+# and the Table 3 scoring pipeline -- are unavailable
+# (docs/REPRODUCIBILITY.md §3), and the scale of the paper's reported BLEU
+# column is unresolved. Values produced under this configuration therefore
+# come from the reconstructed implementation pipeline, are reported in a
+# separate table from the published results, and are not numerically
+# comparable to them.
 #
-# What this experiment can establish: the *relative* ordering of BPE,
-# WordPiece and MoVoC-Tok under identical MT fine-tuning conditions, where
-# the tokenizer is the only variable.
+# Do not label output from this pipeline "Table 3 reproduction" or "exact
+# reproduction".
 
 experiment:
   name: independent_evaluation
   title: >-
-    Independent reproducibility evaluation of MoVoC tokenizers
-    under the released repository protocol
-  not_a_reproduction_of: "MoVoC paper Table 3"
+    MoVoC tokenizer comparison via the reconstructed evaluation pipeline
+  methodology: "MoVoC paper Sec. 3 (method), 4.3 (setup), 5.1 (evaluation)"
+  artifacts_unavailable: >-
+    Original checkpoints, predictions and Table 3 scoring pipeline
   rationale: docs/REPRODUCIBILITY.md
   output_root: experiments/independent_evaluation
 
@@ -174,10 +178,10 @@ outputs:
   comparison_table: experiments/independent_evaluation/results/tokenizer_comparison.json
 
 reporting:
-  label_required: "Independent reproducibility evaluation (released protocol)"
+  label_required: "Reconstructed evaluation pipeline"
   must_not_be_labelled:
     - "Table 3 reproduction"
     - "Reproduction of the published MoVoC results"
   separation: >-
-    Reported only in the README's "Independent reproducibility evaluation"
+    Reported only in the README's "Reconstructed evaluation pipeline"
     section, never merged with the published Table 3 values.
