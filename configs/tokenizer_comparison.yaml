@@ -55,18 +55,34 @@ runs:
   - {language: tigrinya, direction: en-ti, tokenizer: wordpiece}
   - {language: tigrinya, direction: en-ti, tokenizer: movoc_tok}
 
+# Two zero-shot languages, reported separately from each other and from
+# the supervised Amharic/Tigrinya results.
 zero_shot:
-  language: tigre
-  direction: en-tig
-  note: >-
-    Tigre receives no fine-tuning of any kind. Each trained model is
-    evaluated on it directly, measuring transfer between Ge'ez-script
-    languages. Scored from all six checkpoints.
+  - language: tigre
+    direction: en-tig
+    note: >-
+      Tigre receives no fine-tuning of any kind. Each trained model is
+      evaluated on it directly, measuring transfer between Ge'ez-script
+      languages. Scored from all six checkpoints. Matches the paper's own
+      zero-shot setup (Sec. 5.1).
+  - language: geez
+    direction: en-gez
+    note: >-
+      ADDITIONAL zero-shot evaluation, not part of the paper's experimental
+      design and NOT a reproduction of the published Table 3 Ge'ez score.
+      The held-out split is built by scripts/build_geez_zeroshot_split.py
+      from the Mermru English-Ge'ez corpus with a fixed seed; that corpus is
+      used for evaluation only and never enters training or tokenizer
+      construction, so Ge'ez is genuinely unseen. Reported in its own table.
+    split_manifest: data/evaluation/geez/manifest.json
+    seed: 42
 
 # Reverse directions (am-en, ti-en) are NOT evaluated: the backbone is a
 # single-direction English->Tigrinya checkpoint with no English decoder.
-# English->Ge'ez is NOT evaluated: no held-out Ge'ez parallel set exists in
-# the released artifacts (docs/REPRODUCIBILITY.md §1).
+# English->Ge'ez is evaluated ONLY as an additional zero-shot language on a
+# newly constructed held-out split (see zero_shot above). The published
+# Table 3 Ge'ez block remains unreproducible: its evaluation set and scoring
+# pipeline are unavailable (docs/REPRODUCIBILITY.md §1).
 
 # --- data -------------------------------------------------------------
 datasets:
@@ -84,6 +100,7 @@ datasets:
     amharic: {src: data/evaluation/amharic/test.en, ref: data/evaluation/amharic/test.am, pairs: 100}
     tigrinya: {src: data/evaluation/tigrinya/test.en, ref: data/evaluation/tigrinya/test.ti, pairs: 71}
     tigre: {src: data/evaluation/tigre/test.en, ref: data/evaluation/tigre/test.tig, pairs: 43}
+    geez: {src: data/evaluation/geez/test.en, ref: data/evaluation/geez/test.gez, pairs: 100}
     note: >-
       Pair counts are what the released files contain. The paper describes
       100 pairs per language, topped up with human-validated pairs where
