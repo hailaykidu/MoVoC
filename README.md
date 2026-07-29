@@ -182,6 +182,13 @@ Three metrics over the annotated morpheme test set:
 
 ## Results
 
+This repository keeps two kinds of numbers strictly apart, and they are
+never merged into one table: the values the paper published, and the values
+this repository can generate. The first belong to the paper; the second are
+new measurements.
+
+### 1. Published MoVoC paper results
+
 The paper reports intrinsic results in Table 2 and translation results in
 Table 3. Table 3:
 
@@ -204,10 +211,58 @@ Table 3. Table 3:
 | WordPiece | 0.0550 ± 0.0065 | 3.2500 ± 0.60 |
 | MoVoC-Tok | **0.0660 ± 0.0060** | **3.9500 ± 0.50** |
 
-These are the paper's published values. **This repository reports no
-experimental results of its own.** The code to run the intrinsic and
-extrinsic evaluations is provided below; result files are written to
-`evaluation/results/` and are not tracked.
+Cited from Teklehaymanot, Fazlija & Nejdl,
+arXiv:[2509.08812](https://arxiv.org/abs/2509.08812).
+
+> **The original evaluation artifacts were not recovered.** The checkpoints,
+> predictions and scoring pipeline that produced these figures are not
+> preserved in this repository, and the metric scale of the BLEU column is
+> unresolved. See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
+
+### 2. Independent reproducibility evaluation
+
+*Status: pipeline verified, training not yet run.*
+
+A separate evaluation pipeline compares the three tokenizers under
+identical fine-tuning conditions, with the tokenizer as the only variable.
+**This is not a reproduction of Table 3 above** — the original pipeline is
+unrecovered, so no run performed here can be shown to follow the same
+procedure, and the two sets of numbers are not comparable.
+
+**Protocol** — `configs/independent_evaluation.yaml`
+
+| | |
+|---|---|
+| Tokenizers | BPE, WordPiece, MoVoC-Tok |
+| Languages | English→Amharic, English→Tigrinya |
+| Models | six, trained independently (3 tokenizers × 2 languages) |
+| Zero-shot | Tigre, from every checkpoint, with no Tigre fine-tuning |
+| Backbone | `Helsinki-NLP/opus-mt-en-ti`, architecture identical across arms |
+| Training data | NLLB, Amharic capped to Tigrinya's 1,398,173 pairs |
+| Evaluation data | OPUS/Tatoeba — Amharic 100, Tigrinya 71, Tigre 43 pairs |
+| Metrics | sacreBLEU 2.6.0; chrF++ at `word_order=2`; both 0–100 |
+| Decoding | greedy, `max_length` 128, batch size 8, identical across arms |
+| Seed | 42 |
+
+BLEU signature `nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0`
+chrF++ signature `nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0`
+
+English→Ge'ez is not evaluated: no held-out Ge'ez parallel set exists in
+the released artifacts. Reverse directions are not evaluated: the backbone
+is single-direction and has no English decoder.
+
+**Results** will be written to
+`experiments/independent_evaluation/results/tokenizer_comparison.json`,
+with per-run predictions and logs retained alongside. No measured values
+are reported here yet.
+
+```bash
+# pre-flight checks (tokenizers, resizing, generation config, metrics)
+python experiments/independent_evaluation/run_evaluation.py --verify
+
+# score trained checkpoints
+python experiments/independent_evaluation/run_evaluation.py --score
+```
 
 ---
 
