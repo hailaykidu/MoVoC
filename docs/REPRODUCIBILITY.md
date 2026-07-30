@@ -59,9 +59,11 @@ Because the original artifacts are not fully available, the methodology and
 evaluation pipeline described in the paper were reconstructed, so that the
 approach can be run and inspected.
 
-**This is verification work, not historical reproduction.** It does not
-recover the original runs, does not produce replacement values for the
-published tables, and makes no claim to reproduce them. Its purpose is to
+**This is verification work, not historical reproduction.** Anything it
+produces is a *reconstructed evaluation following the published
+methodology, not the original reported results*. It does not recover the
+original runs, does not produce replacement values for the published
+tables, and makes no claim to reproduce them. Its purpose is to
 confirm that the described method executes end to end and to make the
 pipeline available to readers.
 
