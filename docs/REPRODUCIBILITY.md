@@ -534,7 +534,37 @@ generated table.
 
 ---
 
-## 4. Limitations summary
+
+## 4. Table 3 standard deviations — seeds not recorded
+
+Table 3 reports every figure as `mean ± standard deviation`. Its caption
+states:
+
+> "Metrics are reported as mean ± standard deviation over multiple runs."
+
+That is the paper's only statement on the matter. It gives no seed values,
+no number of runs, and no seeding procedure; the words "seed" and "runs"
+do not appear elsewhere in the text.
+
+**No multi-seed evidence was located.** Every training run found in this
+repository and in the surrounding local artifacts records `seed=42` with
+`data_seed=None` in its `training_args.bin`, including the single run dated
+to the publication period. A single seed cannot produce a standard
+deviation.
+
+The reconstructed pipeline is therefore run at one seed (42) and reports
+point estimates only. It does not attempt to synthesise a ± range, since
+doing so would require inventing the run-to-run variation the artifacts do
+not record.
+
+**Consequence.** The ± values in Table 3 cannot be reconstructed or
+verified from available artifacts. Resolving this needs the seed values or
+run logs from the publication period. Recorded as a limitation, not as a
+claim about how the published figures were produced.
+
+---
+
+## 5. Limitations summary
 
 These are recorded as limitations of the available artifacts. **None is
 filled with a reconstructed value.**
@@ -546,6 +576,7 @@ filled with a reconstructed value.**
 | No held-out Ge'ez parallel evaluation set survives | The English→Ge'ez block cannot be regenerated at all (§1) |
 | No checkpoints, predictions, logs, seeds or job records from the publication period are preserved | The reported runs cannot be inspected or re-scored |
 | The repository state referenced by the paper is not present | The implementation as it stood at publication cannot be examined |
+| The seeds behind Table 3's ± values are not recorded | The reported standard deviations cannot be reconstructed or checked (§4) |
 
 **No BLEU or chrF++ figures are reported in this repository**, and the
 published Table 3 is neither restated as reconstructed output nor
