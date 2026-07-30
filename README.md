@@ -249,16 +249,19 @@ pipeline described in the paper.
 That reconstruction exists to verify that the described method runs end to
 end — vocabulary construction, MoVoC-Tok segmentation, MarianMT
 fine-tuning, and BLEU/chrF++ scoring. It is **internal validation work**.
-Its outputs are not replacement values for Table 3, are not comparable to
-the published figures, and are therefore not reported here.
+Any figures it produces are a *reconstructed evaluation following the
+published methodology, not the original reported results*. They are not
+replacement values for Table 3, are not comparable to the published
+figures, and are therefore not reported here.
 
 Reasons they are not comparable are documented rather than worked around:
 
-- the scoring pipeline that produced Table 3 was not recovered, so no run
-  performed now can be shown to follow the same procedure;
+- the scoring pipeline that produced Table 3 is not available in the
+  current MoVoC repository, so no run performed now can be shown to follow
+  the same procedure;
 - the metric scale of the published BLEU column is unresolved;
-- no held-out Ge'ez evaluation set survives, so the Table 3 Ge'ez block
-  cannot be regenerated at all.
+- no held-out Ge'ez evaluation set is available in the current MoVoC
+  repository, so the Table 3 Ge'ez block cannot be regenerated at all.
 
 See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) for the full
 artifact inventory, the evidence behind each of these points, and the
@@ -336,9 +339,10 @@ python evaluation/translate_eval.py --model <checkpoint> --direction en-am \
 python scripts/make_tables.py
 ```
 
-Figures produced by these commands are outputs of the reconstructed
-pipeline. They are not the paper's reported results and are not comparable
-to them; see [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
+Figures produced by these commands are a reconstructed evaluation
+following the published methodology, not the original reported results.
+They are not comparable to the paper's values; see
+[`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
 ---
 
