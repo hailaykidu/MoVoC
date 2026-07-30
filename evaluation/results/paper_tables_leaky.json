@@ -1,0 +1,113 @@
+{
+  "title": "Reconstructed evaluation following the MoVoC evaluation protocol",
+  "not_a_reproduction": "Values are computed fresh from the reconstructed implementation. They are not the paper's reported numbers and are not comparable to them.",
+  "generated": "2026-07-30T12:45:47.464825+00:00",
+  "commit": "e5aed993c15a99c908e2e77da76de1ff40995e0d",
+  "alpha": 2.0,
+  "evaluation_mode": "in-sample (leaky)",
+  "metric_implementation": "movoc/metrics.py",
+  "rows": [
+    {
+      "language": "amharic",
+      "iso": "amh",
+      "n_items": 37048,
+      "provenance": {
+        "gold_file": "data/annotations/amharic/postedited_morphemes.json",
+        "vocab_file": "data/annotations/amharic/postedited_morphemes.json",
+        "same_file": true,
+        "total_scorable": 37048,
+        "mode": "in-sample (leaky)",
+        "held_out": 37048,
+        "excluded": 0
+      },
+      "arms": {
+        "MoVoC-Tok": {
+          "artifact": "models/movoc_tok_merges_amharic.txt",
+          "merges": 31997,
+          "morphscore": 41.7,
+          "boundary_precision": 29.2,
+          "renyi_entropy": 0.65,
+          "renyi_entropy_nats": 5.876,
+          "distinct_tokens": 8476,
+          "segmented_words": 33079
+        },
+        "BPE": {
+          "artifact": "data/vocabulary/bpe_amharic.json",
+          "vocab_size": 32000,
+          "morphscore": 2.2,
+          "boundary_precision": 1.6,
+          "renyi_entropy": 0.73,
+          "renyi_entropy_nats": 6.8632,
+          "distinct_tokens": 11911,
+          "segmented_words": 31081
+        }
+      }
+    },
+    {
+      "language": "tigrinya",
+      "iso": "tir",
+      "n_items": 80,
+      "provenance": {
+        "gold_file": "data/annotations/tigrinya/gold_morphemes.json",
+        "vocab_file": "data/annotations/tigrinya/postedited_morphemes.json",
+        "same_file": false,
+        "total_scorable": 80,
+        "mode": "in-sample (leaky)",
+        "held_out": 80,
+        "excluded": 0
+      },
+      "arms": {
+        "MoVoC-Tok": {
+          "artifact": "models/movoc_tok_merges_tigrinya.txt",
+          "merges": 31999,
+          "morphscore": 39.3,
+          "boundary_precision": 33.3,
+          "renyi_entropy": 0.86,
+          "renyi_entropy_nats": 4.0062,
+          "distinct_tokens": 105,
+          "segmented_words": 48
+        },
+        "BPE": {
+          "artifact": "data/vocabulary/bpe_tigrinya.json",
+          "vocab_size": 32000,
+          "morphscore": 1.8,
+          "boundary_precision": 1.6,
+          "renyi_entropy": 0.92,
+          "renyi_entropy_nats": 4.3089,
+          "distinct_tokens": 108,
+          "segmented_words": 47
+        }
+      }
+    },
+    {
+      "language": "geez",
+      "iso": "gez",
+      "n_items": 97,
+      "provenance": {
+        "gold_file": "data/annotations/geez/manual_morphemes.json",
+        "vocab_file": "data/annotations/geez/manual_morphemes.json",
+        "same_file": true,
+        "total_scorable": 97,
+        "mode": "in-sample (leaky)",
+        "held_out": 97,
+        "excluded": 0
+      },
+      "arms": {}
+    },
+    {
+      "language": "tigre",
+      "iso": "tig",
+      "n_items": 8053,
+      "provenance": {
+        "gold_file": "data/annotations/tigre/manual_morphemes.json",
+        "vocab_file": "data/annotations/tigre/manual_morphemes.json",
+        "same_file": true,
+        "total_scorable": 8053,
+        "mode": "in-sample (leaky)",
+        "held_out": 8053,
+        "excluded": 0
+      },
+      "arms": {}
+    }
+  ]
+}
