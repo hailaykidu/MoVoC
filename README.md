@@ -352,10 +352,11 @@ preprocessing, vocabulary-construction, MoVoC-Tok and metric
 implementations; the OPUS evaluation sets for Amharic, Tigrinya and Tigre;
 the FLORES-200 archive; and the fine-tuning and scoring code.
 
-**Not preserved:** the trained model checkpoints, run logs, and the
-scoring pipeline used to produce the paper's Table 3. No Ge'ez parallel
-evaluation set is present; the paper states (Sec. 4.2) that Ge'ez "was
-evaluated only intrinsically" due to the absence of parallel data.
+**Not available in the current MoVoC repository:** the trained model
+checkpoints, run logs, seeds, and the scoring pipeline used to produce the
+paper's Table 3. No Ge'ez parallel evaluation set is present; the paper
+states (Sec. 4.2) that Ge'ez "was evaluated only intrinsically" due to the
+absence of parallel data.
 
 Because the original scoring pipeline is not preserved, results generated
 from this repository cannot be verified as numerically identical to the
