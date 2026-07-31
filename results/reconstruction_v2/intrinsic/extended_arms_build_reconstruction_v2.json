@@ -1,0 +1,35 @@
+{
+  "generated": "2026-07-30T14:04:36.270006+00:00",
+  "vocab_size_requested": 32000,
+  "note": "Extended intrinsic verification arms. Corpora are user-supplied and not part of the MoVoC repository.",
+  "languages": {
+    "geez": {
+      "corpus_word_list": "data/raw/extended/geez_words.txt",
+      "tokens": 2040,
+      "unique_words": 1282,
+      "bpe_artifact": "data/vocabulary/bpe_geez.json",
+      "bpe_vocab_requested": 32000,
+      "bpe_vocab_achieved": 3076,
+      "movoc_tok_artifact": "models/movoc_tok_merges_geez.txt",
+      "movoc_tok_merges": 686,
+      "corpus_form": "running text",
+      "min_freq": 2,
+      "constraint_source": "data/annotations/geez/manual_morphemes.json",
+      "constraint_words": 45
+    },
+    "tigre": {
+      "corpus_word_list": "data/raw/extended/tigre_words.txt",
+      "tokens": 419627,
+      "unique_words": 419627,
+      "bpe_artifact": "data/vocabulary/bpe_tigre.json",
+      "bpe_vocab_requested": 32000,
+      "bpe_vocab_achieved": 32000,
+      "movoc_tok_artifact": "models/movoc_tok_merges_tigre.txt",
+      "movoc_tok_merges": 32000,
+      "corpus_form": "type list",
+      "min_freq": 1,
+      "constraint_source": "data/annotations/tigre/manual_morphemes.json",
+      "constraint_words": 1974
+    }
+  }
+}

@@ -1,0 +1,1486 @@
+{
+  "title": "Reconstructed evaluation following the MoVoC evaluation protocol -- Table 3 layout",
+  "not_a_reproduction": "Not a reproduction of the published Table 3. The original scoring pipeline is unavailable and the scale of the published BLEU column is unresolved, so these values are not comparable to it.",
+  "generated": "2026-07-31T07:48:13.247255+00:00",
+  "commit": "ebd5b8e3cec40a9ee0d8d55b2df20796f3d45ad1",
+  "seeds_requested": [
+    42,
+    43,
+    44
+  ],
+  "decoding": {
+    "num_beams": 1,
+    "max_length": 128,
+    "batch_size": 8
+  },
+  "metrics": {
+    "library": "sacrebleu",
+    "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+    "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0",
+    "scale": "0-100 for both"
+  },
+  "usable_runs": 18,
+  "excluded_runs": [],
+  "per_run": [
+    {
+      "eval_language": "amharic",
+      "direction": "en-am",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "seed": 42,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0297,
+      "chrF++": 1.1223,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed42",
+      "predictions": "experiments/multiseed/predictions/amharic_bpe_seed42_en-am.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.014,
+      "chrF++": 0.674,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed42",
+      "predictions": "experiments/multiseed/predictions/amharic_bpe_seed42_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.009,
+      "chrF++": 0.9581,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed42",
+      "predictions": "experiments/multiseed/predictions/amharic_bpe_seed42_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "amharic",
+      "direction": "en-am",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "seed": 42,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0135,
+      "chrF++": 1.2518,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed42",
+      "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed42_en-am.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.01,
+      "chrF++": 0.7894,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed42",
+      "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed42_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0107,
+      "chrF++": 1.4837,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed42",
+      "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed42_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "amharic",
+      "direction": "en-am",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "seed": 42,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0053,
+      "chrF++": 0.621,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed42",
+      "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed42_en-am.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0099,
+      "chrF++": 0.5601,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed42",
+      "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed42_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.008,
+      "chrF++": 0.7351,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed42",
+      "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed42_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigrinya",
+      "direction": "en-ti",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "seed": 42,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0208,
+      "chrF++": 1.181,
+      "n": 71,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed42",
+      "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed42_en-ti.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0411,
+      "chrF++": 1.2825,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed42",
+      "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed42_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0135,
+      "chrF++": 1.8889,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed42",
+      "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed42_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigrinya",
+      "direction": "en-ti",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "seed": 42,
+      "evaluation_type": "supervised",
+      "BLEU": 0.008,
+      "chrF++": 0.9745,
+      "n": 71,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed42",
+      "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed42_en-ti.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.013,
+      "chrF++": 1.4206,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed42",
+      "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed42_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0147,
+      "chrF++": 2.8584,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed42",
+      "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed42_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigrinya",
+      "direction": "en-ti",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "seed": 42,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0077,
+      "chrF++": 0.8142,
+      "n": 71,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed42",
+      "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed42_en-ti.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0128,
+      "chrF++": 1.1382,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed42",
+      "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed42_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "seed": 42,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0122,
+      "chrF++": 1.8119,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed42",
+      "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed42_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "amharic",
+      "direction": "en-am",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "seed": 43,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0285,
+      "chrF++": 1.1107,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed43",
+      "predictions": "experiments/multiseed/predictions/amharic_bpe_seed43_en-am.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0138,
+      "chrF++": 0.6617,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed43",
+      "predictions": "experiments/multiseed/predictions/amharic_bpe_seed43_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0091,
+      "chrF++": 1.0215,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed43",
+      "predictions": "experiments/multiseed/predictions/amharic_bpe_seed43_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "amharic",
+      "direction": "en-am",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "seed": 43,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0135,
+      "chrF++": 1.2322,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed43",
+      "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed43_en-am.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0113,
+      "chrF++": 0.803,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed43",
+      "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed43_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0108,
+      "chrF++": 1.5168,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed43",
+      "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed43_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "amharic",
+      "direction": "en-am",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "seed": 43,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0053,
+      "chrF++": 0.621,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed43",
+      "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed43_en-am.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0099,
+      "chrF++": 0.5415,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed43",
+      "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed43_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0078,
+      "chrF++": 0.7059,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed43",
+      "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed43_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigrinya",
+      "direction": "en-ti",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "seed": 43,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0206,
+      "chrF++": 1.186,
+      "n": 71,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed43",
+      "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed43_en-ti.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0386,
+      "chrF++": 1.2544,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed43",
+      "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed43_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.012,
+      "chrF++": 1.8517,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed43",
+      "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed43_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigrinya",
+      "direction": "en-ti",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "seed": 43,
+      "evaluation_type": "supervised",
+      "BLEU": 0.008,
+      "chrF++": 0.9719,
+      "n": 71,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed43",
+      "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed43_en-ti.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0128,
+      "chrF++": 1.4528,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed43",
+      "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed43_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0145,
+      "chrF++": 2.8336,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed43",
+      "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed43_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigrinya",
+      "direction": "en-ti",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "seed": 43,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0078,
+      "chrF++": 0.8032,
+      "n": 71,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed43",
+      "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed43_en-ti.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0128,
+      "chrF++": 1.1209,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed43",
+      "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed43_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "seed": 43,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0129,
+      "chrF++": 2.1531,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed43",
+      "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed43_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "amharic",
+      "direction": "en-am",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "seed": 44,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0287,
+      "chrF++": 1.0909,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed44",
+      "predictions": "experiments/multiseed/predictions/amharic_bpe_seed44_en-am.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.014,
+      "chrF++": 0.6429,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed44",
+      "predictions": "experiments/multiseed/predictions/amharic_bpe_seed44_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0094,
+      "chrF++": 1.0876,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed44",
+      "predictions": "experiments/multiseed/predictions/amharic_bpe_seed44_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "amharic",
+      "direction": "en-am",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "seed": 44,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0135,
+      "chrF++": 1.2439,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed44",
+      "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed44_en-am.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.01,
+      "chrF++": 0.7487,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed44",
+      "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed44_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0105,
+      "chrF++": 1.4109,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed44",
+      "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed44_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "amharic",
+      "direction": "en-am",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "seed": 44,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0053,
+      "chrF++": 0.6172,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed44",
+      "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed44_en-am.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0099,
+      "chrF++": 0.529,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed44",
+      "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed44_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0077,
+      "chrF++": 0.6896,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed44",
+      "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed44_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigrinya",
+      "direction": "en-ti",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "seed": 44,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0206,
+      "chrF++": 1.1628,
+      "n": 71,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed44",
+      "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed44_en-ti.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0399,
+      "chrF++": 1.21,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed44",
+      "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed44_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0134,
+      "chrF++": 1.9503,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed44",
+      "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed44_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigrinya",
+      "direction": "en-ti",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "seed": 44,
+      "evaluation_type": "supervised",
+      "BLEU": 0.008,
+      "chrF++": 0.9678,
+      "n": 71,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed44",
+      "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed44_en-ti.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.013,
+      "chrF++": 1.4422,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed44",
+      "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed44_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0145,
+      "chrF++": 2.9083,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed44",
+      "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed44_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigrinya",
+      "direction": "en-ti",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "seed": 44,
+      "evaluation_type": "supervised",
+      "BLEU": 0.0077,
+      "chrF++": 0.7974,
+      "n": 71,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed44",
+      "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed44_en-ti.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "tigre",
+      "direction": "en-tig",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0132,
+      "chrF++": 1.1577,
+      "n": 43,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed44",
+      "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed44_en-tig.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    },
+    {
+      "eval_language": "geez",
+      "direction": "en-gez",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "seed": 44,
+      "evaluation_type": "zero_shot",
+      "BLEU": 0.0123,
+      "chrF++": 1.8776,
+      "n": 100,
+      "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed44",
+      "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed44_en-gez.txt",
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0"
+    }
+  ],
+  "cells": [
+    {
+      "eval_language": "amharic",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.029,
+      "BLEU_std": 0.0006,
+      "chrF++_mean": 1.108,
+      "chrF++_std": 0.0159,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0297,
+          "chrF++": 1.1223,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed42",
+          "predictions": "experiments/multiseed/predictions/amharic_bpe_seed42_en-am.txt"
+        },
+        "43": {
+          "BLEU": 0.0285,
+          "chrF++": 1.1107,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed43",
+          "predictions": "experiments/multiseed/predictions/amharic_bpe_seed43_en-am.txt"
+        },
+        "44": {
+          "BLEU": 0.0287,
+          "chrF++": 1.0909,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed44",
+          "predictions": "experiments/multiseed/predictions/amharic_bpe_seed44_en-am.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "amharic",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0053,
+      "BLEU_std": 0.0,
+      "chrF++_mean": 0.6197,
+      "chrF++_std": 0.0022,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0053,
+          "chrF++": 0.621,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed42",
+          "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed42_en-am.txt"
+        },
+        "43": {
+          "BLEU": 0.0053,
+          "chrF++": 0.621,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed43",
+          "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed43_en-am.txt"
+        },
+        "44": {
+          "BLEU": 0.0053,
+          "chrF++": 0.6172,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed44",
+          "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed44_en-am.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "amharic",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0135,
+      "BLEU_std": 0.0,
+      "chrF++_mean": 1.2426,
+      "chrF++_std": 0.0099,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0135,
+          "chrF++": 1.2518,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed42",
+          "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed42_en-am.txt"
+        },
+        "43": {
+          "BLEU": 0.0135,
+          "chrF++": 1.2322,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed43",
+          "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed43_en-am.txt"
+        },
+        "44": {
+          "BLEU": 0.0135,
+          "chrF++": 1.2439,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed44",
+          "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed44_en-am.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "geez",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0092,
+      "BLEU_std": 0.0002,
+      "chrF++_mean": 1.0224,
+      "chrF++_std": 0.0648,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.009,
+          "chrF++": 0.9581,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed42",
+          "predictions": "experiments/multiseed/predictions/amharic_bpe_seed42_en-gez.txt"
+        },
+        "43": {
+          "BLEU": 0.0091,
+          "chrF++": 1.0215,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed43",
+          "predictions": "experiments/multiseed/predictions/amharic_bpe_seed43_en-gez.txt"
+        },
+        "44": {
+          "BLEU": 0.0094,
+          "chrF++": 1.0876,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed44",
+          "predictions": "experiments/multiseed/predictions/amharic_bpe_seed44_en-gez.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "geez",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.013,
+      "BLEU_std": 0.0008,
+      "chrF++_mean": 1.897,
+      "chrF++_std": 0.0498,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0135,
+          "chrF++": 1.8889,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed42",
+          "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed42_en-gez.txt"
+        },
+        "43": {
+          "BLEU": 0.012,
+          "chrF++": 1.8517,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed43",
+          "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed43_en-gez.txt"
+        },
+        "44": {
+          "BLEU": 0.0134,
+          "chrF++": 1.9503,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed44",
+          "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed44_en-gez.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "geez",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0078,
+      "BLEU_std": 0.0002,
+      "chrF++_mean": 0.7102,
+      "chrF++_std": 0.0231,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.008,
+          "chrF++": 0.7351,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed42",
+          "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed42_en-gez.txt"
+        },
+        "43": {
+          "BLEU": 0.0078,
+          "chrF++": 0.7059,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed43",
+          "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed43_en-gez.txt"
+        },
+        "44": {
+          "BLEU": 0.0077,
+          "chrF++": 0.6896,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed44",
+          "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed44_en-gez.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "geez",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0125,
+      "BLEU_std": 0.0004,
+      "chrF++_mean": 1.9475,
+      "chrF++_std": 0.181,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0122,
+          "chrF++": 1.8119,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed42",
+          "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed42_en-gez.txt"
+        },
+        "43": {
+          "BLEU": 0.0129,
+          "chrF++": 2.1531,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed43",
+          "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed43_en-gez.txt"
+        },
+        "44": {
+          "BLEU": 0.0123,
+          "chrF++": 1.8776,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed44",
+          "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed44_en-gez.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "geez",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0107,
+      "BLEU_std": 0.0002,
+      "chrF++_mean": 1.4705,
+      "chrF++_std": 0.0542,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0107,
+          "chrF++": 1.4837,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed42",
+          "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed42_en-gez.txt"
+        },
+        "43": {
+          "BLEU": 0.0108,
+          "chrF++": 1.5168,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed43",
+          "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed43_en-gez.txt"
+        },
+        "44": {
+          "BLEU": 0.0105,
+          "chrF++": 1.4109,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed44",
+          "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed44_en-gez.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "geez",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0146,
+      "BLEU_std": 0.0001,
+      "chrF++_mean": 2.8668,
+      "chrF++_std": 0.038,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0147,
+          "chrF++": 2.8584,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed42",
+          "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed42_en-gez.txt"
+        },
+        "43": {
+          "BLEU": 0.0145,
+          "chrF++": 2.8336,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed43",
+          "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed43_en-gez.txt"
+        },
+        "44": {
+          "BLEU": 0.0145,
+          "chrF++": 2.9083,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed44",
+          "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed44_en-gez.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "tigre",
+      "tokenizer": "bpe",
+      "trained_on": "amharic",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0139,
+      "BLEU_std": 0.0001,
+      "chrF++_mean": 0.6595,
+      "chrF++_std": 0.0157,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.014,
+          "chrF++": 0.674,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed42",
+          "predictions": "experiments/multiseed/predictions/amharic_bpe_seed42_en-tig.txt"
+        },
+        "43": {
+          "BLEU": 0.0138,
+          "chrF++": 0.6617,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed43",
+          "predictions": "experiments/multiseed/predictions/amharic_bpe_seed43_en-tig.txt"
+        },
+        "44": {
+          "BLEU": 0.014,
+          "chrF++": 0.6429,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_bpe_seed44",
+          "predictions": "experiments/multiseed/predictions/amharic_bpe_seed44_en-tig.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "tigre",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0399,
+      "BLEU_std": 0.0013,
+      "chrF++_mean": 1.249,
+      "chrF++_std": 0.0366,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0411,
+          "chrF++": 1.2825,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed42",
+          "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed42_en-tig.txt"
+        },
+        "43": {
+          "BLEU": 0.0386,
+          "chrF++": 1.2544,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed43",
+          "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed43_en-tig.txt"
+        },
+        "44": {
+          "BLEU": 0.0399,
+          "chrF++": 1.21,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed44",
+          "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed44_en-tig.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "tigre",
+      "tokenizer": "movoc_tok",
+      "trained_on": "amharic",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0099,
+      "BLEU_std": 0.0,
+      "chrF++_mean": 0.5435,
+      "chrF++_std": 0.0156,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0099,
+          "chrF++": 0.5601,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed42",
+          "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed42_en-tig.txt"
+        },
+        "43": {
+          "BLEU": 0.0099,
+          "chrF++": 0.5415,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed43",
+          "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed43_en-tig.txt"
+        },
+        "44": {
+          "BLEU": 0.0099,
+          "chrF++": 0.529,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_movoc_tok_seed44",
+          "predictions": "experiments/multiseed/predictions/amharic_movoc_tok_seed44_en-tig.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "tigre",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0129,
+      "BLEU_std": 0.0002,
+      "chrF++_mean": 1.1389,
+      "chrF++_std": 0.0184,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0128,
+          "chrF++": 1.1382,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed42",
+          "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed42_en-tig.txt"
+        },
+        "43": {
+          "BLEU": 0.0128,
+          "chrF++": 1.1209,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed43",
+          "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed43_en-tig.txt"
+        },
+        "44": {
+          "BLEU": 0.0132,
+          "chrF++": 1.1577,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed44",
+          "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed44_en-tig.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "tigre",
+      "tokenizer": "wordpiece",
+      "trained_on": "amharic",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0104,
+      "BLEU_std": 0.0008,
+      "chrF++_mean": 0.7804,
+      "chrF++_std": 0.0283,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.01,
+          "chrF++": 0.7894,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed42",
+          "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed42_en-tig.txt"
+        },
+        "43": {
+          "BLEU": 0.0113,
+          "chrF++": 0.803,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed43",
+          "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed43_en-tig.txt"
+        },
+        "44": {
+          "BLEU": 0.01,
+          "chrF++": 0.7487,
+          "checkpoint": "experiments/multiseed/checkpoints/amharic_wordpiece_seed44",
+          "predictions": "experiments/multiseed/predictions/amharic_wordpiece_seed44_en-tig.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "tigre",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0129,
+      "BLEU_std": 0.0001,
+      "chrF++_mean": 1.4385,
+      "chrF++_std": 0.0164,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.013,
+          "chrF++": 1.4206,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed42",
+          "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed42_en-tig.txt"
+        },
+        "43": {
+          "BLEU": 0.0128,
+          "chrF++": 1.4528,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed43",
+          "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed43_en-tig.txt"
+        },
+        "44": {
+          "BLEU": 0.013,
+          "chrF++": 1.4422,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed44",
+          "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed44_en-tig.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "tigrinya",
+      "tokenizer": "bpe",
+      "trained_on": "tigrinya",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0207,
+      "BLEU_std": 0.0001,
+      "chrF++_mean": 1.1766,
+      "chrF++_std": 0.0122,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0208,
+          "chrF++": 1.181,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed42",
+          "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed42_en-ti.txt"
+        },
+        "43": {
+          "BLEU": 0.0206,
+          "chrF++": 1.186,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed43",
+          "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed43_en-ti.txt"
+        },
+        "44": {
+          "BLEU": 0.0206,
+          "chrF++": 1.1628,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_bpe_seed44",
+          "predictions": "experiments/multiseed/predictions/tigrinya_bpe_seed44_en-ti.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "tigrinya",
+      "tokenizer": "movoc_tok",
+      "trained_on": "tigrinya",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.0077,
+      "BLEU_std": 0.0001,
+      "chrF++_mean": 0.8049,
+      "chrF++_std": 0.0085,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.0077,
+          "chrF++": 0.8142,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed42",
+          "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed42_en-ti.txt"
+        },
+        "43": {
+          "BLEU": 0.0078,
+          "chrF++": 0.8032,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed43",
+          "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed43_en-ti.txt"
+        },
+        "44": {
+          "BLEU": 0.0077,
+          "chrF++": 0.7974,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_movoc_tok_seed44",
+          "predictions": "experiments/multiseed/predictions/tigrinya_movoc_tok_seed44_en-ti.txt"
+        }
+      }
+    },
+    {
+      "eval_language": "tigrinya",
+      "tokenizer": "wordpiece",
+      "trained_on": "tigrinya",
+      "n_seeds": 3,
+      "reported": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "BLEU_mean": 0.008,
+      "BLEU_std": 0.0,
+      "chrF++_mean": 0.9714,
+      "chrF++_std": 0.0034,
+      "per_seed": {
+        "42": {
+          "BLEU": 0.008,
+          "chrF++": 0.9745,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed42",
+          "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed42_en-ti.txt"
+        },
+        "43": {
+          "BLEU": 0.008,
+          "chrF++": 0.9719,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed43",
+          "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed43_en-ti.txt"
+        },
+        "44": {
+          "BLEU": 0.008,
+          "chrF++": 0.9678,
+          "checkpoint": "experiments/multiseed/checkpoints/tigrinya_wordpiece_seed44",
+          "predictions": "experiments/multiseed/predictions/tigrinya_wordpiece_seed44_en-ti.txt"
+        }
+      }
+    }
+  ]
+}
