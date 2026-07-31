@@ -89,8 +89,8 @@ seeds per arm, so that each reported figure carries a standard deviation —
 is an addition of this release, not a departure from the published design.
 
 18 experiments: 2 training languages (Amharic, Tigrinya) × 3 tokenizers
-(BPE, WordPiece, MoVoC-Tok) × 3 seeds (42, 43, 44). Slurm jobs 55314–55331,
-all COMPLETED, 4.5–7.2 h each, finishing 2026-07-31 09:07.
+(BPE, WordPiece, MoVoC-Tok) × 3 seeds (42, 43, 44). All 18 runs completed,
+4.5–7.2 h each, on one GPU per run.
 
 Each checkpoint was evaluated on its supervised direction plus two zero-shot
 languages (Tigre, Ge'ez), giving **54 decode passes**. Test sets: Amharic

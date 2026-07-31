@@ -13,7 +13,7 @@
 | Training languages | Amharic, Tigrinya |
 | Tokenizers | BPE, WordPiece, MoVoC-Tok |
 | Seeds | **42, 43, 44** |
-| Slurm jobs | 55314–55331, all COMPLETED |
+| Completion | all 18 runs completed, 4.5–7.2 h each |
 | Evaluation | supervised direction + zero-shot Tigre and Ge'ez = **54 decode passes** |
 | Test sets | Amharic n=100, Tigrinya n=71, Tigre n=43, Ge'ez n=100 |
 | Decoding | greedy, `num_beams=1`, `max_length=128` |
