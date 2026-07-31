@@ -94,11 +94,13 @@ SLURM_RESOURCES = {
 }
 
 
-def build_training_arguments(output_dir: Path, **overrides):
+def build_training_arguments(output_dir: Path, seed: int = SEED, **overrides):
     """Seq2SeqTrainingArguments matching the paper's reported configuration.
 
     Identical for every tokenizer strategy: same optimizer, learning-rate
-    schedule, batch size, and epoch count.
+    schedule, batch size, and epoch count. Only `seed` varies, so that the
+    multi-seed runs behind a mean +/- standard deviation differ in nothing
+    but their random initialisation and data order.
     """
     from transformers import Seq2SeqTrainingArguments
 
@@ -111,8 +113,8 @@ def build_training_arguments(output_dir: Path, **overrides):
         learning_rate=cfg["learning_rate"],
         lr_scheduler_type=cfg["lr_scheduler_type"],
         fp16=cfg["fp16"],
-        seed=SEED,
-        data_seed=SEED,
+        seed=seed,
+        data_seed=seed,
         logging_steps=100,
         save_strategy="epoch",
         report_to=[],
@@ -288,6 +290,9 @@ def main():
     p.add_argument("--base-model", default=BASE_MODEL,
                    help="pretrained MarianMT checkpoint to fine-tune")
     p.add_argument("--max-samples", type=int, default=None)
+    p.add_argument("--seed", type=int, default=SEED,
+                   help="training seed; the multi-seed runs behind a "
+                        "mean +/- standard deviation vary only this")
     args = p.parse_args()
 
     from datasets import Dataset
@@ -333,14 +338,14 @@ def main():
             encode, batched=True, remove_columns=["src", "tgt"])
 
     print(f"strategy={args.strategy} language={args.language} "
-          f"vocab={len(tokenizer)}")
+          f"vocab={len(tokenizer)} seed={args.seed}")
     print(f"  train      {len(train_ds)}")
     print(f"  validation {len(eval_ds) if eval_ds is not None else 0} "
           f"({EVAL_BENCHMARK.get(args.language, 'external')})")
 
     trainer = Seq2SeqTrainer(
         model=model,
-        args=build_training_arguments(args.output_dir),
+        args=build_training_arguments(args.output_dir, seed=args.seed),
         train_dataset=train_ds,
         eval_dataset=eval_ds,
         data_collator=DataCollatorForSeq2Seq(tokenizer, model=model),
