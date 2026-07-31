@@ -1,0 +1,173 @@
+{
+  "title": "Reconstructed evaluation following the MoVoC evaluation protocol",
+  "not_a_reproduction": "Values are computed fresh from the reconstructed implementation. They are not the paper's reported numbers and are not comparable to them.",
+  "generated": "2026-07-30T15:02:11.827538+00:00",
+  "commit": "a6f93760000d6f162891667f7a9e4f391c912750",
+  "alpha": 2.0,
+  "evaluation_mode": "held-out",
+  "metric_implementation": "movoc/metrics.py",
+  "rows": [
+    {
+      "language": "amharic",
+      "iso": "amh",
+      "n_items": 18524,
+      "provenance": {
+        "gold_file": "data/annotations/amharic/postedited_morphemes.json",
+        "vocab_file": "data/annotations/amharic/postedited_morphemes.json",
+        "same_file": true,
+        "total_scorable": 37048,
+        "mode": "held-out split of shared file",
+        "split_seed": 42,
+        "held_out_fraction": 0.5,
+        "held_out": 18524,
+        "excluded": 18524
+      },
+      "arms": {
+        "MoVoC-Tok": {
+          "artifact": "models/movoc_tok_merges_amharic.txt",
+          "merges": 31997,
+          "morphscore": 41.6,
+          "boundary_precision": 29.1,
+          "renyi_entropy": 0.67,
+          "renyi_entropy_nats": 5.8649,
+          "distinct_tokens": 6465,
+          "segmented_words": 16594
+        },
+        "BPE": {
+          "artifact": "data/vocabulary/bpe_amharic.json",
+          "vocab_size": 32000,
+          "byte_level": true,
+          "morphscore": 18.5,
+          "boundary_precision": 13.4,
+          "renyi_entropy": 0.73,
+          "renyi_entropy_nats": 6.487,
+          "distinct_tokens": 7602,
+          "segmented_words": 15514
+        }
+      }
+    },
+    {
+      "language": "tigrinya",
+      "iso": "tir",
+      "n_items": 70,
+      "provenance": {
+        "gold_file": "data/annotations/tigrinya/gold_morphemes.json",
+        "vocab_file": "data/annotations/tigrinya/postedited_morphemes.json",
+        "same_file": false,
+        "total_scorable": 80,
+        "mode": "separate gold file, overlap removed",
+        "held_out": 70,
+        "excluded": 10
+      },
+      "arms": {
+        "MoVoC-Tok": {
+          "artifact": "models/movoc_tok_merges_tigrinya.txt",
+          "merges": 31999,
+          "morphscore": 34.0,
+          "boundary_precision": 29.8,
+          "renyi_entropy": 0.91,
+          "renyi_entropy_nats": 4.1393,
+          "distinct_tokens": 96,
+          "segmented_words": 42
+        },
+        "BPE": {
+          "artifact": "data/vocabulary/bpe_tigrinya.json",
+          "vocab_size": 32000,
+          "byte_level": true,
+          "morphscore": 22.0,
+          "boundary_precision": 19.0,
+          "renyi_entropy": 0.93,
+          "renyi_entropy_nats": 4.2835,
+          "distinct_tokens": 98,
+          "segmented_words": 42
+        }
+      }
+    },
+    {
+      "language": "geez",
+      "iso": "gez",
+      "n_items": 48,
+      "provenance": {
+        "gold_file": "data/annotations/geez/manual_morphemes.json",
+        "vocab_file": "data/annotations/geez/manual_morphemes.json",
+        "same_file": true,
+        "total_scorable": 97,
+        "mode": "held-out split of shared file",
+        "split_seed": 42,
+        "held_out_fraction": 0.5,
+        "held_out": 48,
+        "excluded": 49,
+        "corpus": "data/raw/extended/geez_words.txt",
+        "corpus_types": 1282,
+        "gold_words_in_corpus": 2,
+        "gold_in_corpus_pct": 4.2
+      },
+      "arms": {
+        "MoVoC-Tok": {
+          "artifact": "models/movoc_tok_merges_geez.txt",
+          "merges": 686,
+          "morphscore": 92.3,
+          "boundary_precision": 35.3,
+          "renyi_entropy": 0.85,
+          "renyi_entropy_nats": 3.35,
+          "distinct_tokens": 52,
+          "segmented_words": 47
+        },
+        "BPE": {
+          "artifact": "data/vocabulary/bpe_geez.json",
+          "vocab_size": 3076,
+          "byte_level": true,
+          "morphscore": 66.7,
+          "boundary_precision": 34.1,
+          "renyi_entropy": 0.83,
+          "renyi_entropy_nats": 3.4074,
+          "distinct_tokens": 60,
+          "segmented_words": 46
+        }
+      }
+    },
+    {
+      "language": "tigre",
+      "iso": "tig",
+      "n_items": 4026,
+      "provenance": {
+        "gold_file": "data/annotations/tigre/manual_morphemes.json",
+        "vocab_file": "data/annotations/tigre/manual_morphemes.json",
+        "same_file": true,
+        "total_scorable": 8053,
+        "mode": "held-out split of shared file",
+        "split_seed": 42,
+        "held_out_fraction": 0.5,
+        "held_out": 4026,
+        "excluded": 4027,
+        "corpus": "data/raw/extended/tigre_words.txt",
+        "corpus_types": 419627,
+        "gold_words_in_corpus": 2467,
+        "gold_in_corpus_pct": 61.3
+      },
+      "arms": {
+        "MoVoC-Tok": {
+          "artifact": "models/movoc_tok_merges_tigre.txt",
+          "merges": 32000,
+          "morphscore": 45.0,
+          "boundary_precision": 46.3,
+          "renyi_entropy": 0.76,
+          "renyi_entropy_nats": 5.7828,
+          "distinct_tokens": 1968,
+          "segmented_words": 2044
+        },
+        "BPE": {
+          "artifact": "data/vocabulary/bpe_tigre.json",
+          "vocab_size": 32000,
+          "byte_level": true,
+          "morphscore": 57.6,
+          "boundary_precision": 60.4,
+          "renyi_entropy": 0.76,
+          "renyi_entropy_nats": 5.6862,
+          "distinct_tokens": 1857,
+          "segmented_words": 2194
+        }
+      }
+    }
+  ]
+}
