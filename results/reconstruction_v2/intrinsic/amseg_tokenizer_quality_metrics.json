@@ -1,0 +1,365 @@
+{
+  "results": {
+    "amharic": {
+      "BPE": {
+        "num_words": 81224,
+        "boundary_precision": 0.317034,
+        "predicted_boundaries": 146735,
+        "matched_boundaries": 46520,
+        "morphscore": 0.410541,
+        "morphscore_gold_boundaries_evaluated": 113314,
+        "morphscore_gold_boundaries_recovered": 46520,
+        "excluded_unsegmented_words": 4059,
+        "boundary_precision_pct": 31.7,
+        "renyi_alpha_2": 6.248749,
+        "renyi_alpha_2_normalized": 0.6591,
+        "unique_tokens": 13106,
+        "total_tokens": 227959,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/bpe_32k",
+        "vocab_size": 32000
+      },
+      "WordPiece": {
+        "num_words": 81224,
+        "boundary_precision": 0.300452,
+        "predicted_boundaries": 144599,
+        "matched_boundaries": 43445,
+        "morphscore": 0.384207,
+        "morphscore_gold_boundaries_evaluated": 113077,
+        "morphscore_gold_boundaries_recovered": 43445,
+        "excluded_unsegmented_words": 4215,
+        "boundary_precision_pct": 30.05,
+        "renyi_alpha_2": 5.99491,
+        "renyi_alpha_2_normalized": 0.6336,
+        "unique_tokens": 12855,
+        "total_tokens": 225823,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/wordpiece_32k",
+        "vocab_size": 32000
+      },
+      "MoVoC-Tok": {
+        "num_words": 81224,
+        "boundary_precision": 0.320756,
+        "predicted_boundaries": 142473,
+        "matched_boundaries": 45699,
+        "morphscore": 0.413918,
+        "morphscore_gold_boundaries_evaluated": 110406,
+        "morphscore_gold_boundaries_recovered": 45699,
+        "excluded_unsegmented_words": 6069,
+        "boundary_precision_pct": 32.08,
+        "renyi_alpha_2": 6.058943,
+        "renyi_alpha_2_normalized": 0.6263,
+        "unique_tokens": 15891,
+        "total_tokens": 223697,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/amharic_movoc_tok_32k",
+        "vocab_size": 32000,
+        "evaluation_mode": "in-language",
+        "trained_on_this_language": true
+      }
+    },
+    "tigrinya": {
+      "BPE": {
+        "num_words": 5224,
+        "boundary_precision": 0.314157,
+        "predicted_boundaries": 6414,
+        "matched_boundaries": 2015,
+        "morphscore": 0.419967,
+        "morphscore_gold_boundaries_evaluated": 4798,
+        "morphscore_gold_boundaries_recovered": 2015,
+        "excluded_unsegmented_words": 1115,
+        "boundary_precision_pct": 31.42,
+        "renyi_alpha_2": 6.37472,
+        "renyi_alpha_2_normalized": 0.7686,
+        "unique_tokens": 4000,
+        "total_tokens": 11638,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/bpe_32k",
+        "vocab_size": 32000
+      },
+      "WordPiece": {
+        "num_words": 5224,
+        "boundary_precision": 0.316677,
+        "predicted_boundaries": 6404,
+        "matched_boundaries": 2028,
+        "morphscore": 0.418576,
+        "morphscore_gold_boundaries_evaluated": 4845,
+        "morphscore_gold_boundaries_recovered": 2028,
+        "excluded_unsegmented_words": 1074,
+        "boundary_precision_pct": 31.67,
+        "renyi_alpha_2": 5.697901,
+        "renyi_alpha_2_normalized": 0.6847,
+        "unique_tokens": 4113,
+        "total_tokens": 11628,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/wordpiece_32k",
+        "vocab_size": 32000
+      },
+      "MoVoC-Tok": {
+        "num_words": 5224,
+        "boundary_precision": 0.324246,
+        "predicted_boundaries": 6529,
+        "matched_boundaries": 2117,
+        "morphscore": 0.436585,
+        "morphscore_gold_boundaries_evaluated": 4849,
+        "morphscore_gold_boundaries_recovered": 2117,
+        "excluded_unsegmented_words": 1042,
+        "boundary_precision_pct": 32.42,
+        "renyi_alpha_2": 6.272729,
+        "renyi_alpha_2_normalized": 0.7567,
+        "unique_tokens": 3980,
+        "total_tokens": 11753,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/tigrinya_movoc_tok_32k",
+        "vocab_size": 32000,
+        "evaluation_mode": "in-language",
+        "trained_on_this_language": true
+      }
+    },
+    "tigre": {
+      "BPE": {
+        "num_words": 1974,
+        "boundary_precision": 0.53798,
+        "predicted_boundaries": 1119,
+        "matched_boundaries": 602,
+        "morphscore": 0.500416,
+        "morphscore_gold_boundaries_evaluated": 1203,
+        "morphscore_gold_boundaries_recovered": 602,
+        "excluded_unsegmented_words": 876,
+        "boundary_precision_pct": 53.8,
+        "renyi_alpha_2": 5.406025,
+        "renyi_alpha_2_normalized": 0.7475,
+        "unique_tokens": 1383,
+        "total_tokens": 3093,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/bpe_32k",
+        "vocab_size": 32000
+      },
+      "WordPiece": {
+        "num_words": 1974,
+        "boundary_precision": 0.512319,
+        "predicted_boundaries": 1177,
+        "matched_boundaries": 603,
+        "morphscore": 0.477813,
+        "morphscore_gold_boundaries_evaluated": 1262,
+        "morphscore_gold_boundaries_recovered": 603,
+        "excluded_unsegmented_words": 818,
+        "boundary_precision_pct": 51.23,
+        "renyi_alpha_2": 5.025966,
+        "renyi_alpha_2_normalized": 0.6922,
+        "unique_tokens": 1423,
+        "total_tokens": 3151,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/wordpiece_32k",
+        "vocab_size": 32000
+      },
+      "MoVoC-Tok": {
+        "num_words": 1974,
+        "boundary_precision": 0.562943,
+        "predicted_boundaries": 1128,
+        "matched_boundaries": 635,
+        "morphscore": 0.527847,
+        "morphscore_gold_boundaries_evaluated": 1203,
+        "morphscore_gold_boundaries_recovered": 635,
+        "excluded_unsegmented_words": 872,
+        "boundary_precision_pct": 56.29,
+        "renyi_alpha_2": 5.319237,
+        "renyi_alpha_2_normalized": 0.734,
+        "unique_tokens": 1404,
+        "total_tokens": 3102,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/tigrinya_movoc_tok_32k",
+        "vocab_size": 32000,
+        "evaluation_mode": "cross-lingual",
+        "trained_on_this_language": false
+      }
+    },
+    "geez": {
+      "BPE": {
+        "num_words": 172,
+        "boundary_precision": 0.43257,
+        "predicted_boundaries": 393,
+        "matched_boundaries": 170,
+        "morphscore": 0.666667,
+        "morphscore_gold_boundaries_evaluated": 255,
+        "morphscore_gold_boundaries_recovered": 170,
+        "excluded_unsegmented_words": 2,
+        "boundary_precision_pct": 43.26,
+        "renyi_alpha_2": 3.863938,
+        "renyi_alpha_2_normalized": 0.8085,
+        "unique_tokens": 119,
+        "total_tokens": 565,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/bpe_32k",
+        "vocab_size": 32000
+      },
+      "WordPiece": {
+        "num_words": 172,
+        "boundary_precision": 0.420103,
+        "predicted_boundaries": 388,
+        "matched_boundaries": 163,
+        "morphscore": 0.639216,
+        "morphscore_gold_boundaries_evaluated": 255,
+        "morphscore_gold_boundaries_recovered": 163,
+        "excluded_unsegmented_words": 2,
+        "boundary_precision_pct": 42.01,
+        "renyi_alpha_2": 3.915217,
+        "renyi_alpha_2_normalized": 0.8178,
+        "unique_tokens": 120,
+        "total_tokens": 560,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/wordpiece_32k",
+        "vocab_size": 32000
+      },
+      "MoVoC-Tok": {
+        "num_words": 172,
+        "boundary_precision": 0.430052,
+        "predicted_boundaries": 386,
+        "matched_boundaries": 166,
+        "morphscore": 0.656126,
+        "morphscore_gold_boundaries_evaluated": 253,
+        "morphscore_gold_boundaries_recovered": 166,
+        "excluded_unsegmented_words": 4,
+        "boundary_precision_pct": 43.01,
+        "renyi_alpha_2": 3.973496,
+        "renyi_alpha_2_normalized": 0.8216,
+        "unique_tokens": 126,
+        "total_tokens": 558,
+        "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/tigrinya_movoc_tok_32k",
+        "vocab_size": 32000,
+        "evaluation_mode": "cross-lingual",
+        "trained_on_this_language": false
+      }
+    }
+  },
+  "reproducibility": {
+    "timestamp_utc": "2026-08-04T00:24:46Z",
+    "random_seed": null,
+    "seed_note": "Not applicable: every tokenizer is deterministic and evaluation performs no sampling.",
+    "languages": {
+      "amharic": {
+        "test_set": "/homes/neumann/teklehaymanot/amseg/evaluation/data/amharic_gold.tsv",
+        "num_words": 81224,
+        "unique_words": 81224,
+        "excluded_placeholder_only": 87,
+        "excluded_single_morpheme": 29911,
+        "excluded_unaligned_to_surface": 41590,
+        "tokenizers_evaluated": [
+          "BPE",
+          "WordPiece",
+          "MoVoC-Tok"
+        ],
+        "movoc_tok_model": "/homes/neumann/teklehaymanot/amseg/tokenizers/amharic_movoc_tok_32k",
+        "movoc_tok_evaluation_mode": "in-language",
+        "sources": [
+          {
+            "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/amharic/postedited_morphemes.json",
+            "source_kind": "HornMorpho initial analysis with human post-editing",
+            "resource_tier": "vocab_construction",
+            "records_in_source": 153759,
+            "words_contributed": 81224,
+            "excluded_placeholder_only": 87,
+            "excluded_single_morpheme": 29911,
+            "excluded_unaligned_to_surface": 41590,
+            "excluded_duplicate_word": 947
+          }
+        ]
+      },
+      "tigrinya": {
+        "test_set": "/homes/neumann/teklehaymanot/amseg/evaluation/data/tigrinya_gold.tsv",
+        "num_words": 5224,
+        "unique_words": 5224,
+        "excluded_placeholder_only": 0,
+        "excluded_single_morpheme": 6695,
+        "excluded_unaligned_to_surface": 2412,
+        "tokenizers_evaluated": [
+          "BPE",
+          "WordPiece",
+          "MoVoC-Tok"
+        ],
+        "movoc_tok_model": "/homes/neumann/teklehaymanot/amseg/tokenizers/tigrinya_movoc_tok_32k",
+        "movoc_tok_evaluation_mode": "in-language",
+        "sources": [
+          {
+            "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/tigrinya/gold_morphemes.json",
+            "source_kind": "gold, held out from training and vocabulary construction",
+            "resource_tier": "evaluation_only",
+            "records_in_source": 206,
+            "words_contributed": 160,
+            "excluded_placeholder_only": 0,
+            "excluded_single_morpheme": 1,
+            "excluded_unaligned_to_surface": 31,
+            "excluded_duplicate_word": 14
+          },
+          {
+            "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/tigrinya/postedited_morphemes.json",
+            "source_kind": "HornMorpho initial analysis with human post-editing",
+            "resource_tier": "vocab_construction",
+            "records_in_source": 7531,
+            "words_contributed": 2652,
+            "excluded_placeholder_only": 0,
+            "excluded_single_morpheme": 4866,
+            "excluded_unaligned_to_surface": 0,
+            "excluded_duplicate_word": 13
+          },
+          {
+            "source": "/homes/neumann/teklehaymanot/amseg/data/segmented/tigrinya_morpheme_segmented.json",
+            "source_kind": "HornMorpho segmentation (HornMT resources)",
+            "resource_tier": "training",
+            "records_in_source": 6692,
+            "words_contributed": 2412,
+            "excluded_placeholder_only": 0,
+            "excluded_single_morpheme": 1828,
+            "excluded_unaligned_to_surface": 2381,
+            "excluded_duplicate_word": 71
+          }
+        ]
+      },
+      "tigre": {
+        "test_set": "/homes/neumann/teklehaymanot/amseg/evaluation/data/tigre_gold.tsv",
+        "num_words": 1974,
+        "unique_words": 1974,
+        "excluded_placeholder_only": 0,
+        "excluded_single_morpheme": 5660,
+        "excluded_unaligned_to_surface": 0,
+        "tokenizers_evaluated": [
+          "BPE",
+          "WordPiece",
+          "MoVoC-Tok"
+        ],
+        "movoc_tok_model": "/homes/neumann/teklehaymanot/amseg/tokenizers/tigrinya_movoc_tok_32k",
+        "movoc_tok_evaluation_mode": "cross-lingual",
+        "sources": [
+          {
+            "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/tigre/manual_morphemes.json",
+            "source_kind": "manual annotation",
+            "resource_tier": "evaluation_only",
+            "records_in_source": 8117,
+            "words_contributed": 1974,
+            "excluded_placeholder_only": 0,
+            "excluded_single_morpheme": 5660,
+            "excluded_unaligned_to_surface": 0,
+            "excluded_duplicate_word": 483
+          }
+        ]
+      },
+      "geez": {
+        "test_set": "/homes/neumann/teklehaymanot/amseg/evaluation/data/geez_gold.tsv",
+        "num_words": 172,
+        "unique_words": 172,
+        "excluded_placeholder_only": 14,
+        "excluded_single_morpheme": 6,
+        "excluded_unaligned_to_surface": 1,
+        "tokenizers_evaluated": [
+          "BPE",
+          "WordPiece",
+          "MoVoC-Tok"
+        ],
+        "movoc_tok_model": "/homes/neumann/teklehaymanot/amseg/tokenizers/tigrinya_movoc_tok_32k",
+        "movoc_tok_evaluation_mode": "cross-lingual",
+        "sources": [
+          {
+            "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/geez/manual_morphemes.json",
+            "source_kind": "manual annotation",
+            "resource_tier": "evaluation_only",
+            "records_in_source": 193,
+            "words_contributed": 172,
+            "excluded_placeholder_only": 14,
+            "excluded_single_morpheme": 6,
+            "excluded_unaligned_to_surface": 1,
+            "excluded_duplicate_word": 0
+          }
+        ]
+      }
+    }
+  }
+}
