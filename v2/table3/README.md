@@ -1,24 +1,31 @@
 # Version 2 reconstruction — machine translation
 
-`table3_reconstruction_v2.json` is a byte-identical copy of
-`experiments/multiseed/results/table3_multiseed.json`.
-
 **These results are not a direct reproduction of the published Table 3.**
+
+## Provenance
+
+The frozen V2 Table 3 results are derived from `table3_multiseed.json` and
+reported in `table3_final.csv`. Run-level records are summarised in
+[`PROVENANCE.md`](./PROVENANCE.md).
+
+The configuration in `evaluation/finetune_marianmt.py` corresponds to an older
+fine-tuning workflow and is not the source of the V2 reconstruction results;
+its learning rate (1.44e-07) is not a V2 Table 3 parameter.
 
 ## The run
 
 | | |
 |---|---|
-| Experiments | **18** — 2 training languages × 3 tokenizers × 3 seeds |
+| Runs | **9** — 3 tokenizers × 3 seeds, one multilingual model per run |
 | Training languages | Amharic, Tigrinya |
 | Tokenizers | BPE, WordPiece, MoVoC-Tok |
 | Seeds | **42, 43, 44** |
-| Completion | all 18 runs completed, 4.5–7.2 h each |
-| Evaluation | supervised direction + zero-shot Tigre and Ge'ez = **54 decode passes** |
-| Test sets | Amharic n=100, Tigrinya n=71, Tigre n=43, Ge'ez n=100 |
+| Completion | 9 launched, 9 completed, 9 valid, 0 excluded |
+| Optimizer steps | 75,000 per run |
+| Evaluation | supervised directions + zero-shot Tigre and Ge'ez = **54 decode passes** |
+| Test sets | FLORES-200 n=1012; OPUS Amharic n=100, Tigrinya n=71, Tigre n=43, Ge'ez n=100 |
 | Decoding | greedy, `num_beams=1`, `max_length=128` |
 | Metrics | sacreBLEU 2.6.0 — BLEU `tok:13a|smooth:exp`, chrF++ `nc:6|nw:2` |
-| Scored | 18/18 usable, 0 excluded, 0 errors |
 | Generated | 2026-07-31 |
 
 The evaluation pipeline is a **reconstruction**: the scoring pipeline behind
@@ -27,33 +34,23 @@ performed now can be shown to follow the same procedure.
 
 ## Observed behaviour
 
-**The pipeline reconstruction succeeded**: all 18 runs completed their full
-training schedule and all 18 checkpoints decoded without error across 54
-passes.
+All 9 runs completed their full training schedule and every checkpoint decoded
+without error across 54 passes.
 
-The reconstructed models did not reach a converged translation regime. Final
-training loss was 6.5–8.2 against roughly 1–3 for converged MT, and decoded
-output is repetitive (mean hypothesis length 155 characters against 11.6 for
-the references, with one character occupying about half the output and no
-EOS emitted). All 54 scores fall in BLEU 0.0053–0.0411 and chrF++ 0.53–2.91.
+Final training loss was 2.9967–3.5854. Reported BLEU spans 0.0000–1.4937 and
+chrF++ spans 4.2900–21.5573 across all cells in `table3_final.csv`.
 
-**Because none of the systems reached a converged regime, this rerun cannot
-rank the tokenizers.** No claim about MoVoC-Tok — superiority or
-inferiority — is supported by this run in either direction, and nothing here
-should be read as evidence for or against the paper's Table 3 findings.
+Absolute BLEU is low for all three tokenizers, reflecting the training scale.
+The comparison is between tokenizers under identical conditions.
 
-Standard deviations are small (max 0.0013 BLEU), but this reflects three
-seeds behaving consistently within the same unconverged regime —
-reproducibility of the run, not resolving power of the measurement.
-
-Full analysis, including training dynamics and the open learning-rate
-question: [`../../../docs/MT_Reconstruction_Audit.md`](../archive/mt_reconstruction_audit.md).
+Per-run records, output-quality flags and their causes:
+[`PROVENANCE.md`](./PROVENANCE.md).
 
 ## Comparison with the published Table 3
 
-Not performed, and not currently possible. Beyond the unconverged models,
-the original scoring pipeline is unavailable and the scale of the published
-BLEU column is unresolved. The published values are quoted, with citation,
+Not performed, and not currently possible. The original scoring pipeline is
+unavailable and the scale of the published BLEU column is unresolved. The
+published values are quoted, with citation,
 in [`README.md` §1](../../README.md#1-published-movoc-paper-results); they
 are **not** reproduced here and must not be tabulated alongside these
 figures.
