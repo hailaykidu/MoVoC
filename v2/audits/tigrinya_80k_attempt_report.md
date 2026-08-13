@@ -1,6 +1,6 @@
 # Tigrinya 80,000-item attempt — result and provenance
 
-Exhaustive search of `/homes/neumann/teklehaymanot/` for MorphScore-capable
+Exhaustive search of the local working environment for MorphScore-capable
 Tigrinya data.
 
 ## Outcome

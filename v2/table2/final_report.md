@@ -1,6 +1,6 @@
 # Table 2 reproduction — MorphScore
 
-Official MoVoC evaluation data first; `/homes/neumann/teklehaymanot/amseg/evaluation/data`
+Official MoVoC evaluation data first; a local AMSEG evaluation directory
 used **only** to fill deficits. MorphScore computed with the official
 implementation, unmodified.
 
