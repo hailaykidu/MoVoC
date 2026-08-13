@@ -1,0 +1,7 @@
+source,priority,path,count_found,multi_morpheme,surface_aligned,duplicates_removed,count_retained
+gold_morphemes.json (official gold),1,amseg/data/annotations/tigrinya/gold_morphemes.json,206,205,17,4,13
+postedited_morphemes.json (post-edited),2,amseg/data/annotations/tigrinya/postedited_morphemes.json,7531,2665,2356,0,2356
+tigrinya_morpheme_edited.json (HornMT copy),2,TigrinyaTokenizer/MPETokenization/Paralleldata/HornMT/data/Morphemes/tigrinya_morpheme_edited.json,7531,2665,2356,2356,0
+tigrinya_morpheme_segmented.json (HornMorpho),3,amseg/data/segmented/tigrinya_morpheme_segmented.json,6692,4864,350,6,344
+evaluation/data/tigrinya_gold.tsv (AMSEG),4,amseg/evaluation/data/tigrinya_gold.tsv,5224,5224,5224,2713,2511
+output/ሃይላይ_ኪዱ_table.json,4,TigrinyaTokenizer/output/ሃይላይ_ኪዱ_table.json,206,205,17,17,0

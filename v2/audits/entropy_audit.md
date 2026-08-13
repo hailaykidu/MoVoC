@@ -1,0 +1,30 @@
+# Rényi entropy audit
+
+> Extracted verbatim from `../table4/REPRODUCTION_STATUS.md`. Conclusions are
+> unchanged; this file exists so each audit is separately citable.
+
+## 1. Normalized Rényi entropy — confirmed from the official repository
+
+The paper (Sec. 5.2) defines Rényi entropy only qualitatively and gives no
+formula; Table 4's published column spans 0.39–0.49.
+
+The official repository (`movoc/metrics.py`) settles it. It ships two functions,
+and the docstring of the second states the scale directly:
+
+```python
+def normalized_renyi_entropy(token_frequencies, alpha=2.0):
+    """Renyi entropy divided by log(support), giving a value in [0, 1].
+    The paper reports Renyi entropy on this scale (Table 4: 0.39-0.49 at
+    alpha = 2) ..."""
+```
+
+**Accepted and implemented:** `H_alpha / log(support)`.
+
+Two supporting observations: raw `-log2(Σp²)` is unbounded above and cannot fall
+in 0.39–0.49 for a corpus with thousands of distinct token types; and because
+normalisation divides by a log in the same base, the logarithm base cancels, so
+the natural-log and base-2 formulations agree on the normalised value.
+
+The correction is effective. Reproduced entropy is 0.62–0.92, the same order of
+magnitude as the published 0.39–0.49. The earlier raw-entropy run gave
+4.53–8.15 — off by roughly an order of magnitude.

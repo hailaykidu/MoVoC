@@ -1,0 +1,66 @@
+# Limitations
+
+What this repository could not establish, stated plainly.
+
+## 1. Published intrinsic values are not reproducible from released artifacts
+
+Both Table 2 (MorphScore) and Table 4 (boundary precision) reproduce 20–60 points
+below their published values, using the **official metric implementation without
+modification**. Two independent reconstruction runs on different evaluation data
+reach the same shortfall.
+
+The metric is fully pinned — formula, aggregation, projection and tokenizers are
+all taken from the released code. The audited corrections (entropy normalisation,
+boundary projection, item counts) were each confirmed effective against their own
+target, and the gap persisted through all three.
+
+## 2. Evaluation data is insufficient for three of four languages
+
+Table 2 cannot be evaluated at the paper's stated scale:
+
+| Language | Maximum obtainable | Paper's stated count |
+|---|---:|---:|
+| Amharic | 80,000 | 80,000 |
+| Tigrinya | 5,224 | 80,000 |
+| Ge'ez | 172 | 20,000 |
+| Tigre | 2,149 | 32,000 |
+
+An exhaustive search established these as hard ceilings. The binding constraint is
+**surface alignment**: gold boundaries are character offsets into the surface
+word, so citation-form annotations that do not concatenate back are unscorable.
+
+Unannotated text is plentiful — `annotation_template_tigrinya.json` holds 20,000
+frequency-ranked Tigrinya words, every one `annotation_status: pending`. Gold
+annotation, not corpus, is what is missing.
+
+## 3. No MoVoC-Tok artifact exists for Tigre or Ge'ez
+
+The paper (Sec. 4.1) states no training data was obtained for these languages,
+yet Table 4 reports MoVoC-Tok rows for both. A cross-lingual substitute is
+therefore required and **the paper does not say which**. This reproduction applies
+the 32k Tigrinya model and marks the two affected rows as an assumption.
+
+The `models/movoc_tok_merges_{geez,tigre}.txt` artifacts in this repository are
+**reconstructions built after publication**, not original released artifacts.
+
+## 4. Table 3 cannot be reproduced
+
+- The scoring pipeline that produced the published Table 3 is not preserved.
+- The metric scale of the published BLEU column is unresolved (0.048–0.246 is
+  inconsistent with sacreBLEU's 0–100 scale).
+- No held-out Ge'ez evaluation set exists, so the Ge'ez block cannot be
+  regenerated at all.
+- MoVoC-Tok reconstruction runs produce degenerate output and are flagged.
+
+## 5. An internal contradiction remains open
+
+Two intrinsic runs in this repository disagree on Tigre's winner: the three-arm
+run has MoVoC-Tok ahead (56.3 vs 53.8 precision), the held-out run has BPE ahead
+(60.4 vs 46.3). **This is unresolved** and must be settled before Tigre is cited
+as a MoVoC-Tok win.
+
+## 6. Scope
+
+These are statements about artifact availability in this repository. V2
+reconstructs, reproduces, audits and documents the original work within its
+published scope.

@@ -1,0 +1,5 @@
+language,source_file,records_in_source,words_evaluated,excluded_no_gold_boundary,excluded_unaligned_to_surface,morphemes_evaluated,gold_boundaries,movoc_tok_model,movoc_tok_mode
+Amharic,amharic/postedited_morphemes.json,153759,123761,29998,0,343869,220108,movoc_tok_32k_amharic,in-language
+Tigrinya,tigrinya/gold_morphemes.json,206,205,1,0,464,259,movoc_tok_32k_tigrinya,in-language
+Tigre,tigre/manual_morphemes.json,8117,2457,5660,0,5080,2623,movoc_tok_32k_tigrinya,cross-lingual (assumption)
+Ge'ez,geez/manual_morphemes.json,193,173,20,0,431,258,movoc_tok_32k_tigrinya,cross-lingual (assumption)

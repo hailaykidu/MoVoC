@@ -155,7 +155,7 @@ supports the intrinsic evaluation the paper describes for Ge'ez.
 
 Investigation of Ge'ez corpus provenance carried out outside this
 repository is recorded in
-[`HISTORICAL_INVESTIGATION.md`](HISTORICAL_INVESTIGATION.md). That
+[`HISTORICAL_INVESTIGATION.md`](../v2/audits/historical_investigation.md). That
 material is external evidence, not repository content.
 
 ## 2. Translation directions — three distinct scopes
@@ -223,7 +223,7 @@ An earlier evaluation attempt in this repository did include `am-en` and
 `ti-en`. Every such run scored ≈0 BLEU, including the arm whose vocabulary
 was left untouched — the measurement reflected the single-direction base
 model, not the tokenizers. Those runs are documented in
-[`incidents/2026-07-28-invalid-mt-evaluation/`](incidents/2026-07-28-invalid-mt-evaluation/)
+[`incidents/2026-07-28-invalid-mt-evaluation/`](../v2/audits/incidents/2026-07-28-invalid-mt-evaluation/)
 and are not results.
 
 ---
@@ -254,7 +254,7 @@ repository provides. It is part of the reconstruction, not an artifact of
 the published runs.
 
 Searches for the original pipeline outside this repository are recorded in
-[`HISTORICAL_INVESTIGATION.md`](HISTORICAL_INVESTIGATION.md).
+[`HISTORICAL_INVESTIGATION.md`](../v2/audits/historical_investigation.md).
 
 ### What this means for future runs
 
@@ -370,7 +370,7 @@ published Table 3 is neither restated as reconstructed output nor
 supplemented with reconstructed values.
 
 A separate defect, found and fixed during the reconstruction, is recorded
-in [`incidents/2026-07-28-invalid-mt-evaluation/`](incidents/2026-07-28-invalid-mt-evaluation/):
+in [`incidents/2026-07-28-invalid-mt-evaluation/`](../v2/audits/incidents/2026-07-28-invalid-mt-evaluation/):
 checkpoints produced before `align_special_tokens()` existed carried a
 `generation_config` inherited from the base model and could not yield valid
 figures. That record is kept as debugging evidence, and its numbers are not
@@ -384,6 +384,6 @@ checkpoints, no predictions, no scoring pipeline, no training logs, no
 job records and no seeds.
 
 Searches conducted outside this repository are recorded separately in
-[`HISTORICAL_INVESTIGATION.md`](HISTORICAL_INVESTIGATION.md). Nothing
+[`HISTORICAL_INVESTIGATION.md`](../v2/audits/historical_investigation.md). Nothing
 found there is MoVoC repository content.
 

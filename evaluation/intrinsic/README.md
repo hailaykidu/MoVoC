@@ -28,7 +28,7 @@ with those from the verified rerun.
 
 The "No. Items" column reproduces the paper's own figures. The number of
 items actually evaluated in this rerun is recorded in
-[`docs/TABLE2_ITEM_COUNT_DISCREPANCY.md`](../../docs/TABLE2_ITEM_COUNT_DISCREPANCY.md):
+[`docs/TABLE2_ITEM_COUNT_DISCREPANCY.md`](../../v2/audits/dataset_audit.md):
 18,524 (amh), 70 (tir), 48 (gez) and 4,026 (tig) boundary-scorable held-out
 items.
 
@@ -82,7 +82,7 @@ from the same file for Amharic, Geʿez and Tigre. This rerun scores disjoint
 held-out halves so no item used for vocabulary construction is also scored;
 for Tigrinya, whose gold file is separate, overlapping words are removed.
 Full detail in
-[`docs/RECONSTRUCTED_EVALUATION.md`](../../docs/RECONSTRUCTED_EVALUATION.md).
+[`docs/RECONSTRUCTED_EVALUATION.md`](../../v2/reports/reconstructed_evaluation.md).
 
 ---
 

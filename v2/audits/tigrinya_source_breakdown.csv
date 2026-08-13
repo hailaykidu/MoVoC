@@ -1,0 +1,13 @@
+source,count_retained,pct_of_union
+gold_morphemes.json (official gold),13,0.2
+postedited_morphemes.json (post-edited),2356,45.1
+tigrinya_morpheme_segmented.json (HornMorpho),344,6.6
+evaluation/data/tigrinya_gold.tsv (AMSEG),2511,48.1
+"UNUSABLE: annotation_template_tigrinya.json (blank template: all annotation_status=pending, 0 filled fields)",0,0.0
+UNUSABLE: Morpheme_Aware/Tigr_segmentation_output.txt (100% 'NO_SEGMENTATION' placeholders),0,0.0
+UNUSABLE: HornMT/data/Tigr_segmentation_output.txt (100% 'ERROR: module hm has no attribute anal'),0,0.0
+"UNUSABLE: HornMT/data/Morphemes/Stem-processed.txt (Amharic, not Tigrinya (39,888/40,062 overlap Amharic annotations))",0,0.0
+"UNUSABLE: HornMT/data/Morphemes/Root-based annotated corpus.txt (Amharic running text, SGML; no word/segmentation pairs)",0,0.0
+"UNUSABLE: HornMT/data/Morphemes/Stem-based annotated corpora.txt (Amharic running text, SGML; no word/segmentation pairs)",0,0.0
+"UNUSABLE: lgse-repro/data/morph_lexicon.txt (Tigrinya lexicon, 230 rows; header-only format, subsumed by gold)",0,0.0
+"UNUSABLE: HornMT Tatoeba.en-ti.ti (parallel sentences, no morphological annotation)",0,0.0

@@ -1,0 +1,9 @@
+language,tokenizer,renyi_normalized_alpha2,renyi_raw_nats_alpha2,distinct_tokens,total_tokens
+Amharic,MoVoC-Tok,0.6217,6.1222,18898,333194
+Amharic,BPE,0.6556,6.2865,14606,342301
+Tigrinya,MoVoC-Tok,0.9216,5.1763,275,404
+Tigrinya,BPE,0.9295,5.2277,277,436
+Tigre,MoVoC-Tok,0.7058,5.1151,1404,3801
+Tigre,BPE,0.7297,5.2774,1383,3751
+Ge'ez,MoVoC-Tok,0.8212,3.9783,127,560
+Ge'ez,BPE,0.8081,3.8689,120,567

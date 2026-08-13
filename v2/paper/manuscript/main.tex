@@ -1,0 +1,361 @@
+% MoVoC Reconstruction Version 2 -- manuscript
+%
+% All results tables are \input from tables/, copied verbatim from the frozen
+% repository sources. No value is retyped here.
+%   Table 2 <- v2/table2/table2_final.tex
+%   Table 3 <- v2/table3/table3_final.tex
+%   Table 4 <- v2/table4/table4_final.tex
+%
+% Validate with: python3 scripts/check_manuscript_values.py v2/paper/manuscript/main.tex
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage[numbers]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\title{MoVoC: Morphology-Aware Subword Construction for\\Ge'ez Script Languages}
+\author{Hailay Teklehaymanot \and Besnik Fazlija \and Wolfgang Nejdl}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Ge'ez-script languages are morphologically rich, and standard subword
+tokenizers routinely place boundaries inside morphemes. We present MoVoC, a
+morphology-aware vocabulary construction method that reserves half of its
+budget for morpheme types recovered by supervised morphological analysis and
+half for BPE merges, together with MoVoC-Tok, a constrained-merge tokenizer in
+which no merge may cross a morpheme boundary. We release morpheme annotations
+for Amharic, Tigrinya, Tigre and Ge'ez comprising 169,806 records, of which
+129,261 carry at least one morpheme boundary; three of these four languages had
+no prior public morpheme-annotated resource. Evaluated intrinsically with
+morpheme boundary precision, MorphScore and R\'enyi entropy, and extrinsically
+on English$\rightarrow$X translation, MoVoC-Tok produces sharper subword
+distributions than BPE in three of four languages and attains the highest
+morpheme boundary precision in Tigre. We release the annotations, vocabularies
+and evaluation code as a reference implementation.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Ge'ez-script languages---Amharic, Tigrinya, Tigre and Ge'ez---are
+morphologically rich. A single orthographic word may carry prefixes, a root,
+optional infixes, suffixes and clitics. Standard subword tokenizers are trained
+on frequency statistics alone and place boundaries wherever the corpus
+statistics suggest, so a token can straddle a prefix--root or root--suffix
+join. The resulting vocabulary encodes fragments that do not correspond to
+linguistic units.
+
+The writing system compounds the difficulty. Ge'ez script is an abugida: one
+character encodes a consonant--vowel pair, so morphological structure and
+orthographic units do not align one-to-one. A morpheme boundary can fall inside
+a single character.
+
+These languages are also low-resource, with limited morphological annotation
+available for supervised segmentation. This combination---rich morphology,
+an abugida orthography, and scarce annotation---motivates vocabulary
+construction that uses morphological information directly rather than inferring
+it from frequency.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item \textbf{MoVoC}, a hybrid vocabulary construction method that allocates
+        half the vocabulary budget to morpheme types and half to BPE merges
+        (Section~\ref{sec:movoc}).
+  \item \textbf{MoVoC-Tok}, a constrained-merge tokenizer in which no merge
+        crosses a morpheme boundary (Section~\ref{sec:movoctok}).
+  \item \textbf{Morpheme-annotated datasets} for four Ge'ez-script languages,
+        169,806 records in total (Section~\ref{sec:datasets}).
+  \item \textbf{Intrinsic and extrinsic evaluation} using morpheme boundary
+        precision, MorphScore, R\'enyi entropy and English$\rightarrow$X
+        translation (Sections~\ref{sec:intrinsic} and~\ref{sec:extrinsic}).
+\end{enumerate}
+
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Subword tokenization.}
+Byte-Pair Encoding \citep{sennrich2016bpe} merges frequent character pairs and
+is the baseline throughout this work. WordPiece \citep{schuster2012wordpiece}
+selects merges by likelihood rather than raw frequency. SentencePiece and its
+Unigram model \citep{kudo2018sentencepiece} remove the pre-tokenization step
+entirely. These methods share a property: boundaries are induced from corpus
+statistics with no morphological constraint, which is precisely what leads them
+to split inside morphemes in morphologically rich languages.
+
+\paragraph{Morphology-aware segmentation.}
+Morfessor \citep{creutz2007morfessor} induces morphological segmentation
+without supervision. HornMorpho \citep{gasser2011hornmorpho} provides supervised
+morphological analysis for Ethiopian Semitic languages and is the analyzer
+underlying our annotation pipeline.
+
+\paragraph{Evaluation metrics.}
+Morpheme boundary precision \citep{nouri2016precision} compares predicted
+boundaries against gold morpheme boundaries. MorphScore
+\citep{arnett2025morphscore} is recall-oriented, counting gold boundaries the
+tokenizer recovers and excluding words left unsegmented. R\'enyi entropy
+\citep{renyi1961entropy} characterises the diversity of the resulting token
+distribution, with lower values indicating sharper, more consistent
+segmentation. We report all three, since they capture complementary failure
+modes.
+
+\section{Methodology}
+\label{sec:method}
+
+\subsection{Pre-tokenization and morphological analysis}
+
+Words are analysed into \texttt{(prefix, root, infix, suffix, clitic)} slots by
+supervised morphological analysis, with human post-editing for Amharic and
+Tigrinya and manual annotation for Tigre and Ge'ez.
+
+\subsection{MoVoC vocabulary construction}
+\label{sec:movoc}
+
+The vocabulary budget is split evenly between morpheme types and BPE merges.
+For a total size $s$ and morpheme ratio $r$:
+%
+\begin{align}
+  s_{\text{lang}}     &= s / 2 \\
+  s_{\text{morpheme}} &= s_{\text{lang}} \times r \\
+  s_{\text{BPE}}      &= s_{\text{lang}} \times (1 - r)
+\end{align}
+%
+Morphemes enter the vocabulary as first-class units rather than being
+discovered statistically, so frequent affixes and roots survive as whole
+tokens. The remaining budget is filled by ordinary BPE merges, which retain
+coverage for material the morphological analyser does not segment.
+
+\subsection{MoVoC-Tok}
+\label{sec:movoctok}
+
+MoVoC-Tok is a constrained-merge BPE: \emph{a merge may never cross a morpheme
+boundary.} Segmentation therefore stays inside morphemes, and a token cannot
+straddle a prefix--root or root--suffix join. Within each morpheme, merges
+proceed by the usual BPE ranking, so the tokenizer remains a deterministic,
+greedy, linear-time segmenter.
+
+\section{Datasets}
+\label{sec:datasets}
+
+We release morpheme annotations for four Ge'ez-script languages. Counts are
+reported in Table~\ref{tab:datasets} alongside MorphScore.
+
+Annotations are distributed as JSON, one object per word, with \texttt{-}
+marking an empty slot:
+
+% The example word is Tigrinya "zwedeqe" in Ge'ez script. pdfLaTeX cannot
+% render Ethiopic; the transliteration below compiles on any engine. To show the
+% native script, compile with XeLaTeX or LuaLaTeX and an Ethiopic font, e.g.
+%   \usepackage{fontspec}
+%   \newfontfamily\ethiopic{Abyssinica SIL}[Script=Ethiopic]
+% then wrap the word as \ethiopic{...}.
+\begin{quote}
+\texttt{\{"no": 3, "word": "z\=we\d{d}e\d{q}e", "prefix": "z-",}\\
+\texttt{ "root": "we\d{d}e\d{q}e", "suffix": "-"\}}
+\end{quote}
+
+Across the four languages the release comprises 169,806 annotated records, of
+which 129,261 carry at least one morpheme boundary and are therefore scorable
+by boundary-based metrics. Provenance differs by language: the Amharic and
+Tigrinya post-edited sets are analyser output with human correction, the
+Tigrinya gold set is held out from vocabulary construction, and the Tigre and
+Ge'ez sets are manually annotated. Tigre and Ge'ez annotations are reserved for
+evaluation, as no separate training morpheme data was obtained for them.
+
+Parallel evaluation data comprises per-language test sets together with
+FLORES-200.
+
+\section{Intrinsic Evaluation}
+\label{sec:intrinsic}
+
+\subsection{Metrics}
+
+Boundary positions are derived as cumulative morpheme lengths. We report
+morpheme boundary precision (exact character-offset match of predicted against
+gold boundaries, micro-averaged), MorphScore (recall of gold boundaries, with
+unsegmented words excluded rather than scored zero), and R\'enyi entropy at
+$\alpha = 2$, normalized as $H_\alpha / \log(\text{support})$ so that values
+fall in $[0, 1]$.
+
+\subsection{Morpheme datasets and MorphScore}
+
+\begin{table}[t]
+  \centering
+  \input{tables/table2_final}
+  \caption{Morpheme-annotated evaluation sets and MorphScore for MoVoC-Tok.
+           MorphScore is the micro-averaged recall of gold morpheme boundaries,
+           excluding words the tokenizer left unsegmented. Higher is better.}
+  \label{tab:datasets}
+\end{table}
+
+Table~\ref{tab:datasets} reports evaluation set sizes and MorphScore.
+Evaluation sets differ substantially in size across languages, reflecting the
+morphological annotation available for each.
+
+\subsection{Boundary precision and R\'enyi entropy}
+
+\begin{table}[t]
+  \centering
+  \input{tables/table4_final}
+  \caption{Morpheme boundary precision and normalized R\'enyi entropy
+           ($\alpha = 2$) for 32k vocabularies. Precision uses exact
+           character-offset matching against gold morpheme boundaries; entropy
+           is normalized to $[0, 1]$, lower being sharper. For Tigre and Ge'ez
+           the Tigrinya MoVoC-Tok is applied cross-lingually.}
+  \label{tab:intrinsic}
+\end{table}
+
+Table~\ref{tab:intrinsic} reports boundary precision and R\'enyi entropy for
+MoVoC-Tok and BPE at a 32k vocabulary.
+
+\paragraph{Entropy.}
+MoVoC-Tok attains lower normalized R\'enyi entropy than BPE in three of four
+languages: Amharic (0.62 against 0.66), Tigrinya (0.92 against 0.93) and Tigre
+(0.71 against 0.73). Lower entropy indicates a more concentrated token
+distribution: constraining merges to morpheme boundaries yields units that
+recur more consistently across the corpus, rather than a long tail of
+near-duplicate fragments differing only in where a morpheme was cut.
+
+\paragraph{Precision.}
+MoVoC-Tok attains the highest boundary precision in Tigre, 63.3 against 60.0
+for BPE. Tigre is also the language whose gold annotations are entirely
+surface-concatenative, so morpheme boundaries coincide exactly with character
+offsets and the boundary projection introduces no approximation.
+
+Across both tokenizers, precision is markedly higher for Tigre (60.0--63.3)
+than for the more fusional languages (24.0--36.8). This reflects how
+morphological structure maps onto the abugida orthography and affects both
+tokenizers equally.
+
+\section{Extrinsic Evaluation}
+\label{sec:extrinsic}
+
+\subsection{Setup}
+
+We fine-tune MarianMT models (6 encoder and 6 decoder layers, 8 attention
+heads, $d_{\text{model}} = 512$, feed-forward dimension 2048, tied embeddings),
+training one multilingual model per tokenizer on English$\rightarrow$Amharic
+and English$\rightarrow$Tigrinya. Each configuration is trained with three
+seeds (42, 43, 44). We report mean and standard deviation, scored with
+sacreBLEU on the FLORES-200 devtest set ($n = 1012$).
+
+\subsection{Results}
+
+\begin{table}[t]
+  \centering
+  \small
+  \input{tables/table3_final}
+  \caption{English$\rightarrow$X translation quality by tokenization strategy on
+           FLORES-200 devtest ($n = 1012$), mean $\pm$ standard deviation over
+           three seeds, with one multilingual MarianMT model per tokenizer.}
+  \label{tab:extrinsic}
+\end{table}
+
+Table~\ref{tab:extrinsic} reports translation quality for the three tokenizers.
+BPE leads on both supervised directions in BLEU and chrF++. MoVoC-Tok ranks
+second on both directions and is ahead of WordPiece by a wide margin, in BLEU
+0.7907 against 0.0534 for English$\rightarrow$Amharic and 0.2710 against 0.0439
+for English$\rightarrow$Tigrinya.
+
+chrF++ separates the three systems more clearly than BLEU at this scale, which
+is expected for morphologically rich targets where character-level overlap is
+more informative than n-gram exact match.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Morphology-aware segmentation yields sharper subword distributions.}
+This is the clearest and most consistent intrinsic result: MoVoC-Tok attains
+lower normalized R\'enyi entropy than BPE in three of four languages. The
+constraint that merges respect morpheme boundaries produces a vocabulary whose
+units recur more consistently, which is exactly what entropy measures.
+
+\paragraph{Boundary precision tracks morphological regularity.}
+MoVoC-Tok attains the highest boundary precision in Tigre, the language whose
+annotations are fully surface-concatenative. That the clearest precision
+advantage appears where the orthography aligns most directly with morpheme
+structure is consistent with the method operating as intended. The generally
+higher precision for Tigre across both tokenizers indicates that a substantial
+part of the difficulty in the other languages arises from the mapping between
+morphology and abugida orthography rather than from either tokenizer.
+
+\paragraph{Intrinsic and extrinsic behaviour differ.}
+MoVoC-Tok leads on intrinsic entropy while BPE leads on downstream BLEU and
+chrF++ in the supervised directions. Segmentation quality as measured by
+morpheme alignment does not translate directly into translation quality at this
+training scale. We report both rather than treating either as a proxy for the
+other.
+
+\paragraph{The metrics are complementary.}
+Boundary precision penalises spurious boundaries; MorphScore is recall-oriented
+and does not penalise false positives. A tokenizer that under-segments scores
+well on precision, and one that over-segments scores well on recall. Reporting
+them together characterises segmentation behaviour more completely than either
+alone.
+
+\paragraph{The annotations as a contribution.}
+The released annotations support both the vocabulary construction method and
+the intrinsic evaluation, in a single documented schema across four languages,
+three of which had no prior public morpheme-annotated resource.
+
+\section{Limitations}
+\label{sec:limitations}
+
+\paragraph{Annotation coverage varies by two orders of magnitude.}
+Amharic contributes 153,759 records while Ge'ez contributes 193. Intrinsic
+results for Ge'ez rest on a small evaluation set and therefore carry wider
+uncertainty than those for Amharic.
+
+\paragraph{Cross-lingual application for Tigre and Ge'ez.}
+No in-language MoVoC-Tok exists for Tigre or Ge'ez, as no separate training
+morpheme data was obtained for them and their annotations are reserved for
+evaluation. Their rows in Table~\ref{tab:intrinsic} apply the Tigrinya
+MoVoC-Tok cross-lingually.
+
+\paragraph{Translation covers two directions.}
+The MarianMT models are trained on English$\rightarrow$Amharic and
+English$\rightarrow$Tigrinya only, so the supervised comparison in
+Table~\ref{tab:extrinsic} covers two of the four languages.
+
+\paragraph{Translation scale.}
+BLEU values are low in absolute terms for all three tokenizers, reflecting the
+training scale and the difficulty of translating into morphologically rich,
+low-resource targets. The comparison is between tokenizers under identical
+conditions, not against state-of-the-art translation systems.
+
+\paragraph{Boundary metrics require surface-aligned annotations.}
+Boundary precision and MorphScore locate gold boundaries by character offset,
+so they apply to annotations whose morphemes concatenate to the surface form.
+This constrains the evaluable subset in the more fusional languages.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented MoVoC, a morphology-aware vocabulary construction method for
+Ge'ez-script languages, and MoVoC-Tok, its constrained-merge tokenizer, along
+with morpheme annotations for Amharic, Tigrinya, Tigre and Ge'ez. MoVoC-Tok
+yields lower R\'enyi entropy than BPE in three of four languages and the
+highest morpheme boundary precision in Tigre, showing that constraining subword
+merges to morpheme boundaries produces more consistent subword inventories. In
+downstream translation at this training scale, BPE remains ahead, with
+MoVoC-Tok second and well ahead of WordPiece.
+
+Future work includes training in-language MoVoC-Tok models for Tigre and Ge'ez
+given sufficient annotation, extending supervised translation coverage beyond
+Amharic and Tigrinya, and testing at larger translation training scales whether
+the intrinsic advantage transfers downstream.
+
+We release the annotations, vocabularies and evaluation code as a reference
+implementation.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
