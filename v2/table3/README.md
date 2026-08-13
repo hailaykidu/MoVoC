@@ -47,7 +47,7 @@ seeds behaving consistently within the same unconverged regime —
 reproducibility of the run, not resolving power of the measurement.
 
 Full analysis, including training dynamics and the open learning-rate
-question: [`../../../docs/MT_Reconstruction_Audit.md`](../audits/mt_reconstruction_audit.md).
+question: [`../../../docs/MT_Reconstruction_Audit.md`](../archive/mt_reconstruction_audit.md).
 
 ## Comparison with the published Table 3
 

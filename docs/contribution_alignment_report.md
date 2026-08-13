@@ -66,7 +66,7 @@ per-table report for the published-vs-reconstruction comparison.
 | Audits | `v2/audits/` | README top level |
 | Sensitivity analyses | `v2/appendix/` | any main table |
 | Limitations | `v2/reports/limitations.md` | README body |
-| Incident evidence | `v2/audits/incidents/` | results paths |
+| Incident evidence | `v2/archive/incidents/` | results paths |
 
 Sensitivity metrics (±1 tolerance, fusion-aware matching) appear **only** under
 `v2/audits/` and `v2/appendix/`, never in Tables 2, 3 or 4.

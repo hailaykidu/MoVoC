@@ -141,6 +141,9 @@ projection, precision, dataset coverage and tokenizer provenance. Audits are
 supporting evidence; they do not replace the main tables.
 Scope and caveats: [`v2/reports/limitations.md`](v2/reports/limitations.md).
 
+Historical and exploratory material is retained for transparency in
+[`v2/archive/`](v2/archive/) and is not part of the primary presentation.
+
 ## Repository structure
 
 ```
@@ -154,6 +157,7 @@ MoVoC/
 │   ├── tokenizers/ · marianmt/       reconstruction records
 │   ├── appendix/  best runs · sensitivity · alternative evaluations
 │   ├── audits/    supporting records
+│   ├── archive/   historical material, retained but not foregrounded
 │   └── reports/   summary · methodology · limitations · discussion
 ├── original/      archival baseline + published_results/
 └── docs/ · scripts/ · configs/ · evaluation/ · assets/

@@ -1,5 +1,9 @@
 # Limitations
 
+> **Canonical version.** A synchronized copy exists at `v2/reports/limitations.md`.
+> Edit here first, then mirror the change. See
+> [`docs/duplicate_document_inventory.md`](duplicate_document_inventory.md).
+
 What this repository could not establish, stated plainly.
 
 ## 1. Published intrinsic values are not reproducible from released artifacts
