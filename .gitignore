@@ -34,3 +34,6 @@ experiments/*/logs/
 # results. They are deliberately untracked so they cannot be mistaken for
 # the paper's reported values; see docs/REPRODUCIBILITY.md.
 experiments/*/results/
+
+# Overleaf upload bundle, regenerated from v2/paper/manuscript/.
+v2/paper/movoc_v2_manuscript.zip
