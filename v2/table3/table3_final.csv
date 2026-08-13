@@ -1,0 +1,19 @@
+direction,evaluation_dataset,evaluation_type,tokenizer,bleu_mean,bleu_std,chrf_mean,chrf_std,num_examples,seeds,n_valid,status,output_quality_flagged_seeds
+English → Amharic,flores200,supervised,BPE,1.4937,0.0866,21.5573,0.2167,1012,42/43/44,3,complete,none
+English → Amharic,flores200,supervised,WordPiece,0.0534,0.014,11.599,0.0295,1012,42/43/44,3,complete,none
+English → Amharic,flores200,supervised,MoVoC-Tok,0.7907,0.0363,18.3999,0.1711,1012,42/43/44,3,complete,42/43/44
+English → Tigrinya,flores200,supervised,BPE,1.2557,0.2135,10.8757,0.0708,1012,42/43/44,3,complete,none
+English → Tigrinya,flores200,supervised,WordPiece,0.0439,0.0037,6.7069,0.1085,1012,42/43/44,3,complete,none
+English → Tigrinya,flores200,supervised,MoVoC-Tok,0.271,0.0775,7.8489,0.2845,1012,42/43/44,3,complete,42/43/44
+English → Amharic,opus,supervised,BPE,0.4131,0.1039,18.4723,2.0884,100,42/43/44,3,complete,42/43/44
+English → Amharic,opus,supervised,WordPiece,0.0286,0.0103,6.7737,0.1963,100,42/43/44,3,complete,42/43/44
+English → Amharic,opus,supervised,MoVoC-Tok,0.1694,0.0418,10.2681,0.9363,100,42/43/44,3,complete,42/43/44
+English → Tigrinya,opus,supervised,BPE,0.1909,0.0487,11.2057,0.3469,71,42/43/44,3,complete,42/43/44
+English → Tigrinya,opus,supervised,WordPiece,0.0347,0.0036,5.0109,0.1487,71,42/43/44,3,complete,42/43/44
+English → Tigrinya,opus,supervised,MoVoC-Tok,0.1279,0.0409,5.1444,0.1739,71,42/43/44,3,complete,42/43/44
+English → Tigre,opus,zero_shot,BPE,1.146,0.0535,10.331,0.6563,43,42/43/44,3,complete,42/43/44
+English → Tigre,opus,zero_shot,WordPiece,0.0912,0.022,5.258,0.2879,43,42/43/44,3,complete,42/43/44
+English → Tigre,opus,zero_shot,MoVoC-Tok,0.1677,0.0632,5.5903,0.6641,43,42/43/44,3,complete,42/43/44
+English → Ge'ez,opus,zero_shot,BPE,0.0195,0.0059,5.0322,0.0504,100,42/43/44,3,complete,none
+English → Ge'ez,opus,zero_shot,WordPiece,0.0,0.0,4.29,0.092,100,42/43/44,3,complete,none
+English → Ge'ez,opus,zero_shot,MoVoC-Tok,0.015,0.0012,4.8138,0.1196,100,42/43/44,3,complete,none

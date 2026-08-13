@@ -1,0 +1,5 @@
+language,iso,final_items_evaluated,morphscore,paper_items,paper_morphscore,official_items_used,amseg_fallback_items_used,duplicates_removed,pct_official,pct_amseg,shortfall,pool_mode
+Amharic,amh,80000,41.3,80000,0.71,20030,59970,20127,25.0,75.0,0,official-first + fallback
+Tigrinya,tir,5224,41.5,80000,0.731,2713,2511,2723,51.9,48.1,74776,union (maximal)
+Ge'ez,gez,172,88.7,20000,0.67,44,128,44,25.6,74.4,19828,official-first + fallback
+Tigre,tig,2149,42.9,32000,0.654,2149,0,2457,100.0,0.0,29851,union (maximal)

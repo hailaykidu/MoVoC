@@ -1,0 +1,9 @@
+language,tokenization,precision,renyi_alpha2_normalized,movoc_tok_mode,words
+Amharic,MoVoC-Tok,24.0,0.62,in-language,123761
+Amharic,BPE,24.3,0.66,,123761
+Tigrinya,MoVoC-Tok,26.6,0.92,in-language,205
+Tigrinya,BPE,27.3,0.93,,205
+Tigre,MoVoC-Tok,63.3,0.71,cross-lingual (assumption),2457
+Tigre,BPE,60.0,0.73,,2457
+Ge'ez,MoVoC-Tok,35.4,0.82,cross-lingual (assumption),173
+Ge'ez,BPE,36.8,0.81,,173

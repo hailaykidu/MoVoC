@@ -1,0 +1,9 @@
+language,tokenizer,precision_micro_pct,words_scored,predicted_boundaries,matched_boundaries
+Amharic,MoVoC-Tok,24.0058,123761,209433,50276
+Amharic,BPE,24.288,123761,218540,53079
+Tigrinya,MoVoC-Tok,26.6332,205,199,53
+Tigrinya,BPE,27.2727,205,231,63
+Tigre,MoVoC-Tok,63.3185,2457,1344,851
+Tigre,BPE,60.0464,2457,1294,777
+Ge'ez,MoVoC-Tok,35.4005,173,387,137
+Ge'ez,BPE,36.802,173,394,145

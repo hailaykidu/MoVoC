@@ -1,0 +1,158 @@
+# Methodology
+
+> Extracted verbatim from the repository README so the method is separately
+> citable. Section references are to the paper (arXiv:2509.08812).
+
+The paper describes three methodological components (Sec. 3). This
+repository implements each.
+
+### 1. Pre-tokenization and supervised morphological analysis (Sec. 3.1)
+
+A pre-tokenization pipeline based on customized regular expressions
+tailored to the orthographic and morphological characteristics of
+Ge'ez-script languages, covering stopword removal, punctuation
+normalization and special-character filtering. Morphological analysis is
+**supervised**, drawing on the annotated morpheme data described below.
+
+*Implemented in* `movoc/preprocessing.py`, `movoc/hornmorph.py`,
+`movoc/annotation.py`.
+
+### 2. Vocabulary construction — MoVoC (Sec. 3.2)
+
+A hybrid vocabulary combining frequent morphemes with frequent subword
+units. A hyperparameter `r ∈ [0,1]` controls the ratio of morpheme tokens:
+
+```
+V = V_BPEsmall ∪ V_morph
+|V_BPEsmall| = s(1 − r)        |V_morph| = sr
+```
+
+*Implemented in* `movoc/vocabulary.py` (Algorithm 1: sizes,
+`extract_morphemes`, merge), driven end to end by `train.py`.
+
+### 3. MoVoC-Tok — morpheme-aware subword segmentation (Sec. 3.3)
+
+A BPE tokenizer is trained using the mixed vocabulary obtained from MoVoC.
+Because conventional BPE merge operations are data-driven and can combine
+subwords that cross morpheme boundaries, morphological constraints are
+incorporated directly into BPE training by **limiting merge candidates to
+those that do not span morpheme boundaries defined by MoVoC**. This
+prevents invalid merges and ensures the resulting tokenization adheres to
+morphological segmentation.
+
+Tokenization proceeds in two stages: words are first segmented into
+morphemes, then BPE is applied within each morpheme.
+
+*Implemented in* `movoc/tokenizer.py` (`Train_BPE` and the constrained
+merge procedure), applied by `segment.py`.
+
+---
+
+## Dataset and resources
+
+### Morpheme annotations
+
+The paper creates morphological datasets for four Ge'ez-script languages.
+Annotations reach their final form by one of two routes, depending on
+whether a morphological analyzer covers the language.
+
+| Language | Initial analysis | Human post-editing | Entries |
+|---|---|---|---|
+| Amharic | HornMorpho | yes | 153,759 |
+| Tigrinya | HornMorpho | yes | 7,531 curated + 206 gold |
+| Ge'ez | — | manual | 193 |
+| Tigre | — | manual | 8,117 |
+
+For Amharic and Tigrinya, HornMorpho provides the initial analysis, which
+is then manually post-edited. The Tigrinya gold set is held out from
+vocabulary construction and used for evaluation.
+
+*Location:* `data/annotations/{amharic,tigrinya,tigre,geez}/`
+
+### Corpora
+
+- **NLLB** (Costa-Jussà et al., 2022) — Amharic and Tigrinya text for BPE
+  training, and the English–Amharic / English–Tigrinya parallel corpora for
+  the downstream translation evaluation.
+- **HornMT** — parallel corpus used as the raw source for morphological
+  analysis. *Location:* `data/raw/hornmt/`
+- **FLORES-200** (Goyal et al., 2022) — development and test sets for
+  Amharic and Tigrinya. Ships as `data/evaluation/flores200.zip`,
+  password-protected with `multilingual machine translation`, the password
+  OLDI publishes in its own README. The archive keeps the sentences out of
+  web crawlers, which would otherwise pull them into training corpora.
+- **OPUS / Tatoeba** (Tiedemann, 2012) — final translation evaluation sets.
+  *Location:* `data/evaluation/{amharic,tigrinya,tigre}/`
+
+---
+
+## Experimental setup
+
+### Target languages (Sec. 4.1)
+
+Amharic, Tigrinya, Ge'ez and Tigre. Ge'ez and Tigre lack morphological
+analyzers, so their morpheme sets are constructed manually.
+
+### Vocabulary configuration
+
+`configs/movoc_config.json` holds the vocabulary parameters used by
+`train.py`; `configs/bpe_config.json` holds the baseline BPE
+configuration.
+
+### Training setup (Sec. 4.3)
+
+Tokenizers are trained with the HuggingFace `tokenizers` library. The
+downstream translation model is a fine-tuned MarianMT
+(Junczys-Dowmunt et al., 2018) with the architecture the paper reports:
+
+| | |
+|---|---|
+| Encoder / decoder layers | 6 / 6 |
+| Attention heads | 8 |
+| Hidden size | 512 |
+| Feedforward dimension | 2048 |
+| Activation | Swish |
+| Embeddings | shared encoder–decoder |
+| Positional encoding | static |
+| Vocabulary size | 63,050 |
+
+Training used the HuggingFace Transformers library (version 4.51.3), on a
+single GPU with 6 CPU cores, 32 GB RAM and a maximum runtime of 24 hours.
+
+*Implemented in* `evaluation/finetune_marianmt.py`;
+`scripts/submit_marianmt.sh` is the Slurm wrapper.
+
+---
+
+## Evaluation framework
+
+### Extrinsic evaluation (Sec. 5.1)
+
+Machine translation between English and the Ge'ez-script languages, scored
+with **BLEU** (Papineni et al., 2002) and **chrF++** (Popović, 2017).
+Training covers English–Amharic and English–Tigrinya; **Tigre is not
+included during training** and appears at evaluation to assess zero-shot
+translation.
+
+COMET is not used: it depends on pretrained models and reference corpora
+available only for high-resource languages, and no reliable
+COMET-compatible model exists for Tigrinya, Tigre or Ge'ez.
+
+*Implemented in* `evaluation/translate_eval.py`.
+
+### Intrinsic evaluation (Sec. 5.2)
+
+Three metrics over the annotated morpheme test set:
+
+- **Morpheme boundary precision** (Nouri & Yangarber, 2016) — predicted
+  boundaries compared against gold-standard boundaries.
+- **MorphScore** (Arnett & Bergen, 2025) — 1 if a token boundary aligns
+  with a gold morpheme boundary, 0 otherwise; unsegmented words excluded.
+  Recall-oriented, and does not penalize false positives.
+- **Rényi entropy** (Rényi, 1961) — subword diversity and balance over
+  token distributions. Lower values indicate sharper, more consistent
+  segmentation.
+
+*Implemented in* `movoc/metrics.py`, run by `evaluate.py`.
+
+---

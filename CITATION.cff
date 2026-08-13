@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the paper below."
+title: "MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages"
+abstract: >-
+  Morphology-aware subword vocabulary construction for Ge'ez-script languages
+  (Amharic, Tigrinya, Tigre, Ge'ez), combining supervised morphological analysis
+  with a constrained-merge BPE (MoVoC-Tok) whose merges may not cross morpheme
+  boundaries.
+type: software
+license: MIT
+repository-code: "https://github.com/hailaykidu/MoVoC"
+authors:
+  - family-names: Teklehaymanot
+    given-names: Hailay
+  - family-names: Fazlija
+    given-names: Besnik
+  - family-names: Nejdl
+    given-names: Wolfgang
+preferred-citation:
+  type: conference-paper
+  title: "MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages"
+  collection-title: "Findings of the Association for Computational Linguistics: EMNLP 2025"
+  year: 2025
+  authors:
+    - family-names: Teklehaymanot
+      given-names: Hailay
+    - family-names: Fazlija
+      given-names: Besnik
+    - family-names: Nejdl
+      given-names: Wolfgang
+  identifiers:
+    - type: other
+      value: "arXiv:2509.08812"
+      description: arXiv preprint
