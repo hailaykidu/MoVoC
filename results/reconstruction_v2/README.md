@@ -16,9 +16,13 @@ reconstruction_v2/
 │   ├── paper_tables_leaky_reconstruction_v2.json  in-sample variant, for contrast
 │   ├── intrinsic_eval_reconstruction_v2.json      per-language intrinsic metrics
 │   └── extended_arms_build_reconstruction_v2.json extended verification arms
-└── mt/
-    ├── table3_reconstruction_v2.json              multi-seed MT aggregate
-    └── README.md                                  MT run details and findings
+├── mt/
+│   ├── table3_reconstruction_v2.json              multi-seed MT aggregate (2026-07)
+│   └── README.md                                  MT run details and findings
+└── extrinsic/
+    ├── table3_multiseed.json                      extrinsic MT, Table-3 structure
+    ├── table3_multiseed.md                        human-readable table
+    └── PROVENANCE.md                              run-level provenance and caveats
 ```
 
 All files are byte-identical copies of the working artifacts; see
@@ -48,3 +52,34 @@ so no run performed now can be shown to follow the same procedure; the scale
 of the published BLEU column is unresolved; and the MT reconstruction did
 not reach a converged regime. Placing the two side by side in one table
 would imply a comparability that does not exist.
+
+## Extrinsic MT evaluation (`extrinsic/`)
+
+A separate, later multi-seed extrinsic run, reported in the paper's Table 3
+*structure* with this reconstruction's own values. **It is not a reproduction
+of the published Table 3 and must not be tabulated alongside it.**
+
+| | |
+|---|---|
+| Runs | 9 — 3 tokenizers x 3 seeds (42/43/44), one multilingual MarianMT each |
+| Completed / valid / excluded | 9 / 9 / 0 |
+| Training languages | English, Amharic, Tigrinya |
+| Never trained on | Tigre, Ge'ez (zero-shot evaluation only) |
+| Tokenizers | BPE, WordPiece, MoVoC-Tok — all at vocabulary 63,051 |
+| Training data | 800,000 pairs, 75,000 optimizer steps per run |
+| Evaluation | FLORES-200 devtest (n=1012) and OPUS/Tatoeba, reported separately |
+| Metrics | sacreBLEU 2.6.0; `BLEU()`, `CHRF(word_order=2)` |
+| Aggregation | mean and sample SD (ddof=1) over run-level scores across seeds |
+
+**Scientific validity.** BLEU is below 2 in every cell. Final training loss is
+3.00-3.59, against ~3.13 for a comparable from-scratch MarianMT trained with
+5.5x more optimizer steps (416,040 vs 75,000). All 18 FLORES cells produce
+1012/1012 unique hypotheses with no empty output and no `<unk>` collapse, but
+an automated detector flags repetition in several cells. **These runs support
+no ranking claim about the tokenizers in either direction.** See
+`extrinsic/PROVENANCE.md`.
+
+The vocabulary size used is 63,051 for all three arms: the paper reports
+63,050, the released MoVoC tokenizer contains 63,051 entries and was not
+modified, and BPE/WordPiece were trained to match so that vocabulary size is
+not a confound.
