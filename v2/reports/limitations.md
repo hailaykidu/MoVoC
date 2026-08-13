@@ -45,11 +45,14 @@ The `models/movoc_tok_merges_{geez,tigre}.txt` artifacts in this repository are
 
 ## 4. Table 3 cannot be reproduced
 
-- The scoring pipeline that produced the published Table 3 is not preserved.
+- The scoring script that produced the published Table 3 is not preserved,
+  along with the trained checkpoints and decoded predictions behind it.
 - The metric scale of the published BLEU column is unresolved (0.048–0.246 is
   inconsistent with sacreBLEU's 0–100 scale).
-- No held-out Ge'ez evaluation set exists, so the Ge'ez block cannot be
-  regenerated at all.
+- No held-out Ge'ez evaluation set from the publication period was recovered,
+  so the published Ge'ez block cannot be regenerated. Reconstruction V2 assembled
+  its own Ge'ez parallel set for zero-shot evaluation; it is a V2 resource, not a
+  recovery of the published one.
 - MoVoC-Tok reconstruction runs produce degenerate output and are flagged.
 
 ## 5. An internal contradiction remains open

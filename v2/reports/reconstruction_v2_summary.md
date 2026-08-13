@@ -34,8 +34,14 @@ replaced with newer numbers.
 ## 2. Version 2 reconstruction results
 
 **What they are.** New measurements produced by the current repository:
-reimplemented code, newly built vocabularies, newly trained checkpoints, and
-a reconstructed evaluation pipeline.
+reimplemented code, the released vocabularies and tokenizers, newly trained
+checkpoints, and a reconstructed evaluation pipeline.
+
+Vocabularies were **not** rebuilt for Amharic or Tigrinya; those measurements
+use the released artifacts. The only vocabularies constructed here are the
+Ge'ez and Tigre verification arms, built from user-supplied corpora that are
+not part of the MoVoC repository — see
+[`../tokenizers/extended_arms_build_reconstruction_v2.json`](../tokenizers/extended_arms_build_reconstruction_v2.json).
 
 **Where they are.** Working paths `evaluation/results/` and
 `experiments/multiseed/results/`, with archival copies under
@@ -55,8 +61,9 @@ state *"Not a reproduction of the published Table 3."*
 
 Four independent reasons. Any one would be sufficient.
 
-**The scoring pipeline is unavailable.** The procedure that produced Table 3
-is not in this repository. Two BLEU numbers computed by different pipelines
+**The scoring script is unavailable.** The decoding and metric-computation
+procedure that produced Table 3 is not in this repository, nor are the
+checkpoints and predictions it was run on. Two BLEU numbers computed by different pipelines
 are not comparable even when both are labelled "BLEU" — tokenization,
 smoothing and effective-order choices all move the figure.
 

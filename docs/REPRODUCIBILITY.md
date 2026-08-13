@@ -117,28 +117,32 @@ evaluation language in that description.
 
 | Artifact | Status |
 |---|---|
-| Ge'ez parallel corpus | **absent** |
-| Ge'ez MT evaluation set | **absent** — `data/evaluation/` holds `amharic/`, `tigrinya/`, `tigre/` only |
-| Manifest entry | `data/evaluation/manifest.json` records Ge'ez as `"source": "none -- no parallel data"`, `"note": "evaluated intrinsically only (paper Sec 5.1)"` |
+| Ge'ez parallel corpus from the publication period | **absent** |
+| Ge'ez MT evaluation set | **assembled for Reconstruction V2** — `data/evaluation/geez/` (Mermru English–Ge'ez corpus, 2,107 pairs, 100 held out at seed 42). Not a reproduction of the published Table 3 Ge'ez block. |
+| Manifest entry | `data/evaluation/manifest.json` records the V2 source and split for Ge'ez; see also `data/evaluation/geez/manifest.json` |
 | Ge'ez morpheme annotations | **present** — `data/annotations/geez/manual_morphemes.json` (193 entries), used for intrinsic evaluation |
 
 One inconsistency exists inside the released code itself and is recorded
 here rather than silently corrected: `evaluation/finetune_marianmt.py`
 declares `EVAL_BENCHMARK = {..., "geez": "opus"}`, implying an OPUS
-evaluation source for Ge'ez, while the manifest in the same repository
-records that no such parallel data exists.
+evaluation source for Ge'ez, while the paper's own Sec. 4.2 states that Ge'ez
+was evaluated only intrinsically due to the absence of parallel data.
 
 ### Consequence
 
 **The English→Ge'ez block of Table 3 cannot be reproduced from the
-artifacts released here.** No Ge'ez parallel evaluation data is present,
-and no procedure is described in the paper or implemented in this
-repository that would produce translation scores for a language stated to
-have no parallel data.
+artifacts released here.** No Ge'ez parallel evaluation data from the
+publication period was recovered, and no procedure is described in the paper
+or implemented in this repository that would produce the published
+translation scores for a language stated in Sec. 4.2 to have no parallel data.
+
+Reconstruction V2 assembled its own Ge'ez parallel set for zero-shot
+evaluation (`data/evaluation/geez/`, Mermru English–Ge'ez corpus, 2,107 pairs,
+100 held out at seed 42). **It is a V2 resource, not a recovery of the
+published one**, so it does not reproduce the published block.
 
 This is recorded as an open question, not as a claim that the reported
-figures are wrong. Until it is resolved the block is marked
-**unavailable**, and this repository reports no Ge'ez MT figures.
+figures are wrong.
 
 The Ge'ez *intrinsic* evaluation — MorphScore, boundary precision, Rényi
 entropy over the annotated morpheme set — is unaffected and remains

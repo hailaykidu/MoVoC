@@ -10,7 +10,7 @@ Using the released metric implementation without modification:
 | Table | Metric | Reproduces? |
 |---|---|---|
 | 2 | MorphScore | Values do not match published |
-| 3 | BLEU / chrF++ | Not reproducible — scoring pipeline not preserved |
+| 3 | BLEU / chrF++ | Not reproducible — the checkpoints, decoded predictions and scoring script behind the published values are not preserved |
 | 4 | Boundary precision | Values do not match published |
 | 4 | Rényi entropy | Direction reproduces in 3 of 4 languages |
 

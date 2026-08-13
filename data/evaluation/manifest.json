@@ -21,7 +21,11 @@
     "human_validated_needed": 57
   },
   "geez": {
-    "source": "none -- no parallel data",
-    "note": "evaluated intrinsically only (paper Sec 5.1)"
+    "source": "Mermru English-Ge'ez parallel corpus (https://mermru.com/), via Bedru/Eng-Geez on the HuggingFace Hub",
+    "assembled_for": "Reconstruction Version 2 evaluation workflow",
+    "total_pairs": 2107,
+    "held_out_pairs": 100,
+    "split_seed": 42,
+    "note": "Assembled for the V2 evaluation workflow. The published paper (Sec. 4.2) states that Ge'ez was evaluated only intrinsically due to the absence of parallel data, while its Table 3 reports an English-Ge'ez block. This set is not a reproduction of that block; see data/evaluation/geez/manifest.json and docs/geez_data_consistency_review.md."
   }
 }

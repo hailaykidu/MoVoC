@@ -46,7 +46,7 @@ without explicit labelling.
 | Table | Metric | Published | V2 | Reproduces? |
 |---|---|---|---|---|
 | 2 | MorphScore (amh, n=80,000) | 0.710 | 41.3 | **No** |
-| 3 | BLEU en→am | 0.2455 | 1.4937 (BPE leads) | **No** — pipeline absent |
+| 3 | BLEU en→am | 0.2455 | 1.4937 (BPE leads) | **No** — original checkpoints, predictions and scoring script not preserved |
 | 4 | Precision (amh, MoVoC-Tok) | 85.5 | 24.0 | **No** |
 | 4 | Rényi direction | MoVoC-Tok lower | MoVoC-Tok lower in 3/4 | **Yes** |
 
