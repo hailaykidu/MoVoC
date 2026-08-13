@@ -1,5 +1,9 @@
 # Methodology
 
+> **Canonical version.** A synchronized copy exists at `v2/reports/methodology.md`.
+> Edit here first, then mirror the change. See
+> [`docs/duplicate_document_inventory.md`](duplicate_document_inventory.md).
+
 > Extracted verbatim from the repository README so the method is separately
 > citable. Section references are to the paper (arXiv:2509.08812).
 

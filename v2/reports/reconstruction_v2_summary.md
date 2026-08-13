@@ -78,7 +78,7 @@ multi-seed runs completed and decoded cleanly, but final training loss was
 without emitting EOS, and all 54 scores fell in the 0.005–0.041 BLEU noise
 floor. These numbers characterise the reconstructed training setup rather
 than tokenizer quality, and cannot be set against figures from a converged
-run. See [`MT_Reconstruction_Audit.md`](../audits/mt_reconstruction_audit.md).
+run. See [`MT_Reconstruction_Audit.md`](../archive/mt_reconstruction_audit.md).
 
 **The evaluation protocols differ.** The reconstructed intrinsic evaluation
 scores a held-out half of each annotation set, because the original
@@ -114,5 +114,5 @@ checkpoints, and stand or fall on their own evidence.
 - [`results/README.md`](../README.md) — the archival layer and source-path mapping
 - [`results/original_paper/README.md`](../../original/published_results/README.md) — why no original data file exists
 - [`results/reconstruction_v2/README.md`](../README.md) — what the reconstruction produced
-- [`MT_Reconstruction_Audit.md`](../audits/mt_reconstruction_audit.md) — full MT audit
+- [`MT_Reconstruction_Audit.md`](../archive/mt_reconstruction_audit.md) — full MT audit
 - [`REPRODUCIBILITY.md`](../../docs/REPRODUCIBILITY.md) — what is and is not reproducible
