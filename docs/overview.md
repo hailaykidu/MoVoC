@@ -10,7 +10,7 @@ It contains two distinct bodies of work, kept strictly apart:
 | | What it is | Where |
 |---|---|---|
 | **Original** | Artifacts and values belonging to the published paper | `original/`, `original/published_results/` |
-| **Reconstruction v2** | Independent re-implementation, reproduction and audit | `reconstruction_v2/` |
+| **Reconstruction v2** | Independent re-implementation, reproduction and audit | `v2/` |
 
 ## The distinction that matters
 
@@ -24,9 +24,12 @@ a published number.
 
 ## Reading order
 
-1. `README.md` — status table and repository map
-2. `docs/methodology.md` — what the method is and how it is implemented
-3. `v2/table2/MorphScore_report.md`, `v2/table3/MarianMT_report.md`,
-   `v2/table4/Intrinsic_report.md` — results side by side with the paper
-4. `docs/limitations.md` — what could not be reproduced and why
-5. `reconstruction_v2/audits/` — the underlying investigations
+1. `README.md` — MoVoC vocabulary construction and MoVoC-Tok
+2. `data/README.md` — the morpheme-annotated datasets
+3. `docs/methodology.md` — what the method is and how it is implemented
+4. `v2/table2/MorphScore_report.md`, `v2/table4/Intrinsic_report.md` —
+   intrinsic evaluation
+5. `v2/table3/MarianMT_report.md` — extrinsic evaluation
+6. `docs/limitations.md` — what could not be reproduced and why
+
+Supporting records behind these results are in `v2/audits/`.
