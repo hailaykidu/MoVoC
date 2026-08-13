@@ -82,7 +82,7 @@ from the same file for Amharic, Geʿez and Tigre. This rerun scores disjoint
 held-out halves so no item used for vocabulary construction is also scored;
 for Tigrinya, whose gold file is separate, overlapping words are removed.
 Full detail in
-[`docs/RECONSTRUCTED_EVALUATION.md`](../../v2/reports/reconstructed_evaluation.md).
+[`v2/archive/reconstructed_evaluation.md`](../../v2/archive/reconstructed_evaluation.md).
 
 ---
 

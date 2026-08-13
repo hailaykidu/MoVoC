@@ -12,6 +12,7 @@ Classified as exploratory/historical in
 | `historical_investigation.md` | Narrative of the repository's earlier investigation; references external paths and pre-restructure filenames |
 | `mt_reconstruction_audit.md` | Superseded MT reconstruction audit |
 | `repository_restructure_report.md` | Migration record for the V2 restructure |
+| `reconstructed_evaluation.md` | Intermediate reconstruction record; its Table 3 section predates the completed multi-seed campaign. Final Table 3 is `v2/table3/table3_final.csv` |
 | `incidents/2026-07-28-invalid-mt-evaluation/` | Evidence from a documented failed MT run: logs, tracebacks and the JSON a broken configuration produced |
 
 **The incident files are not results.** They record a run that was discarded,

@@ -45,7 +45,7 @@ not part of the MoVoC repository — see
 
 **Where they are.** Working paths `evaluation/results/` and
 `experiments/multiseed/results/`, with archival copies under
-[`results/reconstruction_v2/`](../).
+[`v2/`](../).
 
 **Their status.** Internal validation evidence. They demonstrate that the
 described method runs end to end — vocabulary construction, MoVoC-Tok
@@ -111,8 +111,7 @@ checkpoints, and stand or fall on their own evidence.
 
 ## See also
 
-- [`results/README.md`](../README.md) — the archival layer and source-path mapping
-- [`results/original_paper/README.md`](../../original/published_results/README.md) — why no original data file exists
-- [`results/reconstruction_v2/README.md`](../README.md) — what the reconstruction produced
+- [`v2/README.md`](../README.md) — what the reconstruction produced
+- [`original/published_results/README.md`](../../original/published_results/README.md) — why no original data file exists
 - [`MT_Reconstruction_Audit.md`](../archive/mt_reconstruction_audit.md) — full MT audit
 - [`REPRODUCIBILITY.md`](../../docs/REPRODUCIBILITY.md) — what is and is not reproducible

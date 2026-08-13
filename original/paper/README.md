@@ -41,6 +41,6 @@ with citation in the top-level README.
   values.
 - They must not be placed in the same table as reconstructed values.
 
-See [`../../docs/reconstruction_vs_original.md`](../../v2/reports/reconstruction_v2_summary.md)
-for the full rationale, and [`../reconstruction_v2/`](../../v2/)
+See [`v2/reports/reconstruction_v2_summary.md`](../../v2/reports/reconstruction_v2_summary.md)
+for the full rationale, and [`v2/`](../../v2/)
 for what this repository *can* generate.
