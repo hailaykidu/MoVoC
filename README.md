@@ -7,6 +7,15 @@ Subword vocabularies that respect morpheme boundaries in Ge'ez-script languages
 — Amharic, Tigrinya, Tigre and Ge'ez — where standard BPE routinely splits
 inside morphemes.
 
+## Setup
+
+```bash
+pip install -r requirements.txt
+```
+
+Every command in this README assumes the dependencies in `requirements.txt`
+are installed.
+
 ## MoVoC
 
 A hybrid vocabulary. Half the budget is allocated to morpheme types recovered by
@@ -22,8 +31,22 @@ Morphemes enter the vocabulary as first-class units rather than being discovered
 statistically, so frequent affixes and roots survive as whole tokens.
 
 ```bash
-python train.py --lang amharic -s 224000 -r 0.7142857142857143
+python train.py \
+  --amharic-corpus PATH \
+  --tigrinya-corpus PATH \
+  -s 224000 \
+  -r 0.7142857142857143
 ```
+
+| Argument | Meaning |
+|---|---|
+| `--amharic-corpus` | Path to the Amharic monolingual corpus (required) |
+| `--tigrinya-corpus` | Path to the Tigrinya monolingual corpus (required) |
+| `-s`, `--vocab-size` | Total vocabulary size *s* (default 224,000) |
+| `-r`, `--morpheme-ratio` | Proportion *r* of morpheme-aware tokens (default 5/7) |
+
+Both corpora are required: vocabulary construction runs over Amharic and
+Tigrinya together.
 
 ## MoVoC-Tok
 
@@ -32,13 +55,27 @@ Segmentation stays inside morphemes, so a token cannot straddle a prefix–root 
 root–suffix join.
 
 ```bash
-python segment.py --lang amharic --text "ዝወደቐ"
+python segment.py amharic "ዝወደቐ"
 ```
+
+The language is a **positional** argument and accepts `amharic` or `tigrinya`.
+Text is also positional; omit it to read from stdin.
 
 Merge tables are written to `models/`. The repository tracks
 `movoc_tok_merges_geez.txt` and `movoc_tok_merges_tigre.txt`; the Amharic and
 Tigrinya tokenizers are regenerated locally with `train.py` (build outputs are
 untracked — see `.gitignore`).
+
+The tracked Ge'ez and Tigre merge tables are not selectable through the
+positional argument. Load them with `--merges`:
+
+```bash
+python segment.py tigrinya --merges models/movoc_tok_merges_tigre.txt "…"
+python segment.py tigrinya --merges models/movoc_tok_merges_geez.txt "…"
+```
+
+The positional argument only selects the default merge-table path and is
+overridden by `--merges`, so it does not affect which table is loaded here.
 
 ## Annotated datasets
 
@@ -167,20 +204,57 @@ MoVoC/
 
 ```bash
 # Vocabulary construction and tokenizer training (Sec. 3.2, 3.3)
-python train.py --lang amharic -s 224000 -r 0.7142857142857143
+python train.py \
+  --amharic-corpus PATH \
+  --tigrinya-corpus PATH \
+  -s 224000 \
+  -r 0.7142857142857143
 
 # Build the evaluation sets (Sec. 5.1)
-python scripts/build_eval_sets.py
+python scripts/build_eval_sets.py --opus-dir PATH
 
 # Intrinsic evaluation (Sec. 5.2)
 python evaluate.py --alpha 2.0
 
-# Downstream translation (Sec. 4.3, 5.1) -- requires a GPU
-bash scripts/submit_marianmt.sh
+# Downstream translation (Sec. 4.3, 5.1) -- Slurm batch job, requires a GPU
+sbatch scripts/submit_marianmt.sh <strategy> <language> <src> <tgt>
 
 # Regenerate result tables from run outputs
 python scripts/make_tables.py
 ```
+
+`--opus-dir` is the directory holding the Tatoeba.* files.
+
+`submit_marianmt.sh` is a **Slurm batch script** — submit it with `sbatch`, not
+`bash`, or the `#SBATCH` resource directives are ignored. Its four positional
+arguments are:
+
+| Argument | Meaning |
+|---|---|
+| `<strategy>` | Tokenizer arm: `marian`, `movoc_tok`, `bpe` or `wordpiece` |
+| `<language>` | Target language, e.g. `amharic` or `tigrinya` |
+| `<src>` | Source-side training file (English) |
+| `<tgt>` | Target-side training file |
+
+Two optional dev files and a max-samples cap may follow:
+`sbatch submit_marianmt.sh <strategy> <language> <src> <tgt> [dev.en dev.xx] [max-samples]`.
+
+### Optional arguments
+
+| Script | Argument | Effect |
+|---|---|---|
+| `train.py` | `--max-lines` | Cap lines read per corpus; omit for the full corpus |
+| | `--merge-lines` | Lines used for Step 6 merge learning |
+| | `--skip-step6` | Stop after Step 5; no merge table is produced |
+| | `--wordpiece` | Also train the WordPiece baseline (Sec. 4.3) |
+| | `--skip-bpe` | Reuse the BPE tokenizers in `data/vocabulary/` instead of retraining |
+| `segment.py` | `--merges` | Load an alternative merge table |
+| `evaluate.py` | `--sentencepiece` | SentencePiece `.model` to score as an extra baseline |
+| | `-o`, `--out` | Output path for the results JSON |
+| `build_eval_sets.py` | `-o`, `--out-dir` | Output directory for the built sets |
+| `make_tables.py` | `--results-dir` | Directory holding run outputs |
+| | `-o`, `--out` | Output path for the regenerated tables |
+| | `--multiseed` | Multi-seed results file to draw from |
 
 ---
 
