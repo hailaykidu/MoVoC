@@ -76,7 +76,11 @@ PYEOF
 echo "=== marianmt-tokenizer-comparison pipeline: PIPELINE_STAGE=${PIPELINE_STAGE} ==="
 
 if [ "${PIPELINE_STAGE}" = "full" ]; then
-    if [ ! -f results/pipeline_status.json ] || ! grep -q '"smoke_test".*"PASSED"' results/pipeline_status.json 2>/dev/null; then
+    if [ ! -f results/pipeline_status.json ] || ! python3 -c "
+import json, sys
+d = json.load(open('results/pipeline_status.json'))
+sys.exit(0 if d.get('smoke_test', {}).get('status') == 'PASSED' else 1)
+" 2>/dev/null; then
         echo "ERROR: PIPELINE_STAGE=full requested, but results/pipeline_status.json does not show a PASSED smoke_test stage."
         echo "Run 'sbatch slurm/pipeline.sbatch' (default verify_and_smoke stage) first and confirm it succeeds."
         exit 1
