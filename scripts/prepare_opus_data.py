@@ -25,6 +25,7 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from marianmt_comparison.config import load_config, manifests_dir  # noqa: E402
 from marianmt_comparison.data import (  # noqa: E402
+    deduplicate_examples,
     deterministic_split,
     filter_examples,
     read_parallel,
@@ -95,8 +96,16 @@ def prepare_language_pair(language_pair: str, base_cfg: dict) -> dict:
     )
     print(f"after filtering: {len(filtered)} (dropped {len(examples) - len(filtered)})")
 
+    deduped, n_duplicates_dropped = deduplicate_examples(filtered)
+    print(
+        f"after source-side deduplication: {len(deduped)} "
+        f"(dropped {n_duplicates_dropped} examples with a source sentence seen earlier in the corpus -- "
+        "OPUS NLLB is web-mined and contains exact-duplicate source lines; leaving them in would let the "
+        "same sentence land in both train and test)"
+    )
+
     splits = deterministic_split(
-        filtered,
+        deduped,
         split_seed=cfg["data_split_seed"],
         train_fraction=cfg["train_fraction"],
         validation_fraction=cfg["validation_fraction"],
@@ -123,12 +132,17 @@ def prepare_language_pair(language_pair: str, base_cfg: dict) -> dict:
         "retrieval_date": utc_timestamp(),
         "raw_example_count": len(examples),
         "filtered_example_count": len(filtered),
+        "deduplicated_example_count": len(deduped),
+        "duplicate_source_examples_dropped": n_duplicates_dropped,
         "split_sizes": split_sizes,
         "preprocessing_steps": [
             "whitespace strip of each line",
             f"drop_empty_lines={cfg['drop_empty_lines']}",
             f"min_line_length_chars={cfg['min_line_length_chars']}",
             f"max_whitespace_tokens={cfg['max_whitespace_tokens']} (drop lines with more whitespace-split tokens than this, either side)",
+            "source-side exact-duplicate removal (first occurrence kept; prevents the same source "
+            "sentence appearing in both train and test after splitting -- OPUS NLLB is web-mined and "
+            "contains a non-trivial fraction of duplicate lines)",
         ],
         "split_procedure": {
             "method": "deterministic shuffle + contiguous partition",

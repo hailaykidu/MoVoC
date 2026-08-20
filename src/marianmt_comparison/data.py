@@ -47,6 +47,30 @@ def filter_examples(
     return out
 
 
+def deduplicate_examples(examples: list[ParallelExample]) -> tuple[list[ParallelExample], int]:
+    """Drop examples whose source sentence has already been seen.
+
+    OPUS NLLB (a web-mined corpus) contains a non-trivial fraction of exact
+    duplicate source lines (~2-6% observed here) -- if left in, a random
+    train/validation/test split will place the same source sentence in both
+    train and test, contaminating held-out evaluation. Deduplicating on the
+    source side alone (not just the (source, target) pair) is deliberate:
+    even a source sentence paired with a *different* target elsewhere in the
+    corpus still leaks n-gram/surface information into scoring if it also
+    appears in train. First occurrence (in the given, not-yet-shuffled input
+    order) is kept, so this is deterministic and independent of the split
+    seed. Returns (deduplicated_examples, number_dropped).
+    """
+    seen: set[str] = set()
+    out: list[ParallelExample] = []
+    for ex in examples:
+        if ex.source in seen:
+            continue
+        seen.add(ex.source)
+        out.append(ex)
+    return out, len(examples) - len(out)
+
+
 def deterministic_split(
     examples: list[ParallelExample],
     split_seed: int,

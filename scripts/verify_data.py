@@ -33,8 +33,19 @@ def verify_language_pair(language_pair: str) -> list[str]:
             problems.append(f"{language_pair}/{split_name}: missing src.txt/tgt.txt in {split_dir}")
             continue
 
-        src_lines = src_path.read_text(encoding="utf-8").splitlines()
-        tgt_lines = tgt_path.read_text(encoding="utf-8").splitlines()
+        # NOTE: split strictly on "\n", not str.splitlines(). splitlines()
+        # also breaks on U+2028/U+2029/\r/\v/\f etc., which appear inside a
+        # small number of legitimate source sentences (e.g. quoted text
+        # containing a Unicode line separator) and do NOT correspond to
+        # record boundaries in src.txt/tgt.txt -- those files are written
+        # one physical "\n"-terminated line per example (see write_split in
+        # src/marianmt_comparison/data.py). Using splitlines() here previously
+        # fragmented such examples into extra pseudo-lines, producing bogus
+        # src/tgt count mismatches and bogus train/test "duplicate" hits.
+        src_text = src_path.read_text(encoding="utf-8")
+        tgt_text = tgt_path.read_text(encoding="utf-8")
+        src_lines = src_text.split("\n")[:-1] if src_text.endswith("\n") else src_text.split("\n")
+        tgt_lines = tgt_text.split("\n")[:-1] if tgt_text.endswith("\n") else tgt_text.split("\n")
         if len(src_lines) != len(tgt_lines):
             problems.append(
                 f"{language_pair}/{split_name}: line count mismatch src={len(src_lines)} tgt={len(tgt_lines)}"
@@ -67,8 +78,12 @@ def verify_language_pair(language_pair: str) -> list[str]:
     train_src = (base / "train" / "src.txt")
     test_src = (base / "test" / "src.txt")
     if train_src.exists() and test_src.exists():
-        train_set = set(train_src.read_text(encoding="utf-8").splitlines())
-        test_set = set(test_src.read_text(encoding="utf-8").splitlines())
+        def _read_lines(p: Path) -> list[str]:
+            t = p.read_text(encoding="utf-8")
+            return t.split("\n")[:-1] if t.endswith("\n") else t.split("\n")
+
+        train_set = set(_read_lines(train_src))
+        test_set = set(_read_lines(test_src))
         overlap = train_set & test_set
         if overlap:
             problems.append(
