@@ -80,7 +80,11 @@ def main() -> int:
             padding=True,
             truncation=True,
             max_length=cfg["max_source_length"],
+            return_token_type_ids=False,
         ).to(device)
+        # MarianMTModel.generate() does not accept token_type_ids; strip it
+        # defensively in case a tokenizer backend produces it regardless.
+        inputs.pop("token_type_ids", None)
         with torch.no_grad():
             generated = model.generate(
                 **inputs,

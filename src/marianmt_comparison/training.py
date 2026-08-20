@@ -54,14 +54,21 @@ class TranslationDataset(Dataset):
             ex.source,
             max_length=self.max_source_length,
             truncation=True,
+            return_token_type_ids=False,
         )
         with self.tokenizer.as_target_tokenizer() if hasattr(self.tokenizer, "as_target_tokenizer") else _nullcontext():
             labels = self.tokenizer(
                 ex.target,
                 max_length=self.max_target_length,
                 truncation=True,
+                return_token_type_ids=False,
             )
         model_inputs["labels"] = labels["input_ids"]
+        # MarianMTModel.forward() does not accept token_type_ids. Some
+        # tokenizer backends (e.g. WordPiece/BERT-style) return it regardless
+        # of return_token_type_ids on certain transformers versions, so strip
+        # it defensively as well as requesting it not be produced above.
+        model_inputs.pop("token_type_ids", None)
         return model_inputs
 
 
