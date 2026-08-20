@@ -34,7 +34,19 @@
 #   PIPELINE_STAGE=full sbatch slurm/pipeline.sbatch    # stage 2 (deliberate, separate step)
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# NOTE: sbatch copies the script to a spool dir (e.g. /var/lib/slurm/slurmd/jobNNN/)
+# before executing it, so BASH_SOURCE[0] does NOT point at this file's real
+# location under sbatch -- it points at the spool copy, owned by root, which
+# breaks any REPO_ROOT derived from dirname(BASH_SOURCE). Use SLURM_SUBMIT_DIR
+# (the directory `sbatch` was invoked from -- i.e. the repo root, since the
+# usage contract is `cd marianmt-tokenizer-comparison && sbatch slurm/pipeline.sbatch`)
+# instead, with a BASH_SOURCE-based fallback only for direct
+# `bash slurm/pipeline.sbatch` invocation (no sbatch).
+if [ -n "${SLURM_SUBMIT_DIR:-}" ] && [ -f "${SLURM_SUBMIT_DIR}/pyproject.toml" ]; then
+    REPO_ROOT="${SLURM_SUBMIT_DIR}"
+else
+    REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+fi
 cd "${REPO_ROOT}"
 mkdir -p slurm/logs results
 

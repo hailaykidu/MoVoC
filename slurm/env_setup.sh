@@ -10,7 +10,14 @@
 # `tigrinya_mt`, have the right package set -- see docs/slurm_protocol.md).
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# Trust the caller's REPO_ROOT if it already set one (every sbatch script
+# that sources this file computes REPO_ROOT from SLURM_SUBMIT_DIR first,
+# since BASH_SOURCE[0] is unreliable under sbatch -- see the NOTE in each
+# .sbatch file). Only fall back to deriving it here for direct, non-sbatch
+# sourcing of this file.
+if [ -z "${REPO_ROOT:-}" ]; then
+    REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+fi
 VENV_DIR="${REPO_ROOT}/.venv"
 
 # System python3 on this host is already confirmed to have

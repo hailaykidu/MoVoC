@@ -10,7 +10,15 @@
 # script for you after verification+smoke test have already passed.
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# NOTE: sbatch copies the script to a root-owned spool dir before executing,
+# so BASH_SOURCE[0]-derived paths break under sbatch. Use SLURM_SUBMIT_DIR
+# (repo root, per the `cd repo && sbatch slurm/...` usage contract) with a
+# BASH_SOURCE fallback for direct (non-sbatch) invocation.
+if [ -n "${SLURM_SUBMIT_DIR:-}" ] && [ -f "${SLURM_SUBMIT_DIR}/pyproject.toml" ]; then
+    REPO_ROOT="${SLURM_SUBMIT_DIR}"
+else
+    REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+fi
 cd "${REPO_ROOT}"
 mkdir -p slurm/logs
 
