@@ -1,0 +1,789 @@
+{
+  "tokenizers": [
+    {
+      "name": "bpe",
+      "language_pair": "en_ti",
+      "path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/bpe_63051",
+      "tokenizer_class": "PreTrainedTokenizerFast",
+      "vocab_size_len": 63051,
+      "vocab_size_get_vocab": 63051,
+      "declared_vocab_size": 63051,
+      "special_tokens": {
+        "pad_token": "<pad>",
+        "unk_token": "<unk>",
+        "bos_token": "<s>",
+        "eos_token": "</s>"
+      },
+      "special_token_ids": {
+        "pad_token_id": 0,
+        "unk_token_id": 1,
+        "bos_token_id": 2,
+        "eos_token_id": 3
+      },
+      "cross_lingual_reuse": false,
+      "warning": null,
+      "sample_tokenizations": {
+        "english": {
+          "text": "The quick brown fox jumps over the lazy dog near the river.",
+          "num_tokens": 18,
+          "num_whitespace_words": 12,
+          "fertility": 1.5,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581The",
+            "\u2581quick",
+            "\u2581br",
+            "own",
+            "\u2581fo",
+            "x",
+            "\u2581j",
+            "um",
+            "ps",
+            "\u2581over",
+            "\u2581the",
+            "\u2581laz",
+            "y",
+            "\u2581dog",
+            "\u2581near",
+            "\u2581the",
+            "\u2581river",
+            "."
+          ]
+        },
+        "tigrinya": {
+          "text": "\u1230\u120b\u121d \u1295\u12b9\u120d\u12b9\u121d! \u12a3\u1265\u12da \u1203\u1308\u122d \u1265\u12d9\u1215 \u1205\u12dd\u1262 \u12a3\u120e\u1362",
+          "num_tokens": 11,
+          "num_whitespace_words": 7,
+          "fertility": 1.5714,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1295\u12b9",
+            "\u120d",
+            "\u12b9\u121d",
+            "!",
+            "\u2581\u12a3\u1265\u12da",
+            "\u2581\u1203\u1308\u122d",
+            "\u2581\u1265\u12d9\u1215",
+            "\u2581\u1205\u12dd\u1262",
+            "\u2581\u12a3\u120e",
+            "\u1362"
+          ]
+        },
+        "amharic": {
+          "text": "\u1230\u120b\u121d \u1208\u1201\u1209\u121d! \u1260\u12da\u1205 \u1200\u1308\u122d \u1265\u12d9 \u1230\u12ce\u127d \u12a0\u1209\u1362",
+          "num_tokens": 9,
+          "num_whitespace_words": 7,
+          "fertility": 1.2857,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1208\u1201\u1209\u121d",
+            "!",
+            "\u2581\u1260\u12da\u1205",
+            "\u2581\u1200\u1308\u122d",
+            "\u2581\u1265\u12d9",
+            "\u2581\u1230\u12ce\u127d",
+            "\u2581\u12a0\u1209",
+            "\u1362"
+          ]
+        }
+      },
+      "amharic_fertility": 1.2857,
+      "amharic_unk_rate": 0.0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "name": "wordpiece",
+      "language_pair": "en_ti",
+      "path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/wordpiece_63051",
+      "tokenizer_class": "PreTrainedTokenizerFast",
+      "vocab_size_len": 63051,
+      "vocab_size_get_vocab": 63051,
+      "declared_vocab_size": 63051,
+      "special_tokens": {
+        "pad_token": "<pad>",
+        "unk_token": "<unk>",
+        "bos_token": "<s>",
+        "eos_token": "</s>"
+      },
+      "special_token_ids": {
+        "pad_token_id": 0,
+        "unk_token_id": 1,
+        "bos_token_id": 2,
+        "eos_token_id": 3
+      },
+      "cross_lingual_reuse": false,
+      "warning": null,
+      "sample_tokenizations": {
+        "english": {
+          "text": "The quick brown fox jumps over the lazy dog near the river.",
+          "num_tokens": 17,
+          "num_whitespace_words": 12,
+          "fertility": 1.4167,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581The",
+            "\u2581quick",
+            "\u2581bro",
+            "##wn",
+            "\u2581fo",
+            "##x",
+            "\u2581jump",
+            "##s",
+            "\u2581over",
+            "\u2581the",
+            "\u2581laz",
+            "##y",
+            "\u2581dog",
+            "\u2581near",
+            "\u2581the",
+            "\u2581river",
+            "##."
+          ]
+        },
+        "tigrinya": {
+          "text": "\u1230\u120b\u121d \u1295\u12b9\u120d\u12b9\u121d! \u12a3\u1265\u12da \u1203\u1308\u122d \u1265\u12d9\u1215 \u1205\u12dd\u1262 \u12a3\u120e\u1362",
+          "num_tokens": 11,
+          "num_whitespace_words": 7,
+          "fertility": 1.5714,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1295\u12b9",
+            "##\u120d",
+            "##\u12b9\u121d",
+            "##!",
+            "\u2581\u12a3\u1265\u12da",
+            "\u2581\u1203\u1308\u122d",
+            "\u2581\u1265\u12d9\u1215",
+            "\u2581\u1205\u12dd\u1262",
+            "\u2581\u12a3\u120e",
+            "##\u1362"
+          ]
+        },
+        "amharic": {
+          "text": "\u1230\u120b\u121d \u1208\u1201\u1209\u121d! \u1260\u12da\u1205 \u1200\u1308\u122d \u1265\u12d9 \u1230\u12ce\u127d \u12a0\u1209\u1362",
+          "num_tokens": 9,
+          "num_whitespace_words": 7,
+          "fertility": 1.2857,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1208\u1201\u1209\u121d",
+            "##!",
+            "\u2581\u1260\u12da\u1205",
+            "\u2581\u1200\u1308\u122d",
+            "\u2581\u1265\u12d9",
+            "\u2581\u1230\u12ce\u127d",
+            "\u2581\u12a0\u1209",
+            "##\u1362"
+          ]
+        }
+      },
+      "amharic_fertility": 1.2857,
+      "amharic_unk_rate": 0.0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "name": "movoc_tok",
+      "language_pair": "en_ti",
+      "path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_63050_tigrinya",
+      "tokenizer_class": "PreTrainedTokenizerFast",
+      "vocab_size_len": 63051,
+      "vocab_size_get_vocab": 63051,
+      "declared_vocab_size": 63051,
+      "special_tokens": {
+        "pad_token": "<pad>",
+        "unk_token": "<unk>",
+        "bos_token": "<s>",
+        "eos_token": "</s>"
+      },
+      "special_token_ids": {
+        "pad_token_id": 0,
+        "unk_token_id": 1,
+        "bos_token_id": 2,
+        "eos_token_id": 3
+      },
+      "cross_lingual_reuse": false,
+      "warning": null,
+      "sample_tokenizations": {
+        "english": {
+          "text": "The quick brown fox jumps over the lazy dog near the river.",
+          "num_tokens": 30,
+          "num_whitespace_words": 12,
+          "fertility": 2.5,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581The",
+            "\u2581q",
+            "u",
+            "ick",
+            "\u2581b",
+            "ro",
+            "w",
+            "n",
+            "\u2581f",
+            "o",
+            "x",
+            "\u2581j",
+            "um",
+            "p",
+            "s",
+            "\u2581over",
+            "\u2581the",
+            "\u2581l",
+            "a",
+            "z",
+            "y",
+            "\u2581do",
+            "g",
+            "\u2581n"
+          ]
+        },
+        "tigrinya": {
+          "text": "\u1230\u120b\u121d \u1295\u12b9\u120d\u12b9\u121d! \u12a3\u1265\u12da \u1203\u1308\u122d \u1265\u12d9\u1215 \u1205\u12dd\u1262 \u12a3\u120e\u1362",
+          "num_tokens": 8,
+          "num_whitespace_words": 7,
+          "fertility": 1.1429,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1295\u12b9\u120d\u12b9\u121d",
+            "!",
+            "\u2581\u12a3\u1265\u12da",
+            "\u2581\u1203\u1308\u122d",
+            "\u2581\u1265\u12d9\u1215",
+            "\u2581\u1205\u12dd\u1262",
+            "\u2581\u12a3\u120e\u1362"
+          ]
+        },
+        "amharic": {
+          "text": "\u1230\u120b\u121d \u1208\u1201\u1209\u121d! \u1260\u12da\u1205 \u1200\u1308\u122d \u1265\u12d9 \u1230\u12ce\u127d \u12a0\u1209\u1362",
+          "num_tokens": 14,
+          "num_whitespace_words": 7,
+          "fertility": 2.0,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1208",
+            "\u1201",
+            "\u1209\u121d",
+            "!",
+            "\u2581\u1260\u12da",
+            "\u1205",
+            "\u2581\u1200\u1308\u122d",
+            "\u2581\u1265\u12d9",
+            "\u2581\u1230",
+            "\u12ce",
+            "\u127d",
+            "\u2581\u12a0",
+            "\u1209\u1362"
+          ]
+        }
+      },
+      "amharic_fertility": 2.0,
+      "amharic_unk_rate": 0.0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "name": "marian_original",
+      "language_pair": "en_ti",
+      "path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/marian_original",
+      "tokenizer_class": "MarianTokenizer",
+      "vocab_size_len": 63050,
+      "vocab_size_get_vocab": 63050,
+      "declared_vocab_size": 63050,
+      "special_tokens": {
+        "pad_token": "<pad>",
+        "unk_token": "<unk>",
+        "bos_token": null,
+        "eos_token": "</s>"
+      },
+      "special_token_ids": {
+        "pad_token_id": 63049,
+        "unk_token_id": 1,
+        "bos_token_id": null,
+        "eos_token_id": 0
+      },
+      "cross_lingual_reuse": false,
+      "warning": null,
+      "sample_tokenizations": {
+        "english": {
+          "text": "The quick brown fox jumps over the lazy dog near the river.",
+          "num_tokens": 14,
+          "num_whitespace_words": 12,
+          "fertility": 1.1667,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581The",
+            "\u2581quick",
+            "\u2581brown",
+            "\u2581fox",
+            "\u2581jump",
+            "s",
+            "\u2581over",
+            "\u2581the",
+            "\u2581lazy",
+            "\u2581dog",
+            "\u2581near",
+            "\u2581the",
+            "\u2581river",
+            "."
+          ]
+        },
+        "tigrinya": {
+          "text": "\u1230\u120b\u121d \u1295\u12b9\u120d\u12b9\u121d! \u12a3\u1265\u12da \u1203\u1308\u122d \u1265\u12d9\u1215 \u1205\u12dd\u1262 \u12a3\u120e\u1362",
+          "num_tokens": 15,
+          "num_whitespace_words": 7,
+          "fertility": 2.1429,
+          "unk_rate": 0.1333,
+          "tokens_preview": [
+            "\u2581",
+            "\u1230\u120b\u121d",
+            "\u2581",
+            "<unk>",
+            "!",
+            "\u2581",
+            "\u12a3\u1265\u12da",
+            "\u2581",
+            "\u1203\u1308\u122d",
+            "\u2581",
+            "\u1265\u12d9\u1215",
+            "\u2581",
+            "\u1205\u12dd\u1262",
+            "\u2581",
+            "<unk>"
+          ]
+        },
+        "amharic": {
+          "text": "\u1230\u120b\u121d \u1208\u1201\u1209\u121d! \u1260\u12da\u1205 \u1200\u1308\u122d \u1265\u12d9 \u1230\u12ce\u127d \u12a0\u1209\u1362",
+          "num_tokens": 15,
+          "num_whitespace_words": 7,
+          "fertility": 2.1429,
+          "unk_rate": 0.4,
+          "tokens_preview": [
+            "\u2581",
+            "\u1230\u120b\u121d",
+            "\u2581",
+            "<unk>",
+            "!",
+            "\u2581",
+            "<unk>",
+            "\u2581",
+            "<unk>",
+            "\u2581",
+            "<unk>",
+            "\u2581",
+            "<unk>",
+            "\u2581",
+            "<unk>"
+          ]
+        }
+      },
+      "amharic_fertility": 2.1429,
+      "amharic_unk_rate": 0.4,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "name": "bpe",
+      "language_pair": "en_am",
+      "path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/bpe_32k",
+      "tokenizer_class": "PreTrainedTokenizerFast",
+      "vocab_size_len": 32000,
+      "vocab_size_get_vocab": 32000,
+      "declared_vocab_size": 32000,
+      "special_tokens": {
+        "pad_token": "<pad>",
+        "unk_token": "<unk>",
+        "bos_token": "<s>",
+        "eos_token": "</s>"
+      },
+      "special_token_ids": {
+        "pad_token_id": 0,
+        "unk_token_id": 1,
+        "bos_token_id": 2,
+        "eos_token_id": 3
+      },
+      "cross_lingual_reuse": false,
+      "warning": null,
+      "sample_tokenizations": {
+        "english": {
+          "text": "The quick brown fox jumps over the lazy dog near the river.",
+          "num_tokens": 29,
+          "num_whitespace_words": 12,
+          "fertility": 2.4167,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581The",
+            "\u2581",
+            "qu",
+            "ick",
+            "\u2581b",
+            "ro",
+            "w",
+            "n",
+            "\u2581f",
+            "ox",
+            "\u2581j",
+            "um",
+            "p",
+            "s",
+            "\u2581o",
+            "ver",
+            "\u2581the",
+            "\u2581l",
+            "az",
+            "y",
+            "\u2581d",
+            "og",
+            "\u2581n",
+            "ear"
+          ]
+        },
+        "tigrinya": {
+          "text": "\u1230\u120b\u121d \u1295\u12b9\u120d\u12b9\u121d! \u12a3\u1265\u12da \u1203\u1308\u122d \u1265\u12d9\u1215 \u1205\u12dd\u1262 \u12a3\u120e\u1362",
+          "num_tokens": 9,
+          "num_whitespace_words": 7,
+          "fertility": 1.2857,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1295\u12b9",
+            "\u120d\u12b9\u121d",
+            "!",
+            "\u2581\u12a3\u1265\u12da",
+            "\u2581\u1203\u1308\u122d",
+            "\u2581\u1265\u12d9\u1215",
+            "\u2581\u1205\u12dd\u1262",
+            "\u2581\u12a3\u120e\u1362"
+          ]
+        },
+        "amharic": {
+          "text": "\u1230\u120b\u121d \u1208\u1201\u1209\u121d! \u1260\u12da\u1205 \u1200\u1308\u122d \u1265\u12d9 \u1230\u12ce\u127d \u12a0\u1209\u1362",
+          "num_tokens": 8,
+          "num_whitespace_words": 7,
+          "fertility": 1.1429,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1208\u1201\u1209\u121d",
+            "!",
+            "\u2581\u1260\u12da\u1205",
+            "\u2581\u1200\u1308\u122d",
+            "\u2581\u1265\u12d9",
+            "\u2581\u1230\u12ce\u127d",
+            "\u2581\u12a0\u1209\u1362"
+          ]
+        }
+      },
+      "amharic_fertility": 1.1429,
+      "amharic_unk_rate": 0.0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "name": "wordpiece",
+      "language_pair": "en_am",
+      "path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/wordpiece_32k",
+      "tokenizer_class": "PreTrainedTokenizerFast",
+      "vocab_size_len": 32000,
+      "vocab_size_get_vocab": 32000,
+      "declared_vocab_size": 32000,
+      "special_tokens": {
+        "pad_token": "<pad>",
+        "unk_token": "<unk>",
+        "bos_token": "<s>",
+        "eos_token": "</s>"
+      },
+      "special_token_ids": {
+        "pad_token_id": 0,
+        "unk_token_id": 1,
+        "bos_token_id": 2,
+        "eos_token_id": 3
+      },
+      "cross_lingual_reuse": false,
+      "warning": null,
+      "sample_tokenizations": {
+        "english": {
+          "text": "The quick brown fox jumps over the lazy dog near the river.",
+          "num_tokens": 29,
+          "num_whitespace_words": 12,
+          "fertility": 2.4167,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581The",
+            "\u2581",
+            "##qu",
+            "##ick",
+            "\u2581b",
+            "##ro",
+            "##w",
+            "##n",
+            "\u2581f",
+            "##ox",
+            "\u2581j",
+            "##um",
+            "##p",
+            "##s",
+            "\u2581o",
+            "##ver",
+            "\u2581the",
+            "\u2581l",
+            "##a",
+            "##z",
+            "##y",
+            "\u2581d",
+            "##og",
+            "\u2581n"
+          ]
+        },
+        "tigrinya": {
+          "text": "\u1230\u120b\u121d \u1295\u12b9\u120d\u12b9\u121d! \u12a3\u1265\u12da \u1203\u1308\u122d \u1265\u12d9\u1215 \u1205\u12dd\u1262 \u12a3\u120e\u1362",
+          "num_tokens": 9,
+          "num_whitespace_words": 7,
+          "fertility": 1.2857,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1295\u12b9",
+            "##\u120d\u12b9\u121d",
+            "##!",
+            "\u2581\u12a3\u1265\u12da",
+            "\u2581\u1203\u1308\u122d",
+            "\u2581\u1265\u12d9\u1215",
+            "\u2581\u1205\u12dd\u1262",
+            "\u2581\u12a3\u120e\u1362"
+          ]
+        },
+        "amharic": {
+          "text": "\u1230\u120b\u121d \u1208\u1201\u1209\u121d! \u1260\u12da\u1205 \u1200\u1308\u122d \u1265\u12d9 \u1230\u12ce\u127d \u12a0\u1209\u1362",
+          "num_tokens": 8,
+          "num_whitespace_words": 7,
+          "fertility": 1.1429,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1208\u1201\u1209\u121d",
+            "##!",
+            "\u2581\u1260\u12da\u1205",
+            "\u2581\u1200\u1308\u122d",
+            "\u2581\u1265\u12d9",
+            "\u2581\u1230\u12ce\u127d",
+            "\u2581\u12a0\u1209\u1362"
+          ]
+        }
+      },
+      "amharic_fertility": 1.1429,
+      "amharic_unk_rate": 0.0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "name": "movoc_tok",
+      "language_pair": "en_am",
+      "path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_63050_tigrinya",
+      "tokenizer_class": "PreTrainedTokenizerFast",
+      "vocab_size_len": 63051,
+      "vocab_size_get_vocab": 63051,
+      "declared_vocab_size": 63051,
+      "special_tokens": {
+        "pad_token": "<pad>",
+        "unk_token": "<unk>",
+        "bos_token": "<s>",
+        "eos_token": "</s>"
+      },
+      "special_token_ids": {
+        "pad_token_id": 0,
+        "unk_token_id": 1,
+        "bos_token_id": 2,
+        "eos_token_id": 3
+      },
+      "cross_lingual_reuse": true,
+      "warning": "This tokenizer was trained exclusively on Tigrinya text and is being applied out-of-domain to Amharic per explicit user decision; expect elevated fertility/UNK rate.",
+      "sample_tokenizations": {
+        "english": {
+          "text": "The quick brown fox jumps over the lazy dog near the river.",
+          "num_tokens": 30,
+          "num_whitespace_words": 12,
+          "fertility": 2.5,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581The",
+            "\u2581q",
+            "u",
+            "ick",
+            "\u2581b",
+            "ro",
+            "w",
+            "n",
+            "\u2581f",
+            "o",
+            "x",
+            "\u2581j",
+            "um",
+            "p",
+            "s",
+            "\u2581over",
+            "\u2581the",
+            "\u2581l",
+            "a",
+            "z",
+            "y",
+            "\u2581do",
+            "g",
+            "\u2581n"
+          ]
+        },
+        "tigrinya": {
+          "text": "\u1230\u120b\u121d \u1295\u12b9\u120d\u12b9\u121d! \u12a3\u1265\u12da \u1203\u1308\u122d \u1265\u12d9\u1215 \u1205\u12dd\u1262 \u12a3\u120e\u1362",
+          "num_tokens": 8,
+          "num_whitespace_words": 7,
+          "fertility": 1.1429,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1295\u12b9\u120d\u12b9\u121d",
+            "!",
+            "\u2581\u12a3\u1265\u12da",
+            "\u2581\u1203\u1308\u122d",
+            "\u2581\u1265\u12d9\u1215",
+            "\u2581\u1205\u12dd\u1262",
+            "\u2581\u12a3\u120e\u1362"
+          ]
+        },
+        "amharic": {
+          "text": "\u1230\u120b\u121d \u1208\u1201\u1209\u121d! \u1260\u12da\u1205 \u1200\u1308\u122d \u1265\u12d9 \u1230\u12ce\u127d \u12a0\u1209\u1362",
+          "num_tokens": 14,
+          "num_whitespace_words": 7,
+          "fertility": 2.0,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581\u1230\u120b\u121d",
+            "\u2581\u1208",
+            "\u1201",
+            "\u1209\u121d",
+            "!",
+            "\u2581\u1260\u12da",
+            "\u1205",
+            "\u2581\u1200\u1308\u122d",
+            "\u2581\u1265\u12d9",
+            "\u2581\u1230",
+            "\u12ce",
+            "\u127d",
+            "\u2581\u12a0",
+            "\u1209\u1362"
+          ]
+        }
+      },
+      "amharic_fertility": 2.0,
+      "amharic_unk_rate": 0.0,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "name": "marian_original",
+      "language_pair": "en_am",
+      "path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/marian_original",
+      "tokenizer_class": "MarianTokenizer",
+      "vocab_size_len": 63050,
+      "vocab_size_get_vocab": 63050,
+      "declared_vocab_size": 63050,
+      "special_tokens": {
+        "pad_token": "<pad>",
+        "unk_token": "<unk>",
+        "bos_token": null,
+        "eos_token": "</s>"
+      },
+      "special_token_ids": {
+        "pad_token_id": 63049,
+        "unk_token_id": 1,
+        "bos_token_id": null,
+        "eos_token_id": 0
+      },
+      "cross_lingual_reuse": false,
+      "warning": null,
+      "sample_tokenizations": {
+        "english": {
+          "text": "The quick brown fox jumps over the lazy dog near the river.",
+          "num_tokens": 14,
+          "num_whitespace_words": 12,
+          "fertility": 1.1667,
+          "unk_rate": 0.0,
+          "tokens_preview": [
+            "\u2581The",
+            "\u2581quick",
+            "\u2581brown",
+            "\u2581fox",
+            "\u2581jump",
+            "s",
+            "\u2581over",
+            "\u2581the",
+            "\u2581lazy",
+            "\u2581dog",
+            "\u2581near",
+            "\u2581the",
+            "\u2581river",
+            "."
+          ]
+        },
+        "tigrinya": {
+          "text": "\u1230\u120b\u121d \u1295\u12b9\u120d\u12b9\u121d! \u12a3\u1265\u12da \u1203\u1308\u122d \u1265\u12d9\u1215 \u1205\u12dd\u1262 \u12a3\u120e\u1362",
+          "num_tokens": 15,
+          "num_whitespace_words": 7,
+          "fertility": 2.1429,
+          "unk_rate": 0.1333,
+          "tokens_preview": [
+            "\u2581",
+            "\u1230\u120b\u121d",
+            "\u2581",
+            "<unk>",
+            "!",
+            "\u2581",
+            "\u12a3\u1265\u12da",
+            "\u2581",
+            "\u1203\u1308\u122d",
+            "\u2581",
+            "\u1265\u12d9\u1215",
+            "\u2581",
+            "\u1205\u12dd\u1262",
+            "\u2581",
+            "<unk>"
+          ]
+        },
+        "amharic": {
+          "text": "\u1230\u120b\u121d \u1208\u1201\u1209\u121d! \u1260\u12da\u1205 \u1200\u1308\u122d \u1265\u12d9 \u1230\u12ce\u127d \u12a0\u1209\u1362",
+          "num_tokens": 15,
+          "num_whitespace_words": 7,
+          "fertility": 2.1429,
+          "unk_rate": 0.4,
+          "tokens_preview": [
+            "\u2581",
+            "\u1230\u120b\u121d",
+            "\u2581",
+            "<unk>",
+            "!",
+            "\u2581",
+            "<unk>",
+            "\u2581",
+            "<unk>",
+            "\u2581",
+            "<unk>",
+            "\u2581",
+            "<unk>",
+            "\u2581",
+            "<unk>"
+          ]
+        }
+      },
+      "amharic_fertility": 2.1429,
+      "amharic_unk_rate": 0.4,
+      "passed": true,
+      "issues": []
+    }
+  ]
+}

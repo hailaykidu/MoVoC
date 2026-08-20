@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marianmt-tokenizer-comparison"
+version = "0.1.0"
+description = "Controlled comparison of BPE, WordPiece, and MoVoC-Tok pre-trained tokenizers under a shared MarianMT architecture for English-Tigrinya and English-Amharic translation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "transformers==4.51.3",
+    "torch==2.5.1+cu118",
+    "sacrebleu==2.6.0",
+    "sentencepiece==0.2.1",
+    "pyyaml>=6.0",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "huggingface_hub>=0.23",
+    "requests>=2.31",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,56 @@
+# Data (downloaded/generated at runtime, never committed).
+# Directory skeletons are recreated automatically by
+# scripts/prepare_opus_data.py, so gitignoring the directories wholesale
+# (rather than fighting negation-pattern ordering for nested .gitkeep
+# files) is simplest and equally correct.
+data/raw/
+data/processed/
+
+# Experiment outputs (populated at runtime) — keep only .gitkeep placeholders
+experiments/**/*
+!experiments/**/.gitkeep
+!experiments/**/*/
+
+# Results (generated at runtime) — keep only .gitkeep placeholders
+results/**/*.csv
+results/**/*.json
+results/**/*.md
+results/**/*.png
+!results/.gitkeep
+!results/en_ti/.gitkeep
+!results/en_am/.gitkeep
+
+# Tokenizer weight files must NEVER live in this repo (pointer docs only)
+tokenizers/bpe/*.json
+tokenizers/bpe/*.spm
+tokenizers/wordpiece/*.json
+tokenizers/movoc_tok/*.json
+tokenizers/movoc_tok/*.spm
+!tokenizers/**/README.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# venv / conda
+.venv/
+venv/
+env/
+
+# SLURM logs
+slurm/logs/
+*.out
+*.err
+
+# OS / editor
+.DS_Store
+.vscode/
+*.swp
+
+# HF cache if pointed locally
+.hf_cache/

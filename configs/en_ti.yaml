@@ -1,0 +1,40 @@
+# English -> Tigrinya configuration.
+# All three tokenizer conditions use a UNIFORM vocab size of 63051.
+
+language_pair: en_ti
+source_lang: en
+target_lang: ti
+
+# Base MarianMT checkpoint identity to attempt first. scripts/verify_models.py
+# checks this resolves on the HF Hub *at run time* (network lookup happens
+# there, not at repo-build time) and records found/not-found/fallback in the
+# model manifest. If it does not resolve, training.py/model.py fall back to
+# constructing MarianConfig from configs/base.yaml's `model:` block.
+base_model_identifier: Helsinki-NLP/opus-mt-en-ti
+
+opus:
+  corpus: NLLB
+  # Confirmed HTTP 200 at spec-authoring time (naming asymmetry vs en_am is
+  # intentional and inherited from the OPUS object store layout).
+  url: https://object.pouta.csc.fi/OPUS-NLLB/v1/moses/en-ti.txt.zip
+  moses_source_suffix: en
+  moses_target_suffix: ti
+
+tokenizers:
+  bpe:
+    path: /homes/neumann/teklehaymanot/amseg/tokenizers/hf/bpe_63051
+    vocab_size: 63051
+  wordpiece:
+    path: /homes/neumann/teklehaymanot/amseg/tokenizers/hf/wordpiece_63051
+    vocab_size: 63051
+  movoc_tok:
+    path: /homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_63050_tigrinya
+    vocab_size: 63051  # HF export size; native SentencePiece-style vocab is 63050
+    cross_lingual_reuse: false
+
+reference_tokenizer:
+  # marian_original is used ONLY as a reference point for embedding-alignment
+  # sanity checks (e.g. comparing special-token ID conventions). It is not
+  # one of the three experimental conditions.
+  path: /homes/neumann/teklehaymanot/amseg/tokenizers/hf/marian_original
+  vocab_size: 63050
