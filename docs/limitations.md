@@ -29,12 +29,12 @@ miscaptioned column, not a genuine reproduction failure of that scale.
 The published Table 2 caption reads "Languages for which we created
 morphological datasets with the corresponding MoVoC-Tok tokenizer's
 MorphScore." Its "No. Items" column (80,000 / 80,000 / 20,000 / 32,000) was,
-on the author's review after revisiting the paper, the estimated size of the
-**tokenizer-construction corpus** for each language — Amharic/Tigrinya: NLLB,
-HornMT, FLORES-200, OPUS; Ge'ez: Mermru.com, Ge'ez biblical and classical
-texts; Tigre: OPUS, `BeitTigreAI/tigre-data-monolingual-text`,
-`BeitTigreAI/tigre-data-lexicon`, GitHub sources — not the size of the
-intrinsic MorphScore evaluation set.
+on the author's review after revisiting the paper, an estimated **combined
+total across every dataset used anywhere in the project for that
+language** — MoVoC vocabulary-construction data (both the BPE-training half
+and the morphological-analysis half) *and* the Machine Translation training
+and evaluation datasets, all pooled together — not the size of the intrinsic
+MorphScore evaluation set.
 
 For all four languages, intrinsic evaluation actually relied on the annotated
 morpheme test set built specifically to assess segmentation quality. The

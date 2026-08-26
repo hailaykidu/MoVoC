@@ -15,12 +15,12 @@ could not be independently reproduced.
 > **Caption/column correction (author, after revisiting the paper).** The
 > published Table 2 caption reads "Languages for which we created
 > morphological datasets with the corresponding MoVoC-Tok tokenizer's
-> MorphScore." Its "No. Items" column was, on review, the estimated size of
-> the *tokenizer-construction corpus* for each language -- Amharic/Tigrinya:
-> NLLB, HornMT, FLORES-200, OPUS; Ge'ez: Mermru.com, Ge'ez biblical and
-> classical texts; Tigre: OPUS, `BeitTigreAI/tigre-data-monolingual-text`,
-> `BeitTigreAI/tigre-data-lexicon`, and GitHub sources -- not the size of the
-> intrinsic MorphScore evaluation set. For all four languages, intrinsic
+> MorphScore." Its "No. Items" column was, on review, an estimated combined
+> total across every dataset used anywhere in the project for that
+> language -- MoVoC vocabulary-construction data (both the BPE-training half
+> and the morphological-analysis half) *and* the Machine Translation
+> training and evaluation datasets, all pooled together -- not the size of
+> the intrinsic MorphScore evaluation set. For all four languages, intrinsic
 > evaluation actually relied on the annotated morpheme test set built
 > specifically to assess segmentation quality (see
 > [`../../v2/table2/MorphScore_report.md`](../../v2/table2/MorphScore_report.md)
@@ -29,7 +29,7 @@ could not be independently reproduced.
 > unaffected by this correction; only the "No. Items" column's meaning was
 > misleading as originally captioned.
 
-| Language (ISO 639-3) | No. Items (tokenizer-construction corpus, not eval set) | MorphScore ↑ |
+| Language (ISO 639-3) | No. Items (combined vocabulary-construction + MT train/eval pool, not eval set) | MorphScore ↑ |
 |---|---:|---:|
 | Amharic (amh) | 80,000 | 0.710 |
 | Tigrinya (tir) | 80,000 | 0.731 |

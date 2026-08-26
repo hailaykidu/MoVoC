@@ -12,10 +12,11 @@
 > `table2_final.csv`/`.tex` as they stood at the time) are no longer current.
 >
 > **The 80,000/20,000/32,000 "published item counts" this document treats as
-> the target were themselves mislabeled in the paper.** They are the
-> tokenizer-construction corpus size for each language (Amharic/Tigrinya:
-> NLLB, HornMT, FLORES-200, OPUS; Ge'ez: Mermru.com and biblical/classical
-> texts; Tigre: OPUS and BeitTigreAI sources), not the intrinsic MorphScore
+> the target were themselves mislabeled in the paper.** They are an
+> estimated combined total across every dataset used anywhere in the project
+> for that language -- MoVoC vocabulary-construction data (BPE-training and
+> morphological-analysis) plus the Machine Translation training and
+> evaluation datasets, pooled together -- not the intrinsic MorphScore
 > evaluation set size. Chasing those counts as an evaluation-scale target --
 > which is what "official-first + fallback" and "union (maximal)" below were
 > built to do -- was solving the wrong problem. See

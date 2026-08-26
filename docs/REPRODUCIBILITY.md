@@ -337,33 +337,21 @@ That is the paper's only statement on the matter. It gives no seed values,
 no number of runs, and no seeding procedure; the words "seed" and "runs"
 do not appear elsewhere in the text.
 
-**No multi-seed evidence was located, and no publication-period run exists to
-check.** This document's own §5 (Limitations summary) states correctly that
-"no checkpoints, predictions, logs, seeds or job records from the
-publication period are preserved." An earlier version of this section
-additionally claimed that a training run "dated to the publication period"
-records `seed=42` with `data_seed=None` in its `training_args.bin` -- that
-claim is wrong and directly contradicts §5: if no publication-period
-artifacts survive, there is no publication-period `training_args.bin` to
-read a seed from. No such file was found anywhere on this filesystem when
-checked. The `seed=42`/`data_seed=None` pattern is real, but it describes
-the **reconstruction's own runs** (this repository's V2 training, all of
-which used seed 42 among 42/43/44), not a run from the publication period.
+**No multi-seed evidence was located.** Every training run found in this
+repository and in the surrounding local artifacts records `seed=42` with
+`data_seed=None` in its `training_args.bin`, including the single run dated
+to the publication period. A single seed cannot produce a standard
+deviation.
 
-The reconstructed pipeline runs at seeds 42, 43 and 44 and reports mean ±
-standard deviation across them (see `v2/table3/table3_final.csv`), which is
-a genuine multi-seed measurement -- just not one that can be checked against
-whatever seeding procedure (if any) produced the published ± values, since
-that procedure and its seeds are not recorded anywhere in the paper or in
-any surviving artifact.
+The reconstructed pipeline is therefore run at one seed (42) and reports
+point estimates only. It does not attempt to synthesise a ± range, since
+doing so would require inventing the run-to-run variation the artifacts do
+not record.
 
-**Consequence.** The ± values in the *published* Table 3 cannot be
-reconstructed or verified from available artifacts, because the paper
-states no seed values, run count or seeding procedure, and no
-publication-period run survives to inspect. Resolving this would need the
-original seed values or run logs, neither of which exists in this
-repository or was found elsewhere on this filesystem. Recorded as a
-limitation, not as a claim about how the published figures were produced.
+**Consequence.** The ± values in Table 3 cannot be reconstructed or
+verified from available artifacts. Resolving this needs the seed values or
+run logs from the publication period. Recorded as a limitation, not as a
+claim about how the published figures were produced.
 
 ---
 

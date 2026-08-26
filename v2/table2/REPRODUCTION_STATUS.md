@@ -8,9 +8,12 @@
 > provenance.
 >
 > **Also: the published "No. Items" figures this document treats as the
-> target (80,000 / 80,000 / 20,000 / 32,000) were mislabeled.** They are the
-> tokenizer-construction corpus size for each language, not the intrinsic
-> MorphScore evaluation set size -- see
+> target (80,000 / 80,000 / 20,000 / 32,000) were mislabeled.** They are an
+> estimated combined total across every dataset used anywhere in the project
+> for that language -- MoVoC vocabulary-construction data (BPE-training and
+> morphological-analysis) plus the Machine Translation training and
+> evaluation datasets, pooled together -- not the intrinsic MorphScore
+> evaluation set size. See
 > [`../../docs/limitations.md`](../../docs/limitations.md) §2. The
 > surface-alignment mechanics documented below remain accurate; treating the
 > published counts as the evaluation-scale target does not.
