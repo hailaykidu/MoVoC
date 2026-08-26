@@ -1,11 +1,19 @@
-% Table 2 reproduction. Tigrinya and Tigre use the maximal union of official + AMSEG data.
-\begin{tabular}{lrr}
+% Table 2: AMSEG intrinsic tokenizer evaluation (authoritative).
+\begin{tabular}{llrr}
 \toprule
-Language (ISO 639-3) & No. Items & MorphScore $\uparrow$ \\
+Language (ISO 639-3) & Tokenizer & No. Items & MorphScore $\uparrow$ \\
 \midrule
-Amharic (amh) & 80,000 & 41.3 \\
-Tigrinya (tir) & 5,224 & 41.5 \\
-Ge'ez (gez) & 172 & 88.7 \\
-Tigre (tig) & 2,149 & 42.9 \\
+Amharic (amh) & BPE & 81,224 & 0.4105 \\
+Amharic (amh) & WordPiece & 81,224 & 0.3842 \\
+Amharic (amh) & MoVoC-Tok & 81,224 & 0.4139 \\
+Tigrinya (tir) & BPE & 5,224 & 0.4200 \\
+Tigrinya (tir) & WordPiece & 5,224 & 0.4186 \\
+Tigrinya (tir) & MoVoC-Tok & 5,224 & 0.4366 \\
+Tigre (tig) & BPE & 1,974 & 0.5004 \\
+Tigre (tig) & WordPiece & 1,974 & 0.4778 \\
+Tigre (tig) & MoVoC-Tok & 1,974 & 0.5278 \\
+Ge'ez (gez) & BPE & 172 & 0.6667 \\
+Ge'ez (gez) & WordPiece & 172 & 0.6392 \\
+Ge'ez (gez) & MoVoC-Tok & 172 & 0.6561 \\
 \bottomrule
 \end{tabular}

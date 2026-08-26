@@ -1,9 +1,13 @@
-language,tokenization,precision,renyi_alpha2_normalized,movoc_tok_mode,words
-Amharic,MoVoC-Tok,24.0,0.62,in-language,123761
-Amharic,BPE,24.3,0.66,,123761
-Tigrinya,MoVoC-Tok,26.6,0.92,in-language,205
-Tigrinya,BPE,27.3,0.93,,205
-Tigre,MoVoC-Tok,63.3,0.71,cross-lingual (assumption),2457
-Tigre,BPE,60.0,0.73,,2457
-Ge'ez,MoVoC-Tok,35.4,0.82,cross-lingual (assumption),173
-Ge'ez,BPE,36.8,0.81,,173
+language,tokenization,precision,renyi_alpha2,morphscore,movoc_tok_mode,words
+Amharic,MoVoC-Tok,0.3208,6.0589,0.4139,in-language,81224
+Amharic,BPE,0.3170,6.2487,0.4105,,81224
+Amharic,WordPiece,0.3005,5.9949,0.3842,,81224
+Tigrinya,MoVoC-Tok,0.3242,6.2727,0.4366,in-language,5224
+Tigrinya,BPE,0.3142,6.3747,0.4200,,5224
+Tigrinya,WordPiece,0.3167,5.6979,0.4186,,5224
+Tigre,MoVoC-Tok,0.5629,5.3192,0.5278,cross-lingual (Tigrinya model),1974
+Tigre,BPE,0.5380,5.4060,0.5004,,1974
+Tigre,WordPiece,0.5123,5.0260,0.4778,,1974
+Ge'ez,MoVoC-Tok,0.4301,3.9735,0.6561,cross-lingual (Tigrinya model),172
+Ge'ez,BPE,0.4326,3.8639,0.6667,,172
+Ge'ez,WordPiece,0.4201,3.9152,0.6392,,172

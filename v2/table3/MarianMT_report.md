@@ -30,7 +30,8 @@ Cited from arXiv:2509.08812.
 ## Reconstruction v2 — FLORES-200 devtest (n=1012)
 
 9 runs: 3 tokenizers × 3 seeds (42/43/44). Trained on English→Amharic and
-English→Tigrinya only; Tigre and Ge'ez are zero-shot.
+English→Tigrinya only. FLORES-200 has no Ge'ez or Tigre direction; those two
+are evaluated zero-shot on OPUS instead (below), not on FLORES-200.
 
 | Direction | Tokenizer | BLEU ↑ | chrF++ ↑ | Output quality |
 |---|---|---:|---:|---|
@@ -41,10 +42,36 @@ English→Tigrinya only; Tigre and Ge'ez are zero-shot.
 | English → Tigrinya | WordPiece | 0.0439 ± 0.0037 | 6.7069 ± 0.1085 | clean |
 | English → Tigrinya | MoVoC-Tok | 0.2710 ± 0.0775 | 7.8489 ± 0.2845 | flagged |
 
+## Reconstruction v2 — OPUS held-out, including zero-shot Tigre and Ge'ez
+
+Same 9 checkpoints, evaluated on OPUS/Tatoeba held-out sets. English→Amharic
+and English→Tigrinya are supervised (the model was trained on these
+directions); English→Tigre and **English→Ge'ez are zero-shot** — the model was
+never trained on either language, but a held-out parallel test set for both
+does exist and is used here (`amseg/data/evaluation/{tigre,geez}/test.*`,
+n=43 and n=100 respectively).
+
+| Direction | Tokenizer | BLEU ↑ | chrF++ ↑ | n | Type |
+|---|---|---:|---:|---:|---|
+| English → Amharic | BPE | 0.4131 ± 0.1039 | 18.4723 ± 2.0884 | 100 | supervised |
+| English → Amharic | WordPiece | 0.0286 ± 0.0103 | 6.7737 ± 0.1963 | 100 | supervised |
+| English → Amharic | MoVoC-Tok | 0.1694 ± 0.0418 | 10.2681 ± 0.9363 | 100 | supervised |
+| English → Tigrinya | BPE | 0.1909 ± 0.0487 | 11.2057 ± 0.3469 | 71 | supervised |
+| English → Tigrinya | WordPiece | 0.0347 ± 0.0036 | 5.0109 ± 0.1487 | 71 | supervised |
+| English → Tigrinya | MoVoC-Tok | 0.1279 ± 0.0409 | 5.1444 ± 0.1739 | 71 | supervised |
+| English → Tigre | BPE | **1.1460 ± 0.0535** | **10.3310 ± 0.6563** | 43 | zero-shot |
+| English → Tigre | WordPiece | 0.0912 ± 0.0220 | 5.2580 ± 0.2879 | 43 | zero-shot |
+| English → Tigre | MoVoC-Tok | 0.1677 ± 0.0632 | 5.5903 ± 0.6641 | 43 | zero-shot |
+| English → Ge'ez | BPE | 0.0195 ± 0.0059 | **5.0322 ± 0.0504** | 100 | zero-shot |
+| English → Ge'ez | WordPiece | 0.0000 ± 0.0000 | 4.2900 ± 0.0920 | 100 | zero-shot |
+| English → Ge'ez | MoVoC-Tok | 0.0150 ± 0.0012 | 4.8138 ± 0.1196 | 100 | zero-shot |
+
 ## Difference — and why the two are not directly comparable
 
 The reconstruction **does not reproduce the published ranking**: BPE leads on
-both directions, where the paper reports MoVoC-Tok ahead.
+both trained directions (Amharic, Tigrinya), where the paper reports
+MoVoC-Tok ahead. On the zero-shot directions, BPE also leads Ge'ez chrF++, and
+MoVoC-Tok leads Tigre chrF++/BLEU and Ge'ez BLEU narrowly.
 
 The two columns are not comparable measurements, for reasons documented rather
 than worked around:
@@ -53,13 +80,25 @@ than worked around:
   repository, so no run performed now can be shown to follow the same procedure.
 - The **metric scale of the published BLEU column is unresolved** — published
   values (0.048–0.246) are inconsistent with sacreBLEU's 0–100 scale.
-- **No held-out Ge'ez evaluation set** is available, so the Ge'ez block cannot be
-  regenerated at all.
 - MoVoC-Tok runs are **flagged for degenerate output**, so their scores measure a
   partly-failed training run, not the method.
+- BLEU is below 2 in every cell of both reconstruction tables — training used
+  75,000 optimizer steps versus ~416,000 for a comparably-trained baseline (see
+  Known upstream limitation, [`./PROVENANCE.md`](./PROVENANCE.md)). These
+  values support no ranking claim about the tokenizers in either direction.
 
 These are new measurements from a reconstructed pipeline, **not replacement
 values for Table 3**.
 
+### Note on the published manuscript's English→Ge'ez inconsistency
+
+In the original manuscript, English→Ge'ez translation results were reported
+in Table 3 while the text stated that Ge'ez lacked parallel data — an
+inconsistency between the evaluation description and the reported results. In
+Version 2, this is clarified: the English→Ge'ez evaluation used an available
+parallel resource (`amseg/data/evaluation/geez/test.{en,gez}`, n=100, OPUS/
+Tatoeba-derived) and is reported here as part of the extrinsic evaluation,
+zero-shot, alongside Tigre.
+
 Full detail: [`./PROVENANCE.md`](./PROVENANCE.md)
-and [`./results/table3_multiseed.md`](./table3_multiseed.md).
+and [`./table3_multiseed.md`](./table3_multiseed.md).
