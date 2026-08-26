@@ -8,40 +8,59 @@ What this repository could not establish, stated plainly.
 
 ## 1. Published intrinsic values are not reproducible from released artifacts
 
-Both Table 2 (MorphScore) and Table 4 (boundary precision) reproduce 20–60 points
-below their published values, using the **official metric implementation without
-modification**. Two independent reconstruction runs on different evaluation data
-reach the same shortfall.
+Both Table 2 (MorphScore) and Table 4 (boundary precision) reproduce below
+their published values, using the **official metric implementation without
+modification**. Two independent reconstruction runs on different evaluation
+data reach the same shortfall.
 
 The metric is fully pinned — formula, aggregation, projection and tokenizers are
 all taken from the released code. The audited corrections (entropy normalisation,
-boundary projection, item counts) were each confirmed effective against their own
-target, and the gap persisted through all three.
+boundary projection) were each confirmed effective against their own
+target, and the gap persisted through them.
 
-## 2. Evaluation data is insufficient for three of four languages
+Part of this gap has a specific, now-identified cause (see item 2): the
+published Table 2's "No. Items" column was not the intrinsic evaluation set
+size at all, so the earlier framing of this as an item-count shortfall
+measured against the paper's own evaluation scale was itself based on a
+miscaptioned column, not a genuine reproduction failure of that scale.
 
-Table 2's current (AMSEG) evaluation set, and the paper's stated scale, for
-comparison:
+## 2. Table 2's "No. Items" column named the wrong dataset
 
-| Language | AMSEG evaluation set | Paper's stated count |
-|---|---:|---:|
-| Amharic | 81,224 | 80,000 |
-| Tigrinya | 5,224 | 80,000 |
-| Ge'ez | 172 | 20,000 |
-| Tigre | 1,974 | 32,000 |
+The published Table 2 caption reads "Languages for which we created
+morphological datasets with the corresponding MoVoC-Tok tokenizer's
+MorphScore." Its "No. Items" column (80,000 / 80,000 / 20,000 / 32,000) was,
+on the author's review after revisiting the paper, the estimated size of the
+**tokenizer-construction corpus** for each language — Amharic/Tigrinya: NLLB,
+HornMT, FLORES-200, OPUS; Ge'ez: Mermru.com, Ge'ez biblical and classical
+texts; Tigre: OPUS, `BeitTigreAI/tigre-data-monolingual-text`,
+`BeitTigreAI/tigre-data-lexicon`, GitHub sources — not the size of the
+intrinsic MorphScore evaluation set.
 
-Amharic happens to land close to the paper's stated count by coincidence of
-scale, not because the same evaluation pool was used. Tigrinya, Ge'ez and
-Tigre remain well short. An exhaustive search under the earlier (superseded)
-official-plus-fallback methodology established these as hard ceilings from
-the released annotations; the binding constraint is **surface alignment**:
-gold boundaries are character offsets into the surface word, so citation-form
-annotations that do not concatenate back are unscorable. See
-`../table2/final_report.md` for that investigation.
+For all four languages, intrinsic evaluation actually relied on the annotated
+morpheme test set built specifically to assess segmentation quality. The
+current (AMSEG) evaluation set sizes are:
 
-Unannotated text is plentiful — `annotation_template_tigrinya.json` holds 20,000
-frequency-ranked Tigrinya words, every one `annotation_status: pending`. Gold
-annotation, not corpus, is what is missing.
+| Language | AMSEG evaluation set (intrinsic MorphScore/precision) |
+|---|---:|
+| Amharic | 81,224 |
+| Tigrinya | 5,224 |
+| Ge'ez | 172 |
+| Tigre | 1,974 |
+
+These are not shortfalls against the published "No. Items" column — that
+column described a different dataset entirely, and comparing the two is not
+meaningful. `../table2/final_report.md` documents an earlier investigation
+that treated the published counts as an evaluation-scale target and searched
+for surface-aligned annotations to reach it; that investigation's mechanics
+(surface-alignment as the binding constraint on how much of the annotated set
+is scorable) remain accurate, but its framing of the published counts as the
+correct target does not.
+
+Separately and still true: unannotated text is plentiful —
+`annotation_template_tigrinya.json` holds 20,000 frequency-ranked Tigrinya
+words, every one `annotation_status: pending`, none with morpheme fields
+filled — so gold annotation, not corpus availability, remains the actual
+constraint on how large any language's evaluation set could grow.
 
 ## 3. No MoVoC-Tok artifact exists for Tigre or Ge'ez
 

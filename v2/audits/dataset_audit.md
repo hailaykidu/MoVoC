@@ -1,10 +1,26 @@
-# Table 2 "No. Items" — discrepancy report
+# Table 2 "No. Items" — discrepancy report (resolved)
+
+> **Resolved, by the author, after revisiting the paper.** This audit's own
+> "Interpretation" section below correctly guessed that the paper's "No.
+> Items" column "plausibly counts corpus tokens, vocabulary entries, or an
+> annotation set larger than the one released here" and could not be the
+> gold-annotated evaluation count. That guess is confirmed: the column is the
+> **tokenizer-construction corpus size** for each language (Amharic/Tigrinya:
+> NLLB, HornMT, FLORES-200, OPUS; Ge'ez: Mermru.com and biblical/classical
+> texts; Tigre: OPUS and BeitTigreAI sources) — the published Table 2 caption
+> itself describes the languages for which morphological datasets were
+> created, and the intrinsic MorphScore evaluation always ran on the
+> annotated morpheme test set, not this corpus figure. See
+> [`../../docs/limitations.md`](../../docs/limitations.md) §2 for the current
+> framing and evaluation-set sizes. The measurements below (what the
+> annotation files actually contain, and why entries drop out) remain
+> accurate; only the "gap to close" framing is superseded.
 
 The paper's Table 2 states item counts of 80k (Amharic), 80k (Tigrinya),
-20k (Ge'ez) and 32k (Tigre). This document records what the available
-resources actually contain after preprocessing, and why the counts cannot be
-reached. **No item is duplicated, padded, resampled or synthesised to close
-the gap.**
+20k (Ge'ez) and 32k (Tigre) — now known to be tokenizer-construction corpus
+sizes, not the evaluation set. This document records what the available
+annotation resources actually contain after preprocessing. **No item is
+duplicated, padded, resampled or synthesised.**
 
 ## Measured counts
 

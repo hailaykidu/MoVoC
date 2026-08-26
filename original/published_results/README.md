@@ -12,7 +12,24 @@ could not be independently reproduced.
 
 ## Table 2 — morphological dataset and MorphScore
 
-| Language (ISO 639-3) | No. Items | MorphScore ↑ |
+> **Caption/column correction (author, after revisiting the paper).** The
+> published Table 2 caption reads "Languages for which we created
+> morphological datasets with the corresponding MoVoC-Tok tokenizer's
+> MorphScore." Its "No. Items" column was, on review, the estimated size of
+> the *tokenizer-construction corpus* for each language -- Amharic/Tigrinya:
+> NLLB, HornMT, FLORES-200, OPUS; Ge'ez: Mermru.com, Ge'ez biblical and
+> classical texts; Tigre: OPUS, `BeitTigreAI/tigre-data-monolingual-text`,
+> `BeitTigreAI/tigre-data-lexicon`, and GitHub sources -- not the size of the
+> intrinsic MorphScore evaluation set. For all four languages, intrinsic
+> evaluation actually relied on the annotated morpheme test set built
+> specifically to assess segmentation quality (see
+> [`../../v2/table2/MorphScore_report.md`](../../v2/table2/MorphScore_report.md)
+> for the current evaluation-set sizes: 81,224 / 5,224 / 1,974 / 172). The
+> MorphScore values below are the paper's own reported figures and are
+> unaffected by this correction; only the "No. Items" column's meaning was
+> misleading as originally captioned.
+
+| Language (ISO 639-3) | No. Items (tokenizer-construction corpus, not eval set) | MorphScore ↑ |
 |---|---:|---:|
 | Amharic (amh) | 80,000 | 0.710 |
 | Tigrinya (tir) | 80,000 | 0.731 |

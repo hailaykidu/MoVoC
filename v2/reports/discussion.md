@@ -53,7 +53,11 @@ values.
 
 ## Evaluation data
 
-Three of four languages cannot be evaluated at the paper's stated item counts
-from the released annotations. Tigrinya reaches 5,224 scorable items against a
-stated 80,000. The constraint is gold annotation coverage, not corpus size. See
-[`../audits/dataset_audit.md`](../audits/dataset_audit.md).
+The published Table 2's "No. Items" column (80,000 / 80,000 / 20,000 / 32,000)
+is the tokenizer-construction corpus size for each language, not the intrinsic
+MorphScore evaluation set size — see
+[`../../docs/limitations.md`](../../docs/limitations.md) §2. For all four
+languages, intrinsic evaluation relies on the annotated morpheme test set
+built specifically for that purpose (Amharic 81,224, Tigrinya 5,224, Tigre
+1,974, Ge'ez 172 items). Gold annotation coverage, not corpus size, is what
+bounds these sets — see [`../audits/dataset_audit.md`](../audits/dataset_audit.md).
