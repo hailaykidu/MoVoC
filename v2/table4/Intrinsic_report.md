@@ -87,22 +87,10 @@ scale; the table proper reports the raw [0, 1] fraction.)
 Amharic, Tigrinya and Tigre; BPE leads by a negligible margin (0.0025) on
 Ge'ez, the one language with no dedicated MoVoC-Tok artifact.
 
-**Entropy direction does not reproduce as "lower is MoVoC-Tok."** Rényi
-entropy here is raw (not normalized to [0, 1] as in the prior Section B);
-WordPiece has the lowest raw entropy in three of four languages
-(Amharic, Tigrinya, Tigre), with MoVoC-Tok lowest only on Ge'ez. BPE is
-never lowest. Entropy magnitude and ranking are not comparable to the
-published or previous-Section-B values without renormalizing — see
-Caveats below.
-
-**Reading precision and entropy together.** The paper's central claim still
-holds: MoVoC-Tok segments more accurately at morpheme boundaries, at a small
-cost to how evenly-distributed its token frequencies are. It optimizes for
-linguistic correctness rather than pure statistical compression — the
-expected tradeoff for a morphology-aware tokenizer versus a frequency-driven
-one like BPE (or WordPiece, which attains the sharpest entropy here). This is
-also supported qualitatively in Sec. 7 (Qualitative Analysis) of the
-published paper.
+Rényi entropy magnitude and ranking here are raw (not normalized to [0, 1] as
+in the prior Section B) and are not comparable to the published or
+previous-Section-B values without renormalizing — see Caveats below. See the
+per-tokenizer values in the table above for the entropy figures themselves.
 
 ---
 
