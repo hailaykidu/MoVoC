@@ -113,11 +113,12 @@ and are now vendored in, making the repo self-contained:
 1. **No `LICENSE` file exists.** `CITATION.cff` declares MIT, but the repository
    ships no license text. Choosing a license is the author's decision, so none
    was invented. **This should be added before publication.**
-2. **The Tigre contradiction is unresolved.** Two intrinsic runs disagree on the
-   winner — the three-arm run has MoVoC-Tok ahead (56.3 vs 53.8 precision), the
-   held-out run has BPE ahead (60.4 vs 46.3). Recorded in
-   `docs/limitations.md` §5 and `v2/table4/Intrinsic_report.md`. **Must be
-   settled before Tigre is cited as a MoVoC-Tok win.**
+2. **The Tigre contradiction — resolved since this report was written.** Two
+   intrinsic runs disagreed on the winner — the three-arm run had MoVoC-Tok
+   ahead (56.3 vs 53.8 precision), the held-out run had BPE ahead (60.4 vs
+   46.3). The AMSEG intrinsic evaluation, now authoritative for Tables 2 and
+   4, agrees with the three-arm run. See `docs/limitations.md` §5 and
+   `v2/table4/Intrinsic_report.md` for the current state.
 3. `original/released_artifacts/` and `original/references/` are created but
    empty — released code and data still sit at their historical top-level paths
    (`movoc/`, `data/`, `evaluation/`, `scripts/`) so import paths and the

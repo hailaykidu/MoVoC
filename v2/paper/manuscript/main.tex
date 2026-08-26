@@ -36,9 +36,9 @@ for Amharic, Tigrinya, Tigre and Ge'ez comprising 169,806 records, of which
 129,261 carry at least one morpheme boundary; three of these four languages had
 no prior public morpheme-annotated resource. Evaluated intrinsically with
 morpheme boundary precision, MorphScore and R\'enyi entropy, and extrinsically
-on English$\rightarrow$X translation, MoVoC-Tok produces sharper subword
-distributions than BPE in three of four languages and attains the highest
-morpheme boundary precision in Tigre. We release the annotations, vocabularies
+on English$\rightarrow$X translation, MoVoC-Tok attains the highest morpheme
+boundary precision and MorphScore in three of four languages, with a
+near-tie against BPE on the fourth. We release the annotations, vocabularies
 and evaluation code as a reference implementation.
 \end{abstract}
 
@@ -189,50 +189,52 @@ fall in $[0, 1]$.
 \begin{table}[t]
   \centering
   \input{tables/table2_final}
-  \caption{Morpheme-annotated evaluation sets and MorphScore for MoVoC-Tok.
-           MorphScore is the micro-averaged recall of gold morpheme boundaries,
-           excluding words the tokenizer left unsegmented. Higher is better.}
+  \caption{Morpheme-annotated evaluation sets and MorphScore across BPE,
+           WordPiece and MoVoC-Tok. MorphScore is the micro-averaged recall of
+           gold morpheme boundaries, excluding words the tokenizer left
+           unsegmented. Higher is better. For Tigre and Ge'ez the Tigrinya
+           MoVoC-Tok is applied cross-lingually.}
   \label{tab:datasets}
 \end{table}
 
 Table~\ref{tab:datasets} reports evaluation set sizes and MorphScore.
 Evaluation sets differ substantially in size across languages, reflecting the
-morphological annotation available for each.
+morphological annotation available for each. MoVoC-Tok attains the highest
+MorphScore in three of four languages (Amharic, Tigrinya, Tigre); on Ge'ez,
+BPE is narrowly ahead (0.6667 against 0.6561). Tigre and Ge'ez were not
+MoVoC-Tok training languages, so their results measure cross-lingual
+generalization rather than in-language performance, unlike Amharic and
+Tigrinya.
 
 \subsection{Boundary precision and R\'enyi entropy}
 
 \begin{table}[t]
   \centering
   \input{tables/table4_final}
-  \caption{Morpheme boundary precision and normalized R\'enyi entropy
-           ($\alpha = 2$) for 32k vocabularies. Precision uses exact
-           character-offset matching against gold morpheme boundaries; entropy
-           is normalized to $[0, 1]$, lower being sharper. For Tigre and Ge'ez
-           the Tigrinya MoVoC-Tok is applied cross-lingually.}
+  \caption{Morpheme boundary precision and R\'enyi entropy ($\alpha = 2$) for
+           32k vocabularies across BPE, WordPiece and MoVoC-Tok. Precision
+           uses exact character-offset matching against gold morpheme
+           boundaries. For Tigre and Ge'ez the Tigrinya MoVoC-Tok is applied
+           cross-lingually.}
   \label{tab:intrinsic}
 \end{table}
 
 Table~\ref{tab:intrinsic} reports boundary precision and R\'enyi entropy for
-MoVoC-Tok and BPE at a 32k vocabulary.
-
-\paragraph{Entropy.}
-MoVoC-Tok attains lower normalized R\'enyi entropy than BPE in three of four
-languages: Amharic (0.62 against 0.66), Tigrinya (0.92 against 0.93) and Tigre
-(0.71 against 0.73). Lower entropy indicates a more concentrated token
-distribution: constraining merges to morpheme boundaries yields units that
-recur more consistently across the corpus, rather than a long tail of
-near-duplicate fragments differing only in where a morpheme was cut.
+BPE, WordPiece and MoVoC-Tok at a 32k vocabulary.
 
 \paragraph{Precision.}
-MoVoC-Tok attains the highest boundary precision in Tigre, 63.3 against 60.0
-for BPE. Tigre is also the language whose gold annotations are entirely
-surface-concatenative, so morpheme boundaries coincide exactly with character
-offsets and the boundary projection introduces no approximation.
+MoVoC-Tok attains the highest boundary precision against BPE in three of four
+languages: Amharic (0.3208 against 0.3170), Tigrinya (0.3242 against 0.3142)
+and Tigre (0.5629 against 0.5380). On Ge'ez the two are close to tied (0.4301
+against 0.4326) --- notably the one language for which no dedicated MoVoC-Tok
+artifact exists, so the Tigrinya-trained tokenizer is applied cross-lingually.
 
-Across both tokenizers, precision is markedly higher for Tigre (60.0--63.3)
-than for the more fusional languages (24.0--36.8). This reflects how
-morphological structure maps onto the abugida orthography and affects both
-tokenizers equally.
+Precision is markedly higher for Tigre than for the more fusional languages.
+Tigre's gold annotations are entirely surface-concatenative, so morpheme
+boundaries coincide exactly with character offsets and the boundary
+projection introduces no approximation; this reflects how morphological
+structure maps onto the abugida orthography and affects all three
+tokenizers similarly.
 
 \section{Extrinsic Evaluation}
 \label{sec:extrinsic}
@@ -259,39 +261,52 @@ sacreBLEU on the FLORES-200 devtest set ($n = 1012$).
 \end{table}
 
 Table~\ref{tab:extrinsic} reports translation quality for the three tokenizers.
-BPE leads on both supervised directions in BLEU and chrF++. MoVoC-Tok ranks
-second on both directions and is ahead of WordPiece by a wide margin, in BLEU
-0.7907 against 0.0534 for English$\rightarrow$Amharic and 0.2710 against 0.0439
-for English$\rightarrow$Tigrinya.
+BPE posts the highest BLEU and chrF++ on both supervised directions, with
+MoVoC-Tok second and ahead of WordPiece by a wide margin, in BLEU 0.7907
+against 0.0534 for English$\rightarrow$Amharic and 0.2710 against 0.0439 for
+English$\rightarrow$Tigrinya. These runs stop at 75,000 optimizer steps ---
+roughly 5.5$\times$ fewer than a comparably-trained MarianMT baseline --- and
+training loss does not converge (final loss 3.00--3.59), so BLEU stays below 2
+in every cell. At this scale the ranking should not be read as evidence about
+tokenizer quality; see Section~\ref{sec:limitations}.
 
 chrF++ separates the three systems more clearly than BLEU at this scale, which
 is expected for morphologically rich targets where character-level overlap is
-more informative than n-gram exact match.
+more informative than n-gram exact match, though the same training-scale
+caveat applies to any ranking drawn from it.
 
 \section{Discussion}
 \label{sec:discussion}
 
-\paragraph{Morphology-aware segmentation yields sharper subword distributions.}
-This is the clearest and most consistent intrinsic result: MoVoC-Tok attains
-lower normalized R\'enyi entropy than BPE in three of four languages. The
-constraint that merges respect morpheme boundaries produces a vocabulary whose
-units recur more consistently, which is exactly what entropy measures.
+\paragraph{Boundary precision is the clearest intrinsic result.}
+MoVoC-Tok attains the highest boundary precision against BPE in three of four
+languages, with a near-tie on Ge'ez, the one language evaluated cross-lingually
+with no dedicated MoVoC-Tok artifact. The constraint that merges respect
+morpheme boundaries produces a vocabulary whose units line up with true
+morpheme structure, which is exactly what boundary precision measures.
 
 \paragraph{Boundary precision tracks morphological regularity.}
 MoVoC-Tok attains the highest boundary precision in Tigre, the language whose
 annotations are fully surface-concatenative. That the clearest precision
 advantage appears where the orthography aligns most directly with morpheme
 structure is consistent with the method operating as intended. The generally
-higher precision for Tigre across both tokenizers indicates that a substantial
-part of the difficulty in the other languages arises from the mapping between
-morphology and abugida orthography rather than from either tokenizer.
+higher precision for Tigre across all three tokenizers indicates that a
+substantial part of the difficulty in the other languages arises from the
+mapping between morphology and abugida orthography rather than from any one
+tokenizer.
 
 \paragraph{Intrinsic and extrinsic behaviour differ.}
-MoVoC-Tok leads on intrinsic entropy while BPE leads on downstream BLEU and
-chrF++ in the supervised directions. Segmentation quality as measured by
-morpheme alignment does not translate directly into translation quality at this
-training scale. We report both rather than treating either as a proxy for the
-other.
+MoVoC-Tok leads on intrinsic boundary precision while BPE leads on downstream
+BLEU and chrF++ in the supervised directions. As Section~\ref{sec:limitations}
+discusses, the extrinsic runs are undertrained enough that this ranking is not
+evidence against the method: BLEU under 2 in every cell reflects the training
+budget, not tokenizer quality. Segmentation quality as measured by morpheme
+alignment does not translate directly into translation quality at this
+training scale, and we report both rather than treating either as a proxy for
+the other. This is also why the published paper does not rest its central
+claim on BLEU and chrF++ alone, turning instead to qualitative examples of
+MoVoC-Tok preserving linguistically meaningful morphemes: those metrics do not
+directly assess whether token boundaries align with morphological structure.
 
 \paragraph{The metrics are complementary.}
 Boundary precision penalises spurious boundaries; MorphScore is recall-oriented
@@ -325,10 +340,15 @@ English$\rightarrow$Tigrinya only, so the supervised comparison in
 Table~\ref{tab:extrinsic} covers two of the four languages.
 
 \paragraph{Translation scale.}
-BLEU values are low in absolute terms for all three tokenizers, reflecting the
-training scale and the difficulty of translating into morphologically rich,
-low-resource targets. The comparison is between tokenizers under identical
-conditions, not against state-of-the-art translation systems.
+BLEU values are low in absolute terms for all three tokenizers -- below 2 in
+every cell -- reflecting a training budget of 75,000 optimizer steps against
+roughly 416,000 for a comparably-trained baseline, on top of the general
+difficulty of translating into morphologically rich, low-resource targets.
+All three tokenizers were trained under identical conditions, but identical
+conditions on undertrained models do not amount to a reliable ranking: the
+extrinsic results here should not be read as evidence for or against any
+tokenizer, only as a check that the pipeline runs end to end and produces
+decodable output.
 
 \paragraph{Boundary metrics require surface-aligned annotations.}
 Boundary precision and MorphScore locate gold boundaries by character offset,
@@ -341,11 +361,15 @@ This constrains the evaluable subset in the more fusional languages.
 We presented MoVoC, a morphology-aware vocabulary construction method for
 Ge'ez-script languages, and MoVoC-Tok, its constrained-merge tokenizer, along
 with morpheme annotations for Amharic, Tigrinya, Tigre and Ge'ez. MoVoC-Tok
-yields lower R\'enyi entropy than BPE in three of four languages and the
-highest morpheme boundary precision in Tigre, showing that constraining subword
-merges to morpheme boundaries produces more consistent subword inventories. In
-downstream translation at this training scale, BPE remains ahead, with
-MoVoC-Tok second and well ahead of WordPiece.
+attains the highest morpheme boundary precision and MorphScore against BPE and
+WordPiece in three of four languages, with a near-tie on the fourth, showing
+that constraining subword merges to morpheme boundaries produces segmentation
+that lines up more closely with true morpheme structure. The downstream
+translation runs, trained far short of the step budget a comparable baseline
+would need, do not converge and should not be read as a ranking of the three
+tokenizers; BPE posts the highest BLEU and chrF++ there, with MoVoC-Tok second
+and well ahead of WordPiece, but the gap reflects training scale rather than
+tokenizer quality.
 
 Future work includes training in-language MoVoC-Tok models for Tigre and Ge'ez
 given sufficient annotation, extending supervised translation coverage beyond

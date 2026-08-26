@@ -16,11 +16,15 @@ ROOT = Path(__file__).resolve().parent.parent
 SOURCES = {
     "v2/table2/table2_final.csv": ["final_items_evaluated", "morphscore"],
     "v2/table3/table3_final.csv": ["bleu_mean", "bleu_std", "chrf_mean", "chrf_std"],
-    "v2/table4/table4_final.csv": ["precision", "renyi_alpha2_normalized", "words"],
+    "v2/table4/table4_final.csv": ["precision", "renyi_alpha2", "morphscore", "words"],
 }
 # Values that legitimately appear in a manuscript without coming from a results
-# table: the arXiv id, section numbers, the entropy parameter, the MoVoC ratio.
+# table: the arXiv id, section numbers, the entropy parameter, the MoVoC ratio,
+# and the Table 3 training-scale caveat (75,000 vs ~416,000 optimizer steps,
+# 5.5x, final loss 3.00-3.59), sourced from v2/table3/PROVENANCE.md rather
+# than a *_final.csv column.
 ALLOW = {"2509.08812", "2.0", "0.7142857142857143",
+         "75,000", "416,000", "5.5", "3.00", "3.59",
          "3.1", "3.2", "3.3", "4.1", "4.2", "4.3", "5.1", "5.2"}
 
 

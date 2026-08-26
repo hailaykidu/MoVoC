@@ -9,10 +9,10 @@ Using the released metric implementation without modification:
 
 | Table | Metric | Reproduces? |
 |---|---|---|
-| 2 | MorphScore | Values do not match published |
-| 3 | BLEU / chrF++ | Not reproducible — the checkpoints, decoded predictions and scoring script behind the published values are not preserved |
-| 4 | Boundary precision | Values do not match published |
-| 4 | Rényi entropy | Direction reproduces in 3 of 4 languages |
+| 2 | MorphScore | Values do not match published; ranking (MoVoC-Tok highest) holds in 3 of 4 languages |
+| 3 | BLEU / chrF++ | Not reproducible — the checkpoints, decoded predictions and scoring script behind the published values are not preserved, and the reconstruction is undertrained regardless (see Table 3 caveat) |
+| 4 | Boundary precision | Values do not match published; ranking (MoVoC-Tok highest) holds in 3 of 4 languages |
+| 4 | Rényi entropy | Values do not match published; entropy is not part of this reconstruction's headline claim (see `v2/table4/Intrinsic_report.md`) |
 
 ## Audit record
 
@@ -35,14 +35,21 @@ equally to both arms. See [`../audits/precision_audit.md`](../audits/precision_a
 
 ## Result under the approved methodology
 
-Tigre is the strongest valid result: the only language where MoVoC-Tok leads on
-both official metrics — precision 63.3 vs 60.0 and Rényi 0.71 vs 0.73 — and the
-only language whose gold annotations are 100% surface-concatenative, so the
-official projection is exact.
+The AMSEG intrinsic evaluation (`amseg/evaluation/results/`) superseded the
+run summarised above and is now the authoritative Table 2/4 result. Under it,
+MoVoC-Tok leads boundary precision and MorphScore in three of four languages
+— Amharic, Tigrinya and Tigre — with a near-tie against BPE on the fourth,
+Ge'ez (precision 0.4301 vs 0.4326; MorphScore 0.6561 vs 0.6667). Tigre and
+Ge'ez are both cross-lingual rows: no dedicated MoVoC-Tok artifact exists for
+either, so the Tigrinya-trained model is applied to both.
 
-Two facts recorded with it: the Tigre MoVoC-Tok row is cross-lingual (the
-Tigrinya 32k model), and a second run disagrees on the winner. See
-[`../table4/Intrinsic_report.md`](../table4/Intrinsic_report.md).
+The disagreement previously recorded between this run and a separate
+three-arm run is resolved — the two agree to within rounding, since they use
+the same underlying methodology and data. See
+[`../table4/Intrinsic_report.md`](../table4/Intrinsic_report.md) for the full
+history, including the entropy-normalisation and boundary-projection audits
+above, which still explain why none of these numbers match the published
+values.
 
 ## Evaluation data
 

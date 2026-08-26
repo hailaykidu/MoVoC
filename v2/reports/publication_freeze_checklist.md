@@ -2,6 +2,13 @@
 
 Reconstruction Version 2 — reference repository for the V2 paper.
 
+> **Superseded.** This checklist recorded a freeze point before the AMSEG
+> intrinsic evaluation replaced Tables 2 and 4's authoritative values (see
+> [`../table4/Intrinsic_report.md`](../table4/Intrinsic_report.md)). The
+> "Main tables (frozen)" section below and the Tigre item under "Open items"
+> reflect that earlier state, not the current one. Kept for history; do not
+> cite the numbers below as current.
+
 ## Status: ready for paper writing
 
 | # | Item | Status | Evidence |

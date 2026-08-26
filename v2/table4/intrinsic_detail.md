@@ -1,6 +1,14 @@
-# Table 4 — regenerated under the official MoVoC methodology
+# Table 4 — regenerated under the official MoVoC methodology (superseded)
 
-> **Status: accepted as the official Table 4 reproduction.**
+> **Status: superseded.** This was the accepted Table 4 reproduction until the
+> AMSEG intrinsic evaluation (`amseg/evaluation/results/`) replaced it as
+> authoritative — see [`Intrinsic_report.md`](Intrinsic_report.md) and
+> [`table4_final.csv`](table4_final.csv) for the current result. This file is
+> kept for its audit history (the entropy-normalisation and
+> cumulative-length-projection corrections below are still accurate and still
+> apply); the specific precision/entropy values in the tables below are no
+> longer current.
+>
 > Corrections 1 (normalized Rényi) and 2 (cumulative-length projection) are
 > confirmed and incorporated. Precision values and rankings do not fully
 > reproduce the publication; see `REPRODUCTION_STATUS.md` for the full

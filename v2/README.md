@@ -45,10 +45,16 @@ without explicit labelling.
 
 | Table | Metric | Published | V2 | Reproduces? |
 |---|---|---|---|---|
-| 2 | MorphScore (amh, n=80,000) | 0.710 | 41.3 | **No** |
-| 3 | BLEU en→am | 0.2455 | 1.4937 (BPE leads) | **No** — original checkpoints, predictions and scoring script not preserved |
-| 4 | Precision (amh, MoVoC-Tok) | 85.5 | 24.0 | **No** |
-| 4 | Rényi direction | MoVoC-Tok lower | MoVoC-Tok lower in 3/4 | **Yes** |
+| 2 | MorphScore (amh, MoVoC-Tok, n=81,224) | 0.710 | 0.4139 | **No** |
+| 3 | BLEU en→am | 0.2455 | 1.4937 (BPE leads) — undertrained (75,000 of ~416,000 steps), see caveat below | **No** — original checkpoints, predictions and scoring script not preserved, and neither run reaches a usable translation regime |
+| 4 | Precision (amh, MoVoC-Tok) | 85.5 | 0.3208 | **No** |
+| 4 | Precision ranking | MoVoC-Tok highest in all four languages | MoVoC-Tok highest in 3/4 (Amharic, Tigrinya, Tigre); near-tie with BPE on Ge'ez | **Partially** |
+
+**On Table 3:** BLEU under 2 in every cell means none of these V2 runs reached
+a translation regime where a BLEU/chrF++ gap is trustworthy. BPE's apparent
+lead is an artifact of undertrained models (75,000 of ~416,000 baseline
+steps, training loss never converged), not a finding about tokenizer quality
+— see [`table3/MarianMT_report.md`](table3/MarianMT_report.md).
 
 See [`reports/reconstruction_v2_summary.md`](reports/reconstruction_v2_summary.md)
 and [`reports/limitations.md`](reports/limitations.md).

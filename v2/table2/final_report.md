@@ -1,4 +1,16 @@
-# Table 2 reproduction — MorphScore
+# Table 2 reproduction — MorphScore (superseded)
+
+> **Status: superseded.** This official-first-plus-fallback methodology and
+> its results (Amharic 41.3 over an 80,000-item pooled set, etc.) were the
+> accepted Table 2 reproduction until the AMSEG intrinsic tokenizer
+> evaluation (`amseg/evaluation/results/`) replaced it as authoritative — see
+> [`MorphScore_report.md`](MorphScore_report.md) and
+> [`table2_final.csv`](table2_final.csv) for the current result, which uses
+> AMSEG's own evaluation set directly rather than a pooled
+> official-plus-fallback set. This file's investigation into surface
+> alignment and item-count ceilings remains accurate background; the
+> specific numbers below (and in `table2_final.csv`/`.tex` as they stood at
+> the time) are no longer current.
 
 Official MoVoC evaluation data first; a local AMSEG evaluation directory
 used **only** to fill deficits. MorphScore computed with the official

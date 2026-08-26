@@ -16,26 +16,32 @@ discussion, already present in the main tables.
 
 | Table | Language | MoVoC-Tok | Best baseline | Margin |
 |---|---|---:|---:|---:|
-| 4 (precision) | Tigre | **63.3** | BPE 60.0 | +3.3 |
-| 4 (Rényi ↓) | Amharic | **0.62** | BPE 0.66 | −0.04 |
-| 4 (Rényi ↓) | Tigrinya | **0.92** | BPE 0.93 | −0.01 |
-| 4 (Rényi ↓) | Tigre | **0.71** | BPE 0.73 | −0.02 |
+| 4 (precision) | Amharic | **0.3208** | BPE 0.3170 | +0.0038 |
+| 4 (precision) | Tigrinya | **0.3242** | BPE 0.3142 | +0.0100 |
+| 4 (precision) | Tigre | **0.5629** | BPE 0.5380 | +0.0249 |
+| 2 (MorphScore) | Amharic | **0.4139** | BPE 0.4105 | +0.0034 |
+| 2 (MorphScore) | Tigrinya | **0.4366** | BPE 0.4200 | +0.0166 |
+| 2 (MorphScore) | Tigre | **0.5278** | BPE 0.5004 | +0.0274 |
 
-Tigre is the only language where MoVoC-Tok leads on both official metrics under
-the primary methodology, and its annotations are 100% surface-concatenative.
-
-Recorded with it: the Tigre MoVoC-Tok row is cross-lingual (the Tigrinya 32k
-model), and a second run disagrees on the winner. See
-[`../audits/tokenizer_audit.md`](../audits/tokenizer_audit.md).
+MoVoC-Tok leads on boundary precision and MorphScore in three of the four
+languages under the primary methodology; Ge'ez is a near-tie with BPE on both
+(precision 0.4301 vs 0.4326; MorphScore 0.6561 vs 0.6667). Tigre and Ge'ez are
+both cross-lingual rows — the Tigrinya 32k model applied to a language it was
+never trained on — so Tigre's win there is a generalization result, not an
+in-language one.
 
 ## B. Sensitivity analyses
 
 [`../audits/precision_linguistic_sensitivity.md`](../audits/precision_linguistic_sensitivity.md)
 — linguistically grounded precision variants for Amharic and Ge'ez.
 
-Recorded outcome: no linguistically motivated variant reverses the primary
-ranking. A blanket ±1 tolerance flips Ge'ez (64.34 vs 62.94); the
-fusion-restricted variant does not (−1.92 vs −1.40 exact).
+Recorded outcome: no linguistically motivated variant reverses the ranking on
+Amharic. A blanket ±1 tolerance flips Ge'ez (64.34 vs 62.94); the
+fusion-restricted variant does not (−1.92 vs −1.40 exact). These deltas were
+computed against the precision run that has since been superseded (see D
+below) — they still support the qualitative finding (no linguistically
+motivated fix reverses the ranking), but the exact figures predate the
+current Table 4.
 
 **These are sensitivity values. They never appear in Table 4, which reports
 official exact-match precision.**
@@ -43,11 +49,10 @@ official exact-match precision.**
 ## C. Alternative evaluations
 
 - **Held-out vs in-sample splits** — `../table2/paper_tables_released_pipeline*.json`
-- **Three-arm intrinsic run** on different evaluation data (BPE / WordPiece /
-  MoVoC-Tok), which **contradicts the primary run on Tigre's winner**. Unresolved;
-  see [`../table4/Intrinsic_report.md`](../table4/Intrinsic_report.md).
-- **Ge'ez MorphScore 88.7** — computed on 172 words (44 official) with a
-  tokenizer built after publication. Not used in any headline claim.
+- **Ge'ez MorphScore 88.7** — an earlier, since-superseded computation on 172
+  words (44 official) with a tokenizer built after publication. Table 2 now
+  reports 0.6561 for the same language under the current methodology; the
+  88.7 figure is not used in any headline claim.
 
 ## D. Audits
 
