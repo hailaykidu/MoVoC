@@ -28,7 +28,20 @@ run was dropped.
 | OPUS/Tatoeba | held-out | en-am | 100 | supervised |
 | OPUS/Tatoeba | held-out | en-ti | 71 | supervised |
 | OPUS/Tatoeba | held-out | en-tig | 43 | zero-shot |
-| OPUS/Tatoeba | held-out | en-gez | 100 | zero-shot |
+| Mermru (via `Bedru/Eng-Geez`) | held-out | en-gez | 100 | zero-shot |
+
+en-am, en-ti and en-tig really are OPUS/Tatoeba (Tiedemann, 2012) —
+confirmed against `data/evaluation/manifest.json`. **en-gez is not.** There
+is no Ge'ez in OPUS or Tatoeba; the paper itself says so (Sec. 4.2: Ge'ez
+"was evaluated only intrinsically" for lack of parallel data). The 100
+held-out en-gez pairs used here come from the Mermru English–Ge'ez parallel
+corpus (<https://mermru.com/>, distributed via `Bedru/Eng-Geez` on the
+HuggingFace Hub, 2,107 pairs total, 100 sampled at seed 42) — assembled for
+this reconstruction, not recovered from the publication period. See
+`data/evaluation/geez/manifest.json` for the exact split and
+`docs/geez_data_consistency_review.md` for the fuller discussion of why the
+paper and this evaluation set disagree on whether Ge'ez had parallel data at
+all.
 
 FLORES-200 and OPUS are reported in separate blocks and never merged.
 
