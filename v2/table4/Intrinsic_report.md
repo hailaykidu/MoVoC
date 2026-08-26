@@ -95,6 +95,15 @@ never lowest. Entropy magnitude and ranking are not comparable to the
 published or previous-Section-B values without renormalizing — see
 Caveats below.
 
+**Reading precision and entropy together.** The paper's central claim still
+holds: MoVoC-Tok segments more accurately at morpheme boundaries, at a small
+cost to how evenly-distributed its token frequencies are. It optimizes for
+linguistic correctness rather than pure statistical compression — the
+expected tradeoff for a morphology-aware tokenizer versus a frequency-driven
+one like BPE (or WordPiece, which attains the sharpest entropy here). This is
+also supported qualitatively in Sec. 7 (Qualitative Analysis) of the
+published paper.
+
 ---
 
 ## C. Reconstruction v2 Findings

@@ -2,32 +2,33 @@
 
 Scope: MoVoC, MoVoC-Tok, the annotated datasets, and the two evaluations.
 
-## 1. Morphology-aware segmentation yields sharper subword distributions
+## 1. Boundary precision vs. Rényi entropy — the central tradeoff
 
-The clearest and most consistent intrinsic result. MoVoC-Tok attains lower
-normalized Rényi entropy than BPE in three of four languages (Amharic 0.62 vs
-0.66; Tigrinya 0.92 vs 0.93; Tigre 0.71 vs 0.73).
+The paper's central claim still holds: **MoVoC-Tok segments more accurately at
+morpheme boundaries**, leading BPE on boundary precision in three of four
+languages (Amharic 0.3208 vs 0.3170; Tigrinya 0.3242 vs 0.3142; Tigre 0.5629 vs
+0.5380), with a near-tie on Ge'ez (0.4301 vs 0.4326).
 
-Lower entropy means a more concentrated token distribution: constraining merges
-to morpheme boundaries yields a vocabulary whose units recur more consistently
-across the corpus, rather than a long tail of near-duplicate fragments differing
-only in where a morpheme was cut.
+This comes **at a small cost to how evenly-distributed its token frequencies
+are**: WordPiece, not MoVoC-Tok, attains the lowest Rényi entropy in three of
+four languages (Amharic, Tigrinya, Tigre); MoVoC-Tok is lowest only on Ge'ez.
+MoVoC-Tok optimizes for linguistic correctness — segmenting at true morpheme
+boundaries — rather than for pure statistical compression, which is the
+expected tradeoff for a morphology-aware tokenizer versus a frequency-driven
+one like BPE or WordPiece. This is also supported qualitatively in Sec. 7
+(Qualitative Analysis) of the published paper.
 
 ## 2. Boundary precision and morphological regularity
 
-MoVoC-Tok attains the highest boundary precision in Tigre (63.3 vs 60.0). Tigre's
-gold annotations are fully surface-concatenative — morphemes concatenate exactly
-to the surface word — so morpheme boundaries coincide with character offsets.
-
-Across both tokenizers, precision is markedly higher for Tigre (60–63) than for
-the more fusional languages (24–37). This is a property of how morphological
-structure maps onto the abugida orthography, and it affects both arms equally.
+Precision is markedly higher for Tigre (0.51–0.56) than for the more fusional
+languages (0.30–0.32). This is a property of how morphological structure maps
+onto the abugida orthography, and it affects all three tokenizers similarly.
 
 ## 3. Intrinsic and extrinsic behaviour differ
 
-MoVoC-Tok leads on intrinsic entropy but BPE leads on downstream BLEU and chrF++
-in the supervised directions. MoVoC-Tok ranks second on both directions,
-substantially ahead of WordPiece.
+MoVoC-Tok leads on intrinsic boundary precision but BPE leads on downstream
+BLEU and chrF++ in the supervised directions. MoVoC-Tok ranks second on both
+directions, substantially ahead of WordPiece.
 
 Segmentation quality as measured by morpheme alignment does not translate
 directly into translation quality at this training scale. Both are reported
