@@ -54,8 +54,11 @@ values.
 ## Evaluation data
 
 The published Table 2's "No. Items" column (80,000 / 80,000 / 20,000 / 32,000)
-is the tokenizer-construction corpus size for each language, not the intrinsic
-MorphScore evaluation set size — see
+is an estimated combined total across every dataset used anywhere in the
+project for that language — MoVoC vocabulary-construction data
+(BPE-training and morphological-analysis) plus the Machine Translation
+training and evaluation datasets, pooled together — not the intrinsic
+MorphScore evaluation set size. See
 [`../../docs/limitations.md`](../../docs/limitations.md) §2. For all four
 languages, intrinsic evaluation relies on the annotated morpheme test set
 built specifically for that purpose (Amharic 81,224, Tigrinya 5,224, Tigre
