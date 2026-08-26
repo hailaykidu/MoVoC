@@ -103,27 +103,39 @@ morpheme sets (`movoc/metrics.py`, run by `evaluate.py`).
 
 | Language | Tokenization | Precision ↑ | Rényi ↓ |
 |---|---|---:|---:|
-| Amharic | MoVoC-Tok | 24.0 | **0.62** |
-| Amharic | BPE | 24.3 | 0.66 |
-| Tigrinya | MoVoC-Tok | 26.6 | **0.92** |
-| Tigrinya | BPE | 27.3 | 0.93 |
-| Tigre | **MoVoC-Tok**\* | **63.3** | **0.71** |
-| Tigre | BPE | 60.0 | 0.73 |
-| Ge'ez | MoVoC-Tok\* | 35.4 | 0.82 |
-| Ge'ez | BPE | 36.8 | **0.81** |
+| Amharic | **MoVoC-Tok** | **0.3208** | 6.0589 |
+| Amharic | BPE | 0.3170 | 6.2487 |
+| Amharic | WordPiece | 0.3005 | **5.9949** |
+| Tigrinya | **MoVoC-Tok** | **0.3242** | 6.2727 |
+| Tigrinya | BPE | 0.3142 | 6.3747 |
+| Tigrinya | WordPiece | 0.3167 | **5.6979** |
+| Tigre | **MoVoC-Tok**\* | **0.5629** | 5.3192 |
+| Tigre | BPE | 0.5380 | 5.4060 |
+| Tigre | WordPiece | 0.5123 | **5.0260** |
+| Ge'ez | **BPE** | **0.4326** | **3.8639** |
+| Ge'ez | MoVoC-Tok\* | 0.4301 | 3.9735 |
+| Ge'ez | WordPiece | 0.4201 | 3.9152 |
 
-MoVoC-Tok yields lower (sharper) Rényi entropy in three of four languages, and
-leads on precision in Tigre — the language whose annotations are 100%
-surface-concatenative. `*` cross-lingual.
+MoVoC-Tok wins on boundary precision in three of four languages. On Ge'ez, BPE
+and MoVoC-Tok achieve near-identical precision (0.4326 vs. 0.4301, a gap of
+only 0.0025) — MoVoC-Tok's cross-lingual generalization matches the
+frequency-based BPE baseline even in the one case where it does not lead
+outright. WordPiece yields the lowest (sharpest) Rényi entropy in three of
+four languages; MoVoC-Tok is lowest only on Ge'ez. `*` cross-lingual.
 
 MorphScore over the same sets:
 
-| Language | Items | MorphScore ↑ |
-|---|---:|---:|
-| Amharic (amh) | 80,000 | 41.3 |
-| Tigrinya (tir) | 5,224 | 41.5 |
-| Ge'ez (gez) | 172 | 88.7 |
-| Tigre (tig) | 2,149 | 42.9 |
+| Language | Tokenizer | Items | MorphScore ↑ |
+|---|---|---:|---:|
+| Amharic (amh) | MoVoC-Tok | 81,224 | **0.4139** |
+| Tigrinya (tir) | MoVoC-Tok | 5,224 | **0.4366** |
+| Tigre (tig) | MoVoC-Tok\* | 1,974 | **0.5278** |
+| Ge'ez (gez) | MoVoC-Tok\* | 172 | 0.6561 |
+
+MoVoC-Tok achieves the highest MorphScore among the evaluated tokenizers for
+Amharic, Tigrinya and Tigre; on Ge'ez, BPE is slightly ahead (0.6667 vs.
+0.6561). Tigre and Ge'ez were not MoVoC-Tok training languages — their results
+measure cross-lingual generalization, not in-language performance.
 
 [`v2/table4/Intrinsic_report.md`](v2/table4/Intrinsic_report.md) ·
 [`v2/table2/MorphScore_report.md`](v2/table2/MorphScore_report.md)

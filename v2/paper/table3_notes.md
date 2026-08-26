@@ -32,6 +32,16 @@ LaTeX: `v2/table3/table3_final.tex`.
 evaluation (18 cells total). The main table reports the FLORES-200 block; the
 remainder is available for an appendix.
 
+### Note on the published manuscript's English→Ge'ez inconsistency
+
+In the original manuscript, English→Ge'ez translation results were reported in
+Table 3 while the text stated that Ge'ez lacked parallel data, creating an
+inconsistency between the evaluation description and the reported results. In
+Version 2, this inconsistency is clarified: the English→Ge'ez evaluation used
+an available parallel resource (`amseg/data/evaluation/geez/test.{en,gez}`,
+n=100) and is reported as part of the extrinsic evaluation, zero-shot
+alongside Tigre — see the OPUS/Tatoeba block in `v2/table3/MarianMT_report.md`.
+
 ## Findings to report
 
 - **BPE leads on both supervised directions** in BLEU and chrF++.
