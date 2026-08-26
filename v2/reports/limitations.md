@@ -20,18 +20,24 @@ target, and the gap persisted through all three.
 
 ## 2. Evaluation data is insufficient for three of four languages
 
-Table 2 cannot be evaluated at the paper's stated scale:
+Table 2's current (AMSEG) evaluation set, and the paper's stated scale, for
+comparison:
 
-| Language | Maximum obtainable | Paper's stated count |
+| Language | AMSEG evaluation set | Paper's stated count |
 |---|---:|---:|
-| Amharic | 80,000 | 80,000 |
+| Amharic | 81,224 | 80,000 |
 | Tigrinya | 5,224 | 80,000 |
 | Ge'ez | 172 | 20,000 |
-| Tigre | 2,149 | 32,000 |
+| Tigre | 1,974 | 32,000 |
 
-An exhaustive search established these as hard ceilings. The binding constraint is
-**surface alignment**: gold boundaries are character offsets into the surface
-word, so citation-form annotations that do not concatenate back are unscorable.
+Amharic happens to land close to the paper's stated count by coincidence of
+scale, not because the same evaluation pool was used. Tigrinya, Ge'ez and
+Tigre remain well short. An exhaustive search under the earlier (superseded)
+official-plus-fallback methodology established these as hard ceilings from
+the released annotations; the binding constraint is **surface alignment**:
+gold boundaries are character offsets into the surface word, so citation-form
+annotations that do not concatenate back are unscorable. See
+`../table2/final_report.md` for that investigation.
 
 Unannotated text is plentiful — `annotation_template_tigrinya.json` holds 20,000
 frequency-ranked Tigrinya words, every one `annotation_status: pending`. Gold
@@ -59,12 +65,16 @@ The `models/movoc_tok_merges_{geez,tigre}.txt` artifacts in this repository are
   recovery of the published one.
 - MoVoC-Tok reconstruction runs produce degenerate output and are flagged.
 
-## 5. An internal contradiction remains open
+## 5. An internal contradiction — resolved
 
-Two intrinsic runs in this repository disagree on Tigre's winner: the three-arm
-run has MoVoC-Tok ahead (56.3 vs 53.8 precision), the held-out run has BPE ahead
-(60.4 vs 46.3). **This is unresolved** and must be settled before Tigre is cited
-as a MoVoC-Tok win.
+Two earlier intrinsic runs in this repository disagreed on Tigre's winner: a
+three-arm run had MoVoC-Tok ahead (56.3 vs 53.8 precision), a held-out run had
+BPE ahead (60.4 vs 46.3). This is now resolved: the AMSEG intrinsic evaluation
+(`amseg/evaluation/results/`), now authoritative for Tables 2 and 4, agrees
+with the three-arm run to within rounding — MoVoC-Tok leads Tigre precision
+(0.5629 vs 0.5380). The held-out run's contrary result is treated as
+superseded, not as an open contradiction. See
+[`../table4/Intrinsic_report.md`](../table4/Intrinsic_report.md).
 
 ## 6. Scope
 

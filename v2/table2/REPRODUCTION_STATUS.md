@@ -1,4 +1,11 @@
-# Table 2 — final reproduction
+# Table 2 — final reproduction (superseded)
+
+> **Status: superseded.** This was the accepted Table 2 reproduction until
+> the AMSEG intrinsic tokenizer evaluation
+> (`amseg/evaluation/results/`) replaced it as authoritative — see
+> [`MorphScore_report.md`](MorphScore_report.md) and
+> [`table2_final.csv`](table2_final.csv) for what's current. Kept here for
+> provenance.
 
 Reproduction of Table 2 of the MoVoC paper (Findings of EMNLP 2025,
 arXiv:2509.08812), using the **official MorphScore implementation**, unmodified.

@@ -11,8 +11,9 @@
    Amharic, Tigrinya, Tigre, Ge'ez.
 4. **Evaluation.** Intrinsic (boundary precision, MorphScore, Rényi entropy) and
    extrinsic (English→X MarianMT).
-5. **Result.** MoVoC-Tok yields lower Rényi entropy than BPE in three of four
-   languages and higher boundary precision in Tigre.
+5. **Result.** MoVoC-Tok attains the highest morpheme boundary precision and
+   MorphScore in three of four languages, with a near-tie against BPE on the
+   fourth (Ge'ez).
 
 ## Draft
 
@@ -24,12 +25,18 @@
 > cross a morpheme boundary. We release morpheme annotations for Amharic,
 > Tigrinya, Tigre and Ge'ez. Evaluated intrinsically with morpheme boundary
 > precision, MorphScore and Rényi entropy, and extrinsically on English→X
-> translation, MoVoC-Tok produces sharper subword distributions than BPE in
-> three of four languages and higher boundary precision in Tigre.
+> translation, MoVoC-Tok attains the highest morpheme boundary precision and
+> MorphScore in three of four languages, with a near-tie against BPE on the
+> fourth.
 
 ## Numbers available for the abstract
 
-- Rényi entropy: MoVoC-Tok lower in Amharic (0.62 vs 0.66), Tigrinya (0.92 vs
-  0.93), Tigre (0.71 vs 0.73)
-- Boundary precision, Tigre: 63.3 vs 60.0
+- Boundary precision: MoVoC-Tok higher in Amharic (0.3208 vs 0.3170), Tigrinya
+  (0.3242 vs 0.3142), Tigre (0.5629 vs 0.5380); near-tie on Ge'ez (0.4301 vs
+  0.4326, BPE ahead)
+- MorphScore: MoVoC-Tok higher in Amharic (0.4139), Tigrinya (0.4366), Tigre
+  (0.5278); BPE narrowly ahead on Ge'ez (0.6667 vs 0.6561)
 - Datasets: 169,806 annotated records across four languages
+- Rényi entropy is no longer part of the headline claim — WordPiece, not
+  MoVoC-Tok, has the lowest entropy in three of four languages under the
+  current evaluation. Leave it out of the abstract.

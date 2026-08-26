@@ -1,11 +1,18 @@
-# Table 4 — official reproduction status
+# Table 4 — official reproduction status (superseded)
 
-This directory holds the **official reproduction result** for Table 4 of the
-MoVoC paper (Findings of EMNLP 2025, arXiv:2509.08812).
+> **Status: superseded.** This was the official reproduction result for
+> Table 4 until the AMSEG intrinsic tokenizer evaluation
+> (`amseg/evaluation/results/`) replaced it as the authoritative result — see
+> [`Intrinsic_report.md`](Intrinsic_report.md) and
+> [`table4_final.csv`](table4_final.csv) for what's current. Kept here for
+> provenance.
+
+This directory holds what was the **official reproduction result** for
+Table 4 of the MoVoC paper (Findings of EMNLP 2025, arXiv:2509.08812).
 
 It supersedes `../results_intrinsic/`, which the audits found invalid as a
-strict reproduction. The values below are final and were not recomputed after
-the audits were accepted.
+strict reproduction. The values below were final for this run and were not
+recomputed after the audits were accepted.
 
 Intrinsic tokenizer evaluation only: no MarianMT, no BLEU, no chrF++.
 
