@@ -60,6 +60,14 @@ Tigrinya, Tigre); MoVoC-Tok lowest only on Ge'ez; BPE never lowest. Entropy
 here is raw, not normalized to [0, 1], so its magnitude is not directly
 comparable to a normalized reading.
 
+**The tradeoff.** The paper's central claim still holds: MoVoC-Tok segments
+more accurately at morpheme boundaries, at a small cost to how
+evenly-distributed its token frequencies are. It optimizes for linguistic
+correctness rather than pure statistical compression — the expected tradeoff
+for a morphology-aware tokenizer versus a frequency-driven one like BPE (or
+WordPiece, the sharpest-entropy tokenizer here). Supported qualitatively in
+Sec. 7 (Qualitative Analysis) of the published paper.
+
 Evaluation-set sizes: Amharic 81,224 words, Tigrinya 5,224, Tigre 1,974,
 Ge'ez 172.
 
