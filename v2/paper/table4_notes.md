@@ -55,18 +55,9 @@ generalization — despite never being trained on Ge'ez directly — matches the
 frequency-based BPE baseline even in the one case where it does not lead
 outright.
 
-**Rényi entropy — WordPiece lowest in three of four languages** (Amharic,
-Tigrinya, Tigre); MoVoC-Tok lowest only on Ge'ez; BPE never lowest. Entropy
-here is raw, not normalized to [0, 1], so its magnitude is not directly
-comparable to a normalized reading.
-
-**The tradeoff.** The paper's central claim still holds: MoVoC-Tok segments
-more accurately at morpheme boundaries, at a small cost to how
-evenly-distributed its token frequencies are. It optimizes for linguistic
-correctness rather than pure statistical compression — the expected tradeoff
-for a morphology-aware tokenizer versus a frequency-driven one like BPE (or
-WordPiece, the sharpest-entropy tokenizer here). Supported qualitatively in
-Sec. 7 (Qualitative Analysis) of the published paper.
+Rényi entropy here is raw, not normalized to [0, 1], so its magnitude is not
+directly comparable to a normalized reading; see the table above for the
+per-tokenizer values.
 
 Evaluation-set sizes: Amharic 81,224 words, Tigrinya 5,224, Tigre 1,974,
 Ge'ez 172.

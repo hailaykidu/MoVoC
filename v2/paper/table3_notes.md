@@ -42,14 +42,35 @@ an available parallel resource (`amseg/data/evaluation/geez/test.{en,gez}`,
 n=100) and is reported as part of the extrinsic evaluation, zero-shot
 alongside Tigre — see the OPUS/Tatoeba block in `v2/table3/MarianMT_report.md`.
 
-## Findings to report
+## Findings to report — read this before citing a ranking
 
-- **BPE leads on both supervised directions** in BLEU and chrF++.
-- **MoVoC-Tok ranks second** on both directions, ahead of WordPiece by a wide
-  margin (en→am: 0.7907 vs 0.0534 BLEU; en→ti: 0.2710 vs 0.0439).
-- chrF++ separates the systems more clearly than BLEU at this scale, which is
-  expected for morphologically rich targets where character-level overlap is
-  more informative than n-gram exact match.
+BPE posts the highest BLEU and chrF++ on both supervised directions, with
+MoVoC-Tok second and WordPiece a distant third (en→am: 0.7907 vs 0.0534 BLEU;
+en→ti: 0.2710 vs 0.0439). It would be tempting to write that up as "BPE wins,"
+but that's not a conclusion this table actually supports.
+
+Table 3, as reconstructed, is inconclusive on tokenizer quality and should
+not be used to rank BPE, WordPiece, or MoVoC-Tok. All nine runs stopped at
+75,000 optimizer steps — about 5.5× fewer than a comparably-trained MarianMT
+baseline (~416,000 steps) — and training loss never converged (final loss
+3.00–3.59). BLEU sits below 2 in every one of the 18 cells as a direct result,
+far below any regime where these differences are meaningful. MoVoC-Tok's nine
+runs are additionally flagged for output-quality anomalies (token repetition,
+token dominance), so its numbers are the least trustworthy of the three even
+before accounting for the training-scale problem. BPE's apparent lead reflects
+an artifact of undertrained models, not evidence that it's the better
+tokenizer — that comparison would need training run to the full step budget
+first.
+
+chrF++ does separate the systems more cleanly than BLEU at this scale, which
+makes sense for morphologically rich targets where character-level overlap
+carries more signal than exact n-gram match — but a clearer separation between
+undertrained numbers is still a separation between undertrained numbers.
+
+This is why the paper doesn't rest its central claim on Table 3. Section 7
+turns to qualitative analysis instead, precisely because BLEU and chrF++ don't
+directly assess whether token boundaries align with the underlying
+morphological structure — see the discussion in `v2/table3/MarianMT_report.md`.
 
 ## Caption draft
 

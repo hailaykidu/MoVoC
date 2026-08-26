@@ -40,8 +40,12 @@ without error across 54 passes.
 Final training loss was 2.9967–3.5854. Reported BLEU spans 0.0000–1.4937 and
 chrF++ spans 4.2900–21.5573 across all cells in `table3_final.csv`.
 
-Absolute BLEU is low for all three tokenizers, reflecting the training scale.
-The comparison is between tokenizers under identical conditions.
+BLEU below 2 in every cell means none of these runs reached a translation
+regime where a BLEU or chrF++ difference is trustworthy. All three tokenizers
+were trained under identical conditions, but identical conditions on an
+undertrained model don't add up to a fair ranking — see the discussion in
+[`MarianMT_report.md`](./MarianMT_report.md) for why this table shouldn't be
+read as settling which tokenizer is better.
 
 Per-run records, output-quality flags and their causes:
 [`PROVENANCE.md`](./PROVENANCE.md).

@@ -66,39 +66,62 @@ n=43 and n=100 respectively).
 | English → Ge'ez | WordPiece | 0.0000 ± 0.0000 | 4.2900 ± 0.0920 | 100 | zero-shot |
 | English → Ge'ez | MoVoC-Tok | 0.0150 ± 0.0012 | 4.8138 ± 0.1196 | 100 | zero-shot |
 
-## Difference — and why the two are not directly comparable
+## Why Table 3, as reconstructed, doesn't settle anything
 
-The reconstruction **does not reproduce the published ranking**: BPE leads on
-both trained directions (Amharic, Tigrinya), where the paper reports
-MoVoC-Tok ahead. On the zero-shot directions, BPE also leads Ge'ez chrF++, and
-MoVoC-Tok leads Tigre chrF++/BLEU and Ge'ez BLEU narrowly.
+Table 3, as reconstructed, is inconclusive on tokenizer quality and should
+not be used to rank BPE, WordPiece, or MoVoC-Tok against each other. Here's
+why: all nine runs stopped at 75,000 optimizer steps — about 5.5× fewer than
+a comparably-trained MarianMT baseline (~416,000 steps) — and training loss
+never converged (final loss 3.00–3.59). The direct consequence is that BLEU
+stays below 2 in every one of the 18 cells across both reconstruction tables
+above, which is nowhere near a regime where BLEU or chrF++ differences carry
+any real meaning. On top of that, all nine MoVoC-Tok runs are flagged for
+output-quality anomalies (token repetition, token dominance), so its scores
+here are the least trustworthy of the three even taken at face value.
 
-The two columns are not comparable measurements, for reasons documented rather
-than worked around:
+BPE happens to post the highest BLEU/chrF++ in most cells — both trained
+directions (Amharic, Tigrinya), plus Ge'ez chrF++. MoVoC-Tok comes out ahead
+on Tigre chrF++/BLEU and Ge'ez BLEU, but only narrowly, and on a metric that's
+already unreliable at this scale. None of that is evidence that one tokenizer
+is genuinely better than another — it's an artifact of undertrained models, not
+a finding about the method. A real comparison would mean rerunning training to
+the full step budget before any of these gaps are worth trusting.
 
-- The **scoring pipeline that produced Table 3 is not preserved** in this
-  repository, so no run performed now can be shown to follow the same procedure.
+There are also more basic reasons the two tables at the top of this document
+aren't directly comparable, beyond the training-scale problem:
+
+- The **scoring pipeline that produced the published Table 3 isn't preserved**
+  anywhere in this repository, so nothing run today can be shown to follow the
+  same procedure the paper used.
 - The **metric scale of the published BLEU column is unresolved** — published
-  values (0.048–0.246) are inconsistent with sacreBLEU's 0–100 scale.
-- MoVoC-Tok runs are **flagged for degenerate output**, so their scores measure a
-  partly-failed training run, not the method.
-- BLEU is below 2 in every cell of both reconstruction tables — training used
-  75,000 optimizer steps versus ~416,000 for a comparably-trained baseline (see
-  Known upstream limitation, [`./PROVENANCE.md`](./PROVENANCE.md)). These
-  values support no ranking claim about the tokenizers in either direction.
+  values (0.048–0.246) don't fit sacreBLEU's usual 0–100 scale, and we haven't
+  pinned down why.
 
-These are new measurements from a reconstructed pipeline, **not replacement
-values for Table 3**.
+These are new measurements from a reconstructed pipeline. They are **not
+replacement values for Table 3**, and they don't tell us which tokenizer wins.
+
+## What this means for how we read the paper's claim
+
+Section 7 of the paper doesn't lean on BLEU or chrF++ to make its case, and
+this is exactly why: while the downstream translation results do not show
+improvements over standard BPE, automatic metrics such as BLEU and chrF++ do
+not directly assess whether token boundaries align with the underlying
+morphological structure. To complement the quantitative evaluation, the paper
+presents qualitative examples illustrating how MoVoC-Tok preserves
+linguistically meaningful morphemes in Ge'ez-script languages. Table 3 not
+showing a MoVoC-Tok win doesn't contradict that — BLEU was never built to
+measure morphological alignment, and an undertrained reconstruction of Table 3
+was never going to be the place to look for it anyway.
 
 ### Note on the published manuscript's English→Ge'ez inconsistency
 
-In the original manuscript, English→Ge'ez translation results were reported
-in Table 3 while the text stated that Ge'ez lacked parallel data — an
-inconsistency between the evaluation description and the reported results. In
-Version 2, this is clarified: the English→Ge'ez evaluation used an available
-parallel resource (`amseg/data/evaluation/geez/test.{en,gez}`, n=100, OPUS/
-Tatoeba-derived) and is reported here as part of the extrinsic evaluation,
-zero-shot, alongside Tigre.
+In the original manuscript, English→Ge'ez translation results were reported in
+Table 3 while the text stated that Ge'ez lacked parallel data — an
+inconsistency between what the evaluation description said and what the table
+actually reported. Version 2 clears this up: the English→Ge'ez evaluation used
+an available parallel resource (`amseg/data/evaluation/geez/test.{en,gez}`,
+n=100, OPUS/Tatoeba-derived) and is reported above as part of the extrinsic
+evaluation, zero-shot, alongside Tigre.
 
 Full detail: [`./PROVENANCE.md`](./PROVENANCE.md)
 and [`./table3_multiseed.md`](./table3_multiseed.md).
