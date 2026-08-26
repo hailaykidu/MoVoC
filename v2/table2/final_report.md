@@ -8,9 +8,18 @@
 > [`table2_final.csv`](table2_final.csv) for the current result, which uses
 > AMSEG's own evaluation set directly rather than a pooled
 > official-plus-fallback set. This file's investigation into surface
-> alignment and item-count ceilings remains accurate background; the
-> specific numbers below (and in `table2_final.csv`/`.tex` as they stood at
-> the time) are no longer current.
+> alignment remains accurate background; the specific numbers below (and in
+> `table2_final.csv`/`.tex` as they stood at the time) are no longer current.
+>
+> **The 80,000/20,000/32,000 "published item counts" this document treats as
+> the target were themselves mislabeled in the paper.** They are the
+> tokenizer-construction corpus size for each language (Amharic/Tigrinya:
+> NLLB, HornMT, FLORES-200, OPUS; Ge'ez: Mermru.com and biblical/classical
+> texts; Tigre: OPUS and BeitTigreAI sources), not the intrinsic MorphScore
+> evaluation set size. Chasing those counts as an evaluation-scale target --
+> which is what "official-first + fallback" and "union (maximal)" below were
+> built to do -- was solving the wrong problem. See
+> [`../../docs/limitations.md`](../../docs/limitations.md) §2.
 
 Official MoVoC evaluation data first; a local AMSEG evaluation directory
 used **only** to fill deficits. MorphScore computed with the official

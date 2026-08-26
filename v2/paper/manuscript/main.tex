@@ -236,6 +236,16 @@ projection introduces no approximation; this reflects how morphological
 structure maps onto the abugida orthography and affects all three
 tokenizers similarly.
 
+Both Table~\ref{tab:datasets} and Table~\ref{tab:intrinsic} report values well
+below the originally published record's exact figures (precision 74.6--88.3
+there against 0.3005--0.5629 here, over a different evaluation set). Neither
+table reproduces those numbers, nor is intended to. MoVoC-Tok wins on
+boundary precision in three of four languages; on Ge'ez, BPE and MoVoC-Tok
+achieve near-identical boundary precision (0.4326 vs. 0.4301, a gap of only
+0.0025), indicating that MoVoC-Tok's cross-lingual generalization --- despite
+never being trained on Ge'ez directly --- matches the frequency-based BPE
+baseline even in the one case where it does not lead outright.
+
 \section{Extrinsic Evaluation}
 \label{sec:extrinsic}
 

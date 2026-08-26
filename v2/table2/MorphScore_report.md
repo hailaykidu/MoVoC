@@ -61,6 +61,14 @@ MoVoC-Tok training language — BPE achieves a slightly higher MorphScore
 (0.6667) than MoVoC-Tok (0.6561). Tigre and Ge'ez results measure cross-lingual
 generalization; Amharic and Tigrinya results measure in-language performance.
 
+**Both this table and Table 4 fall well below the published record's exact
+values** (published MorphScore 0.654–0.731; here 0.38–0.67, over a different
+evaluation set entirely — see Difference below). Neither reproduces the
+paper's numbers. What holds is the direction consistent with the paper's
+central intrinsic claim: MoVoC-Tok scores highest among the tokenizers
+compared here in three of four languages, with BPE only narrowly ahead on
+the fourth (Ge'ez).
+
 ### Tokenization quality — interpretive scope
 
 The main clarification is that Tigre and Ge'ez were not training languages;

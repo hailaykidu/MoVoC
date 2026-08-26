@@ -58,6 +58,17 @@ construction optimizes for.
 `*` cross-lingual: no MoVoC-Tok artifact exists for Tigre or Ge'ez, so the 32k
 Tigrinya model is applied — a documented assumption, not a paper-stated method.
 
+**Both this table and Table 2 fall well below the published record's exact
+values** — precision here is 0.30–0.56, the paper reports 74–88 (on a
+different, 0–100-ish scale and evaluation set; see Caveats). Neither table
+reproduces the paper's numbers, and neither is meant to. What does hold is
+the paper's **central intrinsic claim**: that MoVoC-Tok outperforms BPE on
+boundary precision. The published paper reports this in all four languages;
+this reproduction finds it in three of four (Amharic, Tigrinya, Tigre), with
+a near-tie rather than a loss on the fourth (Ge'ez, 0.4301 vs 0.4326). The
+absolute numbers do not match; the direction of the paper's central claim
+substantially does.
+
 **Caption.** Table 4: Morpheme Boundary Precision and Rényi Entropy (α = 2)
 for 32k Vocabularies across tokenization strategies. MoVoC-Tok wins on
 Boundary Precision in three of four languages. On Ge'ez, BPE and MoVoC-Tok

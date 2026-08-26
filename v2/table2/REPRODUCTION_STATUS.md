@@ -6,6 +6,14 @@
 > [`MorphScore_report.md`](MorphScore_report.md) and
 > [`table2_final.csv`](table2_final.csv) for what's current. Kept here for
 > provenance.
+>
+> **Also: the published "No. Items" figures this document treats as the
+> target (80,000 / 80,000 / 20,000 / 32,000) were mislabeled.** They are the
+> tokenizer-construction corpus size for each language, not the intrinsic
+> MorphScore evaluation set size -- see
+> [`../../docs/limitations.md`](../../docs/limitations.md) §2. The
+> surface-alignment mechanics documented below remain accurate; treating the
+> published counts as the evaluation-scale target does not.
 
 Reproduction of Table 2 of the MoVoC paper (Findings of EMNLP 2025,
 arXiv:2509.08812), using the **official MorphScore implementation**, unmodified.
