@@ -33,8 +33,9 @@ reproduction (24.0/24.3-style values), which is retained in
 [`REPRODUCTION_STATUS.md`](REPRODUCTION_STATUS.md) for provenance.
 
 For all four languages, this evaluation is run against the annotated morpheme
-test set (`data/annotations/`) — gold morpheme segmentations built
-specifically to assess segmentation quality, not a generic text corpus. This
+test set at `evaluation/data/{amharic,tigrinya,tigre,geez}_gold.tsv` — gold
+morpheme segmentations built specifically to assess segmentation quality, not
+a generic text corpus. This
 is also why MoVoC-Tok tends to perform better on this evaluation than on
 extrinsic tasks (Table 3): the test set directly measures alignment with
 morpheme boundaries, which is precisely what MoVoC-Tok's constrained-merge
