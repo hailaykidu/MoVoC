@@ -99,7 +99,14 @@ entries = annotation.load("data/annotations/tigre/manual_morphemes.json")
 ## Intrinsic evaluation
 
 Morpheme boundary precision, MorphScore and Rényi entropy over the annotated
-morpheme sets (`movoc/metrics.py`, run by `evaluate.py`).
+morpheme sets. The tables below are produced by
+[`scripts/evaluate_intrinsic.py`](scripts/evaluate_intrinsic.py) (migrated
+into this repository from the separate `amseg` project); `movoc/metrics.py`
+and `evaluate.py` implement the same formulas but were not the script that
+generated these specific numbers — see
+[`v2/table4/Intrinsic_report.md`](v2/table4/Intrinsic_report.md) and
+[`v2/table2/MorphScore_report.md`](v2/table2/MorphScore_report.md) for full
+provenance.
 
 | Language | Tokenization | Precision ↑ | Rényi ↓ |
 |---|---|---:|---:|

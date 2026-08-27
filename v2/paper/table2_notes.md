@@ -31,8 +31,9 @@ LaTeX: `v2/table2/table2_final.tex`.
 MorphScore (Arnett & Bergen, 2025): recall of gold morpheme boundaries,
 micro-averaged over the corpus, with unsegmented words excluded rather than
 scored zero. Boundaries are cumulative morpheme lengths. Implementation:
-`amseg/scripts/evaluate_intrinsic.py`; formula per `movoc/metrics.py`. Values
-are fractions in [0, 1].
+`scripts/evaluate_intrinsic.py` (migrated into this repository from the
+separate `amseg` project); formula per `movoc/metrics.py`. Values are
+fractions in [0, 1].
 
 ## Evaluation sets
 
