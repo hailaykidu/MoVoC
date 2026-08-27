@@ -22,14 +22,14 @@ SOURCES = {
 # table: the arXiv id, section numbers, the entropy parameter, the MoVoC ratio,
 # the Table 3 training-scale caveat (75,000 vs ~416,000 optimizer steps, 5.5x,
 # final loss 3.00-3.59, sourced from v2/table3/PROVENANCE.md), the published
-# Table 4 precision range (74.6-88.3, sourced from
-# original/published_results/README.md) cited when contrasting it against
-# the current reproduction's range, and the Ge'ez precision margin (0.4326 -
-# 0.4301 = 0.0025), a computed difference between two table4_final.csv values
-# rather than a value in the CSV itself.
+# Table 4 precision range (73.9-88.3, sourced from
+# original/published_results/README.md, the min being Ge'ez BPE at 73.9)
+# cited when contrasting it against the current reproduction's range, and the
+# Ge'ez precision margin (0.4326 - 0.4301 = 0.0025), a computed difference
+# between two table4_final.csv values rather than a value in the CSV itself.
 ALLOW = {"2509.08812", "2.0", "0.7142857142857143",
          "75,000", "416,000", "5.5", "3.00", "3.59",
-         "74.6", "88.3", "0.0025",
+         "73.9", "88.3", "0.0025",
          "3.1", "3.2", "3.3", "4.1", "4.2", "4.3", "5.1", "5.2"}
 
 
