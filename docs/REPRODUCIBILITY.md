@@ -68,10 +68,15 @@ confirm that the described method executes end to end and to make the
 pipeline available to readers.
 
 Outputs of the reconstructed pipeline are written under
-`experiments/tokenizer_comparison/` and are deliberately **not published in
-the README**, for the reasons documented in the sections below: the
-original scoring pipeline is unavailable, the metric scale of the published
-BLEU column is unresolved, and no held-out Ge'ez evaluation set survives.
+`experiments/tokenizer_comparison/` and the Amharic/Tigrinya/Tigre blocks
+are published, clearly labeled as reconstructed, in the README's "Extrinsic
+evaluation" section and in [`v2/table3/`](../v2/table3/). They are kept
+visibly distinct from the published Table 3 for the reasons documented in
+the sections below: the original scoring pipeline is unavailable, the
+metric scale of the published BLEU column is unresolved, and no held-out
+Ge'ez evaluation set survives — so the English→Ge'ez block is not part of
+the reconstruction and the reconstructed figures must not be read as
+replacing or matching the paper's numbers.
 
 The sections that follow are the detailed evidence inventory behind these
 statements — what was searched, what was found, and what remains open. They
@@ -338,9 +343,12 @@ filled with a reconstructed value.**
 | No checkpoints, predictions, logs, seeds or job records from the publication period are available in the current MoVoC repository | The reported runs cannot be inspected or re-scored |
 | The repository state referenced by the paper is not available in the current MoVoC repository | The implementation as it stood at publication cannot be examined |
 
-**No BLEU or chrF++ figures are reported in this repository**, and the
-published Table 3 is neither restated as reconstructed output nor
-supplemented with reconstructed values.
+**The BLEU and chrF++ figures reported in this repository** (README.md's
+"Extrinsic evaluation" section and [`v2/table3/`](../v2/table3/)) **are a
+reconstructed evaluation, not the published Table 3.** The published Table 3
+values are quoted, with citation, and are neither restated as reconstructed
+output nor supplemented with reconstructed values presented as equivalent to
+them.
 
 A separate defect, found and fixed during the reconstruction, is recorded
 in [`incidents/2026-07-28-invalid-mt-evaluation/`](../v2/archive/incidents/2026-07-28-invalid-mt-evaluation/):
