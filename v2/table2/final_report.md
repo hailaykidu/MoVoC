@@ -174,4 +174,12 @@ reaches scale does so only with 75% supplementation.
 | `morphscore_scores.csv` | scores with full provenance and exclusion counts |
 | `final_report.md` | this document |
 
-Regenerate with `python3 movoc_table2_repro/score_official_first.py`.
+The script that produced this superseded run (`score_official_first.py`)
+targeted the mislabeled 80,000/20,000/32,000 item counts (see the status
+note above) and is not present in this repository. It does not regenerate
+the current, authoritative Table 2 — for that, all four languages'
+intrinsic evaluation relies on the annotated morpheme test set at
+`evaluation/data/{amharic,tigrinya,tigre,geez}_gold.tsv`, run with
+[`scripts/evaluate_intrinsic.py`](../../scripts/evaluate_intrinsic.py); see
+[`table2_final.csv`](table2_final.csv) and
+[`MorphScore_report.md`](MorphScore_report.md).
