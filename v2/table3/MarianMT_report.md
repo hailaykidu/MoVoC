@@ -2,30 +2,12 @@
 
 Extrinsic evaluation: downstream MarianMT translation quality (BLEU, chrF++).
 
-**Published values belong to the paper and are not modified.**
-
-## Published Table 3
-
-| Strategy | BLEU ↑ | chrF++ ↑ |
-|---|---|---|
-| **English → Amharic** | | |
-| BPE | 0.2150 ± 0.0120 | 16.2000 ± 1.05 |
-| WordPiece | 0.2340 ± 0.0155 | 16.5000 ± 1.00 |
-| MoVoC-Tok | **0.2455 ± 0.0108** | **17.8500 ± 0.95** |
-| **English → Tigrinya** | | |
-| BPE | 0.1720 ± 0.0095 | 7.2000 ± 0.85 |
-| WordPiece | 0.1880 ± 0.0088 | 7.5000 ± 0.80 |
-| MoVoC-Tok | **0.2050 ± 0.0080** | **8.1000 ± 0.75** |
-| **English → Tigre** | | |
-| BPE | 0.0950 ± 0.0080 | 4.0000 ± 0.70 |
-| WordPiece | 0.1025 ± 0.0075 | 4.3000 ± 0.65 |
-| MoVoC-Tok | **0.1175 ± 0.0068** | **5.1500 ± 0.60** |
-| **English → Ge'ez** | | |
-| BPE | 0.0480 ± 0.0070 | 3.0500 ± 0.55 |
-| WordPiece | 0.0550 ± 0.0065 | 3.2500 ± 0.60 |
-| MoVoC-Tok | **0.0660 ± 0.0060** | **3.9500 ± 0.50** |
-
-Cited from arXiv:2509.08812.
+**Published values belong to the paper and are not modified.** They are
+quoted verbatim, once, in
+[`original/published_results/README.md`](../../original/published_results/README.md)
+— not restated here, to avoid two copies drifting apart. This document holds
+only the reconstruction, described below, and compares against the published
+figures by reference rather than by re-quoting them.
 
 ## Reconstruction v2 — FLORES-200 devtest (n=1012)
 
@@ -87,7 +69,8 @@ is genuinely better than another — it's an artifact of undertrained models, no
 a finding about the method. A real comparison would mean rerunning training to
 the full step budget before any of these gaps are worth trusting.
 
-There are also more basic reasons the two tables at the top of this document
+There are also more basic reasons the reconstruction and the published Table 3
+([`original/published_results/README.md`](../../original/published_results/README.md))
 aren't directly comparable, beyond the training-scale problem:
 
 - The **scoring pipeline that produced the published Table 3 isn't preserved**
