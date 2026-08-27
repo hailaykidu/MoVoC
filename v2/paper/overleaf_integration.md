@@ -1,9 +1,7 @@
 # Overleaf integration
 
-Mapping between this repository and the V2 manuscript.
-
-**Overleaf project:**
-<https://tex.cloud.uni-hannover.de/project/6a6c6667662fbc94aa2c5196>
+Mapping between this repository and the V2 manuscript
+([`../paper/manuscript/main.tex`](manuscript/main.tex)).
 
 ## Division of authority
 
@@ -134,5 +132,5 @@ produce. **Correct the manuscript, not the repository.**
 
 ## Citation
 
-`CITATION.cff` at the repository root holds the canonical entry; the original
-paper is arXiv:2509.08812. Repository license: MIT (`LICENSE`).
+`CITATION.cff` at the repository root holds the canonical entry. Repository
+license: MIT (`LICENSE`).

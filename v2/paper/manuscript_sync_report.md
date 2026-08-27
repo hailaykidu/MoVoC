@@ -20,7 +20,7 @@
 ## Scope — what this report does and does not cover
 
 **The Overleaf manuscript was not modified.** This environment has no network
-access to `tex.cloud.uni-hannover.de`, no Overleaf credentials and no tool that
+access to the Overleaf host, no Overleaf credentials and no tool that
 can read or write that project. I could not open the manuscript, so I cannot
 report which of its values were outdated, which sections changed, or confirm its
 current state.

@@ -31,6 +31,5 @@ than purely statistical subword induction.
 
 ## Reference
 
-Original paper: Teklehaymanot, Fazlija & Nejdl, *MoVoC: Morphology-Aware Subword
-Construction for Ge'ez Script Languages*, Findings of EMNLP 2025,
-arXiv:2509.08812.
+Original paper: *MoVoC: Morphology-Aware Subword Construction for Ge'ez
+Script Languages*, Findings of EMNLP 2025 (anonymized for review).

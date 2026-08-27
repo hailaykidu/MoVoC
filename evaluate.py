@@ -123,10 +123,9 @@ def vocab_segmenter(vocab_path: Path):
 def sentencepiece_segmenter(model_path: Path):
     """Tokenize with a SentencePiece model (Unigram or BPE).
 
-    Used for the published shared Ge'ez-script tokenizer
-    (Hailay/geez-en-shared-tokenizer). The leading word marker is stripped
-    so pieces concatenate back to the surface form, keeping boundary
-    offsets comparable with the other arms.
+    Used for the published shared Ge'ez-script tokenizer. The leading word
+    marker is stripped so pieces concatenate back to the surface form,
+    keeping boundary offsets comparable with the other arms.
     """
     import sentencepiece as spm
     sp = spm.SentencePieceProcessor(model_file=str(model_path))

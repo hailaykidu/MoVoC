@@ -164,8 +164,8 @@ English→X MarianMT, FLORES-200 devtest, mean ± std over seeds 42/43/44.
 
 ## Paper (V2)
 
-The Reconstruction Version 2 manuscript is written in Overleaf:
-**<https://tex.cloud.uni-hannover.de/project/6a6c6667662fbc94aa2c5196>**
+The Reconstruction Version 2 manuscript source is at
+[`v2/paper/manuscript/main.tex`](v2/paper/manuscript/main.tex).
 
 Writing materials — section notes, publication-ready tables and caption drafts —
 are in [`v2/paper/`](v2/paper/). Results tables are generated in this repository
@@ -280,15 +280,13 @@ Two optional dev files and a max-samples cap may follow:
 ## Citation
 
 ```bibtex
-@inproceedings{teklehaymanot2025movoc,
+@inproceedings{anonymous2025movoc,
   title     = {MoVoC: Morphology-Aware Subword Construction for
                Ge'ez Script Languages},
-  author    = {Teklehaymanot, Hailay and Fazlija, Dren and Nejdl, Wolfgang},
+  author    = {Anonymous Authors},
   booktitle = {Findings of the Association for Computational Linguistics:
                EMNLP 2025},
-  year      = {2025},
-  eprint    = {2509.08812},
-  archivePrefix = {arXiv}
+  year      = {2025}
 }
 ```
 

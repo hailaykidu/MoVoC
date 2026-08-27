@@ -8,27 +8,12 @@ abstract: >-
   boundaries.
 type: software
 license: MIT
-repository-code: "https://github.com/hailaykidu/MoVoC"
 authors:
-  - family-names: Teklehaymanot
-    given-names: Hailay
-  - family-names: Fazlija
-    given-names: Dren
-  - family-names: Nejdl
-    given-names: Wolfgang
+  - name: "Anonymous Authors"
 preferred-citation:
   type: conference-paper
   title: "MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages"
   collection-title: "Findings of the Association for Computational Linguistics: EMNLP 2025"
   year: 2025
   authors:
-    - family-names: Teklehaymanot
-      given-names: Hailay
-    - family-names: Fazlija
-      given-names: Dren
-    - family-names: Nejdl
-      given-names: Wolfgang
-  identifiers:
-    - type: other
-      value: "arXiv:2509.08812"
-      description: arXiv preprint
+    - name: "Anonymous Authors"

@@ -3,9 +3,6 @@
 **Title:** MoVoC: Morphology-Aware Subword Construction for Ge'ez Script
 Languages — Reconstruction Version 2
 
-**Overleaf project:**
-<https://tex.cloud.uni-hannover.de/project/6a6c6667662fbc94aa2c5196>
-
 ## Purpose
 
 The V2 paper presents MoVoC and MoVoC-Tok together with morpheme-annotated
@@ -14,7 +11,8 @@ boundary precision, MorphScore, Rényi entropy) and extrinsically (English→X
 MarianMT translation).
 
 This directory holds the writing materials derived from the frozen repository
-state. The manuscript itself lives in Overleaf.
+state. The manuscript source is at
+[`manuscript/main.tex`](manuscript/main.tex).
 
 ## Contents
 
@@ -47,16 +45,16 @@ To update:
    relevant evaluation — the repository is currently frozen).
 2. Regenerate the `.tex` fragment alongside its `.csv`.
 3. Re-run the consistency check so CSV, TeX, per-table report and README agree.
-4. Copy the fragment into Overleaf.
+4. Copy the fragment into the manuscript's `tables/` directory.
 
 **Never edit a number directly in the manuscript.** Doing so breaks agreement
 with the CSV and the reports, which are validated together.
 
-## Synchronizing with Overleaf
+## Synchronizing the manuscript
 
 Full procedure and LaTeX requirements: [`overleaf_integration.md`](overleaf_integration.md).
 
-Short form — copy the three `.tex` fragments into the Overleaf `tables/`
+Short form — copy the three `.tex` fragments into the manuscript's `tables/`
 directory, recompile, and record the repository commit the manuscript was built
 from.
 
@@ -65,7 +63,7 @@ from.
 | Content | Owner |
 |---|---|
 | Datasets, tokenizers, experiments, tables, reports | this repository |
-| Manuscript text, LaTeX, figures, bibliography | Overleaf project |
+| Manuscript text, LaTeX, figures, bibliography | manuscript source (`v2/paper/manuscript/`) |
 
 ## Status
 
