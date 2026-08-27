@@ -171,5 +171,12 @@ supplementation — and still falls ~30 points short.
 | `tigrinya_data_inventory.csv` | every Tigrinya source, usable and unusable |
 | `tigrinya_source_breakdown.csv` | per-source contribution |
 
-Regenerate with `python3 movoc_table2_repro/score_official_first.py` and
-`python3 movoc_table2_repro/score_union_tir_tig.py`.
+The scripts that produced this superseded run (`score_official_first.py`,
+`score_union_tir_tig.py`) targeted the mislabeled 80,000/20,000/32,000 item
+counts (see the status note above) and are not present in this repository.
+They do not regenerate the current, authoritative Table 2 — for that, all
+four languages' intrinsic evaluation relies on the annotated morpheme test
+set at `evaluation/data/{amharic,tigrinya,tigre,geez}_gold.tsv`, run with
+[`scripts/evaluate_intrinsic.py`](../../scripts/evaluate_intrinsic.py); see
+[`table2_final.csv`](table2_final.csv) and
+[`MorphScore_report.md`](MorphScore_report.md).
