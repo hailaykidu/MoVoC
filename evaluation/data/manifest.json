@@ -1,0 +1,120 @@
+{
+  "amharic": {
+    "test_set": "evaluation/data/amharic_gold.tsv",
+    "provenance": "evaluation/data/amharic_provenance.tsv",
+    "words_evaluated": 81224,
+    "unique_words": 81224,
+    "sources": [
+      {
+        "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/amharic/postedited_morphemes.json",
+        "source_kind": "HornMorpho initial analysis with human post-editing",
+        "resource_tier": "vocab_construction",
+        "records_in_source": 153759,
+        "words_contributed": 81224,
+        "excluded_placeholder_only": 87,
+        "excluded_single_morpheme": 29911,
+        "excluded_unaligned_to_surface": 41590,
+        "excluded_duplicate_word": 947
+      }
+    ],
+    "excluded_placeholder_only": 87,
+    "excluded_single_morpheme": 29911,
+    "excluded_unaligned_to_surface": 41590,
+    "excluded_duplicate_word": 947,
+    "_note": "test_set/provenance paths are relative to this repository root. sources[].source paths are historical provenance from the amseg project where this data was originally assembled, and are not paths within this repository."
+  },
+  "tigrinya": {
+    "test_set": "evaluation/data/tigrinya_gold.tsv",
+    "provenance": "evaluation/data/tigrinya_provenance.tsv",
+    "words_evaluated": 5224,
+    "unique_words": 5224,
+    "sources": [
+      {
+        "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/tigrinya/gold_morphemes.json",
+        "source_kind": "gold, held out from training and vocabulary construction",
+        "resource_tier": "evaluation_only",
+        "records_in_source": 206,
+        "words_contributed": 160,
+        "excluded_placeholder_only": 0,
+        "excluded_single_morpheme": 1,
+        "excluded_unaligned_to_surface": 31,
+        "excluded_duplicate_word": 14
+      },
+      {
+        "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/tigrinya/postedited_morphemes.json",
+        "source_kind": "HornMorpho initial analysis with human post-editing",
+        "resource_tier": "vocab_construction",
+        "records_in_source": 7531,
+        "words_contributed": 2652,
+        "excluded_placeholder_only": 0,
+        "excluded_single_morpheme": 4866,
+        "excluded_unaligned_to_surface": 0,
+        "excluded_duplicate_word": 13
+      },
+      {
+        "source": "/homes/neumann/teklehaymanot/amseg/data/segmented/tigrinya_morpheme_segmented.json",
+        "source_kind": "HornMorpho segmentation (HornMT resources)",
+        "resource_tier": "training",
+        "records_in_source": 6692,
+        "words_contributed": 2412,
+        "excluded_placeholder_only": 0,
+        "excluded_single_morpheme": 1828,
+        "excluded_unaligned_to_surface": 2381,
+        "excluded_duplicate_word": 71
+      }
+    ],
+    "excluded_placeholder_only": 0,
+    "excluded_single_morpheme": 6695,
+    "excluded_unaligned_to_surface": 2412,
+    "excluded_duplicate_word": 98,
+    "_note": "test_set/provenance paths are relative to this repository root. sources[].source paths are historical provenance from the amseg project where this data was originally assembled, and are not paths within this repository."
+  },
+  "tigre": {
+    "test_set": "evaluation/data/tigre_gold.tsv",
+    "provenance": "evaluation/data/tigre_provenance.tsv",
+    "words_evaluated": 1974,
+    "unique_words": 1974,
+    "sources": [
+      {
+        "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/tigre/manual_morphemes.json",
+        "source_kind": "manual annotation",
+        "resource_tier": "evaluation_only",
+        "records_in_source": 8117,
+        "words_contributed": 1974,
+        "excluded_placeholder_only": 0,
+        "excluded_single_morpheme": 5660,
+        "excluded_unaligned_to_surface": 0,
+        "excluded_duplicate_word": 483
+      }
+    ],
+    "excluded_placeholder_only": 0,
+    "excluded_single_morpheme": 5660,
+    "excluded_unaligned_to_surface": 0,
+    "excluded_duplicate_word": 483,
+    "_note": "test_set/provenance paths are relative to this repository root. sources[].source paths are historical provenance from the amseg project where this data was originally assembled, and are not paths within this repository."
+  },
+  "geez": {
+    "test_set": "evaluation/data/geez_gold.tsv",
+    "provenance": "evaluation/data/geez_provenance.tsv",
+    "words_evaluated": 172,
+    "unique_words": 172,
+    "sources": [
+      {
+        "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/geez/manual_morphemes.json",
+        "source_kind": "manual annotation",
+        "resource_tier": "evaluation_only",
+        "records_in_source": 193,
+        "words_contributed": 172,
+        "excluded_placeholder_only": 14,
+        "excluded_single_morpheme": 6,
+        "excluded_unaligned_to_surface": 1,
+        "excluded_duplicate_word": 0
+      }
+    ],
+    "excluded_placeholder_only": 14,
+    "excluded_single_morpheme": 6,
+    "excluded_unaligned_to_surface": 1,
+    "excluded_duplicate_word": 0,
+    "_note": "test_set/provenance paths are relative to this repository root. sources[].source paths are historical provenance from the amseg project where this data was originally assembled, and are not paths within this repository."
+  }
+}

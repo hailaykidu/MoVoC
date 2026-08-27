@@ -21,13 +21,16 @@ From the paper (arXiv:2509.08812), verbatim. Archived in
 
 ## B. AMSEG Intrinsic Evaluation (authoritative)
 
-Source: `amseg/evaluation/results/intrinsic_tokenizer_table.md` and
-`table2_morphscore_movoc_tok.md`, released BPE-32K / WordPiece-32K /
-MoVoC-Tok-32K artifacts, run against `data/annotations/`. Authoritative; see
-[`./`](./). Produced with `evaluate_intrinsic.py`, migrated into this
-repository at [`../../scripts/evaluate_intrinsic.py`](../../scripts/evaluate_intrinsic.py)
-(originally run from the separate `amseg` project; see that script's
-docstring for what re-running it from this repository still requires).
+Source: originally generated in the separate `amseg` project
+(`amseg/evaluation/results/intrinsic_tokenizer_table.md` and
+`table2_morphscore_movoc_tok.md`), released BPE-32K / WordPiece-32K /
+MoVoC-Tok-32K artifacts, run against the gold morpheme test sets at
+`evaluation/data/{amharic,tigrinya,tigre,geez}_gold.tsv`. Authoritative; see
+[`./`](./). Produced with
+[`scripts/evaluate_intrinsic.py`](../../scripts/evaluate_intrinsic.py),
+now migrated into this repository along with the evaluation data and
+tokenizer artifacts it needs — re-running it reproduces this table exactly
+(verified byte-for-byte at migration time).
 
 For all four languages, this is the annotated morpheme test set built
 specifically to assess segmentation quality, not a generic text corpus — the
