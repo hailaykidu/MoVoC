@@ -35,7 +35,8 @@ LaTeX: `v2/table4/table4_final.tex`.
 - **Rényi entropy** at α = 2, raw (unnormalized) in this table. Lower indicates
   a sharper, more concentrated subword distribution.
 
-Implementation: `amseg/scripts/evaluate_intrinsic.py`; formula per
+Implementation: `scripts/evaluate_intrinsic.py` (migrated into this
+repository from the separate `amseg` project); formula per
 `movoc/metrics.py`.
 
 ## Findings to report
