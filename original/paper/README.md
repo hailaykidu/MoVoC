@@ -9,9 +9,8 @@ in this repository in exactly one place:
 
 - [`README.md` §1 — "Published MoVoC paper results"](../../README.md#1-published-movoc-paper-results),
   which reproduces the paper's Table 3 as a cited quotation.
-- The paper itself: Teklehaymanot, Fazlija & Nejdl, *"MoVoC:
-  Morphology-Aware Subword Construction for Ge'ez Script Languages"*,
-  Findings of EMNLP 2025, arXiv:[2509.08812](https://arxiv.org/abs/2509.08812).
+- The paper itself: *"MoVoC: Morphology-Aware Subword Construction for
+  Ge'ez Script Languages"*, Findings of EMNLP 2025 (anonymized for review).
 
 The paper reports intrinsic results in Table 2 and translation results in
 Table 3.

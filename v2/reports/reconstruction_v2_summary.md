@@ -10,9 +10,8 @@ it lives, and why they must be kept apart.
 ## 1. Original paper results
 
 **What they are.** The values reported in *"MoVoC: Morphology-Aware Subword
-Construction for Ge'ez Script Languages"* (Teklehaymanot, Fazlija & Nejdl),
-Findings of EMNLP 2025, arXiv:[2509.08812](https://arxiv.org/abs/2509.08812)
-— Table 2 (intrinsic) and Table 3 (translation).
+Construction for Ge'ez Script Languages"*, Findings of EMNLP 2025
+(anonymized for review) — Table 2 (intrinsic) and Table 3 (translation).
 
 **Where they are.** Quoted with citation in
 [`README.md` §1](../README.md#1-published-movoc-paper-results), and in the

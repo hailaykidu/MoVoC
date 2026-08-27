@@ -8,7 +8,7 @@ working directories and other project repositories.
 **Everything below is external investigation evidence, not MoVoC
 repository content.** Paths such as `MoVoC_MT/`, `MoVoC_Tok/`, `EnTiMT/`
 and `mt_finetune/` refer to separate local projects. They are not part of
-github.com/hailaykidu/MoVoC, are not distributed with it, and nothing in
+this MoVoC repository, are not distributed with it, and nothing in
 them should be read as a MoVoC artifact or a MoVoC result.
 
 It is kept because the searches were performed and their outcomes are
