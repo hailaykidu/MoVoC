@@ -29,23 +29,26 @@ No tokenizer is retrained; trained artifacts are loaded as they are.
 This is the script that produced the Table 2 (MorphScore) and Table 4
 (boundary precision, Rényi entropy) authoritative results in v2/table2/ and
 v2/table4/. It was migrated into this repository from a separate project
-(amseg) where those tables were originally generated; migrating it closes
-the reproducibility gap of the script not existing here at all, but running
-it end-to-end from this repository additionally requires:
+(amseg) where those tables were originally generated. Running it end to end
+from a fresh clone of this repository now works out of the box:
 
 - gold morpheme test sets at ``evaluation/data/{amharic,tigrinya,tigre,geez}_gold.tsv``
   (tab-separated word / morpheme-boundary format; see load_testset() below) --
   these are not the same files as data/annotations/*/*.json in this
-  repository, which use a different schema
+  repository, which use a different schema for a different purpose
+  (vocabulary construction, not this evaluation)
 - trained tokenizer artifacts at ``tokenizers/{bpe_32k,wordpiece_32k,
   amharic_movoc_tok_32k,tigrinya_movoc_tok_32k}/`` (HuggingFace-format for
-  BPE/WordPiece, MoVoCTokBPE-format for MoVoC-Tok)
+  BPE/WordPiece, MoVoCTokBPE-format for MoVoC-Tok). bpe_32k and wordpiece_32k
+  are trained on a combined corpus shared across languages, not per-language
+  text -- this is the exact configuration behind the published Table 2/4
+  numbers; it is not the same as the per-language amharic_bpe_32k /
+  tigrinya_bpe_32k artifacts that also exist in this project's history.
 
-Neither the gold TSVs nor the tokenizer artifacts in this exact format are
-yet part of this repository. The reported Table 2/4 results are real and
-unaffected by this (see amseg/evaluation/results/ for their provenance);
-this note only concerns re-running the script from a fresh clone of this
-repository.
+Re-running ``python scripts/evaluate_intrinsic.py --datadir evaluation/data
+--outdir /tmp/out --tokenizers tokenizers`` from this repository reproduces
+v2/table2 and v2/table4 exactly (verified byte-for-byte against
+amseg/evaluation/results/intrinsic_tokenizer_table.md at migration time).
 
 Usage:
     python scripts/evaluate_intrinsic.py --outdir evaluation/results

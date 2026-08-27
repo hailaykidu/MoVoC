@@ -1,0 +1,15 @@
+{
+  "name": "MoVoC-Tok (Tigrinya)",
+  "language": "Tigrinya",
+  "method": "morpheme-aware BPE (boundary-constrained merges)",
+  "vocab_size": 32000,
+  "requested_vocab_size": 32000,
+  "merge_operations": 30840,
+  "word_start_marker": "▁",
+  "special_tokens": {
+    "<pad>": 0,
+    "<unk>": 1,
+    "<s>": 2,
+    "</s>": 3
+  }
+}

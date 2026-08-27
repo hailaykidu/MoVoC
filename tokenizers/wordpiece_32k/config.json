@@ -1,0 +1,16 @@
+{
+  "name": "WordPiece baseline",
+  "tokenizer_type": "WordPiece",
+  "vocab_size": 32000,
+  "requested_vocab_size": 32000,
+  "unk_token": "<unk>",
+  "special_tokens": {
+    "<pad>": 0,
+    "<unk>": 1,
+    "<s>": 2,
+    "</s>": 3
+  },
+  "word_start_marker": "▁",
+  "continuing_subword_prefix": "##",
+  "morphological_information_used": false
+}

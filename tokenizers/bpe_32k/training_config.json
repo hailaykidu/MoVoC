@@ -1,0 +1,22 @@
+{
+  "tokenizer_type": "BPE",
+  "library": "huggingface/tokenizers",
+  "library_version": "0.21.4",
+  "corpus": "/homes/neumann/teklehaymanot/amseg/data/corpus/mt_combined.txt",
+  "training_sentences": 2796346,
+  "vocab_size": 32000,
+  "normalization": "NFC + strip",
+  "pre_tokenizer": "Metaspace(replacement='▁', prepend_scheme='always')",
+  "special_tokens": [
+    "<pad>",
+    "<unk>",
+    "<s>",
+    "</s>"
+  ],
+  "random_seed": null,
+  "seed_note": "Not applicable: both trainers are deterministic frequency-driven algorithms over the full corpus, with no sampling or shuffling.",
+  "hornmorpho_used": false,
+  "movoc_annotations_used": false,
+  "morphological_constraints": false,
+  "training_seconds": 30.6
+}

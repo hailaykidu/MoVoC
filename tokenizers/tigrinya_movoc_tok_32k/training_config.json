@@ -1,0 +1,20 @@
+{
+  "language": "Tigrinya",
+  "objective": "max_V sum_i log P(BPE(w_i; V, M_i)) s.t. no s_j crosses M_i",
+  "corpus": "/homes/neumann/teklehaymanot/TigrinyaTokenizer/MPETokenization/Paralleldata/Machine_Translation/data/NLLB.en-ti.ti",
+  "corpus_lines_read": 400000,
+  "corpus_word_types": 169373,
+  "min_frequency": 2,
+  "morpheme_source": "/homes/neumann/teklehaymanot/amseg/data/segmented/tigrinya_morpheme_segmented.json",
+  "morpheme_records": 6692,
+  "words_with_morpheme_boundaries": 2291,
+  "words_projection_failed": 2534,
+  "single_morpheme_words": 1828,
+  "corpus_words_constrained": 1470,
+  "alphabet_size": 1156,
+  "merge_operations": 30840,
+  "rejected_boundary_crossing_merges": 104964,
+  "final_vocab_size": 32000,
+  "training_seconds": 833.9,
+  "shared_vocab": false
+}
