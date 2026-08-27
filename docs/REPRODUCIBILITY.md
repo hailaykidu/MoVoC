@@ -300,6 +300,14 @@ traceable to an exact metric configuration:
 Both are on a 0–100 scale. `word_order=2` is chrF++, matching the metric
 the paper reports; sacreBLEU's default `word_order=0` would be plain chrF.
 
+The reconstructed Amharic/Tigrinya/Tigre figures cited below are trained
+with **three seeds (42, 43, 44) per tokenizer arm**, reported as mean ±
+standard deviation; see
+[`../v2/table3/PROVENANCE.md`](../v2/table3/PROVENANCE.md) for the full
+run inventory. This is distinct from the single seed-42 sampling used
+earlier in this document (§1) to build the Ge'ez held-out test split — that
+seed governs dataset construction only, not training.
+
 The signatures are asserted at run time: `run_evaluation.py --verify` fails
 if the installed sacreBLEU produces anything other than the values recorded
 in `configs/tokenizer_comparison.yaml`, so a library upgrade cannot silently
