@@ -87,6 +87,13 @@ Version 2 of the paper clarifies this inconsistency by explicitly documenting Me
 - The metric scale of the published BLEU column is unresolved (0.048–0.246 is
   inconsistent with sacreBLEU's 0–100 scale).
 - For Geʿez zero-shot evaluation: the exact training seeds and scoring pipeline are unavailable, so the exact published numbers cannot be reproduced. However, Mermru.com data (the original source) and zero-shot methodology are available for reconstruction.
+- **Undertraining and non-convergence:** As reconstructed, all nine runs stopped at 
+  75,000 optimizer steps—approximately 5.5× fewer than a comparably trained MarianMT 
+  baseline (~416,000 steps). Training loss did not converge, remaining between 3.00 
+  and 3.59. BLEU remained below 2 across all 18 cells, far below a regime where 
+  differences in BLEU or chrF++ can be meaningfully interpreted. Observed differences 
+  are more likely to reflect training conditions than genuine tokenizer quality differences. 
+  A meaningful comparison would require rerunning with full training budget and convergence.
 - MoVoC-Tok reconstruction runs produce degenerate output and are flagged.
 
 ## 5. An internal contradiction — resolved
