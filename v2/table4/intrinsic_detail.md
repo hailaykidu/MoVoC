@@ -11,7 +11,7 @@
 >
 > Corrections 1 (normalized Rényi) and 2 (cumulative-length projection) are
 > confirmed and incorporated. Precision values and rankings do not fully
-> reproduce the publication; see `REPRODUCTION_STATUS.md` for the full
+> reproduce the publication; see `../archive/table4_reproduction_status_superseded.md` for the full
 > statement, including the Tigre/Ge'ez cross-lingual assumption.
 
 Supersedes `results_intrinsic/`, which the audits found invalid as a strict

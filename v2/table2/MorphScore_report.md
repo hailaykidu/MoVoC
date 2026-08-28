@@ -130,7 +130,7 @@ surface-alignable set used here. See Caveats below.
   in-language Amharic/Tigrinya rows without that caveat.
 
 Historical detail on the earlier official+fallback pooling methodology (now
-superseded by the AMSEG evaluation above) is retained in
-[`REPRODUCTION_STATUS.md`](REPRODUCTION_STATUS.md) and
+superseded by the AMSEG evaluation above) is archived in
+[`../archive/table2_reproduction_status_superseded.md`](../archive/table2_reproduction_status_superseded.md) and
 [`../audits/dataset_audit.md`](../audits/dataset_audit.md),
 [`../audits/tigrinya_80k_attempt_report.md`](../audits/tigrinya_80k_attempt_report.md).

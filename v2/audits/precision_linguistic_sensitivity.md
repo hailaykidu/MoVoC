@@ -204,7 +204,7 @@ The dominant error is **off-by-one**, not gross mis-segmentation: 42% of Amharic
 and 54% of Ge'ez predicted boundaries land one character from a gold boundary.
 In Ge'ez, exact + off-by-1 + off-by-2 accounts for ~99.7% of predictions, so
 essentially every boundary is within two characters of a true one. This is the
-character-offset severity effect documented in `REPRODUCTION_STATUS.md` §4, and
+character-offset severity effect documented in `../archive/table4_reproduction_status_superseded.md` §4, and
 Variant A quantifies how much of it is genuine abugida fusion: **less than half**.
 
 Critically, the error profiles of the two tokenizers are near-identical
@@ -226,7 +226,7 @@ annotation-to-surface projection issue rather than a tokenizer property.
 
 **Does support:**
 
-- The precision gap versus published values (§4 of `REPRODUCTION_STATUS.md`)
+- The precision gap versus published values (§4 of `../archive/table4_reproduction_status_superseded.md`)
   being an artefact of exact character-offset matching against citation-form
   annotations, affecting both tokenizers equally.
 - Fusion accounting for a real but minority share of that artefact — Variant A
