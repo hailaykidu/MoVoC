@@ -78,10 +78,13 @@ The `models/movoc_tok_merges_{geez,tigre}.txt` artifacts in this repository are
   along with the trained checkpoints and decoded predictions behind it.
 - The metric scale of the published BLEU column is unresolved (0.048–0.246 is
   inconsistent with sacreBLEU's 0–100 scale).
-- No held-out Ge'ez evaluation set from the publication period was recovered,
-  so the published Ge'ez block cannot be regenerated. Reconstruction V2 assembled
-  its own Ge'ez parallel set for zero-shot evaluation; it is a V2 resource, not a
-  recovery of the published one.
+- The exact hold-out split and seeds for Ge'ez from the publication period are 
+  unavailable, so the exact published numbers cannot be reproduced. However, 
+  Mermru.com (Biblical Christian textbooks) was the original data source for 
+  Ge'ez zero-shot evaluation in the published paper. The same Mermru.com source 
+  is available for reconstruction, though the original pipeline and exact split 
+  cannot be recovered. See docs/limitations.md Section 4 for full clarification 
+  of the paper's §4.2 vs Table 3 inconsistency regarding Ge'ez data.
 - MoVoC-Tok reconstruction runs produce degenerate output and are flagged.
 
 ## 5. An internal contradiction — resolved
