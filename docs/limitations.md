@@ -97,16 +97,16 @@ Version 2 of the paper clarifies this inconsistency by explicitly documenting Me
   A meaningful comparison would require rerunning with full training budget and convergence.
 - MoVoC-Tok reconstruction runs produce degenerate output and are flagged.
 
-## 5. An internal contradiction — resolved
+## 5. An earlier held-out run — archived
 
-Two earlier intrinsic runs in this repository disagreed on Tigre's winner: a
-three-arm run had MoVoC-Tok ahead (56.3 vs 53.8 precision), a held-out run had
-BPE ahead (60.4 vs 46.3). This is now resolved: the AMSEG intrinsic evaluation
+An earlier held-out run produced results contradictory to the three-arm run: it
+had BPE ahead on Tigre (60.4 vs 46.3 precision), while the three-arm run had
+MoVoC-Tok ahead (56.3 vs 53.8). This held-out run is now archived in
+[`v2/archive/table4_reproduction_status_superseded.md`](v2/archive/table4_reproduction_status_superseded.md)
+and is no longer part of the active repository. The AMSEG intrinsic evaluation
 (`amseg/evaluation/results/`), now authoritative for Tables 2 and 4, agrees
 with the three-arm run to within rounding — MoVoC-Tok leads Tigre precision
-(0.5629 vs 0.5380). The held-out run's contrary result is treated as
-superseded, not as an open contradiction. See
-[`../v2/table4/Intrinsic_report.md`](../v2/table4/Intrinsic_report.md).
+(0.5629 vs 0.5380). See [`../v2/table4/Intrinsic_report.md`](../v2/table4/Intrinsic_report.md).
 
 ## 6. Scope
 
