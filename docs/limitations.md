@@ -72,16 +72,21 @@ the 32k Tigrinya model and marks the two affected rows as an assumption.
 The `models/movoc_tok_merges_{geez,tigre}.txt` artifacts in this repository are
 **reconstructions built after publication**, not original released artifacts.
 
-## 4. Table 3 cannot be reproduced
+## 4. Table 3 MT evaluation — inconsistency clarified
 
+The original paper contains an internal inconsistency regarding Geʿez:
+- §4.2 claims "no parallel data was obtained" for Geʿez
+- Table 3 reports Geʿez MT evaluation results
+- These were based on zero-shot evaluation using Mermru.com data (Biblical Christian textbooks)
+
+Version 2 of the paper clarifies this inconsistency by explicitly documenting Mermru.com as a Geʿez parallel data source.
+
+**What limits Table 3 reproduction:**
 - The scoring script that produced the published Table 3 is not preserved,
   along with the trained checkpoints and decoded predictions behind it.
 - The metric scale of the published BLEU column is unresolved (0.048–0.246 is
   inconsistent with sacreBLEU's 0–100 scale).
-- No held-out Ge'ez evaluation set from the publication period was recovered,
-  so the published Ge'ez block cannot be regenerated. Reconstruction V2 assembled
-  its own Ge'ez parallel set for zero-shot evaluation; it is a V2 resource, not a
-  recovery of the published one.
+- The exact hold-out split and seeds used in the published evaluation are unavailable, so the exact published numbers cannot be reproduced. However, the same data source (Mermru.com) and methodology (zero-shot evaluation) can now be reconstructed.
 - MoVoC-Tok reconstruction runs produce degenerate output and are flagged.
 
 ## 5. An internal contradiction — resolved
