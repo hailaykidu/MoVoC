@@ -139,7 +139,7 @@ word is duplicated; nothing was synthesised.
 metric, released tokenizer — and falls **29.7 points short**. Item count is now
 eliminated as an explanation. The residual gap matches the Table 4 precision gap
 documented in
-`../../movoc_table4_repro/results_intrinsic_official/REPRODUCTION_STATUS.md` §4
+`../archive/table4_reproduction_status_superseded.md` §4
 and shares its likely cause: exact character-offset matching under a projection
 the paper does not describe.
 

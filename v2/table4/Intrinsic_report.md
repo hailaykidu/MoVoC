@@ -29,8 +29,8 @@ AMSEG intrinsic tokenizer evaluation (`amseg/evaluation/results/`), released
 BPE-32K / WordPiece-32K / MoVoC-Tok-32K artifacts, boundary precision measured
 by exact character-offset match, Rényi entropy at α = 2 (raw, unnormalized).
 Authoritative; see [`./`](./). This supersedes the previous Section B
-reproduction (24.0/24.3-style values), which is retained in
-[`REPRODUCTION_STATUS.md`](REPRODUCTION_STATUS.md) for provenance.
+reproduction (24.0/24.3-style values), which is archived in
+[`../archive/table4_reproduction_status_superseded.md`](../archive/table4_reproduction_status_superseded.md) for provenance.
 
 For all four languages, this evaluation is run against the annotated morpheme
 test set at `evaluation/data/{amharic,tigrinya,tigre,geez}_gold.tsv` — gold
