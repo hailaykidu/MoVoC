@@ -86,7 +86,7 @@ Version 2 of the paper clarifies this inconsistency by explicitly documenting Me
   along with the trained checkpoints and decoded predictions behind it.
 - The metric scale of the published BLEU column is unresolved (0.048–0.246 is
   inconsistent with sacreBLEU's 0–100 scale).
-- The exact hold-out split and seeds used in the published evaluation are unavailable, so the exact published numbers cannot be reproduced. However, the same data source (Mermru.com) and methodology (zero-shot evaluation) can now be reconstructed.
+- For Geʿez zero-shot evaluation: the exact training seeds and scoring pipeline are unavailable, so the exact published numbers cannot be reproduced. However, Mermru.com data (the original source) and zero-shot methodology are available for reconstruction.
 - MoVoC-Tok reconstruction runs produce degenerate output and are flagged.
 
 ## 5. An internal contradiction — resolved
