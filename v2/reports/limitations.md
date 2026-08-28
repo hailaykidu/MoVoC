@@ -85,6 +85,13 @@ The `models/movoc_tok_merges_{geez,tigre}.txt` artifacts in this repository are
   for reconstruction. However, the original pipeline and seeds cannot be recovered. 
   See docs/limitations.md Section 4 for full clarification of the paper's §4.2 vs 
   Table 3 inconsistency regarding Ge'ez data.
+- **Undertraining and non-convergence:** As reconstructed, all nine runs stopped at 
+  75,000 optimizer steps—approximately 5.5× fewer than a comparably trained MarianMT 
+  baseline (~416,000 steps). Training loss did not converge, remaining between 3.00 
+  and 3.59. BLEU remained below 2 across all 18 cells, far below a regime where 
+  differences in BLEU or chrF++ can be meaningfully interpreted. Observed differences 
+  are more likely to reflect training conditions than genuine tokenizer quality differences. 
+  A meaningful comparison would require rerunning with full training budget and convergence.
 - MoVoC-Tok reconstruction runs produce degenerate output and are flagged.
 
 ## 5. An internal contradiction — resolved
