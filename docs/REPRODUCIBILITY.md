@@ -135,16 +135,16 @@ was evaluated only intrinsically due to the absence of parallel data.
 
 ### Consequence
 
-**The English→Ge'ez block of Table 3 cannot be reproduced from the
-artifacts released here.** No Ge'ez parallel evaluation data from the
-publication period was recovered, and no procedure is described in the paper
-or implemented in this repository that would produce the published
-translation scores for a language stated in Sec. 4.2 to have no parallel data.
+**The exact English→Ge'ez block of Table 3 cannot be reproduced** because the 
+original scoring pipeline and training seeds are unavailable. However, Mermru.com 
+(Biblical Christian textbooks) was the original data source for Ge'ez zero-shot 
+evaluation in the published paper, and the same source is available in this 
+repository (`data/evaluation/geez/`, Mermru English–Ge'ez corpus).
 
-Reconstruction V2 assembled its own Ge'ez parallel set for zero-shot
-evaluation (`data/evaluation/geez/`, Mermru English–Ge'ez corpus, 2,107 pairs,
-100 held out at seed 42). **It is a V2 resource, not a recovery of the
-published one**, so it does not reproduce the published block.
+The paper's Sec. 4.2 claims "no parallel data" for Ge'ez, yet Table 3 reports 
+Ge'ez results based on Mermru.com zero-shot evaluation. This internal inconsistency 
+was clarified in Version 2 of the paper, which explicitly documents Mermru.com as 
+the Ge'ez data source. See docs/limitations.md Section 4 for full explanation.
 
 This is recorded as an open question, not as a claim that the reported
 figures are wrong.
