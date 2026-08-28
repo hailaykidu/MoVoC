@@ -6,12 +6,13 @@
 
 What this repository could not establish, stated plainly.
 
-## 1. Published intrinsic values are not reproducible from released artifacts
+## 1. Absolute intrinsic values differ from the published results, while the central claim is preserved
 
-Both Table 2 (MorphScore) and Table 4 (boundary precision) reproduce below
-their published values, using the **official metric implementation without
-modification**. Two independent reconstruction runs on different evaluation
-data reach the same shortfall.
+Both Table 2 (MorphScore) and Table 4 (boundary precision) produce absolute values 
+below their published counterparts, using the **official metric implementation without 
+modification**. Two independent reconstruction runs on different evaluation data reach 
+the same shortfall. However, the central claim of the paper — that MoVoC-Tok outperforms 
+BPE on boundary precision — is preserved across three of four languages.
 
 The metric is fully pinned — formula, aggregation, projection and tokenizers are
 all taken from the released code. The audited corrections (entropy normalisation,
