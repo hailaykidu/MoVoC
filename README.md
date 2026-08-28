@@ -160,6 +160,13 @@ English→X MarianMT, FLORES-200 devtest, mean ± std over seeds 42/43/44.
 | English → Tigrinya | WordPiece | 0.0439 ± 0.0037 | 6.7069 ± 0.1085 |
 | English → Tigrinya | MoVoC-Tok | 0.2710 ± 0.0775 | 7.8489 ± 0.2845 |
 
+**Note on Tigre and Ge'ez:** Neither Tigre nor Ge'ez were included in:
+- MoVoC vocabulary construction (only Amharic and Tigrinya)
+- MT fine-tuning data (only Amharic and Tigrinya)
+- MoVoC-Tok tokenizer training (only Amharic and Tigrinya)
+
+Tigre and Ge'ez are evaluated **zero-shot** using cross-lingual tokenizers, measuring the tokenizers' generalization to unseen languages. Intrinsic evaluation (Tables 2 and 4) include all four languages; extrinsic MT evaluation (Table 3) includes only Amharic and Tigrinya.
+
 [`v2/table3/MarianMT_report.md`](v2/table3/MarianMT_report.md)
 
 ## Paper (V2)
