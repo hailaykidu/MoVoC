@@ -1,0 +1,12 @@
+{
+  "results": {
+    "en-ti": {
+      "bleu": 0.01,
+      "chrf++": 0.88,
+      "n": 71,
+      "direction": "en-ti",
+      "zero_shot": false,
+      "model": "movoc/models/mt_tigrinya_movoc_tok"
+    }
+  }
+}
