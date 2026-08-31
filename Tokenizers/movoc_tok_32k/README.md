@@ -113,12 +113,14 @@ Canonical for (all published, unchanged since original evaluation):
 - MarianMT extrinsic evaluation (Table 3, as already run)
 - future intrinsic/extrinsic reproduction experiments
 
-`amharic_63050/` is the one exception: a **post-publication** addition (see
-`amharic_63050/NOTE.md`), not used by any of the above and not reflected in
-any currently-published table. It exists to make an in-language Amharic 63k
-tokenizer available for a *future*, separately-decided extrinsic run — using
-it would require a new MarianMT fine-tuning pass and a new results table,
-neither of which has been done.
+`amharic_63050/` is the one exception on publication status: a
+**post-publication** addition (see `amharic_63050/NOTE.md`), built with the
+same Section 3.3 method and settings as `tigrinya/`'s 63,050 sibling
+(`tigrinya_movoc_tok_63050`), not used by any of the above and not reflected
+in any currently-published table. It exists to make an in-language Amharic
+63k tokenizer available for a *future*, separately-decided extrinsic run —
+using it would require a new MarianMT fine-tuning pass and a new results
+table, neither of which has been done.
 
 Distinct from the separate 63,051-vocabulary MoVoC-Tok checkpoint used by
 this repository's own MT pipeline (`en_am`/`en_ti` conditions — see

@@ -31,6 +31,17 @@ fine-tuning pass, which has not been done. Everything below in this warning
 describes the tokenizer actually used to produce the **existing, published**
 Table 3 numbers, which remains the Tigrinya-reused checkpoint.
 
+`amharic_movoc_tok_63050` and `tigrinya_movoc_tok_63050` are closely
+related: same paper method (Section 3.3 constrained-BPE), same script
+(`train_movoc_tok_bpe.py`), same target vocabulary size (63,050), same
+training settings otherwise, and a meaningful vocabulary overlap (8,583 of
+63,050 tokens, 13.6%) from the two languages' shared Ge'ez script and
+loanwords. They are two independently-trained instances of the same family
+of tokenizer, one per language — not two unrelated artifacts. The only
+factual point below is narrower: Table 3's *existing, published* numbers
+were produced with the Tigrinya checkpoint applied to Amharic text, not
+with `amharic_movoc_tok_63050` (which postdates those runs).
+
 Per `amseg/tokenizers/tigrinya_movoc_tok_63050/training_config.json`, this
 tokenizer's training corpus was exclusively
 `NLLB.en-ti.ti` (`"shared_vocab": false` — no Amharic text was involved in
