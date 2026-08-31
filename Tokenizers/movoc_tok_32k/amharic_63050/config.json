@@ -1,0 +1,15 @@
+{
+  "name": "MoVoC-Tok (Amharic)",
+  "language": "Amharic",
+  "method": "morpheme-aware BPE (boundary-constrained merges)",
+  "vocab_size": 63050,
+  "requested_vocab_size": 63050,
+  "merge_operations": 62005,
+  "word_start_marker": "▁",
+  "special_tokens": {
+    "<pad>": 0,
+    "<unk>": 1,
+    "<s>": 2,
+    "</s>": 3
+  }
+}

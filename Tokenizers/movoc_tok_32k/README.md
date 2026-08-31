@@ -22,11 +22,25 @@ max_V  sum_i log P(BPE(w_i; V, M_i))
 subject to: no subword s_j crosses a morpheme boundary in M_i
 ```
 
-This is the constrained-BPE MoVoC-Tok methodology (Section 3.3), confirmed
-against `docs/movoc_tok_report.md` (the original training report). It is
-**not** the earlier frequency-selected greedy longest-match design
-(`amseg/tokenizers/movoc_tok_32k`, a superseded iteration built earlier the
-same day) — that variant is deliberately excluded from this copy.
+This matches the paper's own description of MoVoC-Tok (Section 3.3):
+"a constrained-merge BPE: a merge may never cross a morpheme boundary...
+Within each morpheme, merges proceed by the usual BPE ranking, so the
+tokenizer remains a deterministic, greedy, linear-time segmenter" —
+i.e. merge-*learning* under a boundary constraint, confirmed against
+`docs/movoc_tok_report.md` (the original training report).
+
+This is **not** the same algorithm as `amseg/tokenizers/movoc_tok_32k` (a
+separate, earlier-built artifact under the same base name, built by a
+different script, `train_movoc_tok.py`, from a pre-built shared
+Amharic+Tigrinya vocabulary pool, `amseg/movoc/movoc_vocab.json`). That
+pipeline does not learn merges at all: it *selects* tokens from an
+existing pool by frequency, then segments by greedy longest-match against
+the fixed selected vocabulary. Section 3.3 describes a constrained
+*merge-learning* process, not a fixed-vocabulary longest-match segmenter,
+so that pipeline does not implement Section 3.3's MoVoC-Tok and is
+deliberately excluded from this copy — see
+[`../movoc_tok_alternative/README.md`](../movoc_tok_alternative/README.md)
+for that pipeline's own provenance record.
 
 ## Directory structure
 
@@ -40,11 +54,16 @@ movoc_tok_32k/
 │                              constraint counts, timing)
 ├── tigrinya/                 native constrained-BPE checkpoint (Tigrinya)
 │   └── (same file set as amharic/)
+├── amharic_63050/            POST-PUBLICATION checkpoint, not part of
+│                              Table 2/3/4 -- see amharic_63050/NOTE.md
+│   └── (same file set as amharic/, plus provenance.json and NOTE.md)
 ├── hf_exports/
 │   ├── amharic/               movoc_tok_32k_amharic, HuggingFace format
 │   │   └── tokenizer.json, tokenizer_config.json, special_tokens_map.json
-│   └── tigrinya/               movoc_tok_32k_tigrinya, HuggingFace format
-│       └── (same file set)
+│   ├── tigrinya/               movoc_tok_32k_tigrinya, HuggingFace format
+│   │   └── (same file set)
+│   └── amharic_63050/          movoc_tok_63050_amharic, HuggingFace format
+│       (post-publication, see above)
 ├── vocabulary_construction/   morpheme-analysis inputs that produced the
 │                              boundary constraints used during training
 │   ├── amharic_morpheme_segmented.json
@@ -82,15 +101,24 @@ two tokenizers were built):
   source paths; these are large, general-purpose parallel-data files, not
   tokenizer-specific artifacts
 - checkpoints, logs, or caches from unrelated experiments
-- the superseded frequency-selected tokenizer design
+- the alternative frequency-selected tokenizer design — preserved
+  separately, clearly marked non-canonical, at
+  [`../movoc_tok_alternative/`](../movoc_tok_alternative/README.md)
 
 ## Scope of use
 
-Canonical for:
+Canonical for (all published, unchanged since original evaluation):
 - Table 2 (`Intrinsic_Evaluation/reports/table2_final.md`)
 - Table 4 (`Intrinsic_Evaluation/reports/table4_final.md`)
-- MarianMT extrinsic evaluation
+- MarianMT extrinsic evaluation (Table 3, as already run)
 - future intrinsic/extrinsic reproduction experiments
+
+`amharic_63050/` is the one exception: a **post-publication** addition (see
+`amharic_63050/NOTE.md`), not used by any of the above and not reflected in
+any currently-published table. It exists to make an in-language Amharic 63k
+tokenizer available for a *future*, separately-decided extrinsic run — using
+it would require a new MarianMT fine-tuning pass and a new results table,
+neither of which has been done.
 
 Distinct from the separate 63,051-vocabulary MoVoC-Tok checkpoint used by
 this repository's own MT pipeline (`en_am`/`en_ti` conditions — see

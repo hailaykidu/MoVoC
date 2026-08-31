@@ -1,0 +1,34 @@
+{
+  "name": "MoVoC-Tok",
+  "vocab_size": 32000,
+  "requested_vocab_size": 32000,
+  "segmentation": "greedy longest-match",
+  "word_start_marker": "▁",
+  "special_tokens": {
+    "<pad>": 0,
+    "<unk>": 1,
+    "<s>": 2,
+    "</s>": 3
+  },
+  "selection_policy": "special tokens; all single-character units from V_MoVoC for guaranteed character coverage; a reserved floor of BPE pieces in native model order for word-start coverage; then morphemes by descending frequency; then further BPE pieces if slots remain",
+  "bpe_floor": 16000,
+  "composition": {
+    "special_tokens": 4,
+    "characters": 3062,
+    "morphemes": 12934,
+    "bpe": 16000,
+    "total": 32000
+  },
+  "composition_by_language": {
+    "Amharic/BPE": 18916,
+    "Tigrinya/BPE": 150,
+    "Amharic/morpheme": 11950,
+    "Tigrinya/morpheme": 984
+  },
+  "source_vocabulary": "/homes/neumann/teklehaymanot/amseg/movoc/movoc_vocab.json",
+  "source_vocabulary_size": 105310,
+  "source_vocabulary_md5": "8969507a84d18f6f2926e179bd9fbe3e",
+  "source_vocabulary_modified": false,
+  "bpe_retrained": false,
+  "build_seconds": 0.46
+}

@@ -73,8 +73,12 @@ reproducibility information, not a quotation from the paper.
     original paths since an actively running SLURM pipeline writes there
 
 - `Tokenizers/`
-  - canonical constrained-BPE MoVoC-Tok tokenizers (`movoc_tok_32k/`)
-  - HuggingFace exports
+  - `movoc_tok_32k/`: **canonical** constrained-BPE MoVoC-Tok tokenizers
+    (Section 3.3 method) and HuggingFace exports
+  - `movoc_tok_alternative/`: a historical, **non-canonical** tokenizer
+    pipeline preserved for provenance only (frequency-selected vocabulary,
+    greedy longest-match segmentation — does not implement Section 3.3's
+    constrained-merge BPE; not used by any table or evaluation script)
   - `bpe/`, `wordpiece/`, `movoc_tok/` are pointer docs only: the MT
     pipeline's tokenizers, loaded read-only from `amseg/`, never copied
     locally
@@ -142,9 +146,12 @@ set is touched exactly once, after selection, for the selected tokenizer only.
   `scripts/verify_tokenizers.py` before anything else runs.
 - `en_ti` runs all three tokenizers at vocab size 63051.
 - `en_am` runs BPE/WordPiece at vocab size 32000, but the MoVoC-Tok condition
-  for en_am **reuses** the Tigrinya-trained 63050/63051 MoVoC-Tok tokenizer
-  (no Amharic-trained 63k MoVoC-Tok exists). This is a deliberate,
-  user-approved decision — see "Known caveats".
+  for en_am, **as actually run for the published results**, reuses the
+  Tigrinya-trained 63050/63051 MoVoC-Tok tokenizer (at the time, no
+  Amharic-trained 63k MoVoC-Tok existed). This is a deliberate, user-approved
+  decision — see "Known caveats". A native Amharic 63k MoVoC-Tok checkpoint
+  (`amharic_movoc_tok_63050`) now exists, built post-publication, but has not
+  been used to rerun en_am or regenerate Table 3.
 - Data: OPUS NLLB parallel corpus, downloaded fresh at pipeline run time
   (not committed). Fixed, deterministic train/validation/test splits.
 - Evaluation: chrF++ via sacrebleu 2.6.0 (`char_order=6, word_order=2,
@@ -162,15 +169,18 @@ set is touched exactly once, after selection, for the selected tokenizer only.
    "fix" this value without a new explicit decision — if results look
    degenerate, that is an expected and already-anticipated possible outcome,
    not necessarily a bug in this repository.
-2. **en_am MoVoC-Tok is cross-lingual reuse of a Tigrinya-only tokenizer.**
-   It was trained exclusively on Tigrinya text
+2. **en_am MoVoC-Tok, as published, is cross-lingual reuse of a
+   Tigrinya-only tokenizer.** It was trained exclusively on Tigrinya text
    (`shared_vocab: false`, corpus = `NLLB.en-ti.ti`). Applying it to Amharic
    is out-of-domain and is expected to show elevated fertility and/or UNK
    rate on Amharic text. `scripts/verify_tokenizers.py` measures and prints
    this explicitly and the tokenizer manifest records
    `"cross_lingual_reuse": true` with a warning field. The pipeline does
    **not** block or fail because of this — it is a knowing, recorded
-   tradeoff, not a defect.
+   tradeoff, not a defect. A native Amharic 63k MoVoC-Tok now exists
+   (`Tokenizers/movoc_tok_32k/amharic_63050/`, post-publication) for a
+   future en_am run, but the results in this repository still reflect the
+   cross-lingual-reuse tokenizer described above.
 3. **en_am vocab sizes are not uniform across tokenizers.** BPE/WordPiece use
    32000; MoVoC-Tok (reused) has native vocab 63050/63051. This is
    documented in `configs/en_am.yaml` and the tokenizer manifest, not hidden.
