@@ -1,0 +1,3452 @@
+[
+  {
+    "word": "ለንኡሳት",
+    "prefix": "ለ",
+    "root": "ንኡስ",
+    "suffix": "ኣት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ለንኡስ",
+    "prefix": "ለ",
+    "root": "ንኡስ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ለዐይን",
+    "prefix": "ለ",
+    "root": "ዐይን",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ለዘመጽአ",
+    "prefix": "ለዘ",
+    "root": "መጽአ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳነቲከ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኣቲከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳኑ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳኒክን",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኢክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳናቲሁ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኣቲሁ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳናቲሃ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኣቲሃ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳናቲሆሙ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኣቲሆሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳናቲሆን",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኣቲሆን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳናቲነ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኣቲነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳናቲክሙ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኣቲክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳናቲክን",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኣቲክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳናት",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኣት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳናትኪ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኣቲኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳንነ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳንከ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳንኪ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳንክን",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳንየ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "የ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳኖሙ",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ልሳኖን",
+    "prefix": null,
+    "root": "ልሳን",
+    "suffix": "ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጻአከ",
+    "prefix": null,
+    "root": "መጽአ",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጽአ",
+    "prefix": null,
+    "root": "መጽአ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጽአት",
+    "prefix": null,
+    "root": "መጽአ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰማያዊ",
+    "prefix": null,
+    "root": "ሰማይ",
+    "suffix": "ኣዊ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰማያዊት",
+    "prefix": null,
+    "root": "ሰማይ",
+    "suffix": "ዊት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰማያውያን",
+    "prefix": null,
+    "root": "ሰማይ",
+    "suffix": "ውያን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰማይ",
+    "prefix": null,
+    "root": "ሰማይ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ስፋሕ",
+    "prefix": null,
+    "root": "ሰፍሐ",
+    "suffix": "እ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በላዕነ",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": "እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በላዕከ",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": "እከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በላዕኩ",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": "እኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በላዕኪ",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": "እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በላዕክሙ",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": "እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በልዐ",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በልዐት",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በልዑ",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በአዕይንተ",
+    "prefix": "በአዕ",
+    "root": "ዐይን",
+    "suffix": "ተ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በአዕይንት",
+    "prefix": "በአዕ",
+    "root": "ዐይን",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ትመጽእ",
+    "prefix": "ት",
+    "root": "መጽአ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኃይሉሂ",
+    "prefix": null,
+    "root": "ኃይል",
+    "suffix": "ኡሂ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኃይል",
+    "prefix": null,
+    "root": "ኃይል",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኃይልነ",
+    "prefix": null,
+    "root": "ኃይል",
+    "suffix": "ነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኃይልከ",
+    "prefix": null,
+    "root": "ኃይል",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኃይልኪ",
+    "prefix": null,
+    "root": "ኃይል",
+    "suffix": "ኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኃይልክሙ",
+    "prefix": null,
+    "root": "ኃይል",
+    "suffix": "ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኃይልክን",
+    "prefix": null,
+    "root": "ኃይል",
+    "suffix": "ክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኃይልየ",
+    "prefix": null,
+    "root": "ኃይል",
+    "suffix": "የ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኃይሎሙ",
+    "prefix": null,
+    "root": "ኃይል",
+    "suffix": "ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኃይሎን",
+    "prefix": null,
+    "root": "ኃይል",
+    "suffix": "ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፀረት",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፀርነ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፀርከ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፀርኩ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፀርኪ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፀርክሙ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፀርክን",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፂረነ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፂረከ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፂረኪ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፂረክሙ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፂረክን",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፂሩ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፂራ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፂርየ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "የ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፂሮሙ",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ነፂሮን",
+    "prefix": null,
+    "root": "ነጸረ",
+    "suffix": "ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ንኡሰ",
+    "prefix": null,
+    "root": "ንኡስ",
+    "suffix": "አ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ንኡሳን",
+    "prefix": null,
+    "root": "ንኡስ",
+    "suffix": "ኣን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ንኡስ",
+    "prefix": null,
+    "root": "ንኡስ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ንኡስክሙ",
+    "prefix": null,
+    "root": "ንኡስ",
+    "suffix": "ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "አዕይንተ",
+    "prefix": "አዕ",
+    "root": "ዐይን",
+    "suffix": "ተ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "አዕይንቱ",
+    "prefix": "አዕ",
+    "root": "ዐይን",
+    "suffix": "ቱ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢመጻእከ",
+    "prefix": "ኢ",
+    "root": "መጽአ",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢመጽአ",
+    "prefix": "ኢ",
+    "root": "መጽአ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢመጽአት",
+    "prefix": "ኢ",
+    "root": "መጽአ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢሰፋሕነ",
+    "prefix": "ኢ",
+    "root": "ሰፍሐ",
+    "suffix": "እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢሰፋሕከ",
+    "prefix": "ኢ",
+    "root": "ሰፍሐ",
+    "suffix": "እከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢሰፋሕኩ",
+    "prefix": "ኢ",
+    "root": "ሰፍሐ",
+    "suffix": "እኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢሰፋሕኪ",
+    "prefix": "ኢ",
+    "root": "ሰፍሐ",
+    "suffix": "እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢሰፍሐ",
+    "prefix": "ኢ",
+    "root": "ሰፍሐ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢሰፍሐት",
+    "prefix": "ኢ",
+    "root": "ሰፍሐ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢሰፍሕክን",
+    "prefix": "ኢ",
+    "root": "ሰፍሐ",
+    "suffix": "እክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢስፋሐ",
+    "prefix": "ኢ",
+    "root": "ሰፍሐ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምሰማይ",
+    "prefix": null,
+    "root": "ሰማይ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወለንኡሳትሂ",
+    "prefix": "ወለ",
+    "root": "ንኡስ",
+    "suffix": "ኣትሂ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወለንኡሳትሰ",
+    "prefix": "ወለ",
+    "root": "ንኡስ",
+    "suffix": "ኣትሰ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወለንኡሳን",
+    "prefix": "ወለ",
+    "root": "ንኡስ",
+    "suffix": "ኣን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወመጻአከ",
+    "prefix": "ወ",
+    "root": "መጽአ",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወመጽአ",
+    "prefix": "ወ",
+    "root": "መጽአ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወመጽአት",
+    "prefix": "ወ",
+    "root": "መጽአ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሰፋሕኪ",
+    "prefix": "ወ",
+    "root": "ሰፍሐ",
+    "suffix": "ኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሰፋሕክሙ",
+    "prefix": "ወ",
+    "root": "ሰፍሐ",
+    "suffix": "እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሰፍሐ",
+    "prefix": "ወ",
+    "root": "ሰፍሐ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሰፍሐት",
+    "prefix": "ወ",
+    "root": "ሰፍሐ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሰፍሐነ",
+    "prefix": "ወ",
+    "root": "ሰፍሐ",
+    "suffix": "ነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሰፍሑ",
+    "prefix": "ወ",
+    "root": "ሰፍሐ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበላዕከ",
+    "prefix": "ወ",
+    "root": "በልዐ",
+    "suffix": "እከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበላዕኩ",
+    "prefix": "ወ",
+    "root": "በልዐ",
+    "suffix": "እኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበላዕኪ",
+    "prefix": "ወ",
+    "root": "በልዐ",
+    "suffix": "እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበላዕክሙ",
+    "prefix": "ወ",
+    "root": "በልዐ",
+    "suffix": "እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበልዐ",
+    "prefix": "ወ",
+    "root": "በልዐ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበልዐት",
+    "prefix": "ወ",
+    "root": "በልዐ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበልዑ",
+    "prefix": "ወ",
+    "root": "በልዐ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበማዕጾነ",
+    "prefix": "ወበ",
+    "root": "ማዕጾ",
+    "suffix": "ነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበማዕጾየ",
+    "prefix": "ወበ",
+    "root": "ማዕጾ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፀረ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፀረት",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፀርነ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፀርከ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፀርኩ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፀርኪ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፀርክሙ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፀርክን",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "እክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂረነ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂረከ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂረኪ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂረክሙ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂረክን",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂሩ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂራ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂርነ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂርየ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "እየ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂሮሙ",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወነፂሮን",
+    "prefix": "ወ",
+    "root": "ነጸረ",
+    "suffix": "ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወንኡሰ",
+    "prefix": "ወ",
+    "root": "ንኡስ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወንኡሳን",
+    "prefix": "ወ",
+    "root": "ንኡስ",
+    "suffix": "ኣን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወአዕይንተ",
+    "prefix": "ወአዕ",
+    "root": "ዐይን",
+    "suffix": "ተ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወአዕይንቱ",
+    "prefix": "ወአዕ",
+    "root": "ዐይን",
+    "suffix": "ቱ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወአዕይንት",
+    "prefix": "ወአዕ",
+    "root": "ዐይን",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወኢይትዐጸዉ",
+    "prefix": "ወኢይ",
+    "root": "ዐጸወ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወኢይትዐጸዋ",
+    "prefix": "ወኢይ",
+    "root": "ዐጸወ",
+    "suffix": "ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወኢይትዐጾ",
+    "prefix": "ወኢይ",
+    "root": "ዐጸወ",
+    "suffix": "ኦ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዐይንኪ",
+    "prefix": "ወ",
+    "root": "ዐይን",
+    "suffix": "ኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዐጸወት",
+    "prefix": "ወ",
+    "root": "ዐጸወ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዐጸዉ",
+    "prefix": "ወ",
+    "root": "ዐጸወ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዐጸዋ",
+    "prefix": "ወ",
+    "root": "ዐጸወ",
+    "suffix": "ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዐጸውነ",
+    "prefix": "ወ",
+    "root": "ዐጸወ",
+    "suffix": "እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዐጸውከ",
+    "prefix": "ወ",
+    "root": "ዐጸወ",
+    "suffix": "እከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዐጸውኩ",
+    "prefix": "ወ",
+    "root": "ዐጸወ",
+    "suffix": "ኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዐጸውኪ",
+    "prefix": "ወ",
+    "root": "ዐጸወ",
+    "suffix": "እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዘሐነጸት",
+    "prefix": "ወዘ",
+    "root": "ሐነጸ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዘማዕጾሁ",
+    "prefix": "ወዘ",
+    "root": "ማዕጾ",
+    "suffix": "ኦሁ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዘማዕጾሆሙ",
+    "prefix": "ወዘ",
+    "root": "ማዕጾ",
+    "suffix": "ሆሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዘማዕጾክሙ",
+    "prefix": "ወዘ",
+    "root": "ማዕጾ",
+    "suffix": "ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዘንኡስ",
+    "prefix": "ወዘ",
+    "root": "ንኡስ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዐጸወት",
+    "prefix": null,
+    "root": "ዐጸወ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዐጸዉ",
+    "prefix": null,
+    "root": "ዐጸወ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዐጸዋ",
+    "prefix": null,
+    "root": "ዐጸወ",
+    "suffix": "ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዐጸውነ",
+    "prefix": null,
+    "root": "ዐጸወ",
+    "suffix": "እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዐጸውከ",
+    "prefix": null,
+    "root": "ዐጸወ",
+    "suffix": "እከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዐጸውኩ",
+    "prefix": null,
+    "root": "ዐጸወ",
+    "suffix": "ኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዐጸውኪ",
+    "prefix": null,
+    "root": "ዐጸወ",
+    "suffix": "እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘመጻአከ",
+    "prefix": "ዘ",
+    "root": "መጽአ",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘመጽአ",
+    "prefix": "ዘ",
+    "root": "መጽአ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘመጽአት",
+    "prefix": "ዘ",
+    "root": "መጽአ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘማዕጾሁ",
+    "prefix": "ዘ",
+    "root": "ማዕጾ",
+    "suffix": "ኦሁ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘማዕጾሆሙ",
+    "prefix": "ዘ",
+    "root": "ማዕጾ",
+    "suffix": "ሆሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘማዕጾክሙ",
+    "prefix": "ዘ",
+    "root": "ማዕጾ",
+    "suffix": "ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘሰማያዊ",
+    "prefix": "ዘ",
+    "root": "ሰማይ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበላዕነ",
+    "prefix": "ዘ",
+    "root": "በልዐ",
+    "suffix": "እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበላዕከ",
+    "prefix": "ዘ",
+    "root": "በልዐ",
+    "suffix": "እከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበላዕኩ",
+    "prefix": "ዘ",
+    "root": "በልዐ",
+    "suffix": "እኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበላዕኪ",
+    "prefix": "ዘ",
+    "root": "በልዐ",
+    "suffix": "እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበላዕክሙ",
+    "prefix": "ዘ",
+    "root": "በልዐ",
+    "suffix": "እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበልዐ",
+    "prefix": "ዘ",
+    "root": "በልዐ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበልዐት",
+    "prefix": "ዘ",
+    "root": "በልዐ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበልዑ",
+    "prefix": "ዘ",
+    "root": "በልዐ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘባሰማያት",
+    "prefix": null,
+    "root": "ሰማይ",
+    "suffix": "ኣት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘኢይመጽእ",
+    "prefix": "ዘኢይ",
+    "root": "መጽአ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘዐይን",
+    "prefix": "ዘ",
+    "root": "ዐይን",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘዐጸወት",
+    "prefix": "ዘ",
+    "root": "ዐጸወ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘዐጸዉ",
+    "prefix": "ዘ",
+    "root": "ዐጸወ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘዐጸዋ",
+    "prefix": "ዘ",
+    "root": "ዐጸወ",
+    "suffix": "ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘዐጸውነ",
+    "prefix": "ዘ",
+    "root": "ዐጸወ",
+    "suffix": "እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘዐጸውከ",
+    "prefix": "ዘ",
+    "root": "ዐጸወ",
+    "suffix": "እከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘዐጸውኪ",
+    "prefix": "ዘ",
+    "root": "ዐጸወ",
+    "suffix": "እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "manual_morphemes.json",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምንእስነ",
+    "prefix": null,
+    "root": "እም",
+    "suffix": "ንእሰ+እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምንእስየ",
+    "prefix": null,
+    "root": "እም",
+    "suffix": "ንእሰ+እየ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምንእስክሙ",
+    "prefix": null,
+    "root": "እም",
+    "suffix": "ንእሰ+እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምንእስክን",
+    "prefix": null,
+    "root": "እም",
+    "suffix": "ንእሰ+እክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምንእሶሙ",
+    "prefix": null,
+    "root": "እም",
+    "suffix": "ንእሰ+ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምንእሶን",
+    "prefix": null,
+    "root": "እም",
+    "suffix": "ንእሰ+ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወእምንእስከ",
+    "prefix": null,
+    "root": "ወእ",
+    "suffix": "ንእሰ+እከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወእምንእስኪ",
+    "prefix": null,
+    "root": "ወእ",
+    "suffix": "ንእሰ+እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወእምንእስነ",
+    "prefix": null,
+    "root": "ወእ",
+    "suffix": "ንእሰ+እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወእምንእስየ",
+    "prefix": null,
+    "root": "ወእ",
+    "suffix": "ንእሰ+እየ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወእምንእስክሙ",
+    "prefix": null,
+    "root": "ወእ",
+    "suffix": "ንእሰ+እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐዘን",
+    "prefix": null,
+    "root": "ሐዘን",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐዘኖሙ",
+    "prefix": null,
+    "root": "ሐዘን",
+    "suffix": "ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐዘኖን",
+    "prefix": null,
+    "root": "ሐዘን",
+    "suffix": "ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐዘንከ",
+    "prefix": null,
+    "root": "ሐዘን",
+    "suffix": "ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐዘንኪ",
+    "prefix": null,
+    "root": "ሐዘን",
+    "suffix": "እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እሳት",
+    "prefix": null,
+    "root": "እሳት",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበእሳት",
+    "prefix": null,
+    "root": "ወበ",
+    "suffix": "እሳት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘእሳት",
+    "prefix": null,
+    "root": "ዘ",
+    "suffix": "እሳት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በእሳት",
+    "prefix": null,
+    "root": "በእሳት",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እሳትኒ",
+    "prefix": null,
+    "root": "እሳት",
+    "suffix": "ኒ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበእሳት",
+    "prefix": null,
+    "root": "ዘበ",
+    "suffix": "እሳት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ለእሳት",
+    "prefix": null,
+    "root": "ለ",
+    "suffix": "እሳት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በእሳተ",
+    "prefix": null,
+    "root": "በ",
+    "suffix": "እሳት+አ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበእሳታ",
+    "prefix": null,
+    "root": "ዘበ",
+    "suffix": "እሳት+ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወእሳቱ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "እሳት+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዐጸወ",
+    "prefix": null,
+    "root": "ዐጸወ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወዐጸወ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ዐጸወ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘዐጸወ",
+    "prefix": null,
+    "root": "ዘዐጸወ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በላዕክን",
+    "prefix": null,
+    "root": "በል",
+    "suffix": "ኣ+ዐ+እክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበላዕክን",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "በል+ኣ+ዐ+እክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበላዕክን",
+    "prefix": null,
+    "root": "ዘ",
+    "suffix": "በል+ኣ+ዐ+እክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በልዕዎ",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": "እዎ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበልዕዎ",
+    "prefix": null,
+    "root": "ወበልዐ",
+    "suffix": "እዎ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበልዕዎ",
+    "prefix": null,
+    "root": "ዘበልዐ",
+    "suffix": "እዎ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በልዖ",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": "ኦ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበልዖ",
+    "prefix": null,
+    "root": "ወበልዐ",
+    "suffix": "ኦ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበልዖ",
+    "prefix": null,
+    "root": "ዘ",
+    "suffix": "በልዐ+ኦ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በልዐቶ",
+    "prefix": null,
+    "root": "በልዐ",
+    "suffix": "ቶ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበልዐቶ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "በልዐ+ቶ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘበልዐቶ",
+    "prefix": null,
+    "root": "ዘ",
+    "suffix": "በልዐ+ቶ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወበላዕነ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "በል+ኣ+ዐ+እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፍሐት",
+    "prefix": null,
+    "root": "ሰፍሐ",
+    "suffix": "ት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፍሐክሙ",
+    "prefix": null,
+    "root": "ሰፍሐ",
+    "suffix": "ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢሰፋሕክሙ",
+    "prefix": null,
+    "root": "ኢ",
+    "suffix": "ሰፍሐ+ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፍሐክን",
+    "prefix": null,
+    "root": "ሰፍሐ",
+    "suffix": "ክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፋሕነ",
+    "prefix": null,
+    "root": "ሰፍ",
+    "suffix": "ኣ+ሐ+እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፋሕኩ",
+    "prefix": null,
+    "root": "ሰፍ",
+    "suffix": "ኣ+ሐ+እኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፋሕከ",
+    "prefix": null,
+    "root": "ሰፍ",
+    "suffix": "ኣ+ሐ+እከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፋሕኪ",
+    "prefix": null,
+    "root": "ሰፍ",
+    "suffix": "ኣ+ሐ+እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፊሖሙ",
+    "prefix": null,
+    "root": "ሰፍ",
+    "suffix": "ኢ+ሐ+ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፊሖን",
+    "prefix": null,
+    "root": "ሰፍ",
+    "suffix": "ኢ+ሐ+ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፊሖ",
+    "prefix": null,
+    "root": "ሰፍ",
+    "suffix": "ኢ+ሐ+ኦ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰፊሓ",
+    "prefix": null,
+    "root": "ሰፍ",
+    "suffix": "ኢ+ሐ+ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ስፍሒ",
+    "prefix": null,
+    "root": "ሰ",
+    "suffix": "እ+ፍሐ+ኢ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐዘንነ",
+    "prefix": null,
+    "root": "ሐዘን",
+    "suffix": "ነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐዘና",
+    "prefix": null,
+    "root": "ሐዘን",
+    "suffix": "ና",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐዘኑ",
+    "prefix": null,
+    "root": "ሐዘን",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐዘንክሙ",
+    "prefix": null,
+    "root": "ሐዘን",
+    "suffix": "ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐዘንክን",
+    "prefix": null,
+    "root": "ሐዘን",
+    "suffix": "ነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዘኖሙ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘን+ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዘኖን",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘን+ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዘንከ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘን+ከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዘንኪ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘን+ኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዘንነ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘን+ነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዘና",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘን+ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዘኑ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘን+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዘንክሙ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘን+ክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዘንክን",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘን+ክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምሐዘን",
+    "prefix": null,
+    "root": "እም",
+    "suffix": "ሐዘን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ለሐዘን",
+    "prefix": null,
+    "root": "ለ",
+    "suffix": "ሐዘን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወየሐዝን",
+    "prefix": null,
+    "root": "ወየ",
+    "suffix": "ሐዘ+አ+ን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወየሐዝኑ",
+    "prefix": null,
+    "root": "ወየ",
+    "suffix": "ሐዘ+እ+ን+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወየሐዝና",
+    "prefix": null,
+    "root": "ወየ",
+    "suffix": "ሐዘ+እ+ን+ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወየሐዝነከ",
+    "prefix": null,
+    "root": "ወየ",
+    "suffix": "ሐዘ+እ+ን+አከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወየሐዝነኪ",
+    "prefix": null,
+    "root": "ወየ",
+    "suffix": "ሐዘ+እ+ን+አኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወየሐዝነክሙ",
+    "prefix": null,
+    "root": "ወየ",
+    "suffix": "ሐዘ+እ+ን+አክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወየሐዝነክን",
+    "prefix": null,
+    "root": "ወየ",
+    "suffix": "ሐዘ+እ+ን+አክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወየሐዝኖሙ",
+    "prefix": null,
+    "root": "ወየ",
+    "suffix": "ሐዘ+እ+ን+ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወተሐዝን",
+    "prefix": null,
+    "root": "ወተ",
+    "suffix": "ሐዘ+እ+ን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዘነ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘን+አ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወሐዚነከ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "ሐዘ+ኢ+ን+አከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከመ",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከማየ",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": "ኣየ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከማከ",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": "ኣከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከማኪ",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": "ኣኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከማነ",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": "ኣነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከማሁ",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": "ኣሁ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከማሃ",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": "ኣሃ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከማክሙ",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": "ኣክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከማክን",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": "ኣክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከማሆሙ",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": "ኣሆሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ከማሆን",
+    "prefix": null,
+    "root": "ከመ",
+    "suffix": "ኣሆን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምሰማይኑ",
+    "prefix": null,
+    "root": "እም",
+    "suffix": "ሰማይ+ኑ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰማይኒ",
+    "prefix": null,
+    "root": "ሰማይ",
+    "suffix": "ኒ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በሰማይ",
+    "prefix": null,
+    "root": "በ",
+    "suffix": "ሰማይ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በሰማይኒ",
+    "prefix": null,
+    "root": "በ",
+    "suffix": "ሰማይ+ኒ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ለሰማያዊ",
+    "prefix": null,
+    "root": "ለ",
+    "suffix": "ሰማይ+ኣዊ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "በሰማያት",
+    "prefix": null,
+    "root": "በ",
+    "suffix": "ሰማይ+ኣት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰማያት",
+    "prefix": null,
+    "root": "ሰማይ",
+    "suffix": "ኣት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰማያትሰ",
+    "prefix": null,
+    "root": "ሰማይ",
+    "suffix": "ኣትሰ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወለዘበሰማያት",
+    "prefix": null,
+    "root": "ወለዘበ",
+    "suffix": "ሰማይ+ኣት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምሰማያት",
+    "prefix": null,
+    "root": "እም",
+    "suffix": "ሰማይ+ኣት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘእምሰማያት",
+    "prefix": null,
+    "root": "ዘእም",
+    "suffix": "ሰማይ+ኣት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሰማያትኒ",
+    "prefix": null,
+    "root": "ሰማይ",
+    "suffix": "ኣትኒ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ውእቱ",
+    "prefix": null,
+    "root": "ውእቱ",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ውእቶሙ",
+    "prefix": null,
+    "root": "ውእቱ",
+    "suffix": "ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ውእቶን",
+    "prefix": null,
+    "root": "ውእቱ",
+    "suffix": "ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ውእቱኬ",
+    "prefix": null,
+    "root": "ውእቱ",
+    "suffix": "ኬ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እምጻእ",
+    "prefix": null,
+    "root": "እ",
+    "suffix": "መ+እ+ጽ+ኣ+እ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢይመጽእ",
+    "prefix": null,
+    "root": "ኢይ",
+    "suffix": "መጽእ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘእመጽእ",
+    "prefix": null,
+    "root": "ዘእ",
+    "suffix": "መጽእ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጽኡ",
+    "prefix": null,
+    "root": "መጽአ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወመጽኡ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "መጽአ+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘመጽኡ",
+    "prefix": null,
+    "root": "ዘመጽአ",
+    "suffix": "ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ይመጽኡ",
+    "prefix": null,
+    "root": "ይ",
+    "suffix": "መጽአ+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘይመጽኡ",
+    "prefix": null,
+    "root": "ዘይ",
+    "suffix": "መጽአ+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጺኦሙ",
+    "prefix": null,
+    "root": "መጽ",
+    "suffix": "ኢ+አ+ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወመጺኦሙ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "መጽ+ኢ+አ+ኦሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢመጽኡ",
+    "prefix": null,
+    "root": "ኢ",
+    "suffix": "መጽአ+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወኢመጽኡ",
+    "prefix": null,
+    "root": "ወኢ",
+    "suffix": "መጽአ+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጺኦን",
+    "prefix": null,
+    "root": "መጽ",
+    "suffix": "ኢ+አ+ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወመጺኦን",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "መጽ+ኢ+አ+ኦን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢመጽኣ",
+    "prefix": null,
+    "root": "ኢ",
+    "suffix": "መጽአ+ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወኢመጽኣ",
+    "prefix": null,
+    "root": "ወኢ",
+    "suffix": "መጽአ+ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢመጻእኩ",
+    "prefix": null,
+    "root": "ኢ",
+    "suffix": "መጽ+ኣ+አ+እኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጻእኩ",
+    "prefix": null,
+    "root": "መጽ",
+    "suffix": "ኣ+አ+እኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ይመጽእ",
+    "prefix": null,
+    "root": "ይ",
+    "suffix": "መጽአ+እ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወይመጽእ",
+    "prefix": null,
+    "root": "ወይ",
+    "suffix": "መጽአ+እ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "እመጽእ",
+    "prefix": null,
+    "root": "እ",
+    "suffix": "መጽአ+እ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወእመጽእ",
+    "prefix": null,
+    "root": "ወይ",
+    "suffix": "መጽአ+እ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ትመጽኢ",
+    "prefix": null,
+    "root": "ት",
+    "suffix": "መጽአ+ኢ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘትመጽኢ",
+    "prefix": null,
+    "root": "ዘት",
+    "suffix": "መጽአ+ኢ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ትመጽኡ",
+    "prefix": null,
+    "root": "ት",
+    "suffix": "መጽአ+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ለዘትመጽኡ",
+    "prefix": null,
+    "root": "ለዘት",
+    "suffix": "መጽአ+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጻእኪ",
+    "prefix": null,
+    "root": "መጽ",
+    "suffix": "ኣ+አ+እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጻእክሙ",
+    "prefix": null,
+    "root": "መጽ",
+    "suffix": "ኣ+አ+እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወመጻእክሙ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "መጽ+ኣ+አ+እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘመጻእክሙ",
+    "prefix": null,
+    "root": "ዘ",
+    "suffix": "መጽ+ኣ+አ+እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጻእክን",
+    "prefix": null,
+    "root": "መጽ",
+    "suffix": "ኣ+አ+እክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወመጻእክን",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "መጽ+ኣ+አ+እክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘመጻእክን",
+    "prefix": null,
+    "root": "ዘ=መጽ",
+    "suffix": "ኣ+አ+እክን",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ትምጻእ",
+    "prefix": null,
+    "root": "ት",
+    "suffix": "መ+እ+ጽ+ኣ+አ+እ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "መጻእነ",
+    "prefix": null,
+    "root": "መጽ",
+    "suffix": "ኣ+አ+እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወመጻእነ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "መጽ+ኣ+አ+እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘመጻእነ",
+    "prefix": null,
+    "root": "ዘ",
+    "suffix": "መጽ+ኣ+አ+እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኢንመጽእ",
+    "prefix": null,
+    "root": "ኢን",
+    "suffix": "መጽአ+እ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወመጻእኩ",
+    "prefix": null,
+    "root": "ወ",
+    "suffix": "መጽ+ኣ+አ+እኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ዘመጻእኩ",
+    "prefix": null,
+    "root": "ዘ",
+    "suffix": "መጽ+ኣ+አ+እኩ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "አብርሃ",
+    "prefix": null,
+    "root": "አ",
+    "suffix": "በ+እርሀ+ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "አብርሃት",
+    "prefix": null,
+    "root": "አ",
+    "suffix": "በ+እርሀ+ኣት",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኣብራህከ",
+    "prefix": null,
+    "root": "አ",
+    "suffix": "በ+እርሀ+እከ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "አብራህኪ",
+    "prefix": null,
+    "root": "አ",
+    "suffix": "በ+እርሀ+እኪ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ኣብራህክሙ",
+    "prefix": null,
+    "root": "አ",
+    "suffix": "በ+እርሀ+እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "አብራህነ",
+    "prefix": null,
+    "root": "አ",
+    "suffix": "በ+እርሀ+እነ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ያበርህ",
+    "prefix": null,
+    "root": "ያ",
+    "suffix": "በርሀ+እ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ያበርሁ",
+    "prefix": null,
+    "root": "ያ",
+    "suffix": "በርሀ+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ያበርሃ",
+    "prefix": null,
+    "root": "ያ",
+    "suffix": "በርሀ+ኣ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ታበርህ",
+    "prefix": null,
+    "root": "ታ",
+    "suffix": "በርሀ+እ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ታበርሁ",
+    "prefix": null,
+    "root": "ታ",
+    "suffix": "በርሀ+ኡ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ብርሃኖ",
+    "prefix": null,
+    "root": "ብርሃን",
+    "suffix": "ኦ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ብርሃን",
+    "prefix": null,
+    "root": "ብርሃን",
+    "suffix": null,
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ወአብራህክሙ",
+    "prefix": null,
+    "root": "ወአ",
+    "suffix": "በ+እርሀ+እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ሐነጽክሙ",
+    "prefix": null,
+    "root": "ሐነጸ",
+    "suffix": "እክሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ስብሕዎ",
+    "prefix": null,
+    "root": "ሰብሐ",
+    "suffix": "እዎ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  },
+  {
+    "word": "ይሴብሕዎሙ",
+    "prefix": null,
+    "root": "ይ",
+    "suffix": "ሰ+ኤብሐ+እዎሙ",
+    "infix": null,
+    "clitic": null,
+    "source_file": "user_provided_segmented.tsv",
+    "source_kind": "manual annotation (no HornMorpho post-editing layer exists for Ge'ez)"
+  }
+]

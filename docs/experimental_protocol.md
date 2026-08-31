@@ -23,9 +23,9 @@ by chrF++?
 
 ## Tokenizer policy
 
-All three tokenizers are pre-trained, external, read-only artifacts (see
-`tokenizers/*/README.md` for exact source paths on this host). This
-repository:
+All three tokenizers are pre-trained, external, read-only artifacts for the
+MT pipeline's purposes (see `Tokenizers/*/README.md` for exact source paths
+on this host). This repository:
 
 - never retrains, resizes, truncates, or merges any tokenizer vocabulary;
 - never changes normalization or special tokens;
@@ -40,7 +40,7 @@ repository:
   63051 (HF export; native 63050) because it **reuses** the Tigrinya-trained
   MoVoC-Tok tokenizer -- no Amharic-trained 63k MoVoC-Tok exists. This is a
   deliberate, user-approved decision, recorded loudly in
-  `tokenizers/movoc_tok/README.md`, `configs/en_am.yaml`, and the tokenizer
+  `Tokenizers/movoc_tok/README.md`, `configs/en_am.yaml`, and the tokenizer
   manifest (`"cross_lingual_reuse": true`). Expect elevated fertility/UNK
   rate for this condition; `scripts/verify_tokenizers.py` measures and
   prints this but does not block the pipeline.

@@ -1,0 +1,130 @@
+{
+  "amh": {
+    "mode": "in_language",
+    "n_gold_words_filtered": 80617,
+    "movoc_tok": {
+      "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_32k_amharic",
+      "vocab_size": 32001,
+      "n_gold_words": 80617,
+      "n_words_evaluated": 74713,
+      "n_excluded_unsegmented": 5904,
+      "total_predicted_boundaries": 141376,
+      "total_matched_boundaries": 45342,
+      "precision": 0.3207,
+      "precision_pct": 32.1,
+      "renyi_entropy_alpha2": 0.6379,
+      "unique_tokens_used": 17345,
+      "total_tokens_emitted": 222073
+    },
+    "bpe": {
+      "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/bpe_32k",
+      "vocab_size": 32000,
+      "n_gold_words": 80617,
+      "n_words_evaluated": 76720,
+      "n_excluded_unsegmented": 3897,
+      "total_predicted_boundaries": 145771,
+      "total_matched_boundaries": 46272,
+      "precision": 0.3174,
+      "precision_pct": 31.7,
+      "renyi_entropy_alpha2": 0.6698,
+      "unique_tokens_used": 14525,
+      "total_tokens_emitted": 226525
+    }
+  },
+  "tir": {
+    "mode": "in_language",
+    "n_gold_words_filtered": 2807,
+    "movoc_tok": {
+      "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_32k_tigrinya",
+      "vocab_size": 32001,
+      "n_gold_words": 2807,
+      "n_words_evaluated": 2041,
+      "n_excluded_unsegmented": 766,
+      "total_predicted_boundaries": 3524,
+      "total_matched_boundaries": 848,
+      "precision": 0.2406,
+      "precision_pct": 24.1,
+      "renyi_entropy_alpha2": 0.7897,
+      "unique_tokens_used": 2767,
+      "total_tokens_emitted": 6332
+    },
+    "bpe": {
+      "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/bpe_32k",
+      "vocab_size": 32000,
+      "n_gold_words": 2807,
+      "n_words_evaluated": 2138,
+      "n_excluded_unsegmented": 669,
+      "total_predicted_boundaries": 3508,
+      "total_matched_boundaries": 856,
+      "precision": 0.244,
+      "precision_pct": 24.4,
+      "renyi_entropy_alpha2": 0.8024,
+      "unique_tokens_used": 2802,
+      "total_tokens_emitted": 6316
+    }
+  },
+  "gez": {
+    "mode": "cross_lingual",
+    "n_gold_words_filtered": 327,
+    "movoc_tok": {
+      "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_32k_tigrinya",
+      "vocab_size": 32001,
+      "n_gold_words": 327,
+      "n_words_evaluated": 318,
+      "n_excluded_unsegmented": 9,
+      "total_predicted_boundaries": 672,
+      "total_matched_boundaries": 248,
+      "precision": 0.369,
+      "precision_pct": 36.9,
+      "renyi_entropy_alpha2": 0.8255,
+      "unique_tokens_used": 222,
+      "total_tokens_emitted": 999
+    },
+    "bpe": {
+      "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/bpe_32k",
+      "vocab_size": 32000,
+      "n_gold_words": 327,
+      "n_words_evaluated": 320,
+      "n_excluded_unsegmented": 7,
+      "total_predicted_boundaries": 694,
+      "total_matched_boundaries": 266,
+      "precision": 0.3833,
+      "precision_pct": 38.3,
+      "renyi_entropy_alpha2": 0.7991,
+      "unique_tokens_used": 218,
+      "total_tokens_emitted": 1021
+    }
+  },
+  "tig": {
+    "mode": "cross_lingual",
+    "n_gold_words_filtered": 1974,
+    "movoc_tok": {
+      "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_32k_tigrinya",
+      "vocab_size": 32001,
+      "n_gold_words": 1974,
+      "n_words_evaluated": 1102,
+      "n_excluded_unsegmented": 872,
+      "total_predicted_boundaries": 1128,
+      "total_matched_boundaries": 635,
+      "precision": 0.5629,
+      "precision_pct": 56.3,
+      "renyi_entropy_alpha2": 0.7766,
+      "unique_tokens_used": 1587,
+      "total_tokens_emitted": 3102
+    },
+    "bpe": {
+      "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/bpe_32k",
+      "vocab_size": 32000,
+      "n_gold_words": 1974,
+      "n_words_evaluated": 1098,
+      "n_excluded_unsegmented": 876,
+      "total_predicted_boundaries": 1119,
+      "total_matched_boundaries": 602,
+      "precision": 0.538,
+      "precision_pct": 53.8,
+      "renyi_entropy_alpha2": 0.7882,
+      "unique_tokens_used": 1580,
+      "total_tokens_emitted": 3137
+    }
+  }
+}

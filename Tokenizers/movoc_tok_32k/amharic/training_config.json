@@ -1,0 +1,20 @@
+{
+  "language": "Amharic",
+  "objective": "max_V sum_i log P(BPE(w_i; V, M_i)) s.t. no s_j crosses M_i",
+  "corpus": "/homes/neumann/teklehaymanot/TigrinyaTokenizer/MPETokenization/Paralleldata/NLLB.am-en.am",
+  "corpus_lines_read": 400000,
+  "corpus_word_types": 158504,
+  "min_frequency": 2,
+  "morpheme_source": "/homes/neumann/teklehaymanot/amseg/data/segmented/amharic_morpheme_segmented.json",
+  "morpheme_records": 10293,
+  "words_with_morpheme_boundaries": 4439,
+  "words_projection_failed": 3655,
+  "single_morpheme_words": 2172,
+  "corpus_words_constrained": 3372,
+  "alphabet_size": 1041,
+  "merge_operations": 30955,
+  "rejected_boundary_crossing_merges": 335638,
+  "final_vocab_size": 32000,
+  "training_seconds": 757.6,
+  "shared_vocab": false
+}

@@ -20,13 +20,17 @@ results/**/*.png
 !results/en_ti/.gitkeep
 !results/en_am/.gitkeep
 
-# Tokenizer weight files must NEVER live in this repo (pointer docs only)
-tokenizers/bpe/*.json
-tokenizers/bpe/*.spm
-tokenizers/wordpiece/*.json
-tokenizers/movoc_tok/*.json
-tokenizers/movoc_tok/*.spm
-!tokenizers/**/README.md
+# MT-pipeline tokenizer weight files must NEVER live in this repo (pointer
+# docs only) -- these three are read read-only from amseg/ by absolute path
+# (see configs/*.yaml). This does NOT apply to Tokenizers/movoc_tok_32k/,
+# which is a deliberately self-contained local copy of the canonical
+# constrained-BPE MoVoC-Tok checkpoints (Table 2/Table 4/reproduction use).
+Tokenizers/bpe/*.json
+Tokenizers/bpe/*.spm
+Tokenizers/wordpiece/*.json
+Tokenizers/movoc_tok/*.json
+Tokenizers/movoc_tok/*.spm
+!Tokenizers/**/README.md
 
 # Python
 __pycache__/

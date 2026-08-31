@@ -1,14 +1,93 @@
-# marianmt-tokenizer-comparison
+# MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages
 
-A controlled scientific comparison of three **already-trained** tokenizers — BPE,
-WordPiece, and MoVoC-Tok — under a shared MarianMT architecture, for two
-translation directions: English→Tigrinya (en_ti) and English→Amharic (en_am).
+Official companion and reproducibility repository for:
 
-This repository is **independent**: it does not import from, depend on, or
-modify `amseg`, `MoVoC`, or any thesis/publication repository. It reads three
-tokenizer artifacts from those repositories as **read-only, absolute-path
-external inputs** (see `tokenizers/*/README.md` for the exact source paths).
-No tokenizer files are copied or committed here.
+**Hailay Kidu Teklehaymanot, Dren Fazlija, and Wolfgang Nejdl. 2025.**
+*MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages.*
+Findings of the Association for Computational Linguistics: EMNLP 2025, pp. 13131–13144.
+
+Paper: https://aclanthology.org/2025.findings-emnlp.706/
+
+PDF: https://aclanthology.org/2025.findings-emnlp.706.pdf
+
+## Repository Overview
+
+This repository contains the implementation, tokenizer assets,
+vocabulary-construction resources, intrinsic evaluation artifacts,
+extrinsic machine translation experiments, and reproducibility materials
+associated with the MoVoC paper. It serves as the primary reference
+implementation and companion repository for the published work.
+
+MoVoC (Morpheme Vocabulary Construction) builds a morphology-aware subword
+vocabulary for Ethio-Semitic languages (Amharic, Tigrinya, Tigre, Ge'ez) by
+combining supervised morphological analysis with constrained-BPE merge
+learning (MoVoC-Tok), whose merges may not cross a morpheme boundary.
+Intrinsic evaluation (Table 2, Table 4) measures MoVoC-Tok's subword-boundary
+alignment against gold morpheme annotations; extrinsic evaluation (Table 3)
+measures downstream MarianMT translation quality under BPE, WordPiece, and
+MoVoC-Tok tokenization for English→Tigrinya and English→Amharic.
+
+The remainder of this document is repository-level organizational and
+reproducibility information, not a quotation from the paper.
+
+## Repository Structure
+
+- `Intrinsic_Evaluation/`
+  - Table 2 (MorphScore)
+  - Table 4 (Boundary Precision and Rényi Entropy)
+  - intrinsic evaluation datasets, scripts, and reports
+
+- `Extrinsic_Evaluation/`
+  - MarianMT training and evaluation experiments
+  - model configurations and results
+  - symlinks into this repository's existing `experiments/`, `data/`,
+    `scripts/`, `slurm/`, `src/`, `configs/`, `results/`, `tests/`, kept at
+    their original paths since an actively running SLURM pipeline writes
+    there
+
+- `Tokenizers/`
+  - canonical constrained-BPE MoVoC-Tok tokenizers (`movoc_tok_32k/`)
+  - HuggingFace exports
+  - `bpe/`, `wordpiece/`, `movoc_tok/` are pointer docs only: the MT
+    pipeline's tokenizers, loaded read-only from `amseg/`, never copied
+    locally
+
+- `Vocabulary_Construction/`
+  - MoVoC vocabulary-construction assets
+  - constrained-BPE training implementation (Algorithm 3.3)
+  - verification and export utilities
+
+- `Paper_Artifacts/`
+  - paper-related outputs and supporting materials: the three final tables
+    (Table 2, Table 3, Table 4) and `docs/`
+
+- `docs/`
+  - experimental protocol, SLURM protocol, results writeup
+    (`Extrinsic_Evaluation`/Table 3 specific)
+
+Where a component above is a **symlink**, the real files live at the target
+path shown; this keeps the running MT pipeline's hardcoded relative paths
+(`experiments/...`, `data/...`) working unchanged while giving the
+repository the structure above.
+
+This repository does not import from, modify, or write to `amseg`, `MoVoC`,
+or any other repository; everything under those paths is read read-only.
+`Tokenizers/movoc_tok_32k/` is a deliberate, self-contained local copy of
+the canonical constrained-BPE MoVoC-Tok checkpoints (verified
+byte-identical to their `amseg/` originals — see
+`Tokenizers/movoc_tok_32k/docs/verification_report.md`), kept here so
+Table 2, Table 4, and future reproduction do not depend on `amseg/`
+remaining available.
+
+## Citation
+
+If you use this repository, please cite:
+
+```
+Teklehaymanot, H. K., Fazlija, D., & Nejdl, W. (2025).
+MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages.
+Findings of the Association for Computational Linguistics: EMNLP 2025, pp. 13131–13144.
+```
 
 ## Scientific question
 
@@ -63,19 +142,21 @@ set is touched exactly once, after selection, for the selected tokenizer only.
    32000; MoVoC-Tok (reused) has native vocab 63050/63051. This is
    documented in `configs/en_am.yaml` and the tokenizer manifest, not hidden.
 
-## Repository layout
+## Extrinsic_Evaluation/ (Table 3) internals
 
 ```
 configs/                   base.yaml + per-language-pair configs
 data/                      manifests only committed; raw/processed data is gitignored
-tokenizers/                pointer READMEs to external, read-only tokenizer artifacts
 src/marianmt_comparison/   library code (config, data, tokenization, model, training, evaluation, selection, reproducibility)
 scripts/                   CLI entry points run by SLURM (verify, prepare, train, evaluate, aggregate, select)
 slurm/                     sbatch scripts, chained via afterok
 experiments/               per-run working dirs (empty at commit time; .gitkeep only)
 results/                   generated CSV/JSON/final report (not pre-filled)
-docs/                      experimental protocol, SLURM protocol, results writeup
 ```
+
+All paths above are reachable both directly (repo root) and via
+`Extrinsic_Evaluation/<name>` (symlink) -- SLURM jobs run from and write to
+the repo-root paths.
 
 ## Running the pipeline
 

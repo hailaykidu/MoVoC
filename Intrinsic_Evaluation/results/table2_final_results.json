@@ -1,0 +1,62 @@
+{
+  "amh": {
+    "language": "Amharic",
+    "iso": "amh",
+    "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_32k_amharic",
+    "vocab_size": 32001,
+    "mode": "in_domain",
+    "n_words_consolidated": 150181,
+    "n_words_dropped_not_exact_concat": 116817,
+    "n_words_exact_filtered": 33364,
+    "n_words_excluded_tokenizer_reconstruction_mismatch": 42,
+    "n_words_unsegmented_gold_scored_1": 18206,
+    "n_words_segmented_gold_boundary_matched": 15116,
+    "n_words_contributing_to_morphscore": 33322,
+    "morphscore": 0.6745
+  },
+  "tir": {
+    "language": "Tigrinya",
+    "iso": "tir",
+    "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_32k_tigrinya",
+    "vocab_size": 32001,
+    "mode": "in_domain",
+    "n_words_consolidated": 7700,
+    "n_words_dropped_not_exact_concat": 483,
+    "n_words_exact_filtered": 7217,
+    "n_words_excluded_tokenizer_reconstruction_mismatch": 9,
+    "n_words_unsegmented_gold_scored_1": 4855,
+    "n_words_segmented_gold_boundary_matched": 2353,
+    "n_words_contributing_to_morphscore": 7208,
+    "morphscore": 0.7531
+  },
+  "gez": {
+    "language": "Ge'ez",
+    "iso": "gez",
+    "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_32k_tigrinya",
+    "vocab_size": 32001,
+    "mode": "cross_lingual",
+    "n_words_consolidated": 345,
+    "n_words_dropped_not_exact_concat": 268,
+    "n_words_exact_filtered": 77,
+    "n_words_excluded_tokenizer_reconstruction_mismatch": 0,
+    "n_words_unsegmented_gold_scored_1": 13,
+    "n_words_segmented_gold_boundary_matched": 64,
+    "n_words_contributing_to_morphscore": 77,
+    "morphscore": 0.7338
+  },
+  "tig": {
+    "language": "Tigre",
+    "iso": "tig",
+    "tokenizer_path": "/homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_32k_tigrinya",
+    "vocab_size": 32001,
+    "mode": "cross_lingual",
+    "n_words_consolidated": 5713,
+    "n_words_dropped_not_exact_concat": 47,
+    "n_words_exact_filtered": 5666,
+    "n_words_excluded_tokenizer_reconstruction_mismatch": 0,
+    "n_words_unsegmented_gold_scored_1": 3739,
+    "n_words_segmented_gold_boundary_matched": 1927,
+    "n_words_contributing_to_morphscore": 5666,
+    "morphscore": 0.7583
+  }
+}
