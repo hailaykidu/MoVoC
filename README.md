@@ -10,6 +10,38 @@ Paper: https://aclanthology.org/2025.findings-emnlp.706/
 
 PDF: https://aclanthology.org/2025.findings-emnlp.706.pdf
 
+## Overview
+
+Many subword tokenization approaches such as BPE and WordPiece ignore
+morphological structure and may split words in ways that conflict with
+linguistic boundaries. This problem is particularly pronounced for
+morphologically rich, low-resource languages written in the Ge'ez script.
+
+MoVoC (Morpheme Vocabulary Construction) introduces a morphology-aware
+approach to vocabulary construction that integrates supervised morphological
+knowledge into constrained-BPE training. The resulting tokenizer, MoVoC-Tok,
+prevents merge operations from crossing known morpheme boundaries while
+retaining the efficiency of statistical subword tokenization.
+
+The paper investigates four Ethio-Semitic languages:
+
+- Amharic
+- Tigrinya
+- Tigre
+- Ge'ez
+
+and evaluates the approach through both intrinsic segmentation quality
+measures and downstream MarianMT machine translation experiments.
+
+## Main Contributions
+
+- Introduction of the MoVoC vocabulary-construction framework.
+- Development of the constrained-BPE MoVoC-Tok tokenizer.
+- Release of morpheme-annotated evaluation resources.
+- Intrinsic evaluation using MorphScore, Boundary Precision, and Rényi
+  Entropy.
+- Extrinsic evaluation through MarianMT translation experiments.
+
 ## Repository Overview
 
 This repository contains the implementation, tokenizer assets,
@@ -18,10 +50,6 @@ extrinsic machine translation experiments, and reproducibility materials
 associated with the MoVoC paper. It serves as the primary reference
 implementation and companion repository for the published work.
 
-MoVoC (Morpheme Vocabulary Construction) builds a morphology-aware subword
-vocabulary for Ethio-Semitic languages (Amharic, Tigrinya, Tigre, Ge'ez) by
-combining supervised morphological analysis with constrained-BPE merge
-learning (MoVoC-Tok), whose merges may not cross a morpheme boundary.
 Intrinsic evaluation (Table 2, Table 4) measures MoVoC-Tok's subword-boundary
 alignment against gold morpheme annotations; extrinsic evaluation (Table 3)
 measures downstream MarianMT translation quality under BPE, WordPiece, and
