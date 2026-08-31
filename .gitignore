@@ -48,6 +48,7 @@ env/
 
 # SLURM logs
 slurm/logs/
+Extrinsic_Evaluation/slurm/logs/
 *.out
 *.err
 

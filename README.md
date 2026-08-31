@@ -38,12 +38,11 @@ reproducibility information, not a quotation from the paper.
   - intrinsic evaluation datasets, scripts, and reports
 
 - `Extrinsic_Evaluation/`
-  - MarianMT training and evaluation experiments
-  - model configurations and results
-  - symlinks into this repository's existing `experiments/`, `data/`,
-    `scripts/`, `slurm/`, `src/`, `configs/`, `results/`, `tests/`, kept at
-    their original paths since an actively running SLURM pipeline writes
-    there
+  - MarianMT fine-tuning and evaluation experiments: `configs/`, `scripts/`,
+    `slurm/`, `src/`, `tests/` (source code and job definitions)
+  - `experiments/`, `data/`, `results/` are symlinks to this repository's
+    existing top-level directories of the same name, kept at their
+    original paths since an actively running SLURM pipeline writes there
 
 - `Tokenizers/`
   - canonical constrained-BPE MoVoC-Tok tokenizers (`movoc_tok_32k/`)
@@ -65,10 +64,16 @@ reproducibility information, not a quotation from the paper.
   - experimental protocol, SLURM protocol, results writeup
     (`Extrinsic_Evaluation`/Table 3 specific)
 
-Where a component above is a **symlink**, the real files live at the target
-path shown; this keeps the running MT pipeline's hardcoded relative paths
-(`experiments/...`, `data/...`) working unchanged while giving the
-repository the structure above.
+Where a component above is a **symlink** (`Extrinsic_Evaluation/experiments`,
+`Extrinsic_Evaluation/data`, `Extrinsic_Evaluation/results`, and everything
+under `Vocabulary_Construction/` and `Paper_Artifacts/`), the real files
+live at the target path shown; this keeps the running MT pipeline's
+hardcoded relative paths (`experiments/...`, `data/...`) working unchanged
+while giving the repository the structure above. The top-level `configs/`,
+`scripts/`, `slurm/`, `src/`, `tests/` directories still exist on disk (the
+running MT pipeline reads and writes them at those exact paths) but are no
+longer tracked at the repository root — their tracked copies live under
+`Extrinsic_Evaluation/`.
 
 This repository does not import from, modify, or write to `amseg`, `MoVoC`,
 or any other repository; everything under those paths is read read-only.
@@ -101,7 +106,7 @@ set is touched exactly once, after selection, for the selected tokenizer only.
 
 ## Design summary
 
-- 2 language pairs × 3 tokenizers × 3 seeds = **18 full training runs**.
+- 2 language pairs × 3 tokenizers × 3 seeds = **18 full fine-tuning runs**.
 - Fixed learning rate **1.44e-7** for every run (see "Known caveats" below —
   this is an explicit, recorded experimental choice, not a default).
 - Tokenizers are loaded strictly read-only; never retrained, resized, or
