@@ -1,0 +1,56 @@
+# English → Amharic configuration.
+#
+# IMPORTANT — vocabulary size is not uniform across the three tokenizer
+# conditions in this language pair. This is intentional:
+#
+# bpe        → vocab_size 32000   (Amharic-trained)
+# wordpiece  → vocab_size 32000   (Amharic-trained)
+# movoc_tok  → vocab_size 63051   (shared MoVoC-Tok vocabulary)
+#
+# The 63,051-entry MoVoC-Tok vocabulary is constructed from the combined
+# MoVoC vocabulary/resources for Amharic and Tigrinya. The same shared
+# MoVoC-Tok artifact is therefore used for both English→Amharic and
+# English→Tigrinya experiments.
+#
+# The native MoVoC-Tok vocabulary contains 63,050 entries; the Hugging Face
+# export contains 63,051 entries.
+#
+# Because MoVoC-Tok uses a shared multilingual Ge'ez-script vocabulary,
+# its vocabulary size is intentionally larger than the 32k language-specific
+# BPE and WordPiece baselines. Tokenization statistics such as fertility
+# and UNK rate are evaluated empirically rather than assumed.
+
+language_pair: en_am
+source_lang: en
+target_lang: am
+
+# See en_ti.yaml comment on how/when this is resolved.
+base_model_identifier: Helsinki-NLP/opus-mt-en-am
+
+opus:
+  corpus: NLLB
+  # Confirmed HTTP 200 at spec-authoring time. Note the source/target order
+  # in the OPUS object key is "am-en", not "en-am" -- this is a naming
+  # asymmetry in the OPUS object store, not an error; prepare_opus_data.py
+  # handles this explicitly and documents which moses file is source vs
+  # target.
+  url: https://object.pouta.csc.fi/OPUS-NLLB/v1/moses/am-en.txt.zip
+  moses_source_suffix: en
+  moses_target_suffix: am
+
+tokenizers:
+  bpe:
+    path: /homes/neumann/teklehaymanot/amseg/tokenizers/hf/bpe_32k
+    vocab_size: 32000
+  wordpiece:
+    path: /homes/neumann/teklehaymanot/amseg/tokenizers/hf/wordpiece_32k
+    vocab_size: 32000
+  movoc_tok:
+    path: /homes/neumann/teklehaymanot/amseg/tokenizers/hf/movoc_tok_63050_tigrinya
+    vocab_size: 63051  # HF export size; native 63050. Trained from MoVoC vocabulary.
+    cross_lingual_reuse: true
+    warning: "MoVoC-Tok is trained from the MoVoC morphological vocabulary, a shared multilingual Ge'ez-script resource combining Amharic and Tigrinya morphological annotations. The same 63,051-entry vocabulary is used for both EN→AM and EN→TI. Empirical evaluation shows higher fertility/UNK rate on Amharic due to the morpheme-aware design of the shared vocabulary."
+
+reference_tokenizer:
+  path: /homes/neumann/teklehaymanot/amseg/tokenizers/hf/marian_original
+  vocab_size: 63050

@@ -1,0 +1,430 @@
+{
+  "combinations": [
+    {
+      "language_pair": "en_ti",
+      "tokenizer": "bpe",
+      "model_resolution": {
+        "requested_identifier": "Helsinki-NLP/opus-mt-en-ti",
+        "status": "found",
+        "resolved_revision": "72f1e40b4b60ff4863407f90792b4fac517562ec",
+        "used_from_scratch_config": false,
+        "message": "Resolved 'Helsinki-NLP/opus-mt-en-ti' on the HuggingFace Hub (sha=72f1e40b4b60ff4863407f90792b4fac517562ec)."
+      },
+      "status": "PASS",
+      "error": null,
+      "embedding_adaptation_report": {
+        "tokenizer_vocab_size": 63051,
+        "base_model_original_vocab_size": 63050,
+        "resize_performed": true,
+        "tie_word_embeddings": true,
+        "special_token_id_mapping": {
+          "pad_token_id": 0,
+          "unk_token_id": 1,
+          "bos_token_id": 2,
+          "eos_token_id": 3
+        },
+        "init_strategy": "mean_resizing=True (transformers built-in): new rows [63050:63051] sampled from a multivariate normal matching the mean and covariance of the existing checkpoint's embedding rows [0:63050], which are left byte-for-byte unchanged",
+        "generation_config_mapping": {
+          "pad_token_id": 0,
+          "eos_token_id": 3,
+          "decoder_start_token_id": 2,
+          "forced_eos_token_id": 3,
+          "bad_words_ids": null
+        },
+        "checks": [
+          {
+            "check": "tie_word_embeddings_read",
+            "passed": true,
+            "detail": "model.config.tie_word_embeddings=True"
+          },
+          {
+            "check": "input_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=63051 == tokenizer vocab 63051"
+          },
+          {
+            "check": "output_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=63051 == tokenizer vocab 63051"
+          },
+          {
+            "check": "tied_embedding_shape_match",
+            "passed": true,
+            "detail": "output shape (63051, 512) vs input shape (63051, 512); shared storage=True"
+          },
+          {
+            "check": "embedding_init",
+            "passed": true,
+            "detail": "added 1 new rows via mean_resizing; existing rows [0:63050] preserved from the pretrained checkpoint"
+          },
+          {
+            "check": "special_token_id_range_and_collision",
+            "passed": true,
+            "detail": "ids={'pad_token_id': 0, 'unk_token_id': 1, 'bos_token_id': 2, 'eos_token_id': 3}, vocab_size=63051"
+          },
+          {
+            "check": "generation_config_synchronized",
+            "passed": true,
+            "detail": "model.generation_config.{pad_token_id,eos_token_id,decoder_start_token_id} rebuilt from the tokenizer/model.config (pad=0, eos=3, decoder_start=2); stale bad_words_ids from the original checkpoint cleared"
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    {
+      "language_pair": "en_ti",
+      "tokenizer": "wordpiece",
+      "model_resolution": {
+        "requested_identifier": "Helsinki-NLP/opus-mt-en-ti",
+        "status": "found",
+        "resolved_revision": "72f1e40b4b60ff4863407f90792b4fac517562ec",
+        "used_from_scratch_config": false,
+        "message": "Resolved 'Helsinki-NLP/opus-mt-en-ti' on the HuggingFace Hub (sha=72f1e40b4b60ff4863407f90792b4fac517562ec)."
+      },
+      "status": "PASS",
+      "error": null,
+      "embedding_adaptation_report": {
+        "tokenizer_vocab_size": 63051,
+        "base_model_original_vocab_size": 63050,
+        "resize_performed": true,
+        "tie_word_embeddings": true,
+        "special_token_id_mapping": {
+          "pad_token_id": 0,
+          "unk_token_id": 1,
+          "bos_token_id": 2,
+          "eos_token_id": 3
+        },
+        "init_strategy": "mean_resizing=True (transformers built-in): new rows [63050:63051] sampled from a multivariate normal matching the mean and covariance of the existing checkpoint's embedding rows [0:63050], which are left byte-for-byte unchanged",
+        "generation_config_mapping": {
+          "pad_token_id": 0,
+          "eos_token_id": 3,
+          "decoder_start_token_id": 2,
+          "forced_eos_token_id": 3,
+          "bad_words_ids": null
+        },
+        "checks": [
+          {
+            "check": "tie_word_embeddings_read",
+            "passed": true,
+            "detail": "model.config.tie_word_embeddings=True"
+          },
+          {
+            "check": "input_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=63051 == tokenizer vocab 63051"
+          },
+          {
+            "check": "output_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=63051 == tokenizer vocab 63051"
+          },
+          {
+            "check": "tied_embedding_shape_match",
+            "passed": true,
+            "detail": "output shape (63051, 512) vs input shape (63051, 512); shared storage=True"
+          },
+          {
+            "check": "embedding_init",
+            "passed": true,
+            "detail": "added 1 new rows via mean_resizing; existing rows [0:63050] preserved from the pretrained checkpoint"
+          },
+          {
+            "check": "special_token_id_range_and_collision",
+            "passed": true,
+            "detail": "ids={'pad_token_id': 0, 'unk_token_id': 1, 'bos_token_id': 2, 'eos_token_id': 3}, vocab_size=63051"
+          },
+          {
+            "check": "generation_config_synchronized",
+            "passed": true,
+            "detail": "model.generation_config.{pad_token_id,eos_token_id,decoder_start_token_id} rebuilt from the tokenizer/model.config (pad=0, eos=3, decoder_start=2); stale bad_words_ids from the original checkpoint cleared"
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    {
+      "language_pair": "en_ti",
+      "tokenizer": "movoc_tok",
+      "model_resolution": {
+        "requested_identifier": "Helsinki-NLP/opus-mt-en-ti",
+        "status": "found",
+        "resolved_revision": "72f1e40b4b60ff4863407f90792b4fac517562ec",
+        "used_from_scratch_config": false,
+        "message": "Resolved 'Helsinki-NLP/opus-mt-en-ti' on the HuggingFace Hub (sha=72f1e40b4b60ff4863407f90792b4fac517562ec)."
+      },
+      "status": "PASS",
+      "error": null,
+      "embedding_adaptation_report": {
+        "tokenizer_vocab_size": 63051,
+        "base_model_original_vocab_size": 63050,
+        "resize_performed": true,
+        "tie_word_embeddings": true,
+        "special_token_id_mapping": {
+          "pad_token_id": 0,
+          "unk_token_id": 1,
+          "bos_token_id": 2,
+          "eos_token_id": 3
+        },
+        "init_strategy": "mean_resizing=True (transformers built-in): new rows [63050:63051] sampled from a multivariate normal matching the mean and covariance of the existing checkpoint's embedding rows [0:63050], which are left byte-for-byte unchanged",
+        "generation_config_mapping": {
+          "pad_token_id": 0,
+          "eos_token_id": 3,
+          "decoder_start_token_id": 2,
+          "forced_eos_token_id": 3,
+          "bad_words_ids": null
+        },
+        "checks": [
+          {
+            "check": "tie_word_embeddings_read",
+            "passed": true,
+            "detail": "model.config.tie_word_embeddings=True"
+          },
+          {
+            "check": "input_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=63051 == tokenizer vocab 63051"
+          },
+          {
+            "check": "output_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=63051 == tokenizer vocab 63051"
+          },
+          {
+            "check": "tied_embedding_shape_match",
+            "passed": true,
+            "detail": "output shape (63051, 512) vs input shape (63051, 512); shared storage=True"
+          },
+          {
+            "check": "embedding_init",
+            "passed": true,
+            "detail": "added 1 new rows via mean_resizing; existing rows [0:63050] preserved from the pretrained checkpoint"
+          },
+          {
+            "check": "special_token_id_range_and_collision",
+            "passed": true,
+            "detail": "ids={'pad_token_id': 0, 'unk_token_id': 1, 'bos_token_id': 2, 'eos_token_id': 3}, vocab_size=63051"
+          },
+          {
+            "check": "generation_config_synchronized",
+            "passed": true,
+            "detail": "model.generation_config.{pad_token_id,eos_token_id,decoder_start_token_id} rebuilt from the tokenizer/model.config (pad=0, eos=3, decoder_start=2); stale bad_words_ids from the original checkpoint cleared"
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    {
+      "language_pair": "en_am",
+      "tokenizer": "bpe",
+      "model_resolution": {
+        "requested_identifier": "Helsinki-NLP/opus-mt-en-am",
+        "status": "not_found",
+        "resolved_revision": null,
+        "used_from_scratch_config": true,
+        "message": "'Helsinki-NLP/opus-mt-en-am' not found on the HuggingFace Hub (404 Client Error. (Request ID: Root=1-6a87f950-040a28a93690cc3568a94784;6aacd340-7176-4173-9a3b-2ae9e0ed1e98)\n\nRepository Not Found for url: https://huggingface.co/api/models/Helsinki-NLP/opus-mt-en-am.\nPlease make sure you specified the correct `repo_id` and `repo_type`.\nIf you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication); falling back to from-scratch MarianConfig."
+      },
+      "status": "PASS",
+      "error": null,
+      "embedding_adaptation_report": {
+        "tokenizer_vocab_size": 32000,
+        "base_model_original_vocab_size": 32000,
+        "resize_performed": true,
+        "tie_word_embeddings": true,
+        "special_token_id_mapping": {
+          "pad_token_id": 0,
+          "unk_token_id": 1,
+          "bos_token_id": 2,
+          "eos_token_id": 3
+        },
+        "init_strategy": "from_scratch MarianMTModel init applied to ALL rows (no pretrained checkpoint)",
+        "generation_config_mapping": {
+          "pad_token_id": 0,
+          "eos_token_id": 3,
+          "decoder_start_token_id": 2,
+          "forced_eos_token_id": 3,
+          "bad_words_ids": null
+        },
+        "checks": [
+          {
+            "check": "tie_word_embeddings_read",
+            "passed": true,
+            "detail": "model.config.tie_word_embeddings=True"
+          },
+          {
+            "check": "input_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=32000 == tokenizer vocab 32000"
+          },
+          {
+            "check": "output_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=32000 == tokenizer vocab 32000"
+          },
+          {
+            "check": "tied_embedding_shape_match",
+            "passed": true,
+            "detail": "output shape (32000, 512) vs input shape (32000, 512); shared storage=True"
+          },
+          {
+            "check": "embedding_init",
+            "passed": true,
+            "detail": "from_scratch MarianMTModel init applied to ALL rows (no pretrained checkpoint)"
+          },
+          {
+            "check": "special_token_id_range_and_collision",
+            "passed": true,
+            "detail": "ids={'pad_token_id': 0, 'unk_token_id': 1, 'bos_token_id': 2, 'eos_token_id': 3}, vocab_size=32000"
+          },
+          {
+            "check": "generation_config_synchronized",
+            "passed": true,
+            "detail": "model.generation_config.{pad_token_id,eos_token_id,decoder_start_token_id} rebuilt from the tokenizer/model.config (pad=0, eos=3, decoder_start=2); stale bad_words_ids from the original checkpoint cleared"
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    {
+      "language_pair": "en_am",
+      "tokenizer": "wordpiece",
+      "model_resolution": {
+        "requested_identifier": "Helsinki-NLP/opus-mt-en-am",
+        "status": "not_found",
+        "resolved_revision": null,
+        "used_from_scratch_config": true,
+        "message": "'Helsinki-NLP/opus-mt-en-am' not found on the HuggingFace Hub (404 Client Error. (Request ID: Root=1-6a87f954-467f49c705430c5c3b887219;7abba460-aa7b-4c70-8823-bd7faf128010)\n\nRepository Not Found for url: https://huggingface.co/api/models/Helsinki-NLP/opus-mt-en-am.\nPlease make sure you specified the correct `repo_id` and `repo_type`.\nIf you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication); falling back to from-scratch MarianConfig."
+      },
+      "status": "PASS",
+      "error": null,
+      "embedding_adaptation_report": {
+        "tokenizer_vocab_size": 32000,
+        "base_model_original_vocab_size": 32000,
+        "resize_performed": true,
+        "tie_word_embeddings": true,
+        "special_token_id_mapping": {
+          "pad_token_id": 0,
+          "unk_token_id": 1,
+          "bos_token_id": 2,
+          "eos_token_id": 3
+        },
+        "init_strategy": "from_scratch MarianMTModel init applied to ALL rows (no pretrained checkpoint)",
+        "generation_config_mapping": {
+          "pad_token_id": 0,
+          "eos_token_id": 3,
+          "decoder_start_token_id": 2,
+          "forced_eos_token_id": 3,
+          "bad_words_ids": null
+        },
+        "checks": [
+          {
+            "check": "tie_word_embeddings_read",
+            "passed": true,
+            "detail": "model.config.tie_word_embeddings=True"
+          },
+          {
+            "check": "input_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=32000 == tokenizer vocab 32000"
+          },
+          {
+            "check": "output_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=32000 == tokenizer vocab 32000"
+          },
+          {
+            "check": "tied_embedding_shape_match",
+            "passed": true,
+            "detail": "output shape (32000, 512) vs input shape (32000, 512); shared storage=True"
+          },
+          {
+            "check": "embedding_init",
+            "passed": true,
+            "detail": "from_scratch MarianMTModel init applied to ALL rows (no pretrained checkpoint)"
+          },
+          {
+            "check": "special_token_id_range_and_collision",
+            "passed": true,
+            "detail": "ids={'pad_token_id': 0, 'unk_token_id': 1, 'bos_token_id': 2, 'eos_token_id': 3}, vocab_size=32000"
+          },
+          {
+            "check": "generation_config_synchronized",
+            "passed": true,
+            "detail": "model.generation_config.{pad_token_id,eos_token_id,decoder_start_token_id} rebuilt from the tokenizer/model.config (pad=0, eos=3, decoder_start=2); stale bad_words_ids from the original checkpoint cleared"
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    {
+      "language_pair": "en_am",
+      "tokenizer": "movoc_tok",
+      "model_resolution": {
+        "requested_identifier": "Helsinki-NLP/opus-mt-en-am",
+        "status": "not_found",
+        "resolved_revision": null,
+        "used_from_scratch_config": true,
+        "message": "'Helsinki-NLP/opus-mt-en-am' not found on the HuggingFace Hub (404 Client Error. (Request ID: Root=1-6a87f957-1a9c5e853913dedc245c356d;8b5b21c9-ca40-4c33-9625-645152301365)\n\nRepository Not Found for url: https://huggingface.co/api/models/Helsinki-NLP/opus-mt-en-am.\nPlease make sure you specified the correct `repo_id` and `repo_type`.\nIf you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication); falling back to from-scratch MarianConfig."
+      },
+      "status": "PASS",
+      "error": null,
+      "embedding_adaptation_report": {
+        "tokenizer_vocab_size": 63051,
+        "base_model_original_vocab_size": 63051,
+        "resize_performed": true,
+        "tie_word_embeddings": true,
+        "special_token_id_mapping": {
+          "pad_token_id": 0,
+          "unk_token_id": 1,
+          "bos_token_id": 2,
+          "eos_token_id": 3
+        },
+        "init_strategy": "from_scratch MarianMTModel init applied to ALL rows (no pretrained checkpoint)",
+        "generation_config_mapping": {
+          "pad_token_id": 0,
+          "eos_token_id": 3,
+          "decoder_start_token_id": 2,
+          "forced_eos_token_id": 3,
+          "bad_words_ids": null
+        },
+        "checks": [
+          {
+            "check": "tie_word_embeddings_read",
+            "passed": true,
+            "detail": "model.config.tie_word_embeddings=True"
+          },
+          {
+            "check": "input_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=63051 == tokenizer vocab 63051"
+          },
+          {
+            "check": "output_embedding_resize",
+            "passed": true,
+            "detail": "shape[0]=63051 == tokenizer vocab 63051"
+          },
+          {
+            "check": "tied_embedding_shape_match",
+            "passed": true,
+            "detail": "output shape (63051, 512) vs input shape (63051, 512); shared storage=True"
+          },
+          {
+            "check": "embedding_init",
+            "passed": true,
+            "detail": "from_scratch MarianMTModel init applied to ALL rows (no pretrained checkpoint)"
+          },
+          {
+            "check": "special_token_id_range_and_collision",
+            "passed": true,
+            "detail": "ids={'pad_token_id': 0, 'unk_token_id': 1, 'bos_token_id': 2, 'eos_token_id': 3}, vocab_size=63051"
+          },
+          {
+            "check": "generation_config_synchronized",
+            "passed": true,
+            "detail": "model.generation_config.{pad_token_id,eos_token_id,decoder_start_token_id} rebuilt from the tokenizer/model.config (pad=0, eos=3, decoder_start=2); stale bad_words_ids from the original checkpoint cleared"
+          }
+        ],
+        "status": "PASS"
+      }
+    }
+  ]
+}

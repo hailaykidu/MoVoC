@@ -1,0 +1,102 @@
+# Shared defaults for all runs. Per-language-pair configs (en_ti.yaml,
+# en_am.yaml) override/extend this. Nothing here may be silently changed
+# by scripts at run time except explicit CLI overrides for the smoke test
+# (small data subset only — never learning rate, seed, or architecture).
+
+seeds: [42, 43, 44]
+
+# RESOLVED (updated): fixed for all 18 runs. The original value (1.44e-7)
+# was validated against a generation integration that had a
+# decoder_start_token_id/bad_words_ids desync bug (see
+# src/marianmt_comparison/model.py); a 2-condition LR pilot (1.44e-7 vs
+# 3e-5, en_ti/bpe/seed_42, corrected integration) showed 1.44e-7 barely
+# leaves its warmup phase and shows minimal learning, while 3e-5 shows a
+# real loss/chrF++/BLEU improvement with healthy gradient norms. Set to
+# 3e-5 per explicit user decision for the corrected 18-run sweep.
+# NOTE: written as 3.0e-5, not 3e-5 -- PyYAML's safe_load only recognizes
+# scientific notation as a float when it contains a decimal point; "3e-5"
+# parses as the STRING "3e-5", which breaks AdamW's `0.0 <= lr` check at
+# train time (TypeError: '<=' not supported between instances of 'float'
+# and 'str'). Confirmed by hand: yaml.safe_load("3e-5") -> str,
+# yaml.safe_load("3.0e-5") -> float. 1.44e-7 above was safe only because it
+# already had a decimal point.
+learning_rate: 3.0e-5
+
+optimizer: adamw_torch
+adam_beta1: 0.9
+adam_beta2: 0.98
+adam_epsilon: 1.0e-9
+weight_decay: 0.0
+
+lr_scheduler: linear
+warmup_steps: 500
+
+batch_size: 16
+gradient_accumulation_steps: 1
+epochs: 10
+max_source_length: 128
+max_target_length: 128
+
+label_smoothing: 0.1
+generation_max_length: 128
+generation_num_beams: 4
+
+logging_steps: 50
+eval_strategy: epoch
+save_strategy: epoch
+save_total_limit: 2
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+greater_is_better: false
+
+# Deterministic data split seed — independent of the 3 training seeds.
+data_split_seed: 1234
+train_fraction: 0.90
+validation_fraction: 0.05
+test_fraction: 0.05
+
+# Preprocessing filters (applied identically before any tokenizer sees data)
+min_line_length_chars: 1
+max_whitespace_tokens: 250
+drop_empty_lines: true
+
+# Evaluation (sacrebleu 2.6.0 API)
+chrf:
+  char_order: 6
+  word_order: 2
+  beta: 2
+  lowercase: false
+  whitespace: false
+bleu:
+  secondary_metric: true
+
+# Smoke test overrides (used only when scripts/train.py --smoke_test is passed)
+smoke_test:
+  language_pair: en_ti
+  tokenizer: bpe
+  seed: 42
+  max_train_examples: 200
+  max_eval_examples: 50
+  epochs: 1
+  batch_size: 4
+
+model:
+  encoder_layers: 6
+  decoder_layers: 6
+  encoder_attention_heads: 8
+  decoder_attention_heads: 8
+  d_model: 512
+  encoder_ffn_dim: 2048
+  decoder_ffn_dim: 2048
+  share_encoder_decoder_embeddings: true
+  tie_word_embeddings: true
+  dropout: 0.1
+  attention_dropout: 0.0
+  activation_function: swish
+
+embedding_init:
+  strategy: normal_matching_existing_std
+  # New/uninitialized rows are drawn from N(0, std) where std is the
+  # empirical std of the base checkpoint's existing embedding matrix (or,
+  # for from-scratch construction, the model config's init_std).
+  fallback_std_if_from_scratch: 0.02

@@ -1,0 +1,44 @@
+{
+  "language_pair": "en_am",
+  "corpus_name": "NLLB",
+  "source_url": "https://object.pouta.csc.fi/OPUS-NLLB/v1/moses/am-en.txt.zip",
+  "retrieval_date": "2026-08-20T17:48:58Z",
+  "raw_example_count": 16137053,
+  "filtered_example_count": 16137053,
+  "deduplicated_example_count": 15058008,
+  "duplicate_source_examples_dropped": 1079045,
+  "split_sizes": {
+    "train": 13552207,
+    "validation": 752900,
+    "test": 752901
+  },
+  "preprocessing_steps": [
+    "whitespace strip of each line",
+    "drop_empty_lines=True",
+    "min_line_length_chars=1",
+    "max_whitespace_tokens=250 (drop lines with more whitespace-split tokens than this, either side)",
+    "source-side exact-duplicate removal (first occurrence kept; prevents the same source sentence appearing in both train and test after splitting -- OPUS NLLB is web-mined and contains a non-trivial fraction of duplicate lines)"
+  ],
+  "split_procedure": {
+    "method": "deterministic shuffle + contiguous partition",
+    "data_split_seed": 1234,
+    "train_fraction": 0.9,
+    "validation_fraction": 0.05,
+    "test_fraction": 0.05,
+    "note": "This seed is independent of the 3 training seeds (42,43,44) and is fixed once for all tokenizer conditions."
+  },
+  "checksums_sha256": {
+    "train": {
+      "src_sha256": "f9e798fd9c3e8503ca98273377251b010eb7d16e107139b326c0704fc741a5cf",
+      "tgt_sha256": "9d9f89ed549598a67528b96933b8ef4fff332d4c420635abd01282d77d440408"
+    },
+    "validation": {
+      "src_sha256": "032288ff95f72e852b24bc06ebbac762c62187ed0dbbd6baa943f9362be0838e",
+      "tgt_sha256": "536ffb1fa2d7ddaa07ea59be62531280b76fce5e2ba48db2c193b6f91a73b1df"
+    },
+    "test": {
+      "src_sha256": "48565686dc313e5f03398a7462eaacdc1602854f3fb5aa8fbd3d56ea98bf6fc9",
+      "tgt_sha256": "5febd61d03d7b19abd4f95733ae8d6861a75a8d43fbacd46643430fc34ca70f0"
+    }
+  }
+}
