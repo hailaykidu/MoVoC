@@ -58,6 +58,17 @@ MoVoC-Tok tokenization for English→Tigrinya and English→Amharic.
 The remainder of this document is repository-level organizational and
 reproducibility information, not a quotation from the paper.
 
+## Experiment Status
+
+**⚠️ Ongoing work:** The 18 MarianMT fine-tuning runs (2 language pairs × 3 tokenizers × 3 seeds) are
+in progress. Current status as of 2026-09-01:
+- **EN→AM BPE seed 42:** FAILED (fixed; needs rerun)
+- **EN→AM MoVoC-Tok seed 44:** INCOMPLETE (reached checkpoint-10000; needs full-length training)
+- **All other runs:** Not yet started or status unknown
+
+See **[`docs/experiment_status.md`](docs/experiment_status.md)** for detailed status, root causes,
+action items, and instructions for resuming runs.
+
 ## Repository Structure
 
 - `Intrinsic_Evaluation/`
