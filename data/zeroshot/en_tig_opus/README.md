@@ -31,4 +31,6 @@ This is a **copy**. The script-facing original is
 ## Usage
 
 Evaluation only. No Tigre text enters MT training, tokenizer training, or
-vocabulary construction.
+vocabulary construction. The Table 3 MarianMT models are fine-tuned on the
+OPUS NLLB English–Amharic / English–Tigrinya corpus only (Costa-Jussà et al.,
+2022); Tigre is a zero-shot direction.

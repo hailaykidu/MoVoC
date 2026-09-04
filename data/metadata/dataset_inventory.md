@@ -7,12 +7,29 @@ the repository.
 
 ## Fine-tuning (extrinsic MT, Table 3)
 
-| Dataset | Purpose | Source | Language pair | Split sizes | Paper section |
-|---|---|---|---|---|---|
-| — | English→Amharic / English→Tigrinya MarianMT fine-tuning corpora | not released with this repository (see paper §4.1) | en→am, en→ti | not applicable | §4.3, Table 3 |
+The MarianMT models scored in Table 3 are fine-tuned on the **OPUS NLLB**
+parallel corpus (No Language Left Behind; Costa-Jussà et al., 2022).
 
-The V2 reconstruction's MT training pairs come from outside this repository;
-provenance is in `v2/table3/PROVENANCE.md`.
+This corpus is too large to commit — 16.1 M pairs (~2.6 GB) for en→am, 1.4 M
+pairs (~220 MB) for en→ti, and individual files exceed GitHub's 100 MB
+per-file limit. `data/finetuning/en_am/` and `data/finetuning/en_ti/` therefore
+hold a **manifest** rather than the bitext; the manifest is the reproducible
+substitute.
+
+| Language pair | Corpus | Corpus files | Available pairs | Manifest | Released here? | Paper section |
+|---|---|---|---:|---|---|---|
+| English → Amharic (en→am) | **OPUS NLLB** (Costa-Jussà et al., 2022) | `NLLB.am-en.en` / `NLLB.am-en.am` | 16,137,053 | `data/finetuning/en_am/manifest.json` | No — 2.6 GB CC-BY-SA bitext; manifest carries SHA256 + OPUS URL | §4.3, Table 3 |
+| English → Tigrinya (en→ti) | **OPUS NLLB** (Costa-Jussà et al., 2022) | `NLLB.en-ti.en` / `NLLB.en-ti.ti` | 1,398,173 | `data/finetuning/en_ti/manifest.json` | No — 220 MB CC-BY-SA bitext; manifest carries SHA256 + OPUS URL | §4.3, Table 3 |
+
+`data/finetuning/en_am/manifest.json` and `data/finetuning/en_ti/manifest.json`
+record the corpus name, exact source-file names, byte size, line count and
+SHA256 of each, the OPUS download URL, and the 800k/100k/100k
+train/valid/test sample sizes the V2 reconstruction used
+(`v2/table3/PROVENANCE.md`, `v2/table3/table3_multiseed.json`). Corpus identity
+is also in `configs/tokenizer_comparison.yaml`,
+`evaluation/finetune_marianmt.py` and each
+`tokenizers/*/training_config.json`. Ge'ez and Tigre are **not** in the NLLB
+fine-tuning data (paper §4.1) and are evaluated zero-shot.
 
 ## Extrinsic MT test sets (Table 3)
 
