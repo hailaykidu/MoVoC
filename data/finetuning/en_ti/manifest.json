@@ -33,5 +33,11 @@
     "test_pairs": 100000,
     "note": "V2 fine-tuned on an 800k-pair sample; see v2/table3/PROVENANCE.md and v2/table3/table3_multiseed.json"
   },
+  "date_evidence": {
+    "local_copy_matching_this_manifest": "TigrinyaTokenizer/MPETokenization/Paralleldata/Machine_Translation/data/NLLB.en-ti.ti",
+    "local_copy_mtime": "2025-06-24 11:55:42 +0200",
+    "sha256_verified": true,
+    "mtime_caveat": "The sha256 of the local file matches this manifest exactly, so this mtime does belong to the file actually recorded here (unlike the en-am manifest, where the checksummed file and the independently-corroborated dated copy are two different files)."
+  },
   "why_manifest_only": "NLLB.en-ti.ti is 137 MB and NLLB.en-ti.en is 83 MB (~220 MB total, 1,398,173 lines each). NLLB.en-ti.ti alone exceeds GitHub's 100 MB per-file limit, so the bitext cannot be committed to this repository without Git LFS. This manifest -- exact file names, byte size, line count, SHA256 of each file, the OPUS download URL, and the train/valid/test sample sizes -- is the reproducible substitute: download from the OPUS URL and verify against the sha256 values."
 }

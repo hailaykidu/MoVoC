@@ -33,5 +33,11 @@
     "test_pairs": 100000,
     "note": "V2 fine-tuned on an 800k-pair sample; see v2/table3/PROVENANCE.md and v2/table3/table3_multiseed.json"
   },
+  "date_evidence": {
+    "local_copy_matching_this_manifest": "TigrinyaTokenizer/MPETokenization/Paralleldata/NLLB.am-en.am",
+    "local_copy_mtime": "2023-09-04 00:07:43 +0200",
+    "mtime_caveat": "This mtime is preserved from the OPUS server's own file metadata (wget's default timestamping behavior), not necessarily the date the file was fetched onto this filesystem.",
+    "unresolved_duplicate": "A second, differently-sized NLLB.am-en.am (1,624,076,072 bytes, i.e. NOT matching this manifest's sha256) exists at TigrinyaTokenizer/MPETokenization/Paralleldata/Focus/data/NLLB.am-en.am, with mtime 2025-06-20 09:53:35 +0200. That date is independently corroborated: Focus/train_fasttext.sh (mtime 2025-06-20 11:09:24) hardcodes --input pointing at that exact path, and the SLURM job log Focus/logs/fasttext_amharic_108983.out (mtime 2025-06-20 11:10:33) shows a job actually running against it about 77 minutes later. That corroboration applies to the Focus/ copy, which is NOT the file whose checksum is recorded in this manifest -- so which exact download the paper's own Table 3 run actually used cannot be determined from filesystem evidence alone, and is left unresolved here rather than guessed."
+  },
   "why_manifest_only": "NLLB.am-en.am is 1.6 GB and NLLB.am-en.en is 1.0 GB (~2.6 GB total, 16,137,053 lines each). GitHub rejects any file over 100 MB without Git LFS, so the bitext cannot be committed to this repository. This manifest -- exact file names, byte size, line count, SHA256 of each file, the OPUS download URL, and the train/valid/test sample sizes -- is the reproducible substitute: download from the OPUS URL and verify against the sha256 values."
 }
