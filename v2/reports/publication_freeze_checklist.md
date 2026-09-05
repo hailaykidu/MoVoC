@@ -40,7 +40,7 @@ Reconstruction Version 2 — reference repository for the V2 paper.
 |---|---:|---:|
 | Amharic (amh) | 80,000 | 41.3 |
 | Tigrinya (tir) | 5,224 | 41.5 |
-| Ge'ez (gez) | 172 | 88.7 |
+| Ge'ez (gez) | 172 | ~~88.7~~ superseded — current value 65.6, see `v2/table4/table4_final.csv` |
 | Tigre (tig) | 2,149 | 42.9 |
 
 **Table 3 — MarianMT** (FLORES-200 devtest, mean ± std, seeds 42/43/44) — 6
