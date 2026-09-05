@@ -32,6 +32,23 @@ Authoritative; see [`./`](./). This supersedes the previous Section B
 reproduction (24.0/24.3-style values), which is archived in
 [`../archive/table4_reproduction_status_superseded.md`](../archive/table4_reproduction_status_superseded.md) for provenance.
 
+**Provenance chain.** Produced with
+[`scripts/evaluate_intrinsic.py`](../../scripts/evaluate_intrinsic.py) — the
+same migrated AMSEG script that produces Table 2 (see
+[`../table2/MorphScore_report.md`](../table2/MorphScore_report.md)), reading
+the same gold morpheme test sets and tokenizer artifacts, now committed on
+`main`. The script does not write `table4_final.csv` directly: run as
+`python scripts/evaluate_intrinsic.py --outdir evaluation/results`, it writes
+`evaluation/results/intrinsic_tokenizer_evaluation.json` and
+`evaluation/results/intrinsic_tokenizer_table.md` (a local, gitignored output
+directory; not committed). The `boundary_precision`, `renyi_alpha_2`, and
+`morphscore` fields in that JSON, per language and tokenizer, are the exact
+source of the corresponding columns in
+[`table4_final.csv`](table4_final.csv) — verified byte-for-byte identical
+across all 36 values (12 rows × 3 metrics). `table4_final.csv` is the frozen
+table artifact; `evaluate_intrinsic.py` is the executable producer of the
+values it holds.
+
 For all four languages, this evaluation is run against the annotated morpheme
 test set at `evaluation/data/{amharic,tigrinya,tigre,geez}_gold.tsv` — gold
 morpheme segmentations built specifically to assess segmentation quality, not

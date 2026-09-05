@@ -32,6 +32,18 @@ now migrated into this repository along with the evaluation data and
 tokenizer artifacts it needs — re-running it reproduces this table exactly
 (verified byte-for-byte at migration time).
 
+**Provenance chain.** `scripts/evaluate_intrinsic.py` is the migrated AMSEG
+evaluation script; it does not write `table2_final.csv` directly. Run as
+documented in its own docstring —
+`python scripts/evaluate_intrinsic.py --outdir evaluation/results` — it
+writes `evaluation/results/intrinsic_tokenizer_evaluation.json` and
+`evaluation/results/intrinsic_tokenizer_table.md` (a local, gitignored
+output directory; not committed). The `morphscore` field in that JSON, per
+language and tokenizer, is the exact source of the `morphscore` column in
+[`table2_final.csv`](table2_final.csv) — verified byte-for-byte identical
+across all 12 rows. `table2_final.csv` is the frozen table artifact;
+`evaluate_intrinsic.py` is the executable producer of the values it holds.
+
 For all four languages, this is the annotated morpheme test set built
 specifically to assess segmentation quality, not a generic text corpus — the
 same set used for Table 4's boundary precision. This is why MoVoC-Tok tends
