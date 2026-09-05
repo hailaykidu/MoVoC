@@ -30,7 +30,12 @@ This is the script that produced the Table 2 (MorphScore) and Table 4
 (boundary precision, Rényi entropy) authoritative results in v2/table2/ and
 v2/table4/. It was migrated into this repository from a separate project
 (amseg) where those tables were originally generated. Running it end to end
-from a fresh clone of this repository now works out of the box:
+from a fresh clone of this repository now works out of the box, including
+`train_movoc_tok_bpe.py` and `verify_movoc_tok.py` alongside this file in
+`scripts/` -- this module's own `MoVoCTokenizer` class imports
+`MoVoCTokBPE` from `train_movoc_tok_bpe`, which previously existed only
+under `archive/v2/archive/scripts/` and made a fresh clone fail with
+`ModuleNotFoundError` until that path was added manually:
 
 - gold morpheme test sets at ``evaluation/data/{amharic,tigrinya,tigre,geez}_gold.tsv``
   (tab-separated word / morpheme-boundary format; see load_testset() below) --

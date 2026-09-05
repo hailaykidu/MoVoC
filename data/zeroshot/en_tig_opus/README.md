@@ -28,6 +28,10 @@ figure in earlier drafts corresponds to no released file.
 This is a **copy**. The script-facing original is
 `data/evaluation/tigre/test.en` / `data/evaluation/tigre/test.tig`.
 
+## Date evidence
+
+No date is asserted for this set.
+
 ## Usage
 
 Evaluation only. No Tigre text enters MT training, tokenizer training, or
