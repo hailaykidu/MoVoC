@@ -1,0 +1,58 @@
+{
+  "tokenizer_vocab_size": 63051,
+  "base_model_original_vocab_size": 63051,
+  "resize_performed": true,
+  "tie_word_embeddings": true,
+  "special_token_id_mapping": {
+    "pad_token_id": 0,
+    "unk_token_id": 1,
+    "bos_token_id": 2,
+    "eos_token_id": 3
+  },
+  "init_strategy": "from_scratch MarianMTModel init applied to ALL rows (no pretrained checkpoint)",
+  "generation_config_mapping": {
+    "pad_token_id": 0,
+    "eos_token_id": 3,
+    "decoder_start_token_id": 2,
+    "forced_eos_token_id": 3,
+    "bad_words_ids": null
+  },
+  "checks": [
+    {
+      "check": "tie_word_embeddings_read",
+      "passed": true,
+      "detail": "model.config.tie_word_embeddings=True"
+    },
+    {
+      "check": "input_embedding_resize",
+      "passed": true,
+      "detail": "shape[0]=63051 == tokenizer vocab 63051"
+    },
+    {
+      "check": "output_embedding_resize",
+      "passed": true,
+      "detail": "shape[0]=63051 == tokenizer vocab 63051"
+    },
+    {
+      "check": "tied_embedding_shape_match",
+      "passed": true,
+      "detail": "output shape (63051, 512) vs input shape (63051, 512); shared storage=True"
+    },
+    {
+      "check": "embedding_init",
+      "passed": true,
+      "detail": "from_scratch MarianMTModel init applied to ALL rows (no pretrained checkpoint)"
+    },
+    {
+      "check": "special_token_id_range_and_collision",
+      "passed": true,
+      "detail": "ids={'pad_token_id': 0, 'unk_token_id': 1, 'bos_token_id': 2, 'eos_token_id': 3}, vocab_size=63051"
+    },
+    {
+      "check": "generation_config_synchronized",
+      "passed": true,
+      "detail": "model.generation_config.{pad_token_id,eos_token_id,decoder_start_token_id} rebuilt from the tokenizer/model.config (pad=0, eos=3, decoder_start=2); stale bad_words_ids from the original checkpoint cleared"
+    }
+  ],
+  "status": "PASS"
+}
