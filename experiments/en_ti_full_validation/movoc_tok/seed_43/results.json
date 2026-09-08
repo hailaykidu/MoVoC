@@ -1,0 +1,11 @@
+{
+  "language_pair": "en_ti",
+  "variant": "full_validation",
+  "tokenizer": "movoc_tok",
+  "seed": 43,
+  "status": "COMPLETED",
+  "training_loss": 8.046221194647934,
+  "chrfpp": 7.422740361282762,
+  "validation_examples": 136601,
+  "timestamp": "2026-09-07T19:43:53.850602Z"
+}

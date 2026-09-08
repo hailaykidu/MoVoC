@@ -1,0 +1,16 @@
+{
+  "language_pair": "en_am",
+  "tokenizer": "movoc_tok",
+  "seed": 44,
+  "split": "validation",
+  "subset_note": "evaluated on 10000/752900 validation examples",
+  "num_beams": 1,
+  "chrf_plus_plus": 2.3606109835038374,
+  "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0",
+  "bleu": 0.012660795875773494,
+  "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+  "sacrebleu_version": "2.6.0",
+  "num_hypotheses": 10000,
+  "num_references": 10000,
+  "timestamp": "2026-08-31T13:12:31Z"
+}

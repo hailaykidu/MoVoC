@@ -1,0 +1,14 @@
+{
+  "language_pair": "en_ti",
+  "tokenizer": "wordpiece",
+  "seed": 44,
+  "split": "validation",
+  "chrf_plus_plus": 5.322781410873942,
+  "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.6.0",
+  "bleu": 0.07826850776699645,
+  "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+  "sacrebleu_version": "2.6.0",
+  "num_hypotheses": 68300,
+  "num_references": 68300,
+  "timestamp": "2026-08-21T17:42:28Z"
+}
