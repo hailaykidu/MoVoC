@@ -1,12 +1,12 @@
 # TABLE 3: Machine Translation Results with Variance Analysis
 
 **Complete Data Source:**
-- `/homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/experiments/`
+- `./experiments/` (repository root)
   - `en_ti/{bpe,wordpiece,movoc_tok}/seed_{42,43,44}/validation_results.json` ✓ (9/9)
   - `en_am/bpe/seed_43,44/validation_results.json` ✓ — **seed_42 FAILED** (checkpoint-resume error; no `validation_results.json` was ever produced for this run)
   - `en_am/wordpiece/seed_{42,43,44}/validation_results.json` ✓ (3/3)
   - `en_am/movoc_tok/seed_42/validation_results.json` ✓
-  - `en_am/movoc_tok/seed_43/validation_results.json` ✓ (2026-08-30 14:54 UTC)
+  - `en_am/movoc_tok/seed_43/validation_results.json` ✓
   - `en_am/movoc_tok/seed_44/validation_results.json` ✓ but **INCOMPLETE checkpoint** — see note below; excluded from mean/CV
 
 ---
@@ -57,7 +57,7 @@
 - Evaluated from `checkpoint-10000` — only 10,000 of the intended 8,470,130 training steps (~0.12% of a full run), vs. seeds 42/43 which trained to full completion (step 8,470,130).
 - Evaluated on only 10,000 of the 752,900 validation examples (seeds 42/43 used the full validation split).
 - Used greedy decoding (`num_beams=1`) rather than the beam search (`num_beams=4`) used for every other cell in this table.
-- Two training attempts for this run (SLURM jobs 66832 and 66902) were each manually cancelled before reaching completion, due to the ~102-hour GPU-time requirement for a full 10-epoch pass over EN→AM's 13.5M-example training set (see Context section below). No full-length run has yet completed for this cell.
+- Two training attempts for this run were each manually cancelled before reaching completion, due to the ~102-hour GPU-time requirement for a full 10-epoch pass over EN→AM's 13.5M-example training set (see Context section below). No full-length run has yet completed for this cell.
 
 **BPE seed 42 note:** training failed with `No valid checkpoint found in output directory` (a `resume_from_checkpoint=True` bug when no checkpoint exists yet) on 2026-08-28. No checkpoint, no `validation_results.json` — this is a genuine gap, not a pending/in-progress run.
 
@@ -118,7 +118,7 @@ All models collapsed on supervised English-Tigrinya task before zero-shot evalua
 
 ### Outstanding (2/18)
 - ✗ **EN→AM BPE seed 42: FAILED**, not currently training. Failed 2026-08-28 on a `resume_from_checkpoint=True` bug when no checkpoint yet existed. Needs a clean rerun.
-- ⚠ **EN→AM MoVoC-Tok seed 44: INCOMPLETE.** Two training attempts (SLURM jobs 66832, 66902) were each manually cancelled well short of the ~8.47M-step target due to the ~102-hour compute requirement. A `validation_results.json` exists from an evaluation of the partial `checkpoint-10000`, but it used a different (smaller) validation subset and greedy decoding, so it is not a comparable data point and is excluded from the table above. Needs a completed full-length training run (or an explicit decision to accept a reduced-step evaluation protocol applied consistently across all cells, which this table does not currently do).
+- ⚠ **EN→AM MoVoC-Tok seed 44: INCOMPLETE.** Two training attempts were each manually cancelled well short of the ~8.47M-step target due to the ~102-hour compute requirement. A `validation_results.json` exists from an evaluation of the partial `checkpoint-10000`, but it used a different (smaller) validation subset and greedy decoding, so it is not a comparable data point and is excluded from the table above. Needs a completed full-length training run (or an explicit decision to accept a reduced-step evaluation protocol applied consistently across all cells, which this table does not currently do).
 
 ---
 

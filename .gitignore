@@ -1,61 +1,185 @@
-# Data (downloaded/generated at runtime, never committed).
-# Directory skeletons are recreated automatically by
-# scripts/prepare_opus_data.py, so gitignoring the directories wholesale
-# (rather than fighting negation-pattern ordering for nested .gitkeep
-# files) is simplest and equally correct.
-data/raw/
-data/processed/
+# Manifest-Based Publication Strategy
+# ====================================
+# This repository uses manifests (MODEL_MANIFEST.md, DATA_MANIFEST.md) to track
+# large files that are stored externally (HuggingFace Hub, Zenodo, etc.)
+# 
+# Large files below are NOT committed to GitHub — see manifests for retrieval instructions.
 
-# Experiment outputs (populated at runtime) — keep only .gitkeep placeholders
-experiments/**/*
-!experiments/**/.gitkeep
-!experiments/**/*/
+# ============================================================================
+# MODEL CHECKPOINTS — See MODEL_MANIFEST.md
+# ============================================================================
 
-# Results (generated at runtime) — keep only .gitkeep placeholders
-results/**/*.csv
-results/**/*.json
-results/**/*.md
-results/**/*.png
-!results/.gitkeep
-!results/en_ti/.gitkeep
-!results/en_am/.gitkeep
+# Model weights (.safetensors format, ~232 MB each)
+# 30 total: 2 language pairs × 3 tokenizers × 3 seeds + full validation variants
+experiments/**/*.safetensors
+experiments/**/*.bin
 
-# MT-pipeline tokenizer weight files must NEVER live in this repo (pointer
-# docs only) -- these three are read read-only from amseg/ by absolute path
-# (see configs/*.yaml). This does NOT apply to Tokenizers/movoc_tok_32k/,
-# which is a deliberately self-contained local copy of the canonical
-# constrained-BPE MoVoC-Tok checkpoints (Table 2/Table 4/reproduction use).
-Tokenizers/bpe/*.json
-Tokenizers/bpe/*.spm
-Tokenizers/wordpiece/*.json
-Tokenizers/movoc_tok/*.json
-Tokenizers/movoc_tok/*.spm
-!Tokenizers/**/README.md
+# Intermediate checkpoints (not needed for final inference)
+experiments/**/checkpoint-*/
 
-# Python
+# ============================================================================
+# OPTIMIZER & SCHEDULER STATES — See MODEL_MANIFEST.md
+# ============================================================================
+
+# Optimizer states, learning rate schedulers, training state
+# 144 total .pt files (~15 GB combined)
+# Purpose: Training resumption (not required for inference)
+experiments/**/*.pt
+
+# ============================================================================
+# TRAINING DATA — See DATA_MANIFEST.md
+# ============================================================================
+
+# EN→Amharic training corpus (6.76M lines, ~2.1 GB)
+data/train/en_am/corpus.txt
+
+# EN→Amharic validation set (752.9K lines, ~65 MB)
+data/train/en_am/validation.txt
+
+# EN→Tigrinya training corpus (5.48M lines, ~1.8 GB)
+data/train/en_ti/corpus.txt
+
+# EN→Tigrinya validation set (136.6K lines, ~52 MB)
+data/train/en_ti/validation.txt
+
+# Test & extrinsic evaluation data (optional, can be included if <100 MB each)
+# Uncomment if excluding test sets:
+# data/extrinsic/**/*.txt
+
+# ============================================================================
+# PYTHON ARTIFACTS & IDE FILES
+# ============================================================================
+
+# Python caches
 __pycache__/
-*.pyc
-*.pyo
-.pytest_cache/
-*.egg-info/
+*.py[cod]
+*$py.class
+*.so
+.Python
 build/
+develop-eggs/
 dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# venv / conda
-.venv/
+# Virtual environments
 venv/
 env/
+ENV/
+.venv
 
-# SLURM logs
-slurm/logs/
-Extrinsic_Evaluation/slurm/logs/
-*.out
-*.err
-
-# OS / editor
-.DS_Store
+# IDEs
 .vscode/
+.idea/
 *.swp
+*.swo
+*~
+.DS_Store
 
-# HF cache if pointed locally
-.hf_cache/
+# Jupyter notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# ============================================================================
+# SLURM & HPC LOG FILES
+# ============================================================================
+
+# SLURM job output logs (can grow large with many jobs)
+slurm/logs/*.out
+slurm/logs/*.err
+slurm/logs/*.log
+
+# Temporary job files
+*.tmp
+*.temp
+
+# ============================================================================
+# GIT CONFIGURATION
+# ============================================================================
+
+# Backup branch (created before major operations)
+backup_before_push
+
+# ============================================================================
+# DOCUMENTATION & REFERENCE
+# ============================================================================
+
+# Do NOT ignore markdown files — they are essential documentation:
+# !*.md
+# !README.md
+# !MODEL_MANIFEST.md
+# !DATA_MANIFEST.md
+# !PUBLICATION_SUMMARY.md
+
+# Do NOT ignore source code:
+# !src/**/*.py
+# !scripts/**/*.py
+# !configs/**/*.yaml
+
+# Do NOT ignore SLURM submission scripts:
+# !slurm/**/*.sbatch
+
+# Do NOT ignore results (KEEP these for reproducibility):
+# !results/**/*.md
+# !results/**/*.csv
+# !results/**/*.json
+
+# ============================================================================
+# VERSION CONTROL
+# ============================================================================
+
+# Keep git metadata
+!.gitignore
+!.gitattributes
+
+# ============================================================================
+# LARGE BINARY FILES EXPLICITLY EXCLUDED
+# ============================================================================
+
+# Compressed archives (likely contain excluded data)
+*.tar
+*.tar.gz
+*.tar.bz2
+*.zip
+*.rar
+*.7z
+
+# Large model files in other formats
+*.pth
+*.ckpt
+*.h5
+*.pb
+*.onnx
+
+# ============================================================================
+# SUMMARY
+# ============================================================================
+
+# Published to GitHub:
+#   - Source code (src/, scripts/)
+#   - Configurations (configs/, .gitignore)
+#   - Documentation (README.md, docs/, MANIFEST.md)
+#   - Manifests (MODEL_MANIFEST.md, DATA_MANIFEST.md)
+#   - Results (results/TABLE_3_FINAL.md, table3_final.csv)
+#   - Tokenizers (Tokenizers/)
+#   - License (LICENSE, CITATION.md)
+#
+# NOT published (see manifests for retrieval):
+#   - Models: 30 × .safetensors → MODEL_MANIFEST.md
+#   - Optimizer states: 144 × .pt → MODEL_MANIFEST.md
+#   - Training data: 3.9 GB → DATA_MANIFEST.md
+#   - Test data: 8 MB (optional, reference only)
+#
+# Total published: ~105 MB to GitHub
+# Total external: ~25.4 GB (models + data on HuggingFace/Zenodo)
+

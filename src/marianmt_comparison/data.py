@@ -112,11 +112,19 @@ def write_split(examples: list[ParallelExample], out_dir: Path) -> tuple[Path, P
 
 
 def load_split(language_pair: str, split: str, repo_root: Path, max_examples: int | None = None) -> list[ParallelExample]:
-    d = repo_root / "data" / "processed" / language_pair / split
-    src_path, tgt_path = d / "src.txt", d / "tgt.txt"
-    if not src_path.exists() or not tgt_path.exists():
+    # Canonical location is data/finetuning/<pair>/<split>/; data/processed/ is
+    # the pre-reorganization path, still honored so in-flight SLURM jobs that
+    # re-enter this function on checkpoint resume do not break.
+    for base in ("finetuning", "processed"):
+        d = repo_root / "data" / base / language_pair / split
+        src_path, tgt_path = d / "src.txt", d / "tgt.txt"
+        if src_path.exists() and tgt_path.exists():
+            break
+    else:
+        expected = repo_root / "data" / "finetuning" / language_pair / split
         raise FileNotFoundError(
-            f"Processed split not found for {language_pair}/{split}: expected {src_path} and {tgt_path}. "
+            f"Fine-tuning split not found for {language_pair}/{split}: expected "
+            f"{expected / 'src.txt'} and {expected / 'tgt.txt'}. "
             "Run scripts/prepare_opus_data.py first."
         )
     examples = read_parallel(src_path, tgt_path)

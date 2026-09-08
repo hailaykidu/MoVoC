@@ -48,18 +48,18 @@ ValueError: No valid checkpoint found in output directory
 ### ⚠️ EN→AM MoVoC-Tok seed 44: INCOMPLETE
 
 **Status:** `INCOMPLETE`  
-**Training Attempts:** SLURM jobs [66832](https://slurm-cluster), [66902](https://slurm-cluster)  
+**Training Attempts:** [Job IDs] (see experiments/ directory for checkpoint history)  
 **Latest Checkpoint:** `checkpoint-10000` (reached ~10K steps)
 
 **What happened:**
-1. **Job 66832:** Manually cancelled after reaching `checkpoint-10000`
+1. **Training Attempt 1:** Manually cancelled after reaching `checkpoint-10000`
    - Walltime: 12 hours allocated; ran ~8-10 hours
    - Training completed to `max_steps=10000` (partial run, not full training)
    
-2. **Job 66902:** Restarted to complete evaluation, but got stuck
+2. **Training Attempt 2:** Restarted to complete evaluation, but got stuck
    - Training previously completed; resumed from `checkpoint-10000`
    - Job hung on `trainer.predict()` for 9+ hours trying to evaluate full 752,900-example validation set
-   - SLURM cancelled job after exceeding 12-hour walltime
+   - Cancelled after exceeding 12-hour walltime
 
 **Scale of the problem:**
 - **Target:** Full training run ≈ 8.47M steps (estimated 102 hours on A100 GPU)

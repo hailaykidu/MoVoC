@@ -118,7 +118,7 @@ def results_dir(language_pair: str) -> Path:
 
 
 def data_dir(language_pair: str, split: str | None = None) -> Path:
-    d = REPO_ROOT / "data" / "processed" / language_pair
+    d = REPO_ROOT / "data" / "finetuning" / language_pair
     if split is not None:
         d = d / split
     return d
