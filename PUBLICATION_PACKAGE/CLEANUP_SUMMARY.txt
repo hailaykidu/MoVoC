@@ -1,0 +1,146 @@
+================================================================================
+PUBLICATION_PACKAGE CLEANUP - COMPLETE PLAN
+================================================================================
+
+DATE: Current
+STATUS: Ready for Execution
+RISK LEVEL: LOW
+FILES TO REMOVE: 7 (~61 KB)
+FILES TO KEEP: 6 essential + validation data
+
+================================================================================
+DELIVERABLES PROVIDED:
+================================================================================
+
+1. CLEANUP_ANALYSIS_PUBPKG.md
+   - Complete analysis of all files
+   - Categorization (Keep/Remove/Review)
+   - Risk assessment
+   - 4-phase execution plan with commands
+   - Verification checklist
+
+2. PUBPKG_CLEANUP_INSTRUCTIONS.md
+   - Step-by-step user guide
+   - 3 execution methods (automated, manual, dry-run)
+   - Post-cleanup verification script
+   - Safety features documented
+   - Before/After comparison
+   - Backup & restore procedures
+
+3. pubpkg_cleanup.sh
+   - Automated cleanup script
+   - Interactive (asks for confirmation)
+   - Creates automatic backup
+   - Verifies success
+   - Color-coded output
+   - Ready to run
+
+================================================================================
+FILES TO REMOVE (7 total, ~61 KB):
+================================================================================
+
+5_RESULTS/TABLE_3_FINAL.md                 (7.5K)
+5_RESULTS/TABLE_3_FINAL_CLEAN.md           (13K)
+5_RESULTS/TABLE_3_COMPLETE_WITH_ZEROSHOT.md (7.3K)
+5_RESULTS/TABLE_3_MULTISEED_CURRENT.md    (5.0K)
+5_RESULTS/MASTER_STATUS_2026_09_09.md     (14K)
+5_RESULTS/QUICK_STATUS_SUMMARY.md         (6.8K)
+5_RESULTS/ZERO_SHOT_RESULTS.md            (7.9K)
+
+REASON: Superseded versions or redundant status reports
+
+================================================================================
+FILES TO KEEP (6 essential + validation data):
+================================================================================
+
+5_RESULTS/TABLE_3_UPDATED_STATUS.md        (9.8K)  - MAIN RESULTS
+5_RESULTS/EVALUATION_FRAMEWORK_...md       (15K)   - METHODS
+5_RESULTS/MOVOCTOK_ZEROSHOT_ANALYSIS.md    (8.4K)  - ANALYSIS
+5_RESULTS/00_INDEX.md                      (9.1K)  - INDEX
+5_RESULTS/README.md                        (8.0K)  - GUIDE
+5_RESULTS/FINAL_STATUS_REPORT.md           (8.4K)  - STATUS
+5_RESULTS/validation_results/              (34+)   - RAW DATA
+
+TOTAL: 6 markdown files + 34+ JSON experiment results
+
+================================================================================
+PROTECTION GUARANTEES:
+================================================================================
+
+✅ No experiments/ directories affected
+✅ No data/ directories affected
+✅ No .git/ history modified
+✅ No 1_CODE/, 2_CONFIG/, etc. affected
+✅ Backup created before deletion
+✅ Reversible (can restore from backup)
+✅ Verification after cleanup
+
+================================================================================
+EXECUTION STEPS:
+================================================================================
+
+OPTION 1 (RECOMMENDED - Automated):
+  cd /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/PUBLICATION_PACKAGE
+  bash pubpkg_cleanup.sh
+
+OPTION 2 (Manual):
+  Follow step-by-step commands in PUBPKG_CLEANUP_INSTRUCTIONS.md
+
+OPTION 3 (Dry-run only):
+  See what would be deleted without making changes
+
+================================================================================
+VERIFICATION AFTER CLEANUP:
+================================================================================
+
+Run this to confirm cleanup was successful:
+
+  cd /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/PUBLICATION_PACKAGE
+  
+  # Should show 6 markdown files
+  ls -1 5_RESULTS/*.md | grep -v validation_results | wc -l
+  
+  # Should show 34+ validation files
+  ls -1 5_RESULTS/validation_results/*.json | wc -l
+
+================================================================================
+EXPECTED RESULT:
+================================================================================
+
+BEFORE:
+  - 13 markdown files in 5_RESULTS
+  - Duplicate versions of results tables
+  - Confusing navigation
+
+AFTER:
+  - 6 markdown files in 5_RESULTS
+  - Single authoritative results table
+  - Clear index and purpose for each file
+  - Publication-ready
+
+================================================================================
+SAFETY NOTES:
+================================================================================
+
+✓ Non-destructive - only removes old versions
+✓ Reversible - backup created automatically
+✓ Verified - script checks data integrity
+✓ Protected - core files not touched
+✓ Tested - dry-run preview available
+
+================================================================================
+NEXT STEPS:
+================================================================================
+
+1. Review CLEANUP_ANALYSIS_PUBPKG.md for detailed file list
+2. Read PUBPKG_CLEANUP_INSTRUCTIONS.md for all options
+3. Execute: bash pubpkg_cleanup.sh
+4. Verify: Run verification commands above
+5. Ready for publication!
+
+================================================================================
+
+STATUS: ✅ READY TO EXECUTE
+RECOMMENDATION: Run Option 1 (automated cleanup) now
+
+================================================================================

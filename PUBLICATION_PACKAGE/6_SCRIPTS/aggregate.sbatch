@@ -1,0 +1,1 @@
+/homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/slurm/aggregate.sbatch

@@ -1,0 +1,104 @@
+════════════════════════════════════════════════════════════════════════════════
+PUBLICATION_PACKAGE - Complete Reproducible Repository
+════════════════════════════════════════════════════════════════════════════════
+
+Purpose: Single directory containing ALL assets needed to reproduce Table 3
+         (16 fully-trained models + code + data + results + documentation)
+
+Structure:
+
+PUBLICATION_PACKAGE/
+├── README.md                          # Start here
+├── STRUCTURE.txt                      # This file
+│
+├── 1_CODE/                            # Training & evaluation code
+│   ├── train.py
+│   ├── evaluate.py
+│   ├── zero_shot_evaluation.py
+│   └── [6 more scripts]
+│
+├── 2_CONFIG/                          # Hyperparameter configurations
+│   ├── base.yaml
+│   ├── en_am.yaml
+│   └── en_ti.yaml
+│
+├── 3_DATA/                            # Training, validation, test data
+│   ├── train/
+│   │   ├── en_am/
+│   │   │   ├── corpus.txt (2.1 GB)
+│   │   │   └── validation.txt (65 MB)
+│   │   └── en_ti/
+│   │       ├── corpus.txt (1.8 GB)
+│   │       └── validation.txt (52 MB)
+│   ├── test/
+│   │   ├── en_am/
+│   │   └── en_ti/
+│   └── extrinsic/
+│       ├── en_am/ (8 MB)
+│       ├── en_ti/ (7 MB)
+│       ├── en_gz/ (33 KB - Ge'ez zero-shot)
+│       └── en_tig/ (6 KB - Tigre zero-shot)
+│
+├── 4_MODELS/                          # 16 fully-trained models
+│   ├── en_am_bpe_seed43/
+│   │   ├── model.safetensors (231 MB)
+│   │   ├── config.json
+│   │   ├── tokenizer.json
+│   │   └── [other config files]
+│   ├── en_am_bpe_seed44/
+│   ├── en_am_wordpiece_seed42/
+│   ├── en_am_wordpiece_seed43/
+│   ├── en_am_wordpiece_seed44/
+│   ├── en_am_movoc_seed42/
+│   ├── en_am_movoc_seed43/
+│   ├── en_ti_bpe_seed42/
+│   ├── en_ti_bpe_seed43/
+│   ├── en_ti_bpe_seed44/
+│   ├── en_ti_wordpiece_seed42/
+│   ├── en_ti_wordpiece_seed43/
+│   ├── en_ti_wordpiece_seed44/
+│   ├── en_ti_movoc_seed42/
+│   ├── en_ti_movoc_seed43/
+│   └── en_ti_movoc_seed44/
+│
+├── 5_RESULTS/                         # Published results & metrics
+│   ├── TABLE_3_FINAL_CLEAN.md         # Main results table (16 experiments)
+│   ├── validation_results/
+│   │   ├── en_am_bpe_seed43.json (BLEU, ChrF++)
+│   │   ├── en_am_bpe_seed44.json
+│   │   ├── en_am_wordpiece_seed42.json
+│   │   ├── [13 more result files]
+│   │   └── en_ti_movoc_seed44.json
+│   └── RESULTS_SUMMARY.md
+│
+├── 6_SCRIPTS/                         # SLURM job submission
+│   ├── submit_en_am_bpe.sbatch
+│   ├── submit_en_am_wordpiece.sbatch
+│   ├── submit_en_am_movoc.sbatch
+│   ├── submit_en_ti_bpe.sbatch
+│   ├── submit_en_ti_wordpiece.sbatch
+│   └── submit_en_ti_movoc.sbatch
+│
+├── 7_DOCUMENTATION/                   # Guides & manifests
+│   ├── README.md (main overview)
+│   ├── METHODOLOGY.md
+│   ├── DATA_MANIFEST.md
+│   ├── MODEL_MANIFEST.md
+│   ├── ARCHIVE_README.md
+│   ├── REPRODUCIBILITY.md
+│   └── CITATION.md
+│
+└── 8_ARCHIVE/                         # Incomplete experiments (reference)
+    └── incomplete_experiments/
+        ├── en_am_bpe_seed42_failed/
+        └── en_am_movoc_seed44_incomplete/
+
+════════════════════════════════════════════════════════════════════════════════
+QUICK START:
+
+1. Read: 7_DOCUMENTATION/README.md
+2. Install: pip install -r requirements.txt
+3. For reproducibility: Use scripts in 6_SCRIPTS/ or run code in 1_CODE/
+4. Review results: 5_RESULTS/TABLE_3_FINAL_CLEAN.md
+
+════════════════════════════════════════════════════════════════════════════════

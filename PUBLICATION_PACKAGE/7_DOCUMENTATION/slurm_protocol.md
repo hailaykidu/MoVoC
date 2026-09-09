@@ -1,0 +1,1 @@
+/homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/docs/slurm_protocol.md

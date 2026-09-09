@@ -1,0 +1,1 @@
+/homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/slurm/submit_zero_shot_seeds_focused.sbatch

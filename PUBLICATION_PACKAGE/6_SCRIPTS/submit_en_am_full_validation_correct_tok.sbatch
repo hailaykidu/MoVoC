@@ -1,0 +1,1 @@
+/homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/slurm/submit_en_am_full_validation_correct_tok.sbatch

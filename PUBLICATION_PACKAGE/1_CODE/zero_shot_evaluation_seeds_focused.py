@@ -1,0 +1,1 @@
+/homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/scripts/zero_shot_evaluation_seeds_focused.py
