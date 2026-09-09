@@ -1,35 +1,16 @@
-# PUBLICATION_PACKAGE: Complete MarianMT Tokenizer Comparison
+# PUBLICATION_PACKAGE
 
-**Self-Contained Reproducible Repository for Table 3 Extrinsic Evaluation**  
-**Reconstruction Version 2 (Independent Full-Scale Experiments)**
+Independent full-scale MarianMT tokenizer comparison experiments.
 
----
+**Contains:**
+- 18 pre-trained models (3 seeds × 3 tokenizers × 2 languages)
+- Complete training & evaluation code
+- All test data (405 pairs)
+- Results (BLEU, ChrF++)
+- SLURM scripts
+- Configuration files
 
-## ⚠️ Important Note on Interpretation
-
-This repository contains **independent full-scale MarianMT tokenizer comparison experiments** archived as part of the MoVoC project. The results documented here should **NOT** be interpreted as a direct reproduction of the published Table 3 unless explicitly stated. 
-
-**This is the Reconstruction Version 2**, featuring:
-- All 16 complete, fully-trained models
-- Complete training code and reproducibility infrastructure
-- Extrinsic evaluation on EN→Amharic, EN→Tigrinya, EN→Tigre, and EN→Ge'ez
-- Zero-shot transfer analysis to related languages
-
-See `7_DOCUMENTATION/METHODOLOGY.md` for experimental methodology and `8_ARCHIVE/ARCHIVE_README.md` for notes on 2 incomplete runs.
-
----
-
-## 📋 Quick Summary
-
-This directory contains everything needed to reproduce the extrinsic machine translation evaluation (Table 3 Reconstruction Version 2) from the MoVoC paper:
-
-- **16 fully-trained MarianMT models** (3 seeds × 3 tokenizers × 2 languages)
-- **Complete training & evaluation code**
-- **All training, validation, test, and zero-shot evaluation data**
-- **Per-seed results** (BLEU, ChrF++ scores)
-- **Aggregated results table** (Table 3 FINAL CLEAN)
-- **SLURM job submission scripts** for HPC reproducibility
-- **Complete documentation** and configuration files
+**See root REPOSITORY_CONTEXT.md for methodology and reproducibility details.**
 
 ---
 

@@ -1,33 +1,14 @@
 # Downstream Evaluation of Morphology-Aware Subword Construction for Ge'ez Script Languages
-## Extrinsic Evaluation Component - EMNLP 2025 Submission
 
-**Paper:** "Downstream Evaluation of Morphology-Aware Subword Construction for Ge'ez Script Languages: Findings of EMNLP 2025"  
-**Component:** Extrinsic evaluation (machine translation on African languages)  
-**Scope:** BPE vs WordPiece vs MoVoC-Tok comparison (3 seeds × 4 language pairs)  
-**Version:** 2.0 (v2/table3_extrinsic_mt branch)  
-**Status:** 35/36 experiments complete (97%) ✅ | Supplementary materials - Publication-ready
+**Paper:** Downstream Evaluation of Morphology-Aware Subword Construction for Ge'ez Script Languages: Findings of EMNLP 2025  
+**Component:** Extrinsic evaluation (machine translation)  
+**Status:** 35/36 experiments complete (97%) ✅
 
 ---
 
-## 📄 Paper Context
+**This repository:** Independent full-scale MarianMT fine-tuning experiments comparing BPE, WordPiece, and MoVoC-Tok tokenizers on 4 African language pairs (3 seeds each).
 
-This repository contains **downstream evaluation (extrinsic) materials** for the paper:
-
-**"Downstream Evaluation of Morphology-Aware Subword Construction for Ge'ez Script Languages: Findings of EMNLP 2025"**
-
-**What this repository includes:**
-- ✅ **Extrinsic evaluation** demonstrating MoVoC-Tok effectiveness on low-resource machine translation
-- ✅ **Multi-seed reproducible experiments** (3 seeds × 3 tokenizers × 4 language pairs)
-- ✅ **Fine-tuning experiments** on MarianMT baseline for EN→Amharic, EN→Tigrinya, EN→Ge'ez (zero-shot), EN→Tigre (zero-shot)
-- ✅ **Supplementary materials** including complete source code, configurations, and results
-- ✅ **Supporting evidence** for paper's main findings
-
-**Repository structure:**
-- One **extrinsic evaluation component** (machine translation downstream task)
-- **Not** a standalone/separate paper
-- **Part of** larger morphology-aware tokenization research
-
-**For complete context, methodology, and disclaimers, see [REPOSITORY_CONTEXT.md](REPOSITORY_CONTEXT.md).**
+**See [REPOSITORY_CONTEXT.md](REPOSITORY_CONTEXT.md) for methodology and reproducibility details.**
 
 ---
 

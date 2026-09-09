@@ -1,43 +1,16 @@
-# TABLE 3 MULTI-SEED EVALUATION RESULTS
-## Complete Analysis & Publication-Ready Documentation
+# TABLE 3 - Multi-Seed Evaluation Results
 
-**Last Updated:** 2026-09-09  
-**Status:** 34/36 experiments complete (94%) - ✅ READY FOR PUBLICATION
+**Status:** 35/36 experiments complete (97%)  
+**Updated:** 2026-09-09
 
 ---
 
-## 📋 Documentation Files
+**Key Files:**
+- `TABLE_3_UPDATED_STATUS.md` - All results with statistics
+- `FINAL_STATUS_REPORT.md` - Completion status
+- `MASTER_STATUS_2026_09_09.md` - Detailed analysis
 
-### Quick References
-- **[QUICK_STATUS_SUMMARY.md](QUICK_STATUS_SUMMARY.md)** ⭐ START HERE
-  - At-a-glance overview of completion status, findings, and recommendations
-  - Best for: Quick understanding of current state and decisions
-
-- **[JOB_STATUS_SUMMARY.txt](../../../scratchpad/JOB_STATUS_SUMMARY.txt)**
-  - Current job status (69317_44 timeout, 70558 pending)
-  - Completion timeline and expected results
-
-### Detailed Reports
-- **[MASTER_STATUS_2026_09_09.md](MASTER_STATUS_2026_09_09.md)** ⭐ COMPREHENSIVE
-  - Complete master report with all details
-  - Job status updates, detailed findings, publication pathways
-  - Best for: In-depth understanding and decision-making
-
-- **[FINAL_STATUS_REPORT.md](FINAL_STATUS_REPORT.md)**
-  - Job status analysis and data completeness summary
-  - Statistical validity and publication recommendations
-  - Best for: Understanding current state and next steps
-
-- **[TABLE_3_UPDATED_STATUS.md](TABLE_3_UPDATED_STATUS.md)**
-  - Current multi-seed evaluation tables
-  - Results with 34/36 experiments (94% complete)
-  - Best for: Seeing actual data values and statistics
-
-### Analysis Documents
-- **[MOVOCTOK_ZEROSHOT_ANALYSIS.md](MOVOCTOK_ZEROSHOT_ANALYSIS.md)**
-  - Comprehensive analysis of MoVoC-Tok's zero-shot dominance
-  - Shows ChrF++ superiority and morphological transfer effectiveness
-  - Best for: Understanding why MoVoC-Tok excels for Semitic languages
+See root REPOSITORY_CONTEXT.md and COMPLETE_MULTI_SEED_RESULTS_TABLE.md for comprehensive analysis.
 
 - **[EVALUATION_FRAMEWORK_MOVOCTOK_ZEROSHOT.md](EVALUATION_FRAMEWORK_MOVOCTOK_ZEROSHOT.md)**
   - Evaluation strategy and decision tree for tokenizer selection
