@@ -1,14 +1,14 @@
-# Downstream Evaluation of Morphology-Aware Subword Construction for Ge'ez Script Languages
+# Extrinsic Evaluation: MoVoC-Tok vs BPE vs WordPiece
 
-**Paper:** Downstream Evaluation of Morphology-Aware Subword Construction for Ge'ez Script Languages: Findings of EMNLP 2025  
-**Component:** Extrinsic evaluation (machine translation)  
+**Extrinsic evaluation (machine translation) to compare MoVoC-Tok with BPE and WordPiece tokenizers on low-resource African languages.**
+
 **Status:** 35/36 experiments complete (97%) ✅
 
 ---
 
-**This repository:** Independent full-scale MarianMT fine-tuning experiments comparing BPE, WordPiece, and MoVoC-Tok tokenizers on 4 African language pairs (3 seeds each).
+**This repository:** Independent full-scale MarianMT fine-tuning experiments on 4 African language pairs (3 seeds each).
 
-**See [REPOSITORY_CONTEXT.md](REPOSITORY_CONTEXT.md) for methodology and reproducibility details.**
+**See [REPOSITORY_CONTEXT.md](REPOSITORY_CONTEXT.md) for detailed findings and reproducibility details.**
 
 ---
 
