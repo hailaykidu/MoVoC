@@ -346,16 +346,16 @@ dataset = load_dataset("hailaykidu/marianmt-am-ti-corpora")
 
 ## 9. Summary Table
 
-| Dataset | Size | Lines | License | Status | Path |
-|---------|------|-------|---------|--------|------|
-| EN→AM Training | 2.1 GB | 6.76M | [TBD] | ✅ | data/train/en_am/ |
-| EN→AM Validation | 65 MB | 752K | [TBD] | ✅ | data/train/en_am/ |
-| EN→TI Training | 1.8 GB | 5.48M | [TBD] | ✅ | data/train/en_ti/ |
-| EN→TI Validation | 52 MB | 136K | [TBD] | ✅ | data/train/en_ti/ |
-| EN→AM Test | 8 MB | 1K | [TBD] | ✅ | data/extrinsic/en_am/ |
-| EN→TI Test | 7 MB | 1K | [TBD] | ✅ | data/extrinsic/en_ti/ |
-| EN→GZ Zero-Shot | 50 KB | 100 | [TBD] | ✅ | data/extrinsic/en_gz/ |
-| EN→TIG Zero-Shot | 20 KB | 43 | [TBD] | ✅ | data/extrinsic/en_tig/ |
+| Dataset          | Size   | Lines | License | Status | Path |
+|------------------|--------|-------|---------|--------|------|
+| EN→AM Training   |2.1 GB  | 6.76M | [TBD] | ✅ | data/train/en_am/ |
+| EN→AM Validation | 65 MB  | 752K  | [TBD] | ✅ | data/train/en_am/ |
+| EN→TI Training   |1.8 GB  | 5.48M | [TBD] | ✅ | data/train/en_ti/ |
+| EN→TI Validation | 52 MB  | 136K  | [TBD] | ✅ | data/train/en_ti/ |
+| EN→AM Test       | 8 MB   | 1K    | [TBD] | ✅ | data/extrinsic/en_am/ |
+| EN→TI Test       | 7 MB   | 1K    | [TBD] | ✅ | data/extrinsic/en_ti/ |
+| EN→GZ Zero-Shot  | 50 KB  | 100   | [TBD] | ✅ | data/extrinsic/en_gz/ |
+| EN→TIG Zero-Shot | 20 KB  | 43    | [TBD] | ✅ | data/extrinsic/en_tig/ |
 
 **Total:** ~3.9 GB
 
