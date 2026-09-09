@@ -1,28 +1,31 @@
-# MoVoC Paper: Extrinsic Evaluation Component (Table 3)
-## MarianMT Tokenizer Comparison on Low-Resource African Languages
+# Downstream Evaluation of Morphology-Aware Subword Construction for Ge'ez Script Languages
+## Extrinsic Evaluation Component - EMNLP 2025 Submission
 
-**Component:** Extrinsic evaluation (machine translation) for MoVoC paper  
-**Scope:** BPE vs WordPiece vs MoVoC-Tok comparison on 4 language pairs  
+**Paper:** "Downstream Evaluation of Morphology-Aware Subword Construction for Ge'ez Script Languages: Findings of EMNLP 2025"  
+**Component:** Extrinsic evaluation (machine translation on African languages)  
+**Scope:** BPE vs WordPiece vs MoVoC-Tok comparison (3 seeds × 4 language pairs)  
 **Version:** 2.0 (v2/table3_extrinsic_mt branch)  
-**Status:** 35/36 experiments complete (97%) ✅ | Publication-ready supplementary materials
+**Status:** 35/36 experiments complete (97%) ✅ | Supplementary materials - Publication-ready
 
 ---
 
-## ⚠️ Repository Context
+## 📄 Paper Context
 
-This repository contains **extrinsic evaluation materials** (Table 3) for the **MoVoC (Morphologically-Aware Vocabulary Compression) paper**.
+This repository contains **downstream evaluation (extrinsic) materials** for the paper:
 
-**What this is:**
-- ✅ Extrinsic evaluation component demonstrating MoVoC-Tok effectiveness on low-resource NMT
-- ✅ Reproducible fine-tuning experiments on MarianMT baseline
-- ✅ Multi-seed evaluation (3 seeds × 3 tokenizers × 4 language pairs)
-- ✅ Supplementary materials for MoVoC paper publication
-- ✅ Supporting evidence for Table 3 results
+**"Downstream Evaluation of Morphology-Aware Subword Construction for Ge'ez Script Languages: Findings of EMNLP 2025"**
 
-**What this is NOT:**
-- ❌ A separate standalone paper
-- ❌ The complete MoVoC paper (refer to main branch for full paper)
-- ❌ Independent research (part of larger MoVoC project)
+**What this repository includes:**
+- ✅ **Extrinsic evaluation** demonstrating MoVoC-Tok effectiveness on low-resource machine translation
+- ✅ **Multi-seed reproducible experiments** (3 seeds × 3 tokenizers × 4 language pairs)
+- ✅ **Fine-tuning experiments** on MarianMT baseline for EN→Amharic, EN→Tigrinya, EN→Ge'ez (zero-shot), EN→Tigre (zero-shot)
+- ✅ **Supplementary materials** including complete source code, configurations, and results
+- ✅ **Supporting evidence** for paper's main findings
+
+**Repository structure:**
+- One **extrinsic evaluation component** (machine translation downstream task)
+- **Not** a standalone/separate paper
+- **Part of** larger morphology-aware tokenization research
 
 **For complete context, methodology, and disclaimers, see [REPOSITORY_CONTEXT.md](REPOSITORY_CONTEXT.md).**
 
