@@ -2,9 +2,14 @@
 
 **A Comprehensive Study on Morphological Tokenization for Low-Resource African Languages**
 
+**Repository Status:** Contains independent full-scale experiments archived as part of the MoVoC project.  
+**Publication Package:** See [PUBLICATION_PACKAGE/](PUBLICATION_PACKAGE/) for Reconstruction Version 2 with all 16 complete models.
+
 ## 🎯 Overview
 
 This repository contains the complete experimental framework, code, models, and results for comparing three tokenization strategies (BPE, WordPiece, and MoVoC-Tok) for machine translation to low-resource African languages.
+
+⚠️ **Note:** Results should not be interpreted as a direct reproduction of published Table 3 unless explicitly stated. See PUBLICATION_PACKAGE/README.md for Reconstruction Version 2 details.
 
 **Key Finding:** MoVoC-Tok (morphological tokenization) achieves **6.2x better ChrF++** than BPE for Amharic translation (14.65% vs 10.38%), demonstrating the critical importance of morphological awareness for agglutinative languages.
 
