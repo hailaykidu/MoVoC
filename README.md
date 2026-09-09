@@ -257,7 +257,23 @@ cat docs/convergence_analysis.md
 
 ## 📖 About This Repository
 
-This is extrinsic evaluation research component of [MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages](https://aclanthology.org/2025.findings-emnlp.706/) (Teklehaymanot et al., Findings 2025). It is not a standalone paper, but independent full-scale MarianMT fine-tuning experiments validating the tokenizer comparison on African languages.
+This repository contains extrinsic evaluation experiments (machine translation) for [MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages](https://aclanthology.org/2025.findings-emnlp.706/).
+
+**Not a standalone paper.** Independent full-scale MarianMT fine-tuning to validate tokenizer comparison on African languages. Results are reproducible research component, archived as part of the MoVoC project.
+
+### Cite Original Paper
+
+```bibtex
+@inproceedings{teklehaymanot2025movoc,
+  title={MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages},
+  author={Teklehaymanot, Hailay Kidu and Fazlija, Dren and Nejdl, Wolfgang},
+  booktitle={Findings of the Association for Computational Linguistics: EMNLP 2025},
+  pages={13131--13144},
+  address={Suzhou, China},
+  publisher={Association for Computational Linguistics},
+  year={2025}
+}
+```
 
 ---
 

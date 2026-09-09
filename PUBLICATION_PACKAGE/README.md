@@ -1,9 +1,11 @@
 # PUBLICATION_PACKAGE
 
-Independent full-scale MarianMT tokenizer comparison experiments.
+Extrinsic evaluation component for [MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages](https://aclanthology.org/2025.findings-emnlp.706/).
+
+Independent full-scale MarianMT fine-tuning experiments to validate tokenizer comparison.
 
 **Contains:**
-- 18 pre-trained models (3 seeds × 3 tokenizers × 2 languages)
+- 18+ pre-trained models (3 seeds × 3 tokenizers × 2+ languages)
 - Complete training & evaluation code
 - All test data (405 pairs)
 - Results (BLEU, ChrF++)
@@ -11,6 +13,19 @@ Independent full-scale MarianMT tokenizer comparison experiments.
 - Configuration files
 
 **See root REPOSITORY_CONTEXT.md for methodology and reproducibility details.**
+
+**Citation:**
+```bibtex
+@inproceedings{teklehaymanot2025movoc,
+  title={MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages},
+  author={Teklehaymanot, Hailay Kidu and Fazlija, Dren and Nejdl, Wolfgang},
+  booktitle={Findings of the Association for Computational Linguistics: EMNLP 2025},
+  pages={13131--13144},
+  address={Suzhou, China},
+  publisher={Association for Computational Linguistics},
+  year={2025}
+}
+```
 
 ---
 
