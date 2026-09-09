@@ -1,0 +1,46 @@
+Cleanup Log - Wed Sep  9 12:23:44 PM CEST 2026
+Repository: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison
+
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/AUDIT_DOCUMENTATION_INDEX.md - Audit reports
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/AUDIT_SCAN_REPORT.md - Audit reports
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/AUDIT_COMPLETION_SUMMARY.md - Audit reports
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/PHASE_1_SUMMARY.md - Phase reports
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/PHASE_1_VERIFICATION.txt - Phase status files
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/GITHUB_PUSH_INSTRUCTIONS.md - GitHub guides
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/GITHUB_READY_FINAL.md - GitHub guides
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/GITHUB_PUBLICATION_CHECKLIST.md - GitHub guides
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/GITHUB_PUBLICATION_SUMMARY.md - GitHub guides
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/PRE_PUSH_RECONCILIATION_REPORT.md - Pre-push reports
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/PRE_PUSH_VERIFICATION_REPORT.md - Pre-push reports
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/REDACTION_PLAN.md - Redaction documentation
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/REDACTION_COMPLETION_REPORT.md - Redaction documentation
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/CONSISTENCY_CHECK_vs_MoVoC_v2.md - Consistency check
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/FILE_STORAGE_INVENTORY.md - Storage inventory
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/STORAGE_INVENTORY.md - Storage inventory
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/FINAL_PUBLICATION_DECISION.md - Old publication decision
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/FINAL_PUBLICATION_READINESS_REPORT.md - Old readiness report
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/FINAL_PUBLICATION_STRUCTURE.md - Old structure report
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/FINAL_PUBLISH_CHECKLIST.md - Old checklist
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/FINAL_STRUCTURE_REPORT.md - Old structure report
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/FINAL_REPOSITORY_TREE.txt - Old repository tree
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/FINAL_VERIFICATION_REPORT.md - Old verification report
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/PUBLICATION_READY_REPORT.md - Old readiness report
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/INDEX_GITHUB_PUBLICATION.md - Old GitHub index
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/INDEX_OF_REDACTION_REPORTS.md - Old redaction index
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/CORRECTED_PRE_PUSH_RECONCILIATION.md - Obsolete correction
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/CLEAN_FILE_PATHS.md - Obsolete file paths
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/README_INDEPENDENT.md - Old independent repo doc
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/QUICK_PUSH_GUIDE.md - Old push guide
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/EXECUTE_PUSH.sh - Old push execution script
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/FILES_CREATED_20260908.md - Build logs
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/PUBLICATION_PACKAGE_INVENTORY.md - Old package inventory
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/migrate_experiments.sh - Incomplete migration script
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/upload_models_to_hf.sh - Incomplete upload script
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/COMPLETE_RESULTS_SUMMARY.md - Old results summary
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/PUBLICATION_SUMMARY.md - Old publication summary
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/MANIFEST_PUBLICATION_CHECKLIST.md - Old manifest checklist
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/EXPERIMENT_PATHS_ANALYSIS.md - Old experiment paths
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/COMMIT_MESSAGE_NO_AI.txt - Obsolete commit message
+Removed: /homes/neumann/teklehaymanot/marianmt-tokenizer-comparison/PUBLICATION_PACKAGE/RECONSTRUCTION_V2_README.md - Old reconstruction doc
+Cleaned Python cache
+Cleaned temporary files

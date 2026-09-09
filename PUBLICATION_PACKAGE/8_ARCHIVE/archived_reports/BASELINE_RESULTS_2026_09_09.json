@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-09",
+  "objective": "Baseline MoVoC-Tok results on OLD test data sizes",
+  "old_test_set_sizes": {
+    "en_tigrinya": 71,
+    "en_tigre_zeroshot": 43
+  },
+  "new_test_set_sizes": {
+    "en_tigrinya": 102,
+    "en_tigre_zeroshot": 103
+  },
+  "en_tigrinya_baseline": {
+    "42": {
+      "bleu": 0.4005416325955238,
+      "chrf++": null
+    },
+    "43": {
+      "bleu": 0.3447942856335353,
+      "chrf++": null
+    },
+    "44": {
+      "bleu": 0.35425695441690286,
+      "chrf++": null
+    }
+  },
+  "en_tigre_zeroshot_baseline": {}
+}

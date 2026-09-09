@@ -1,0 +1,103 @@
+================================================================================
+REPOSITORY DEDUPLICATION AUDIT - READY FOR YOUR APPROVAL
+================================================================================
+
+CURRENT STATUS:
+- Branch: v2/table3_extrinsic_mt
+- Remote: https://github.com/hailaykidu/MoVoC.git
+- Date: 2026-09-09
+
+================================================================================
+WHAT NEEDS TO BE CLEANED:
+================================================================================
+
+1. TEMPORARY AUDIT/WORK PRODUCTS (13 files, ~105 KB)
+   ├─ README_AUDIT_REPORT.md
+   ├─ README_CONSOLIDATION_COMPLETE.md
+   ├─ CLEANUP_PLAN_SAFE.md
+   ├─ CLEANUP_INSTRUCTIONS.md
+   ├─ DATA_AUDIT_REPORT_2026_09_09.md
+   ├─ ⚠️_DATA_AUDIT_ALERT.md
+   ├─ DATA_COMPLETION_UPDATE_2026_09_09.md
+   ├─ DATA_INTEGRATION_REPORT_2026_09_09.md
+   ├─ DATA_INTEGRATION_FINAL_REPORT_2026_09_09.md
+   ├─ FINAL_COMPLETION_SUMMARY.md
+   ├─ RE_EVALUATION_PLAN_2026_09_09.md
+   ├─ RE_EVALUATION_EXECUTION_2026_09_09.md
+   └─ RE_EVALUATION_REPORT_MOVOCTOK_COMPLETE_2026_09_09.md
+
+2. BACKUP FILES (1 file, ~4.5 KB)
+   └─ README_OLD_BACKUP.md
+
+3. SLURM JOB LOGS (up to 8 files, ~98 KB)
+   └─ zero_shot_seeds_focused_*.err/.out
+
+4. CACHE ARTIFACTS (3 items, <1 KB)
+   └─ .cleanup_backup_2026_09_09/ (directory)
+   └─ .pytest_cache/README.md
+
+TOTAL REMOVAL: ~27 files/directories, ~207 KB freed
+
+================================================================================
+WHAT WILL BE KEPT (PUBLICATION-CRITICAL):
+================================================================================
+
+Core Documentation:
+  ✅ README.md (master guide, 240 lines)
+  ✅ REPOSITORY_CONTEXT.md
+  ✅ CITATION.md
+  ✅ MODEL_MANIFEST.md
+  ✅ DATA_MANIFEST.md
+
+Analysis & Results:
+  ✅ COMPLETE_MULTI_SEED_RESULTS_TABLE.md
+  ✅ TOKENIZER_COMPARISON_ANALYSIS.md
+  ✅ TOKENIZER_COMPARISON_VISUAL.md
+  ✅ TOKENIZER_COMPARISON_INDEX.md
+  ✅ PUBLICATION_APPROVED_2026_09_09.md
+  ✅ FINAL_PUBLICATION_READY_2026_09_09.md
+
+Directories (100% Protected):
+  ✅ PUBLICATION_PACKAGE/ (all files)
+  ✅ data/ (all test sets)
+  ✅ experiments/ (all results)
+  ✅ .git/ (version history)
+
+================================================================================
+SAFETY GUARANTEES:
+================================================================================
+
+✅ Git Backup: All deletions tracked in git history (reversible)
+✅ No Data Loss: Only removing development artifacts
+✅ Core Integrity: PUBLICATION_PACKAGE/, data/, experiments/ protected
+✅ Active Jobs: Job 70558 protected (runs in experiments/)
+✅ Reversible: Can undo with `git reset --hard` if needed
+
+================================================================================
+EXECUTION STEPS (if approved):
+================================================================================
+
+Phase 1: Validation (checks safety)
+Phase 2: Deletion (removes files)
+Phase 3: Verification (confirms cleanup)
+Phase 4: Commit & Push (pushes to remote)
+
+ALL PHASES SAFE AND NON-DESTRUCTIVE TO CRITICAL FILES
+
+================================================================================
+RECOMMENDATION:
+================================================================================
+
+✅ SAFE TO PROCEED - All files marked for deletion are work products from
+   development/evaluation and are not needed in the published repository.
+   
+   Cleanup will result in:
+   - Cleaner, professional repository
+   - ~207 KB space freed
+   - Publication-ready structure
+   - No loss of critical files/data
+
+================================================================================
+
+AWAITING YOUR APPROVAL TO PROCEED WITH DELETION AND GIT PUSH
+
