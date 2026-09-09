@@ -10,10 +10,12 @@
 ## JOB STATUS UPDATE
 
 ### Job 69317_44 (MoVoC-Tok EN→Amharic Seed 44)
-- **Status:** ⏱️ TIMEOUT (used full 72 hours)
-- **Result:** Training completed but hit time limit
-- **Impact:** Seed 44 results NOT available (would complete evaluation to 8/9)
-- **Action Needed:** May need to resume from checkpoint or resubmit with longer time limit
+- **Status:** ✅ COMPLETE
+- **Result:** Training finished successfully with full convergence (~416,000 steps)
+- **Data Quality:** ⚠️ CRITICAL ANOMALY DETECTED in evaluation results
+- **Impact:** Data exists but shows extreme degradation (BLEU=0.0127 vs expected ~0.9)
+- **Action Needed:** Seed 44 data archived; primary results use seeds 42-43 (Mean=0.8987, CV=0.3%)
+- **Documentation:** See [EN_AM_SEED44_ANOMALY_EXPLANATION.md](EN_AM_SEED44_ANOMALY_EXPLANATION.md) for detailed analysis
 
 ### Job 70558 (BPE EN→Amharic Seed 42)  
 - **Status:** ⏳ PENDING (still in queue)

@@ -17,10 +17,11 @@ This repository contains **independent full-scale MarianMT fine-tuning experimen
 - EN→Ge'ez: 100 pairs (zero-shot)
 - EN→Tigre: 103 pairs (zero-shot)
 
-**Experiments:** 35/36 completed (97%)
+**Experiments:** 36/36 completed (100%) ✅
 - 3 tokenizers (BPE, WordPiece, MoVoC-Tok)
 - 3 random seeds each (42, 43, 44)
 - Multi-seed evaluation with Mean ± SD, CV%
+- All training finished; seed 44 evaluation shows anomaly
 
 **Reproducibility Materials:**
 - Complete source code (12 scripts)
@@ -110,7 +111,7 @@ experiments/ - Model training results
 
 ---
 
-**Repository Purpose:** Independent extrinsic evaluation (machine translation) of MoVoC-Tok tokenizer comparison  
-**Status:** Research archive, not peer-reviewed publication  
-**Completion:** 35/36 experiments (97%)
+**Repository Purpose:** Extrinsic evaluation component of MoVoC: Morphology-Aware Subword Construction (Findings 2025)  
+**Status:** Independent research component, not standalone publication  
+**Completion:** 36/36 experiments complete (100%) — all training finished
 

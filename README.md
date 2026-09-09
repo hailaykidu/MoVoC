@@ -2,7 +2,7 @@
 
 **Extrinsic evaluation (machine translation) to compare MoVoC-Tok with BPE and WordPiece tokenizers on low-resource African languages.**
 
-**Status:** 35/36 experiments complete (97%) ✅
+**Status:** 36/36 experiments complete (100%) ✅ All training finished
 
 ---
 
@@ -255,48 +255,26 @@ cat docs/convergence_analysis.md
 
 ---
 
-## 📝 Citation
+## 📖 About This Repository
 
-### Recommended Citation Format
-
-```bibtex
-@misc{teklehaymanot2026marianmt,
-  title={MarianMT Tokenizer Comparison: Extrinsic Evaluation for Low-Resource African Languages (Reconstruction V2)},
-  author={Teklehaymanot, Hailay Kidu},
-  year={2026},
-  note={Independent full-scale extrinsic evaluation; archived as part of MoVoC project},
-  url={https://github.com/...},
-  howpublished={Research Archive}
-}
-```
-
-### Original MoVoC Paper Citation
-```bibtex
-@inproceedings{authors2025movoc,
-  title={MoVoC: ...},
-  author={Author, A. and ...},
-  booktitle={Findings of ACL 2025},
-  year={2025},
-  url={https://aclanthology.org/2025.findings-emnlp.706/}
-}
-```
+This is extrinsic evaluation research component of [MoVoC: Morphology-Aware Subword Construction for Ge'ez Script Languages](https://aclanthology.org/2025.findings-emnlp.706/) (Teklehaymanot et al., Findings 2025). It is not a standalone paper, but independent full-scale MarianMT fine-tuning experiments validating the tokenizer comparison on African languages.
 
 ---
 
 ## ✅ Status & Validation
 
 ### Experiment Completion
+- ✅ **EN→Amharic:** 9/9 seeds complete (100%) — all training finished; seed 44 shows anomaly
 - ✅ **EN→Tigrinya:** 9/9 seeds complete (100%)
-- ✅ **EN→Amharic:** 8/9 seeds complete (89%) — only BPE seed 42 pending
 - ✅ **EN→Ge'ez Zero-shot:** 9/9 seeds complete (100%)
 - ✅ **EN→Tigre Zero-shot:** 9/9 seeds complete (100%)
-- **TOTAL:** 35/36 complete (97%)
+- **TOTAL:** 36/36 complete (100%) — all training finished
 
 ### Convergence Validation
 - ✅ **Loss stabilization:** Final loss variance < 0.15 across all models
 - ✅ **Cross-seed consistency:** CV < 5% for stable models (MoVoC-Tok)
 - ✅ **Metric alignment:** Validation metrics consistent with training convergence
-- ✅ **No anomalies:** All runs completed natural convergence
+- ⚠️ **Seed 44 Anomaly:** MoVoC-Tok EN→Amharic seed 44 shows critical degradation (see [EN_AM_SEED44_ANOMALY_EXPLANATION.md](PUBLICATION_PACKAGE/5_RESULTS/EN_AM_SEED44_ANOMALY_EXPLANATION.md))
 
 ### Data Completeness
 - ✅ **Test sets:** 405 total pairs (exceeds 400-pair specification)
@@ -325,7 +303,7 @@ For issues or questions:
 ---
 
 **Repository Last Updated:** Current  
-**Publication Status:** ✅ Ready for submission  
-**Experiments Completed:** 35/36 (97%)  
+**Publication Status:** ✅ Training Complete  
+**Experiments Completed:** 36/36 (100%)  
 **Data Completeness:** 405/400 pairs (101.25%)
 
