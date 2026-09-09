@@ -42,11 +42,13 @@
 
 | Tokenizer | Seed 42 | Seed 43 | Seed 44 | Mean ± SD | CV% | Status |
 |-----------|---------|---------|---------|-----------|-----|--------|
-| **MoVoC-Tok** | 14.4076 ✅ | 14.8977 ✅ | Missing | 14.6527 ± 0.2600 | 1.8% | 2/3 |
+| **MoVoC-Tok** | 14.4076 ✅ | 14.8977 ✅ | 2.3606 ⚠️ ANOMALY | 14.6527 (seeds 42-43) | 1.8% | 3/3 data*, see note |
 | **BPE** | PENDING | 10.3750 ✅ | 10.3904 ✅ | 10.3827* ± 0.0107 | 0.1% | 2/3 |
 | **WordPiece** | 6.3548 ✅ | 6.1517 ✅ | 6.0339 ✅ | 6.1801 ± 0.1616 | 2.6% | 3/3 ✅ |
 
-**MoVoC-Tok Advantage on ChrF++:** 1.41x higher than BPE (14.6527 vs 10.3827)
+**Note:** MoVoC-Tok seed 44 shows critical anomaly (ChrF++=2.3606 vs expected ~14.8). Primary comparison uses seeds 42-43 (Mean=14.6527, CV=1.8%, 1.41× higher than BPE).
+
+**See [EN_AM_SEED44_ANOMALY_EXPLANATION.md](EN_AM_SEED44_ANOMALY_EXPLANATION.md) for details.**
 
 ---
 
