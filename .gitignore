@@ -187,6 +187,5 @@ backup_before_push
 # IDE & DEVELOPMENT CONFIGURATION
 # ============================================================================
 
-# Claude Code configuration (local development only, not for publication)
 .claude/
 

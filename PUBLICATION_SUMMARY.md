@@ -254,7 +254,6 @@ git commit -m "Add MarianMT tokenizer comparison experiments (manifest-based pub
 - All paths portable (no /homes/ or SLURM IDs in code)
 - Ready for: Code review, reproduction, model redistribution
 
-Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
 ```
 
 ### Step 5: Push to GitHub (⏳ TODO)
@@ -448,6 +447,5 @@ Push:     5-10 minutes (vs. 4-8 hours before)
 ---
 
 **Generated:** 2026-09-08  
-**Author:** Claude Code (manifest-based publication strategy)  
 **Next:** Execute Steps 2-5 for GitHub publication
 

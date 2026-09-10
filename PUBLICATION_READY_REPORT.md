@@ -381,6 +381,5 @@ If issues occur during git push:
 
 **Generated:** 2026-09-08 UTC  
 **Status:** ✅ PUBLICATION-READY  
-**Authority:** Claude Code (manifest-based approach)  
 **Next:** Execute MANIFEST_PUBLICATION_CHECKLIST.md
 

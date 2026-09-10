@@ -232,8 +232,6 @@ Repository Status:
 - Fast push: 5-10 minutes (vs. 4-8 hours with LFS)
 - Full reproducibility: Via manifests + external storage links
 
-Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>"
-
 # 5b. Verify commit created
 git log --oneline | head -1
 

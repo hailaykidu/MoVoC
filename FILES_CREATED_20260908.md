@@ -1,7 +1,6 @@
 # FILES CREATED — 2026-09-08 (Manifest-Based Publication)
 
 **Date:** September 8, 2026  
-**Author:** Claude Code  
 **Purpose:** Preparation for lightweight GitHub publication with external model/data storage
 
 ---
@@ -292,7 +291,6 @@ All documentation created. Repository ready for `git init` and GitHub push.
 ---
 
 **Generated:** 2026-09-08 UTC  
-**Created by:** Claude Code  
 **Files:** 5 new (manifests + .gitignore + checklist)  
 **Status:** ✅ PUBLICATION PREPARATION COMPLETE
 
