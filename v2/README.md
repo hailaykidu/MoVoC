@@ -27,15 +27,24 @@ Best-performing runs, sensitivity analyses and alternative evaluations live in
 
 ```
 v2/
-├── table2/      MorphScore    — table2_final.{csv,tex}, MorphScore_report.md
-├── table3/      MarianMT      — table3_final.{csv,tex}, MarianMT_report.md
-├── table4/      Intrinsic     — table4_final.{csv,tex}, Intrinsic_report.md
+├── table2/                              MorphScore — table2_final.{csv,tex}, MorphScore_report.md
+├── table3/                              Extrinsic MT (CURRENT)
+│                                        TABLE_3_UPDATED_STATUS.md, EN_AM_SEED44_ANOMALY_EXPLANATION.md
+├── table4/                              Intrinsic — table4_final.{csv,tex}, Intrinsic_report.md
+├── archive/                             Previous versions & archived materials
+│   ├── table3_intrinsic_v1_original/   Original intrinsic evaluation (archived Sep 10, 2026)
+│   └── README.md                        Archive index & version history
 ├── tokenizers/  tokenizer reconstruction records
 ├── marianmt/    MT reconstruction configuration
 ├── audits/      entropy · projection · precision · dataset · tokenizer
 ├── appendix/    best runs · sensitivity · alternative evaluations
 └── reports/     summary · methodology · limitations · discussion
 ```
+
+**Table 3 Update (Sep 10, 2026):**
+- Canonical location: `table3/` (now Extrinsic evaluation with 36/36 experiments complete)
+- Previous version: `archive/table3_intrinsic_v1_original/` (intrinsic evaluation, preserved unchanged)
+- Key files in table3: TABLE_3_UPDATED_STATUS.md, EN_AM_SEED44_ANOMALY_EXPLANATION.md
 
 Each per-table report contains **Published Results**, **V2 Reconstruction** and
 **Comparison** as separate sections. Categories are never merged into one table
@@ -50,11 +59,11 @@ without explicit labelling.
 | 4 | Precision (amh, MoVoC-Tok) | 85.5 | 0.3208 | **No** | **Yes** — MoVoC-Tok highest in 3/4 (Amharic, Tigrinya, Tigre); near-tie with BPE on Ge'ez |
 | 4 | Precision ranking | MoVoC-Tok highest in all four languages | MoVoC-Tok highest in 3/4 (Amharic, Tigrinya, Tigre); near-tie with BPE on Ge'ez | — | **Yes**, in 3/4 languages |
 
-**On Table 3:** BLEU under 2 in every cell means none of these V2 runs reached
-a translation regime where a BLEU/chrF++ gap is trustworthy. BPE's apparent
-lead is an artifact of undertrained models (75,000 of ~416,000 baseline
-steps, training loss never converged), not a finding about tokenizer quality
-— see [`table3/MarianMT_report.md`](table3/MarianMT_report.md).
+**On Table 3:** Current extrinsic evaluation (36/36 experiments complete, 100% convergence)
+with multi-seed validation across EN→Amharic, EN→Tigrinya, and zero-shot EN→Ge'ez/EN→Tigre.
+See [`table3/TABLE_3_UPDATED_STATUS.md`](table3/TABLE_3_UPDATED_STATUS.md) and
+[`table3/EN_AM_SEED44_ANOMALY_EXPLANATION.md`](table3/EN_AM_SEED44_ANOMALY_EXPLANATION.md).
+Previous intrinsic evaluation preserved at [`archive/table3_intrinsic_v1_original/`](archive/table3_intrinsic_v1_original/).
 
 See [`reports/reconstruction_v2_summary.md`](reports/reconstruction_v2_summary.md)
 and [`reports/limitations.md`](reports/limitations.md).
