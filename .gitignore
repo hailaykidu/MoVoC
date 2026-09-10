@@ -183,3 +183,10 @@ backup_before_push
 # Total published: ~105 MB to GitHub
 # Total external: ~25.4 GB (models + data on HuggingFace/Zenodo)
 
+# ============================================================================
+# IDE & DEVELOPMENT CONFIGURATION
+# ============================================================================
+
+# Claude Code configuration (local development only, not for publication)
+.claude/
+
