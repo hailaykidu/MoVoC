@@ -38,5 +38,4 @@ experiments/*/results/
 # Overleaf upload bundle, regenerated from v2/paper/manuscript/.
 v2/paper/movoc_v2_manuscript.zip
 
-# Claude Code configuration (local development only, not for publication)
 .claude/
