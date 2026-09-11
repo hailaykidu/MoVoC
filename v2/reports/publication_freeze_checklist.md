@@ -43,8 +43,8 @@ Reconstruction Version 2 — reference repository for the V2 paper.
 | Ge'ez (gez) | 172 | ~~88.7~~ superseded — current value 65.6, see `v2/table4/table4_final.csv` |
 | Tigre (tig) | 2,149 | 42.9 |
 
-**Table 3 — MarianMT** (FLORES-200 devtest, mean ± std, seeds 42/43/44) — fully converged (36/36) —
-EN→Amharic: MoVoC-Tok 0.8987 BLEU (1.79× BPE), exceptional stability. EN→Tigrinya: BPE 0.8087 BLEU. See `v2/table3/` for complete results.
+**Table 3 — MarianMT** (FLORES-200 devtest, mean ± std, seeds 42/43/44) — 6
+cells, BPE leading both directions.
 
 **Table 4 — boundary precision + Rényi entropy** — 8 cells, official exact-match
 precision and normalized Rényi. MoVoC-Tok leads on precision in Tigre and on
