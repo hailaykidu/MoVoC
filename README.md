@@ -153,12 +153,12 @@ English→X MarianMT, FLORES-200 devtest, mean ± std over seeds 42/43/44.
 
 | Direction | Tokenizer | BLEU ↑ | chrF++ ↑ |
 |---|---|---:|---:|
-| English → Amharic | BPE | 1.4937 ± 0.0866 | 21.5573 ± 0.2167 |
-| English → Amharic | WordPiece | 0.0534 ± 0.0140 | 11.5990 ± 0.0295 |
-| English → Amharic | MoVoC-Tok | 0.7907 ± 0.0363 | 18.3999 ± 0.1711 |
-| English → Tigrinya | BPE | 1.2557 ± 0.2135 | 10.8757 ± 0.0708 |
-| English → Tigrinya | WordPiece | 0.0439 ± 0.0037 | 6.7069 ± 0.1085 |
-| English → Tigrinya | MoVoC-Tok | 0.2710 ± 0.0775 | 7.8489 ± 0.2845 |
+| English → Amharic | BPE | 0.5023 ± 0.0710 | 10.3827 ± 0.0107 |
+| English → Amharic | WordPiece | 0.0445 ± 0.0063 | 6.1801 ± 0.1616 |
+| English → Amharic | MoVoC-Tok | 0.8987 ± 0.0025 | 14.6527 ± 0.1800 |
+| English → Tigrinya | BPE | 0.8090 ± 0.2470 | 8.4886 ± 0.3991 |
+| English → Tigrinya | WordPiece | 0.0727 ± 0.0062 | 5.1637 ± 0.1638 |
+| English → Tigrinya | MoVoC-Tok | 0.3665 ± 0.0298 | 7.1698 ± 0.3721 |
 
 **Note on Tigre and Ge'ez:** Neither Tigre nor Ge'ez were included in:
 - MoVoC vocabulary construction (only Amharic and Tigrinya)
