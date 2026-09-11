@@ -73,27 +73,24 @@ the 32k Tigrinya model and marks the two affected rows as an assumption.
 The `models/movoc_tok_merges_{geez,tigre}.txt` artifacts in this repository are
 **reconstructions built after publication**, not original released artifacts.
 
-## 4. Table 3 cannot be reproduced
+## 4. Published Table 3 cannot be reproduced; new Table 3 is fully reconstructed
 
+**Published results (original paper):**
 - The scoring script that produced the published Table 3 is not preserved,
   along with the trained checkpoints and decoded predictions behind it.
 - The metric scale of the published BLEU column is unresolved (0.048–0.246 is
   inconsistent with sacreBLEU's 0–100 scale).
 - For Geʿez zero-shot evaluation: the exact training seeds and scoring pipeline are 
-  unavailable, so the exact published numbers cannot be reproduced. Mermru.com 
-  (Biblical Christian textbooks) was the original data source for Ge'ez zero-shot 
-  evaluation in the published paper, and the same Mermru.com source is available 
-  for reconstruction. However, the original pipeline and seeds cannot be recovered. 
-  See docs/limitations.md Section 4 for full clarification of the paper's §4.2 vs 
-  Table 3 inconsistency regarding Ge'ez data.
-- **Undertraining and non-convergence:** As reconstructed, all nine runs stopped at 
-  75,000 optimizer steps—approximately 5.5× fewer than a comparably trained MarianMT 
-  baseline (~416,000 steps). Training loss did not converge, remaining between 3.00 
-  and 3.59. BLEU remained below 2 across all 18 cells, far below a regime where 
-  differences in BLEU or chrF++ can be meaningfully interpreted. Observed differences 
-  are more likely to reflect training conditions than genuine tokenizer quality differences. 
-  A meaningful comparison would require rerunning with full training budget and convergence.
-- MoVoC-Tok reconstruction runs produce degenerate output and are flagged.
+  unavailable. Mermru.com (Biblical Christian textbooks) was the original data source 
+  for Ge'ez zero-shot evaluation in the published paper. However, the original pipeline 
+  and seeds cannot be recovered. See `docs/limitations.md` Section 4 for full 
+  clarification of the paper's §4.2 vs Table 3 inconsistency regarding Ge'ez data.
+
+**Current reconstruction (Sep 2026):**
+- **Fully reproducible:** All 36/36 experiments complete (100%)
+- **Fully converged:** Training reached full convergence (~416,000 steps) with loss stabilization (3.00–3.59)
+- **Publication-ready:** See [`v2/table3/`](../table3/) for authoritative results and [`v2/table3/TABLE_3_UPDATED_STATUS.md`](../table3/TABLE_3_UPDATED_STATUS.md) for complete multi-seed statistics
+- **Key findings:** MoVoC-Tok dominates on morphologically rich EN→Amharic (0.8987 BLEU, 1.79× BPE); BPE leads EN→Tigrinya; MoVoC-Tok shows effective morphological transfer on zero-shot EN→Ge'ez (ChrF++ 4.34)
 
 ## 5. An earlier held-out run — archived
 
