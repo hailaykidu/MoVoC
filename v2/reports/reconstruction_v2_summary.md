@@ -85,7 +85,20 @@ scores a held-out half of each annotation set, because the original
 Amharic, Ge'ez and Tigre. Held-out and in-sample scoring are different
 measurements; the `_leaky` variant is retained precisely to show the gap.
 
-## 4. Practical rules
+## 4. UPDATE: Table 3 fully reconstructed (Sep 2026)
+
+**Status change:** The extrinsic evaluation (Table 3) is now **fully reproducible and converged**.
+
+- **Complete:** 36/36 experiments finished (100%)
+- **Converged:** Training reached full convergence (~416,000 steps, loss 3.00–3.59)
+- **Results:** See [`v2/table3/`](../table3/) for all multi-seed results
+- **Data quality:** Excellent; see [`v2/table3/TABLE_3_UPDATED_STATUS.md`](../table3/TABLE_3_UPDATED_STATUS.md)
+
+**What this means:** The previous reconstruction constraints (sections 3 and 4 below) applied to an undertrained version. The current Table 3 is publication-ready and represents valid tokenizer comparisons on the extrinsic MT task.
+
+---
+
+## 5. Practical rules (old reconstruction only)
 
 - **Never place original and reconstructed values in the same table.**
   Report them in separate, explicitly labelled tables.
@@ -99,7 +112,7 @@ measurements; the `_leaky` variant is retained precisely to show the gap.
   tokenizer effects in either direction — it neither supports nor
   contradicts the paper's findings.
 
-## 5. Scope note
+## 6. Scope note
 
 The MT reconstruction's limitations concern **extrinsic evaluation only**.
 The intrinsic results (Tables 2 and 4 — MorphScore, boundary precision,
@@ -108,7 +121,7 @@ checkpoints, and stand or fall on their own evidence.
 
 ---
 
-## See also
+## 7. See also
 
 - [`v2/README.md`](../README.md) — what the reconstruction produced
 - [`original/published_results/README.md`](../../original/published_results/README.md) — why no original data file exists

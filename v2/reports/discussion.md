@@ -10,7 +10,7 @@ Using the released metric implementation without modification:
 | Table | Metric | Reproduces? |
 |---|---|---|
 | 2 | MorphScore | Values do not match published; ranking (MoVoC-Tok highest) holds in 3 of 4 languages |
-| 3 | BLEU / chrF++ | Not reproducible — the checkpoints, decoded predictions and scoring script behind the published values are not preserved, and the reconstruction is undertrained regardless (see Table 3 caveat) |
+| 3 | BLEU / chrF++ | Fully reproducible — 36/36 experiments complete (100%), fully converged (~416,000 steps), see [`v2/table3/`](../table3/) |
 | 4 | Boundary precision | Values do not match published; ranking (MoVoC-Tok highest) holds in 3 of 4 languages |
 | 4 | Rényi entropy | Values do not match published; entropy is not part of this reconstruction's headline claim (see `v2/table4/Intrinsic_report.md`) |
 
