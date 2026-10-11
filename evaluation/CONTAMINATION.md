@@ -87,6 +87,41 @@ The claim "highest boundary precision in three of four languages" becomes
 **two of four** (Amharic, Tigre). The MorphScore claim is unchanged at three of
 four.
 
+## Significance of the held-out differences
+
+Paired bootstrap over words, 10,000 resamples, shared index across tokenizers
+(`scripts/bootstrap_significance.py`, results in
+`evaluation/results/significance_heldout.json`). Differences are MoVoC-Tok
+minus the baseline.
+
+| Language | n | Metric | vs BPE | vs WordPiece |
+|----------|--:|--------|--------|--------------|
+| Amharic  | 76,488 | Precision  | +0.0018 [+0.0004,+0.0033] p=0.012 | +0.0176 [+0.0157,+0.0194] p<0.001 |
+| Amharic  | 76,488 | MorphScore | +0.0021 [+0.0001,+0.0042] p=0.045 | +0.0276 [+0.0251,+0.0300] p<0.001 |
+| Tigrinya | 2,438  | Precision  | −0.0016 [−0.0106,+0.0075] p=0.744 | −0.0016 [−0.0129,+0.0102] p=0.805 |
+| Tigrinya | 2,438  | MorphScore | +0.0185 [+0.0031,+0.0345] p=0.017 | +0.0220 [+0.0037,+0.0411] p=0.018 |
+| Tigre    | 1,974  | Precision  | +0.0250 [+0.0060,+0.0446] p=0.009 | +0.0506 [+0.0226,+0.0782] p<0.001 |
+| Tigre    | 1,974  | MorphScore | +0.0274 [+0.0096,+0.0458] p=0.003 | +0.0500 [+0.0237,+0.0758] p<0.001 |
+| Ge'ez    | 172    | Precision  | −0.0025 [−0.0260,+0.0195] p=0.839 | +0.0099 [−0.0149,+0.0348] p=0.431 |
+| Ge'ez    | 172    | MorphScore | −0.0105 [−0.0383,+0.0157] p=0.442 | +0.0169 [−0.0135,+0.0488] p=0.289 |
+
+Three points follow.
+
+**The Amharic margins over BPE are small but resolved.** +0.0018 precision and
++0.0021 MorphScore both exclude zero, on 76,488 words. They are real and they
+are slight; the gain over WordPiece is an order of magnitude larger.
+
+**Tigrinya precision is not a loss, it is a null.** The interval
+[−0.0106, +0.0075] spans zero, so the held-out data do not separate MoVoC-Tok
+from BPE on precision. The correct statement is that no difference is detected,
+not that MoVoC-Tok is worse. Tigrinya MorphScore is a genuine gain
+(+0.0185, p=0.017).
+
+**Tigre is the strongest result in the paper.** It is the largest effect
+(+0.0250 precision, +0.0274 MorphScore against BPE, both significant) and it is
+cross-lingual: the Tigrinya tokenizer applied to a language with no training
+morpheme data of its own. Ge'ez, at n=172, resolves nothing in either direction.
+
 ## Why Tigrinya and not Amharic
 
 The two languages differ in annotation coverage, not in method. The Tigrinya
