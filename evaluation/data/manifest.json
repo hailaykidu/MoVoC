@@ -21,6 +21,7 @@
     "excluded_single_morpheme": 29911,
     "excluded_unaligned_to_surface": 41590,
     "excluded_duplicate_word": 947,
+    "_contamination_note": "4,736 of the 81,224 Amharic evaluation words (5.8%) occur in data/segmented/amharic_morpheme_segmented.json, which constrained MoVoC-Tok training. Use scripts/evaluate_intrinsic.py --exclude-training to score the 76,488 held-out words. See evaluation/CONTAMINATION.md.",
     "_note": "test_set/provenance paths are relative to this repository root. sources[].source paths are historical provenance from the amseg project where this data was originally assembled, and are not paths within this repository."
   },
   "tigrinya": {
@@ -31,7 +32,8 @@
     "sources": [
       {
         "source": "/homes/neumann/teklehaymanot/amseg/data/annotations/tigrinya/gold_morphemes.json",
-        "source_kind": "gold, held out from training and vocabulary construction",
+        "source_kind": "gold, manually annotated",
+        "_tier_caveat": "The tier describes this file's role, not disjointness from the training resource: 18 of the 160 words contributed here also occur in data/segmented/tigrinya_morpheme_segmented.json, which constrained MoVoC-Tok training. See evaluation/CONTAMINATION.md.",
         "resource_tier": "evaluation_only",
         "records_in_source": 206,
         "words_contributed": 160,
@@ -67,6 +69,7 @@
     "excluded_single_morpheme": 6695,
     "excluded_unaligned_to_surface": 2412,
     "excluded_duplicate_word": 98,
+    "_contamination_note": "words_contributed records the first source each word was drawn from, so it undercounts overlap with the training resource. 2,786 of the 5,224 Tigrinya evaluation words occur in data/segmented/tigrinya_morpheme_segmented.json (2,412 labelled from it, plus 356 labelled postedited_morphemes.json and 18 labelled gold_morphemes.json). Use scripts/evaluate_intrinsic.py --exclude-training, which filters by set membership against the training file. See evaluation/CONTAMINATION.md.",
     "_note": "test_set/provenance paths are relative to this repository root. sources[].source paths are historical provenance from the amseg project where this data was originally assembled, and are not paths within this repository."
   },
   "tigre": {
