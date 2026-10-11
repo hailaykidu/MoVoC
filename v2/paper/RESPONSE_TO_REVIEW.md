@@ -144,6 +144,19 @@ Eight commits on `fix/eval-contamination`:
    gitignored)
 7. The manuscript edits
 8. This response
+9. The Anthology package (`corrected_emnlp2025.zip`), rebuilt so that the paper
+   it contains states the same results as the repository. Its unpacked source
+   is now tracked under `v2/paper/corrected_emnlp2025/` so it can be reviewed
+   without unzipping.
+
+One claim I dropped rather than carried into the package: the comparison with
+job 52623 at 24.7 BLEU and loss 3.13. That job is not in the repository, so the
+figure cannot be traced from the released artifacts, and I did not want an
+unverifiable number in a corrected paper. The withdrawal argument in the
+package rests on the length ratios and the missing outputs, both of which are
+in the per-run records. The point still holds and I have kept it in this
+response; if you would like it in the paper as well, it would need the job log
+committed alongside.
 
 Two documents may be the most useful starting points:
 `evaluation/CONTAMINATION.md` for the extent and effect, and
