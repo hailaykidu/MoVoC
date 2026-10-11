@@ -1,0 +1,34 @@
+Summary of changes (revision of 2025.findings-emnlp.706)
+
+The evaluation artifacts behind the originally published results could not be
+recovered, and those results could not be reproduced. Following the advice of
+the EMNLP 2025 programme chairs, all results are replaced by results
+reconstructed from the public repository (https://github.com/hailaykidu/MoVoC).
+The method is unchanged. A correction notice follows the abstract, and
+Appendix D lists every change.
+
+- Evaluation sets (new Section 5.3): part of each in-language evaluation set
+  consisted of words whose morpheme boundaries had constrained MoVoC-Tok's own
+  training, which the BPE and WordPiece baselines never saw. All in-language
+  results are now scored on held-out words only: 76,488 of 81,224 Amharic words
+  and 2,438 of 5,224 Tigrinya words. Tigre (1,974) and Ge'ez (172) have no
+  training morpheme resource and are unaffected.
+- Tables 2 and 4 (intrinsic): new values for BPE, WordPiece and MoVoC-Tok on the
+  held-out evaluation sets. MoVoC-Tok scores highest on MorphScore in three of
+  four languages and on boundary precision in two of four, not all four. Its
+  largest gains are on Tigre, which is evaluated cross-lingually. Rényi entropy
+  is reported in raw nats. A new table reports bootstrap confidence intervals
+  for the differences against BPE.
+- Table 3 (translation): withdrawn. The three-seed reconstruction that replaced
+  it in the first corrected version is also withdrawn, together with the OPUS
+  appendix table. The decode outputs are not in the repository, the recorded
+  hypothesis/reference length ratios (2.06-15.10) show generation failing to
+  terminate, and the decoding configuration and model initialisation of those
+  runs cannot be established from the surviving records. This version reports
+  no translation results and makes no extrinsic claim.
+- Table 1, Section 7 and Table 6: the examples are replaced by actual tokenizer
+  output and by records from the released data. The translation example is
+  withdrawn.
+- Sections 4 and 5: training configuration, evaluation data, vocabulary sizes
+  (Table 5) and metric definitions are corrected to match the repository.
+- Abstract, Conclusion and Limitations are updated to match.

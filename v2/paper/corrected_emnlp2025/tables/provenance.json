@@ -1,0 +1,241 @@
+{
+  "repo": "https://github.com/hailaykidu/MoVoC",
+  "commit": "ac89370fb607125a98476281d826180248ce7ecf",
+  "table2_final.tex": {
+    "copied_from": "v2/paper/manuscript/tables/table2_final.tex",
+    "sha256_16": "ab17cc1470ec2bd8"
+  },
+  "table3_final.tex": {
+    "copied_from": "v2/archive/table3_intrinsic_v1_original/table3_final.tex",
+    "sha256_16": "8dadb52dd2629da5",
+    "status": "withdrawn; retained for reference, not input by main.tex"
+  },
+  "table4_final.tex": {
+    "copied_from": "v2/paper/manuscript/tables/table4_final.tex",
+    "sha256_16": "f7a42bf4b6eabb13"
+  },
+  "table1_segmentation.tex": [
+    {
+      "word": "አልሰበሩም",
+      "language": "Amharic",
+      "published_in": "Table 1",
+      "gold": "--",
+      "BPE": "አልሰ-በሩ-ም",
+      "WordPiece": "አልሰ-በሩ-ም",
+      "MoVoC-Tok": "አል-ሰበ-ሩም"
+    },
+    {
+      "word": "ኣይትከውንን",
+      "language": "Tigrinya",
+      "published_in": "Sec. 7",
+      "gold": "--",
+      "BPE": "ኣይት-ከውን-ን",
+      "WordPiece": "ኣይት-ከውን-ን",
+      "MoVoC-Tok": "ኣይት-ከውንን"
+    },
+    {
+      "word": "መምህርነት",
+      "language": "Amharic",
+      "published_in": "Sec. 7",
+      "gold": "መ-ም-ህርነት",
+      "BPE": "መምህ-ርነት",
+      "WordPiece": "መምህር-ነት",
+      "MoVoC-Tok": "መምህ-ርነት"
+    }
+  ],
+  "table5_vocab.tex": {
+    "s": 224000,
+    "r": 0.7142857142857143,
+    "s_lang": 112000,
+    "s_bpe": 32000,
+    "s_morpheme": 80000,
+    "v_morpheme_amharic": 50978,
+    "v_morpheme_tigrinya": 7125,
+    "v_bpe_amharic": 32000,
+    "v_bpe_tigrinya": 32000,
+    "v_movoc": 114553
+  },
+  "table6_annotations.tex": [
+    {
+      "language": "Amharic",
+      "file": "data/annotations/amharic/postedited_morphemes.json",
+      "word": "መምህርነት",
+      "selection": "published example present in file",
+      "published_example": "መምህርነት"
+    },
+    {
+      "language": "Tigrinya",
+      "file": "data/annotations/tigrinya/postedited_morphemes.json",
+      "word": "ዝወደቐ",
+      "selection": "published example absent; first multi-morpheme record in file",
+      "published_example": "ምሕዳራት"
+    },
+    {
+      "language": "Ge'ez",
+      "file": "data/annotations/geez/manual_morphemes.json",
+      "word": "ለንኡሳት",
+      "selection": "published example absent; first multi-morpheme record in file",
+      "published_example": "እምነት"
+    },
+    {
+      "language": "Tigre",
+      "file": "data/annotations/tigre/manual_morphemes.json",
+      "word": "ናዊ",
+      "selection": "published example absent; first multi-morpheme record in file",
+      "published_example": "ኣብይና"
+    }
+  ],
+  "table7_opus.tex": {
+    "en-am/BPE": {
+      "n": 100,
+      "bleu": [
+        0.4131,
+        0.1039
+      ],
+      "chrf": [
+        18.4723,
+        2.0884
+      ]
+    },
+    "en-am/WordPiece": {
+      "n": 100,
+      "bleu": [
+        0.0286,
+        0.0103
+      ],
+      "chrf": [
+        6.7737,
+        0.1963
+      ]
+    },
+    "en-am/MoVoC-Tok": {
+      "n": 100,
+      "bleu": [
+        0.1694,
+        0.0418
+      ],
+      "chrf": [
+        10.2681,
+        0.9363
+      ]
+    },
+    "en-ti/BPE": {
+      "n": 71,
+      "bleu": [
+        0.1909,
+        0.0487
+      ],
+      "chrf": [
+        11.2057,
+        0.3469
+      ]
+    },
+    "en-ti/WordPiece": {
+      "n": 71,
+      "bleu": [
+        0.0347,
+        0.0036
+      ],
+      "chrf": [
+        5.0109,
+        0.1487
+      ]
+    },
+    "en-ti/MoVoC-Tok": {
+      "n": 71,
+      "bleu": [
+        0.1279,
+        0.0409
+      ],
+      "chrf": [
+        5.1444,
+        0.1739
+      ]
+    },
+    "en-tig/BPE": {
+      "n": 43,
+      "bleu": [
+        1.146,
+        0.0535
+      ],
+      "chrf": [
+        10.331,
+        0.6563
+      ]
+    },
+    "en-tig/WordPiece": {
+      "n": 43,
+      "bleu": [
+        0.0912,
+        0.022
+      ],
+      "chrf": [
+        5.258,
+        0.2879
+      ]
+    },
+    "en-tig/MoVoC-Tok": {
+      "n": 43,
+      "bleu": [
+        0.1677,
+        0.0632
+      ],
+      "chrf": [
+        5.5903,
+        0.6641
+      ]
+    },
+    "en-gez/BPE": {
+      "n": 100,
+      "bleu": [
+        0.0195,
+        0.0059
+      ],
+      "chrf": [
+        5.0322,
+        0.0504
+      ]
+    },
+    "en-gez/WordPiece": {
+      "n": 100,
+      "bleu": [
+        0.0,
+        0.0
+      ],
+      "chrf": [
+        4.29,
+        0.092
+      ]
+    },
+    "en-gez/MoVoC-Tok": {
+      "n": 100,
+      "bleu": [
+        0.015,
+        0.0012
+      ],
+      "chrf": [
+        4.8138,
+        0.1196
+      ]
+    },
+    "status": "withdrawn; retained for reference, not input by main.tex"
+  },
+  "table2_heldout.tex": {
+    "copied_from": "v2/paper/manuscript/tables/table2_heldout.tex",
+    "sha256_16": "c38561a58952b58a",
+    "generated_by": "scripts/evaluate_intrinsic.py --exclude-training",
+    "scope": "words held out from MoVoC-Tok's training morpheme resource"
+  },
+  "table4_heldout.tex": {
+    "copied_from": "v2/paper/manuscript/tables/table4_heldout.tex",
+    "sha256_16": "da3d0e8cb007077e",
+    "generated_by": "scripts/evaluate_intrinsic.py --exclude-training",
+    "scope": "words held out from MoVoC-Tok's training morpheme resource"
+  },
+  "table_significance_heldout.tex": {
+    "copied_from": "v2/paper/manuscript/tables/table_significance_heldout.tex",
+    "sha256_16": "2d6da32ff7d7a4ee",
+    "generated_by": "scripts/bootstrap_significance.py",
+    "scope": "words held out from MoVoC-Tok's training morpheme resource"
+  }
+}
