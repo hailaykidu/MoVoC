@@ -194,6 +194,27 @@ def renyi_entropy(counts: Counter, alpha: float = 2.0) -> float:
     return (1.0 / (1.0 - alpha)) * math.log(power_sum)
 
 
+def training_words(repo_root: Path, language: str) -> set[str]:
+    """Surface words whose morpheme boundaries constrained MoVoC-Tok training.
+
+    These come from ``data/segmented/{language}_morpheme_segmented.json``, the
+    file each tokenizer's ``training_config.json`` names as ``morpheme_source``.
+    MoVoC-Tok was trained not to merge across the boundaries of exactly these
+    words, so scoring it on them measures recall of a supplied constraint rather
+    than generalization of morpheme supervision. BPE and WordPiece never saw
+    them, which makes a comparison on these words asymmetric.
+
+    Returns an empty set for languages with no training morpheme resource
+    (Tigre, Ge'ez): those are evaluated cross-lingually and are uncontaminated
+    by construction.
+    """
+    source = repo_root / "data" / "segmented" / f"{language}_morpheme_segmented.json"
+    if not source.exists():
+        return set()
+    records = json.loads(source.read_text(encoding="utf-8"))
+    return {r["word"] for r in records if r.get("word")}
+
+
 def load_testset(path: Path) -> list[tuple[str, list[str]]]:
     rows: list[tuple[str, list[str]]] = []
     for lineno, line in enumerate(
@@ -270,7 +291,17 @@ def main() -> int:
     parser.add_argument("--datadir", type=Path, default=Path("evaluation/data"))
     parser.add_argument("--outdir", type=Path, default=Path("evaluation/results"))
     parser.add_argument("--tokenizers", type=Path, default=Path("tokenizers"))
+    parser.add_argument(
+        "--exclude-training",
+        action="store_true",
+        help=(
+            "Score only words absent from the morpheme resource that "
+            "constrained MoVoC-Tok training. Required for a like-for-like "
+            "comparison against BPE and WordPiece; see training_words()."
+        ),
+    )
     args = parser.parse_args()
+    repo_root = Path(__file__).resolve().parent.parent
 
     require(args.datadir / "manifest.json", "evaluation data manifest")
     manifest = json.loads((args.datadir / "manifest.json").read_text(encoding="utf-8"))
@@ -311,6 +342,17 @@ def main() -> int:
                 f"  expected at: {testset}"
             )
         rows = load_testset(testset)
+        excluded_training = 0
+        if args.exclude_training:
+            seen_in_training = training_words(repo_root, language)
+            before = len(rows)
+            rows = [(w, m) for w, m in rows if w not in seen_in_training]
+            excluded_training = before - len(rows)
+            if not rows:
+                raise MissingArtifact(
+                    f"EMPTY EVALUATION SET for {language} after excluding "
+                    f"{excluded_training} training words"
+                )
         words = [w for w, _ in rows]
 
         tokenizers_to_run: list = [
@@ -343,19 +385,27 @@ def main() -> int:
             "excluded_unaligned_to_surface": manifest[language][
                 "excluded_unaligned_to_surface"
             ],
+            "excluded_movoc_training_words": excluded_training,
             "tokenizers_evaluated": [t.name for t in tokenizers_to_run],
             "movoc_tok_model": str(movoc_path.resolve()),
             "movoc_tok_evaluation_mode": movoc_mode,
             "sources": manifest[language]["sources"],
         }
+        note = (
+            f", {excluded_training:,} training words excluded"
+            if excluded_training
+            else ""
+        )
         print(
             f"{language}: {len(rows):,} words, "
-            f"{len([t for t in tokenizers_to_run])} tokenizers"
+            f"{len([t for t in tokenizers_to_run])} tokenizers{note}"
         )
 
     args.outdir.mkdir(parents=True, exist_ok=True)
+    reproducibility["excluded_movoc_training_words"] = args.exclude_training
+    suffix = "_heldout" if args.exclude_training else ""
     payload = {"results": results, "reproducibility": reproducibility}
-    (args.outdir / "intrinsic_tokenizer_evaluation.json").write_text(
+    (args.outdir / f"intrinsic_tokenizer_evaluation{suffix}.json").write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
 
@@ -378,8 +428,17 @@ def main() -> int:
         "|----------|-----------|-------------------|------------|-----------|",
     ]
 
+    scope = (
+        "Words covered by MoVoC-Tok's training morpheme resource are excluded, "
+        "so every tokenizer is scored on words none of them was trained on."
+        if args.exclude_training
+        else "All evaluation words, including those covered by MoVoC-Tok's "
+        "training morpheme resource (see --exclude-training)."
+    )
     lines = [
         "# Intrinsic tokenizer evaluation",
+        "",
+        scope,
         "",
         "## In-language MoVoC-Tok evaluation",
         "",
@@ -401,12 +460,12 @@ def main() -> int:
         *rows_for(["tigre", "geez"]),
         "",
     ]
-    (args.outdir / "intrinsic_tokenizer_table.md").write_text(
+    (args.outdir / f"intrinsic_tokenizer_table{suffix}.md").write_text(
         "\n".join(lines) + "\n", encoding="utf-8"
     )
 
-    print(f"\nwrote {args.outdir}/intrinsic_tokenizer_evaluation.json")
-    print(f"wrote {args.outdir}/intrinsic_tokenizer_table.md")
+    print(f"\nwrote {args.outdir}/intrinsic_tokenizer_evaluation{suffix}.json")
+    print(f"wrote {args.outdir}/intrinsic_tokenizer_table{suffix}.md")
     return 0
 
 
