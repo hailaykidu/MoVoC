@@ -71,6 +71,11 @@ def repo_numbers(repo: Path) -> set[str]:
     s |= nums_in(json.dumps(d["experimental_design"]))
     s |= nums_in(json.dumps(d["metrics"]))
     s |= nums_in(json.dumps(d["scientific_validity_caveat"]))
+    # The withdrawal of the translation results cites the number of decode
+    # passes and the length ratios that evidence the generation failure.
+    s.add(norm(str(len(d["per_run"]))))
+    for r in d["per_run"]:
+        s.add(norm(f"{r['length_ratio']:.4f}"))
     agg = defaultdict(lambda: ([], []))
     for r in d["per_run"]:
         s |= {norm(f"{r['final_train_loss']:.2f}"), norm(str(r["num_examples"]))}
@@ -126,6 +131,31 @@ def published_numbers(repo: Path) -> set[str]:
     return s
 
 
+def rounds_from(n: str, repo_s: set[str]) -> str | None:
+    """The repository value that `n` is a rounding of, if there is one.
+
+    Prose rounds values the tables carry in full: a length ratio of 15.096
+    appears as 15.1, a precision of 0.2401 as 0.24. Such a number is sourced,
+    but an exact string match does not see it. We accept `n` when some
+    repository value rounds to it at `n`'s own precision, requiring at least
+    one decimal so that integers are not matched loosely.
+    """
+    if "." not in n:
+        return None
+    places = len(n.split(".")[1])
+    if not 1 <= places <= 3:
+        return None
+    target = float(n)
+    for cand in repo_s:
+        try:
+            v = float(cand)
+        except ValueError:
+            continue
+        if v != target and round(v, places) == target:
+            return cand
+    return None
+
+
 CONSTANTS = {
     "2025": "year", "2024": "year", "2023": "year", "2022": "year", "2021": "year",
     "2020": "year", "2018": "year", "2017": "year", "2016": "year", "2012": "year",
@@ -164,6 +194,8 @@ def main() -> int:
             src = "published value (quoted)"
         elif n in CONSTANTS:
             src = "constant: " + CONSTANTS[n]
+        elif (rounded := rounds_from(n, repo_s)) is not None:
+            src = f"repository (rounded from {rounded})"
         else:
             src = None
             unknown.append(n)
