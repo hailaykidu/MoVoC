@@ -17,11 +17,9 @@ is submitted anywhere. Send him:
 
 Wolfgang Nejdl is also listed as an author and should receive the same.
 
-**Status.** Dren Fazlija agreed to the version at `f5d84dc` ("nothing to add
-from my end, please proceed"). Confirm Wolfgang Nejdl has agreed to the same
-version before filing: the revision withdraws a published table under his
-name, and the Tigre/Ge'ez held-out change and the removal of the translation
-setup are both later than any earlier draft.
+**Status.** Done. Dren Fazlija agreed to the version at `f5d84dc` ("nothing to
+add from my end, please proceed"), and Wolfgang Nejdl has agreed to the same
+version. All three authors have agreed, so the revision may be filed.
 
 ## 2. Supervisor check
 
