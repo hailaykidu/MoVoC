@@ -17,6 +17,12 @@ is submitted anywhere. Send him:
 
 Wolfgang Nejdl is also listed as an author and should receive the same.
 
+**Status.** Dren Fazlija agreed to the version at `f5d84dc` ("nothing to add
+from my end, please proceed"). Confirm Wolfgang Nejdl has agreed to the same
+version before filing: the revision withdraws a published table under his
+name, and the Tigre/Ge'ez held-out change and the removal of the translation
+setup are both later than any earlier draft.
+
 ## 2. Supervisor check
 
 The reviewer asked to see the new version before it is filed. Both of his
@@ -25,12 +31,18 @@ acceptance checks pass on the current branch:
 - `scripts/evaluate_intrinsic.py` with no flag still reproduces all 36 values
   of the published Tables 2 and 4 exactly, at the original word counts
   (81,224 / 5,224 / 1,974 / 172);
-- `scripts/check_numbers.py` reports 243 distinct numbers and 0 without a
-  source, exit status 0.
+- `scripts/check_numbers.py` reports 0 numbers without a source, exit status 0.
+  The count of distinct numbers moves as the text changes; it is 248 at
+  `f5d84dc`, and only the zero matters.
 
 The held-out numbers the corrected paper reports come from the same script with
-`--exclude-training`, and the three tables in the archive are byte-identical to
+`--exclude-training`, which scores 76,488 / 2,438 / 1,787 / 170 words — the
+original counts above are those of the full sets, and the paper no longer
+reports results on them. The three tables in the archive are byte-identical to
 the repository files they are generated from.
+
+**Status.** Both checks pass at `f5d84dc`. The reviewer confirmed the three
+review points and the two follow-up points, and asked for no further check.
 
 ## 3. ACL Anthology revision
 

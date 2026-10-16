@@ -8,7 +8,7 @@ Findings of EMNLP 2025, pp. 13131–13144,
 The results in the published version could not be reproduced. Following the
 EMNLP 2025 programme chairs' advice, every result in this version is taken from
 the reconstructed results in this repository. The correction notice after the
-abstract summarises the changes, and Appendix D lists all of them.
+abstract summarises the changes, and Appendix C lists all of them.
 
 Two further changes:
 
