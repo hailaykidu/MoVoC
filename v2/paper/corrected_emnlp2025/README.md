@@ -10,19 +10,22 @@ EMNLP 2025 programme chairs' advice, every result in this version is taken from
 the reconstructed results in this repository. The correction notice after the
 abstract summarises the changes, and Appendix D lists all of them.
 
-Two changes since the first corrected draft:
+Two further changes:
 
-- **Held-out evaluation.** Part of each in-language evaluation set consisted of
-  words whose morpheme boundaries had constrained MoVoC-Tok's own training,
-  which BPE and WordPiece never saw. All in-language results are now scored on
-  held-out words only (76,488 Amharic, 2,438 Tigrinya), with bootstrap
-  confidence intervals. MoVoC-Tok leads on MorphScore in three of four
+- **Held-out evaluation.** Part of each evaluation set consisted of words whose
+  morpheme boundaries had constrained the training of the MoVoC-Tok that
+  scores it, which BPE and WordPiece never saw. All results are now scored on
+  held-out words only (76,488 Amharic, 2,438 Tigrinya, 1,787 Tigre, 170
+  Ge'ez), with bootstrap confidence intervals. Tigre and Ge'ez are affected
+  because the Tigrinya MoVoC-Tok scores them cross-lingually and the languages
+  share surface forms. MoVoC-Tok leads on MorphScore in three of four
   languages and on boundary precision in two of four. See
   `evaluation/CONTAMINATION.md` in the repository.
-- **Translation results withdrawn.** Tables 3 and 7 are removed. The decode
-  outputs are absent from the repository, the recorded length ratios show
-  generation failing to terminate, and the decoding and initialisation settings
-  of those runs cannot be established.
+- **Translation results withdrawn.** Tables 3 and 7 are removed, along with the
+  translation setup in Sections 4 and 5. The decode outputs are absent from the
+  repository, the recorded length ratios show generation failing to terminate,
+  and the decoding and initialisation settings of those runs cannot be
+  established.
 
 | File | Content |
 |---|---|

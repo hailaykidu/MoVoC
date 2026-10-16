@@ -80,16 +80,19 @@ def run(rows, movoc_dir, label, out):
     out[label] = rec
 
 
+# Every language is held out against the resource that constrained the
+# tokenizer scoring it. For Tigre and Ge'ez that is the Tigrinya resource,
+# since the Tigrinya MoVoC-Tok is what scores them: see
+# E.SCORING_TOKENIZER_LANGUAGE.
 out = {}
 for lang, movoc in (("amharic", "amharic_movoc_tok_32k"),
-                    ("tigrinya", "tigrinya_movoc_tok_32k")):
+                    ("tigrinya", "tigrinya_movoc_tok_32k"),
+                    ("tigre", "tigrinya_movoc_tok_32k"),
+                    ("geez", "tigrinya_movoc_tok_32k")):
     train = E.training_words(REPO, lang)
     rows = [(w, m) for w, m in E.load_testset(datadir / f"{lang}_gold.tsv")
             if w not in train]
     run(rows, tokdir / movoc, f"{lang}_heldout", out)
-
-run(E.load_testset(datadir / "tigre_gold.tsv"), tokdir / "tigrinya_movoc_tok_32k", "tigre", out)
-run(E.load_testset(datadir / "geez_gold.tsv"), tokdir / "tigrinya_movoc_tok_32k", "geez", out)
 
 Path(sys.argv[2]).write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"\nwrote {sys.argv[2]}")

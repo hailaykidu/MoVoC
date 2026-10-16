@@ -7,21 +7,23 @@ reconstructed from the public repository (https://github.com/hailaykidu/MoVoC).
 The method is unchanged. A correction notice follows the abstract, and
 Appendix D lists every change.
 
-- Evaluation sets (new Section 5.3): part of each in-language evaluation set
-  consisted of words whose morpheme boundaries had constrained MoVoC-Tok's own
-  training, which the BPE and WordPiece baselines never saw. All in-language
-  results are now scored on held-out words only: 76,488 of 81,224 Amharic words
-  and 2,438 of 5,224 Tigrinya words. Tigre (1,974) and Ge'ez (172) have no
-  training morpheme resource and are unaffected.
+- Evaluation sets (new Section 5.3): part of each evaluation set consisted of
+  words whose morpheme boundaries had constrained the training of the
+  MoVoC-Tok that scores it, which the BPE and WordPiece baselines never saw.
+  All results are now scored on held-out words only: 76,488 of 81,224 Amharic,
+  2,438 of 5,224 Tigrinya, 1,787 of 1,974 Tigre and 170 of 172 Ge'ez words.
+  Tigre and Ge'ez have no training morpheme resource of their own, but are
+  scored cross-lingually with the Tigrinya MoVoC-Tok, so the exclusion is made
+  against the Tigrinya resource.
 - Tables 2 and 4 (intrinsic): new values for BPE, WordPiece and MoVoC-Tok on the
   held-out evaluation sets. MoVoC-Tok scores highest on MorphScore in three of
   four languages and on boundary precision in two of four, not all four. Its
   largest gains are on Tigre, which is evaluated cross-lingually. Rényi entropy
   is reported in raw nats. A new table reports bootstrap confidence intervals
   for the differences against BPE.
-- Table 3 (translation): withdrawn. The three-seed reconstruction that replaced
-  it in the first corrected version is also withdrawn, together with the OPUS
-  appendix table. The decode outputs are not in the repository, the recorded
+- Table 3 (translation): withdrawn, together with the OPUS appendix table, and
+  the translation setup is removed from Sections 4 and 5. The decode outputs
+  are not in the repository, the recorded
   hypothesis/reference length ratios (2.06-15.10) show generation failing to
   terminate, and the decoding configuration and model initialisation of those
   runs cannot be established from the surviving records. This version reports

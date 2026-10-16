@@ -194,23 +194,44 @@ def renyi_entropy(counts: Counter, alpha: float = 2.0) -> float:
     return (1.0 / (1.0 - alpha)) * math.log(power_sum)
 
 
+# The MoVoC-Tok model applied to each evaluation language. Tigre and Ge'ez
+# have no training morpheme resource of their own and are scored with the
+# Tigrinya model, so the resource to exclude against is Tigrinya's, not one
+# named after the evaluation language.
+SCORING_TOKENIZER_LANGUAGE = {
+    "amharic": "amharic",
+    "tigrinya": "tigrinya",
+    "tigre": "tigrinya",
+    "geez": "tigrinya",
+}
+
+
 def training_words(repo_root: Path, language: str) -> set[str]:
     """Surface words whose morpheme boundaries constrained MoVoC-Tok training.
 
-    These come from ``data/segmented/{language}_morpheme_segmented.json``, the
-    file each tokenizer's ``training_config.json`` names as ``morpheme_source``.
-    MoVoC-Tok was trained not to merge across the boundaries of exactly these
-    words, so scoring it on them measures recall of a supplied constraint rather
-    than generalization of morpheme supervision. BPE and WordPiece never saw
-    them, which makes a comparison on these words asymmetric.
+    These come from ``data/segmented/{lang}_morpheme_segmented.json``, the file
+    the scoring tokenizer's ``training_config.json`` names as
+    ``morpheme_source``. MoVoC-Tok was trained not to merge across the
+    boundaries of exactly these words, so scoring it on them measures recall of
+    a supplied constraint rather than generalization of morpheme supervision.
+    BPE and WordPiece never saw them, which makes a comparison on these words
+    asymmetric.
 
-    Returns an empty set for languages with no training morpheme resource
-    (Tigre, Ge'ez): those are evaluated cross-lingually and are uncontaminated
-    by construction.
+    ``language`` is the *evaluation* language; the resource is selected by the
+    language of the tokenizer that scores it. For Tigre and Ge'ez that is
+    Tigrinya, because the Tigrinya MoVoC-Tok is applied to them
+    cross-lingually. Related languages share surface forms, so these sets are
+    not empty: 187 of 1,974 Tigre words and 2 of 172 Ge'ez words occur in the
+    Tigrinya training resource.
     """
-    source = repo_root / "data" / "segmented" / f"{language}_morpheme_segmented.json"
+    resource = SCORING_TOKENIZER_LANGUAGE.get(language, language)
+    source = repo_root / "data" / "segmented" / f"{resource}_morpheme_segmented.json"
     if not source.exists():
-        return set()
+        raise MissingArtifact(
+            f"MISSING REQUIRED ARTIFACT: morpheme resource for {language}\n"
+            f"  expected at: {source}\n"
+            "  Exclusion cannot be verified; evaluation stopped."
+        )
     records = json.loads(source.read_text(encoding="utf-8"))
     return {r["word"] for r in records if r.get("word")}
 

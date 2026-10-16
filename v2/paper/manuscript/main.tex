@@ -216,8 +216,10 @@ training configuration. This removes 4,736 of 81,224 Amharic words (5.8\%) and
 by set membership against the resource itself rather than by the evaluation
 set's provenance labels, which record only the first source each word was drawn
 from and so undercount the overlap. Tigre and Ge'ez have no training morpheme
-resource, are scored cross-lingually with the Tigrinya tokenizer, and are
-unaffected.
+resource of their own, but the tokenizer that scores them does: they are
+evaluated cross-lingually with the Tigrinya \movoctok{}, so the same exclusion
+applies against the Tigrinya resource, removing 187 of 1,974 Tigre words
+(9.5\%) and 2 of 172 Ge'ez words and leaving 1,787 and 170.
 
 All intrinsic results below are reported on held-out words. Differences are
 assessed with a paired bootstrap over words (10,000 resamples, resampling index
