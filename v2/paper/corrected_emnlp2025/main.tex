@@ -464,16 +464,10 @@ its own and carries the largest and most clearly resolved gains in the table
 ($+0.0286$ precision, $p = 0.004$; $+0.0314$ MorphScore, $p < 0.001$, against
 BPE on 1,787 held-out words).
 
-The 187 Tigre words excluded as present in the Tigrinya training resource
-point the other way: on those words alone \movoctok{} scores 0.5000 precision
-against 0.8000 for BPE ($-0.3000$, $p = 0.021$). The constraint is applied to
-Tigrinya surface forms, and where a Tigre word coincides with one, the
-Tigrinya segmentation it enforces need not be the Tigre analysis the gold
-annotation records. The cross-lingual gain is thus a gain on words the
-constraint did \emph{not} reach, which is what makes it evidence of
-generalization rather than of recall; it is also why excluding these words
-raises the Tigre margin rather than lowering it. The set is small and this
-reading is tentative.
+On the 187 excluded words, BPE places 10 boundaries (8 correct) and
+\movoctok{} 22 (11 correct); the set is too small to interpret. Excluding
+them raises the Tigre margin rather than lowering it
+(Table~\ref{tab:significance}).
 
 \paragraph{Rényi entropy (Table~\ref{tab:intrinsic}).} \movoctok{} has lower
 entropy than BPE in Amharic, Tigrinya and Tigre and higher on Ge'ez, but
@@ -666,7 +660,10 @@ cover Amharic, Tigrinya, Ge'ez and Tigre.
 \section{List of Corrections}
 \label{app:corrections}
 
-Relative to \citet{teklehaymanot-etal-2025-movoc}:
+Relative to \citet{teklehaymanot-etal-2025-movoc}. Section and table numbers
+are those of the published version; where a part of this version has no
+published counterpart, or the numbering differs, it is given as a reference to
+the section here.
 \begin{enumerate}\setlength\itemsep{0pt}
 \item Abstract: ``consistent improvements in intrinsic metrics'' corrected to
   three of four languages on MorphScore and two of four on boundary precision,
@@ -679,12 +676,14 @@ Relative to \citet{teklehaymanot-etal-2025-movoc}:
 \item Section~4.3: the tokenizer configuration is corrected; the translation
   model configuration is removed with the translation results.
 \item Section~5.2: metric definitions aligned with the released evaluation
-  code; entropy now reported raw.
-\item Section~5.3: new. Every result is scored on words held out from the
-  morpheme resource that constrained the \movoctok{} applied to that language,
-  which removes 4,736 Amharic, 2,786 Tigrinya, 187 Tigre and 2 Ge'ez
-  evaluation words. For Tigre and Ge'ez the resource is the Tigrinya one,
-  since the Tigrinya \movoctok{} scores them cross-lingually.
+  code; entropy now reported raw. These are Section~\ref{sec:intrinsic-def}
+  here.
+\item New in this version (Section~\ref{sec:heldout}): every result is scored
+  on words held out from the morpheme resource that constrained the
+  \movoctok{} applied to that language, which removes 4,736 Amharic, 2,786
+  Tigrinya, 187 Tigre and 2 Ge'ez evaluation words. For Tigre and Ge'ez the
+  resource is the Tigrinya one, since the Tigrinya \movoctok{} scores them
+  cross-lingually.
 \item Table~2: held-out evaluation-set sizes and reconstructed MorphScores for
   all three tokenizers; the comparison with the fusional-language mean is
   withdrawn.

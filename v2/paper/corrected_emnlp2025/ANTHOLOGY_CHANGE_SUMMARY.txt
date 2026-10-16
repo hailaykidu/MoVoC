@@ -7,7 +7,8 @@ reconstructed from the public repository (https://github.com/hailaykidu/MoVoC).
 The method is unchanged. A correction notice follows the abstract, and
 Appendix D lists every change.
 
-- Evaluation sets (new Section 5.3): part of each evaluation set consisted of
+- Evaluation sets (new Section 5.2, "Held-out evaluation"): part of each
+  evaluation set consisted of
   words whose morpheme boundaries had constrained the training of the
   MoVoC-Tok that scores it, which the BPE and WordPiece baselines never saw.
   All results are now scored on held-out words only: 76,488 of 81,224 Amharic,

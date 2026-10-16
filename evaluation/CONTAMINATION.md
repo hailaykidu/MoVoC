@@ -141,14 +141,21 @@ not that MoVoC-Tok is worse. Tigrinya MorphScore is a genuine gain
 cross-lingual: the Tigrinya tokenizer applied to a language with no training
 morpheme data of its own. Ge'ez, at n=170, resolves nothing in either direction.
 
-On the 187 excluded Tigre words the ordering reverses: MoVoC-Tok scores 0.5000
-precision against 0.8000 for BPE (−0.3000, p=0.021). The constraint is applied
-to Tigrinya surface forms, so where a Tigre word coincides with one, the
-segmentation it enforces need not be the Tigre analysis the gold annotation
-records. The cross-lingual gain is therefore a gain on words the constraint
-did *not* reach — which is what makes it evidence of generalization rather
-than of recall, and why excluding these words raises the Tigre margin instead
-of lowering it. At n=187 this reading is tentative.
+**The 187 excluded Tigre words carry too few boundaries to interpret.** Both
+tokenizers leave most of them whole:
+
+| Tokenizer | Words split | Boundaries placed | Correct | Precision |
+|-----------|------------:|------------------:|--------:|----------:|
+| BPE       | 10 | 10 | 8  | 0.8000 |
+| WordPiece | 12 | 12 | 7  | 0.5833 |
+| MoVoC-Tok | 22 | 22 | 11 | 0.5000 |
+
+Precision is correct boundaries over predicted boundaries, so the 0.50-against-
+0.80 gap is 11/22 against 8/10. MoVoC-Tok finds *more* correct boundaries than
+BPE on these words (11 against 8); it places more wrong ones as well. About 30
+boundaries in total cannot support a claim about how the constraint behaves on
+Tigre, and none is made here. That excluding these words raises the Tigre
+margin follows from the tables above.
 
 ## Why Tigrinya and not Amharic
 
